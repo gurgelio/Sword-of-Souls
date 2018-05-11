@@ -3,7 +3,7 @@ import org.newdawn.slick.state.*;
 
 class Game extends StateBasedGame{
 
-    private static final String gamename = "Jogo mais lindo";
+    private static final String gamename = "Batatão";
     private static final int menu = 0;
     private static final int play = 1;
 
