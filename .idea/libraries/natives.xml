@@ -3,7 +3,12 @@
     <CLASSES />
     <JAVADOC />
     <NATIVE>
-      <root url="file://$PROJECT_DIR$/lib/natives" />
+      <root url="file://$PROJECT_DIR$/lib/natives/windows" />
+      <root url="file://$PROJECT_DIR$/lib/natives/solaris" />
+      <root url="file://$PROJECT_DIR$/lib/natives/macosx" />
+      <root url="file://$PROJECT_DIR$/lib/natives/linux" />
+      <root url="file://$PROJECT_DIR$/lib/natives/freebsd" />
+      <root url="file://$PROJECT_DIR$/lib/natives/openbsd" />
     </NATIVE>
     <SOURCES />
   </library>
