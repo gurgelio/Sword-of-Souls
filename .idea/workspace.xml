@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8ff9c59-3393-47f2-aeba-3303a8ffc2f4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/LORE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LORE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/LORE.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="LORE.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LORE.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="47" lean-forward="true" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
+            <state relative-caret-position="365">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -479,8 +478,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LORE.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="47" lean-forward="true" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
+        <state relative-caret-position="365">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
