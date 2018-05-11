@@ -2,43 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8ff9c59-3393-47f2-aeba-3303a8ffc2f4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/res/Footsteps.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/appletlogo.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/appletprogress.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/ball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/ball_sm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/center.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/ding.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/left.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/logo/lwjgl_logo-with_jacket.ai" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/logo/lwjgl_logo-with_jacket.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/lwjgl_16x16.xpm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/lwjgl_32x32.xpm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/resources.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/right.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/alien.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/alien2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/alien3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/gotyou.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/hit.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/loose.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/pressanykey.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/ship.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/shot.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/shot.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/start.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/win.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceinvaders/youwin.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jars.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jars.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/natives.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/natives.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jars/lwjgl.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/jars/lwjgl.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/natives/linux/lwjgl-natives-linux.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/natives/macosx/lwjgl-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/natives/windows/lwjgl-natives-windows.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trab/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trab/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -54,8 +17,8 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+            <state relative-caret-position="85">
+              <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,6 +62,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Gurja69 &lt;leonardogmf@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -294,15 +262,24 @@
       <workItem from="1525980674305" duration="6319000" />
       <workItem from="1525987727227" duration="977000" />
       <workItem from="1525988736587" duration="5103000" />
-      <workItem from="1525998004777" duration="719000" />
+      <workItem from="1525998004777" duration="1014000" />
     </task>
+    <task id="LOCAL-00001" summary="janelinha funcionando">
+      <created>1525998896853</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1525998896853</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13118000" />
+    <option name="totallyTimeSpent" value="13413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="TODO" order="12" />
@@ -314,18 +291,18 @@
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="4" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.32624868" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.32624868" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.12447917" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.12447917" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info id="UI Designer" order="1" />
       <window_info anchor="right" id="Theme Preview" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="9" visible="true" weight="0.3995749" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="Inspection Results" order="0" visible="true" weight="0.32837406" />
@@ -340,6 +317,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="janelinha funcionando" />
+    <option name="LAST_COMMIT_MESSAGE" value="janelinha funcionando" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -429,8 +410,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        <state relative-caret-position="85">
+          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
