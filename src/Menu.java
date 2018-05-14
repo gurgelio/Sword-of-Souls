@@ -26,6 +26,7 @@ class Menu extends BasicGameState{
 
     }
 
+    //retorna o ID do estado do jogo
     @Override
     public int getID() {
         return 0;

@@ -4,12 +4,13 @@ import org.newdawn.slick.tiled.TiledMap;
 
 class Game extends StateBasedGame{
 
-    private static final String gamename = "Jogo";
+    private static final String gamename = "Larry Coppermann";
     private static final int menu = 0;
     private static final int play = 1;
     public static final int gameheight = 800;
     public static final int gamewidth = 600;
 
+    //define o nome do jogo e adiciona os estados ao Game
     private Game(String gamename){
         super(gamename);
         this.addState(new Menu(menu));
