@@ -1,8 +1,10 @@
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
+import org.newdawn.slick.tiled.TiledMap;
 
 class Play extends BasicGameState{
+    private TiledMap map;
     Play(int state){
     }
 

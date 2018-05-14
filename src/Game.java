@@ -1,5 +1,6 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
+import org.newdawn.slick.tiled.TiledMap;
 
 class Game extends StateBasedGame{
 
@@ -27,6 +28,7 @@ class Game extends StateBasedGame{
             appgc = new AppGameContainer(new Game(gamename));
             appgc.setDisplayMode(800, 600, false);
             appgc.start();
+
         }catch(Exception e){
             e.printStackTrace();
         }

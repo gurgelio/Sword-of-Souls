@@ -1,2 +1,28 @@
 Larry Copperman era um adolescente normal até que um dia achou a espada da alma, de onde ganhou poderes: força, habilidades com espadas e defesa.
-Desde então vê o mundo com outros olhos, combatendo os espíritos da discórdia aumentando cada vez mais seus poderes.
+Desde  então vê o mundo com outros olhos, combatendo os espíritos da discórdia aumentando cada vez mais seus poderes.
+
+Classes necessárias:
+    - Character: Art, HP, DEF, ATK, Dialog
+        - Larry: Inventory, Equipment, Spellbook
+        - Enemy: Spells, Mode
+        - Spirit: AutoAtack
+        - NPC
+    - Block: Art
+        - Grass: Orientation
+        - Dirt
+        - Build: Orientation
+    - Inventory
+        - Gold
+        - EXP
+    - Animation
+    - KeyboardInput
+    - MouseInput
+    - Renderer
+    - Camera
+    - Dialog
+    - Gamemode
+    - Config
+    - Battle*
+    - Sound
+        - FX
+        - BgSound

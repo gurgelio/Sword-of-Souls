@@ -23,3 +23,6 @@ Classes necessárias:
     - Gamemode
     - Config
     - Battle*
+    - Sound
+        - FX
+        - BgSound

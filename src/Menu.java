@@ -12,7 +12,9 @@ class Menu extends BasicGameState{
     }
 
     @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics g){
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+        g.drawString("E ai man!", 50, 50);
+        g.drawImage(new Image("img/bg.jpg"), 0,0);
 
     }
 
