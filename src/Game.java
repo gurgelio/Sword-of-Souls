@@ -7,7 +7,7 @@ class Game extends StateBasedGame{
     static final String gamename = "Larry Coppermann";
     private static final int menu = 0;
     private static final int play = 1;
-    static final int gameheight = 600;
+    static final int gameheight = 568;
     static final int gamewidth = 800;
 
     //define o nome do jogo e adiciona os estados ao Game

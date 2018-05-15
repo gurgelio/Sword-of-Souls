@@ -4,17 +4,18 @@ import org.newdawn.slick.state.*;
 import org.newdawn.slick.tiled.TiledMap;
 
 class Play extends BasicGameState{
-    private TiledMap map;
+    TiledMap map;
     Play(int state){
     }
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-
+        map = new TiledMap("map/mapa.tmx");
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g){
+        map.render(0,0);
 
     }
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="25" height="18" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" source="blocks.tsx"/>
+ <layer name="Grass" width="25" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACvNnYGDwH8WjeBSP4lE8ikcoBgB6WgzSCAcAAA==
+  </data>
+ </layer>
+ <layer name="Caminho" width="25" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgQIA1QLwWiNcxkAeI0T9qx6gdQ92OAiCeSwbOJ8EOSjE+O/YA8V4KcD0RdlAKKI3PUTtG7SDFDgClAXNqCAcAAA==
+  </data>
+ </layer>
+ <layer name="Arvores" width="25" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACr1UMQ7EIAzj/49jvg4wX4d2bodWRySQIos0boazFIkqYKcOIaX/4dNiUd+Xsz8HNL4tVpKztKgBjaPF+ZDXnBvJWZy85xUDqSX3wF7MEPFfUHvMeoGc6D/md0dr1gvNOfMNNW9HA+uK9gLPWV4wvWExOFHLmhPvHgr0f+j+iJau3ZoTnIlsrAewP8y9QlRjbcG7VwjGN0FkpsYZ9i15qtPyGs+U9L7WsZ/1enPympPhi0I4f8cPPMQIBwAA
+  </data>
+ </layer>
+ <layer name="Arvores 2" width="25" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACs2UzQrCMBCE+/7vpYKetaBnFfSsBb04hwofIbuZEg8ODITtZn+nGYb/wUpci5uGzb1bw148iGPD5t79Yivu5vNZvIhXfK/Zasj8juJpPj/EpzghN20lOJ/M7ybeG7kjuHN8ie8FuQnOhzN3EeUmOB+n7144fffC6fuXyHbj/qst/2w31KKjk0i73E0Zh1pkLVG9kXa5m7InapG1RPU62s30xlqcNyuK5eote4uWxurBB3PUkScIBwAA
+  </data>
+ </layer>
+</map>
