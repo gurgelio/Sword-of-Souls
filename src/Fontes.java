@@ -8,4 +8,17 @@ class Fontes {
     public static org.newdawn.slick.Color Vermelho2 = new org.newdawn.slick.Color(180,0,0,200);
     public static org.newdawn.slick.Color Vermelho3 = new org.newdawn.slick.Color(150,0,0,150);
     public static org.newdawn.slick.Color Gold1 = new org.newdawn.slick.Color(204,153,0,180);
+
+    public static void ShadowFont(String st, int x, int y, TrueTypeFont f, org.newdawn.slick.Color cor){
+        f.drawString(x, y + 2, st, cor.darker(0.28f));
+        f.drawString(x + 1, y + 2 , st, cor.darker(0.28f));
+        f.drawString(x + 2, y + 2, st, cor.darker(0.28f));
+        f.drawString(x + 2, y + 1, st, cor.darker(0.28f));
+        f.drawString(x + 2, y , st, cor.darker(0.28f));
+        f.drawString(x + 1, y + 1, st, cor.darker(0.18f));
+        f.drawString(x, y + 1, st, cor.darker(0.18f));
+        f.drawString(x + 1, y , st, cor.darker(0.18f));
+        f.drawString(x, y , st, cor);
+
+    }
 }
