@@ -13,8 +13,8 @@ class Menu extends BasicGameState{
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         g.drawImage(new Image("img/bg.jpg"),0,0);
-        Fontes.ShadowFont(Game.gamename, Game.gamewidth/2 - Fontes.Fonte1.getWidth(Game.gamename)/2, 10, Fontes.Fonte1, Fontes.Vermelho1);
-        Fontes.ShadowFont("Play", Game.gamewidth/2 - Fontes.Fonte2.getWidth("Play")/2, (int)(Game.gameheight*0.8), Fontes.Fonte2, Fontes.Gold1);
+        Fontes.ShadowFont(Game.gamename, Game.gamewidth/2 - Fontes.Fonte1.getWidth(Game.gamename)/2, 10, Fontes.Fonte1, Fontes.Vermelho);
+        Fontes.ShadowFont("Play", Game.gamewidth/2 - Fontes.Fonte2.getWidth("Play")/2, (int)(Game.gameheight*0.8), Fontes.Fonte2, Fontes.Gold);
     }
 
     @Override
