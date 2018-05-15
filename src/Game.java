@@ -7,8 +7,8 @@ class Game extends StateBasedGame{
     private static final String gamename = "Larry Coppermann";
     private static final int menu = 0;
     private static final int play = 1;
-    public static final int gameheight = 800;
-    public static final int gamewidth = 600;
+    public static final int gameheight = 600;
+    public static final int gamewidth = 800;
 
     //define o nome do jogo e adiciona os estados ao Game
     private Game(String gamename){
@@ -29,7 +29,7 @@ class Game extends StateBasedGame{
         AppGameContainer appgc;
         try{
             appgc = new AppGameContainer(new Game(gamename));
-            appgc.setDisplayMode(gameheight, gamewidth, false);
+            appgc.setDisplayMode(gamewidth, gameheight, false);
             appgc.start();
 
         }catch(Exception e){
