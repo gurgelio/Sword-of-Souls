@@ -9,6 +9,7 @@ class Game extends StateBasedGame{
     private static final int play = 1;
     static final int gameheight = 600;
     static final int gamewidth = 800;
+    static boolean playst = false;
 
     //define o nome do jogo e adiciona os estados ao Game
     private Game(String gamename){
@@ -22,6 +23,9 @@ class Game extends StateBasedGame{
         this.getState(menu).init(gc, this);
         this.getState(play).init(gc, this);
         this.enterState(menu);
+        if (playst){
+            this.enterState(play);
+        }
     }
 
     public static void main(String[] args){
