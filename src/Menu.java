@@ -13,14 +13,8 @@ class Menu extends BasicGameState{
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         g.drawImage(new Image("img/bg.jpg"),0,0);
-        Fontes.ShadowFont("Larry Coppermann", Game.gamewidth/2 - Fontes.Fonte1.getWidth(Game.gamename)/2, 10, Fontes.Fonte1, Fontes.Vermelho1);
-        //Fontes.Fonte2.drawString(Game.gamewidth/2 - Fontes.Fonte2.getWidth("Play")/2, 420, "Play", Fontes.Gold1);
-        //Fontes.Fonte1.drawString(Game.gamewidth/2 - Fontes.Fonte1.getWidth(Game.gamename)/2 + 3, 12, Game.gamename, Fontes.Vermelho3);
-        //Fontes.Fonte1.drawString(Game.gamewidth/2 - Fontes.Fonte1.getWidth(Game.gamename)/2, 12, Game.gamename, Fontes.Vermelho3);
-        //Fontes.Fonte1.drawString(Game.gamewidth/2 - Fontes.Fonte1.getWidth(Game.gamename)/2 + 3, 10, Game.gamename, Fontes.Vermelho2);
-        //Fontes.Fonte1.drawString(Game.gamewidth/2 - Fontes.Fonte1.getWidth(Game.gamename)/2, 10, Game.gamename, Fontes.Vermelho2);
-        //Fontes.Fonte1.drawString(Game.gamewidth/2 - Fontes.Fonte1.getWidth(Game.gamename)/2 + 3, 7, Game.gamename, Fontes.Vermelho1);
-        //Fontes.Fonte1.drawString(Game.gamewidth/2 - Fontes.Fonte1.getWidth(Game.gamename)/2, 7, Game.gamename, Fontes.Vermelho1);
+        Fontes.ShadowFont(Game.gamename, Game.gamewidth/2 - Fontes.Fonte1.getWidth(Game.gamename)/2, 10, Fontes.Fonte1, Fontes.Vermelho1);
+        Fontes.ShadowFont("Play", Game.gamewidth/2 - Fontes.Fonte2.getWidth("Play")/2, (int)(Game.gameheight*0.8), Fontes.Fonte2, Fontes.Gold1);
     }
 
     @Override
