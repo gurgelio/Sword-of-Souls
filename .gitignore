@@ -1,2 +1,5 @@
 .idea/
 out/
+*.class
+out/production/Trab/Game.class
+out/production/Trab/Menu.class
