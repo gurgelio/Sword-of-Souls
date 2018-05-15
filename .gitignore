@@ -1,5 +1,4 @@
-.idea/
-out/
+*.xml
 *.class
-out/production/Trab/Game.class
-out/production/Trab/Menu.class
+out/
+.idea/
