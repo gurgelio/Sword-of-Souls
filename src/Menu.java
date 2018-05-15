@@ -22,7 +22,7 @@ class Menu extends BasicGameState{
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
         if (mouse.getX(gc) >= Game.gamewidth/2 - Fontes.Fonte2.getWidth("Play")/2 & mouse.getX(gc) <= Game.gamewidth/2 + Fontes.Fonte2.getWidth("Play")/2 & mouse.getY(gc) >= (int)(Game.gameheight*0.8) & mouse.getY(gc) <= (int)(Game.gameheight*0.8) + Fontes.Fonte2.getHeight("Play")){
             if (mouse.isPressed(gc)){
-                // Código para quando clicar no botão
+                sbg.enterState(1);
             }
         }
         else {
