@@ -4,7 +4,7 @@ import org.newdawn.slick.tiled.TiledMap;
 
 class Game extends StateBasedGame{
 
-    private static final String gamename = "Larry Coppermann";
+    public static final String gamename = "Larry Coppermann";
     private static final int menu = 0;
     private static final int play = 1;
     public static final int gameheight = 600;
