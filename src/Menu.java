@@ -13,7 +13,7 @@ class Menu extends BasicGameState{
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         g.drawImage(new Image("img/bg.jpg"),0,0);
-        Fontes.Fonte1.drawString(Game.gamewidth/2 - Fontes.Fonte1.getWidth("Larry Coppermann")/2, 50, "Larry Coppermann", Color.red);
+        Fontes.Fonte1.drawString(Game.gamewidth/2 - Fontes.Fonte1.getWidth("Larry Coppermann")/2, 50, "Larry Coppermann", new Color(230,92,0,180));
     }
 
     @Override
