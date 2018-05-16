@@ -72,12 +72,13 @@ public class Play extends BasicGameState {
     private void initializeBlocked() {
         for (int l = 0; l < map.getLayerCount(); l++) {
             String layerValue = map.getLayerProperty(2, "blocked", "false");
+            String layerValue2 = map.getLayerProperty(3, "blocked", "false");
 
-            if (layerValue.equals("true")) {
+            if (layerValue.equals("true") | layerValue2.equals("true")) {
                 for (int c = 0; c < map.getWidth(); c++) {
                     for (int r = 0; r < map.getHeight(); r++) {
 
-                        if (map.getTileId(c, r, 2) != 0) {
+                        if (map.getTileId(c, r, 2) != 0 | map.getTileId(c, r, 3) != 0) {
                             blocked[c][r] = true;
                         }
                     }
