@@ -3,7 +3,7 @@
  <tileset firstgid="1" source="blocks.tsx"/>
  <layer name="Grass" width="50" height="50">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu2W0Q3CMAxE8x/KAiVdAJilbAAblA3Yg2lpJZ84ojZFCOEI3cdT1ciV/Go7SR9C6IUQQnyNZHjnwWxGmhm2hfiTUYr7NYeRo3EbaY2r5XgmJoch+x5xF6IGpyUXOLTZN4jjWnr1FffGnEtDDrlHLexGupW65HjnvOSBf44+x/qU895I9owV5Lzkgf/czaxHesLHO+dPPFATro13znPwLPC+M9haslqkUOf5t+QCYnj2VKL3mj2m84H7KIXXPorZmne+JQ+uCeePmrSh7v0KHuyCfYkduMe8813zQH+hDlwTnhHvfEseuPcO4fXcy+fF4zy/vxnHd0Cej/w+Ap8aPXIHPrt5tnn2vftHCCGEEEIIIYQQQgjxPzwAdYnikhAnAAA=
+   H4sIAAAAAAAACu3PMQ0AAAgEsXeIBfyrQAUJCR2631WSAgAAAGBNH2jwAQAAAAB8MECtbXsQJwAA
   </data>
  </layer>
  <layer name="Caminho" width="50" height="50">
@@ -11,7 +11,7 @@
    <property name="blocked" type="bool" value="false"/>
   </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu2Yy0rDQBiFf687Sb1utDZeV95FcaHiBUTBFHQhCLrQheBK38C8mb6JPoqndAbHGnTazhmHMAc+QtskPV9zm6nIV6ZAFUxLZ+l2+6L0gF7QB/rBABhUsHowPIbBCBgFY2AcTJB7MDxmwCyYA/NgASySezA81sEG2AQ7YAtsk3swPA7BETgGp+AMnJB7MDwuwCV4BW/gGlyRezA87sA9eAcf4BE8kHswPHSqinZ6PIOhDngSnscu2AP7Futqj25heJyDFNQt1l0Cy13wIlyPCliT5nFpxWWY14f2yAxqiorj72J7JOAA3BbgMmyPVJrXRy4/z2mXYXs0zqU6af9mosff0dd59LCPj/tVGTxSKYdHWc6rsnik4tfDZtzfbszjUbR/l2kd9+s5gwtWpfkc9DnenVQ0fkNzTJqoZaqoqWVmvJ8Z6yZqncx4rbdNjGVG8tDcSPHYlAHDI5fv8yofMDz0/UTPLxk+ufgft9v45Bafm71XHHe38dAx5/+6s+63Ir//P8Ds3Zp2noO6s89+tmE+z30meoSV6BFWokdYiR5hJXqElegRVqJHWIkeYeU/PT4BIpLMAhAnAAA=
+   H4sIAAAAAAAACu2Yy0rDQBSGx+uqNvW6sbXxumrrDcWFihcQBVPQhSDoQheCK/sG5s30TfRR/ENn8DidphOT004hP3yEppP0fJnMdBIhflMGFbAk/pe0x5syAkbBGBgHE2BSwlUHh8c0mAGzYA7MgwXmOjg8lsEKWAVrYB1sMNfB4bENdsAuOAB7YJ+5Dg6PU3AGzsEluAIXzHVweNyAW/ABPsE9uGOug8PjCTyDL/ANXsELcx22xxfAlIFiTPuKJK6dXkery+/04s3SowbqkndSY8tQY0Ge9xAcgeMu7UweaUnSn7UYF+UQ7b8GPmgK87XWz1lPgarH5r6i19PkQvtXeZTAlmj3i06WsR0fZUMb3UVHeQSEqqSUTfl/6rP1UNe8qO2P8/DACXg0kGWSeJjGUi8PX7THRyg67+ksw+0R3UtNi/Onja0HHQt03qHjehg8ovQa193GuWsetP2weyTpEzVfuegRxdaFzlcuetDjhvW+UuveuHnKdQ+6BrQdH77or4fNuj+Jg94fpvNzeCjUM0MWbIr2/2A/17uLkuga0jWpJ7e+pCq3AdkfkLaebBOQz+pYj2wDJg/FgzCvTTng8AhF5zMrNxweaj5Rz5ccPqHo/7rdxie0+J7W3ci4dhsPFdN7ElVfQ8S/H+CsW0/SdXu/67MNx/vEQST3cCu5h1vJPdxK7uFWcg+3knu4ldzDreQebmWQHj8HS7ynECcAAA==
   </data>
  </layer>
  <layer name="Arvores" width="50" height="50">
