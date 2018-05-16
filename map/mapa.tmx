@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="25" height="18" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
  <tileset firstgid="1" source="blocks.tsx"/>
- <layer name="Grass" width="25" height="18">
+ <layer name="Grass" width="50" height="50">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACvNnYGDwH8WjeBSP4lE8ikcoBgB6WgzSCAcAAA==
+   H4sIAAAAAAAACu2W4QnCMBCF8z/WBWq6gDpLR9AN6gbu4bSmkIevIbFFxAvyfnyUhivc17tLMjrnRiGEEF8jJKzzYHaRrsB+Y3wt7tecIufEPdInbinHCzE7TNn3iLsSLTjVXODQZ98gjmtk1VfcGyWXjhxyj1Y4RIaVuuRY51zzwD9Hn2N9zvmYCOnpG8i55oH/PBTWPT3hY53zJx6oCdfGOucSPAu870xpLaRaBNfm+VdzAd69eirQe8se8/nAfRTcso98tmad7zsPrgnnj5r0ru39Ch7sgn2JHbjHrPNd80B/oQ5cE54R63zfeeAeO7nluZfPi8V5/tgYx3dAno/8PgKfFj1yBz67ebZ59q37RwghhBBCCCGEEEII8T88ARQEjrgQJwAA
   </data>
  </layer>
- <layer name="Caminho" width="25" height="18">
+ <layer name="Caminho" width="50" height="50">
+  <properties>
+   <property name="blocked" type="bool" value="false"/>
+  </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgQIA1QLwWiNcxkAeI0T9qx6gdQ92OAiCeSwbOJ8EOSjE+O/YA8V4KcD0RdlAKKI3PUTtG7SDFDgClAXNqCAcAAA==
+   H4sIAAAAAAAACu2XSUrEQBiFy3EnaceNQ8dxpe2E4kLFAUTBCLoQBF3oQnDnDcwN3AviBdQTKHoTPYovpH4sQqCT7rxYNvXgI3Snkn5fZ6oo9Ztn8AJeVWNpdvu0tIF20AE6QRfo1rB6MDx6QR/oBwNgEAyRezA8xsEEmARTYBrMkHswPBbBElgGa2AFrJJ7MDy2wQ7YBfvgAOyRezA8jsEJ+ACf4AycknswPC7BFfgC3+AGXJN7MDwko5o8PW7BYwPcK57HOtgAmxnGikezMDwOgQ+OMox9A+9N8KS4HhWwoOLjkqTIMK8P8QgMqppKwb/F9vDAFrhIociwPXwVXx8hmEtQZNge0bkUeYwR9m/GedSPXOfOI3vKuF+1goevWsOjVc6rMj0e1P8/r0ZU/I4Qzft76pA35vFI23+REQ9B3hmKYF7Fz8Ey5rviMayJ/kNzTurppa+p6mVgfB8YYz09JjA+y7aesQxIHsK5Sp+bMmB4hCqeg94lvJgwPOR+Mkv0CRVv3p70kGTxCTOsN3vXCu6exUMiPqaT9Ksl1idh9k6mnocZ6Vxmv6zJ42FznIddcR52xXnYFedhV5yHXXEedsV52BXnYVf+0uMHC+AvVxAnAAA=
   </data>
  </layer>
- <layer name="Arvores" width="25" height="18">
+ <layer name="Arvores" width="50" height="50">
+  <properties>
+   <property name="blocked" type="bool" value="true"/>
+  </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACr1UMQ7EIAzj/49jvg4wX4d2bodWRySQIos0boazFIkqYKcOIaX/4dNiUd+Xsz8HNL4tVpKztKgBjaPF+ZDXnBvJWZy85xUDqSX3wF7MEPFfUHvMeoGc6D/md0dr1gvNOfMNNW9HA+uK9gLPWV4wvWExOFHLmhPvHgr0f+j+iJau3ZoTnIlsrAewP8y9QlRjbcG7VwjGN0FkpsYZ9i15qtPyGs+U9L7WsZ/1enPympPhi0I4f8cPPMQIBwAA
+   H4sIAAAAAAAACu3WsQ6DIBAGYN5/6pM5twPO7WDndmhTGC65XDg5qRy2+b+ERIPBXzzEEP7LObULO39Vrp86ZvnGNbXbSj/PHVOb+8Zp9kjtudLPcy/GMWN7nN3U6soiP69X/eX7yLWhXdfCq/7yfUprQ+aWeaif3tt951wtSmuD5y7VmHyu966J2vH5P3UY0wvNr2WtbB3Tg5wzbR/Z+g31Xi95zvg70PYRuWdMyjEZsV4s3ytpVo5Hqn2vJGuNHfUfjHJZ/0tGvyet9mWuGI4555TJWvtLpZ+P6alHHYyuLQAAAAAAAAAAAAAAgF/1AesUJE0QJwAA
   </data>
  </layer>
- <layer name="Arvores 2" width="25" height="18">
+ <layer name="Arvores 2" width="50" height="50">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACs2UzQrCMBCE+/7vpYKetaBnFfSsBb04hwofIbuZEg8ODITtZn+nGYb/wUpci5uGzb1bw148iGPD5t79Yivu5vNZvIhXfK/Zasj8juJpPj/EpzghN20lOJ/M7ybeG7kjuHN8ie8FuQnOhzN3EeUmOB+n7144fffC6fuXyHbj/qst/2w31KKjk0i73E0Zh1pkLVG9kXa5m7InapG1RPU62s30xlqcNyuK5eote4uWxurBB3PUkScIBwAA
+   H4sIAAAAAAAACu2WwQoCMQxE+///pYKeVdCzCu5ZBb2Yw4JDabLxYNOu82BgyV4ybTK7Kf0XC9FStJqoReHtZSvaifYTtSisXtaizfh8Ep1FF3hfqkVh9XIQHcfnm+gueqSPP6zl1J45q5eraCjU0Z9GSzP3FL0Kdc0fUnvmcAe8aP4Q655/gWdGesAzIz3gmZHesHbl2xyN/NZbu4I56smGyNzFXcl7xRxFv9q5R+Yu7kp+N5ij6Fc791Zy18ox9NvKP5bWrzfHap+7xhxzlxBCCCGEEEIIIYQQQgghZA68AaRVZKwQJwAA
   </data>
  </layer>
 </map>

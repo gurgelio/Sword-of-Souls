@@ -33,7 +33,7 @@ public class Play extends BasicGameState {
         mapHeight = map.getHeight() * map.getTileHeight();
         tileHeight = map.getTileHeight();
         tileWidth = map.getTileWidth();
-        player = new Larry(tileWidth, tileHeight);
+        player = new Larry(128, 32);
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initializeBlocked();
@@ -71,14 +71,13 @@ public class Play extends BasicGameState {
 
     private void initializeBlocked() {
         for (int l = 0; l < map.getLayerCount(); l++) {
-            String layerValue = map.getLayerProperty(l, "blocked", "false");
+            String layerValue = map.getLayerProperty(2, "blocked", "false");
 
             if (layerValue.equals("true")) {
-
                 for (int c = 0; c < map.getWidth(); c++) {
                     for (int r = 0; r < map.getHeight(); r++) {
 
-                        if (map.getTileId(c, r, l) != 0) {
+                        if (map.getTileId(c, r, 2) != 0) {
                             blocked[c][r] = true;
                         }
                     }

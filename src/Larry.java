@@ -22,7 +22,7 @@ public class Larry {
 
     private static final int ANIMATIONSPEED = 500;
 
-    private static final float SPEED = 0.1f;
+    private static final float SPEED = 0.4f;
 
     private int w, h;
 
@@ -51,7 +51,6 @@ public class Larry {
         Image[] left = {new Image("img/hero31.png")};
 
         Image[] right = {new Image("img/hero11.png")};
-
 
 
         /*
@@ -114,7 +113,7 @@ public class Larry {
 
          */
 
-        if (input.isKeyDown(Input.KEY_UP)) {
+        if (input.isKeyDown(Input.KEY_UP) | input.isKeyDown(Input.KEY_W)) {
 
             if (!gps.isBlocked(pos.x + w -4, pos.y - delta * SPEED) && !gps.isBlocked(pos.x + 4, pos.y - delta * SPEED)) {
 
@@ -128,7 +127,7 @@ public class Larry {
 
             lastDirection = 'u';
 
-        } else if (input.isKeyDown(Input.KEY_DOWN)) {
+        } else if (input.isKeyDown(Input.KEY_DOWN) | input.isKeyDown(Input.KEY_S)) {
 
             if (!gps.isBlocked(pos.x + w - 4, pos.y + h + delta * SPEED) && !gps.isBlocked(pos.x + 4, pos.y + h + delta * SPEED)) {
 
@@ -140,7 +139,7 @@ public class Larry {
 
             lastDirection = 'd';
 
-        } else if (input.isKeyDown(Input.KEY_LEFT)) {
+        } else if (input.isKeyDown(Input.KEY_LEFT) | input.isKeyDown(Input.KEY_A)) {
 
             if (!gps.isBlocked(pos.x - delta * SPEED, pos.y + 4) && !gps.isBlocked(pos.x - delta * SPEED, pos.y + h - 4)) {
 
@@ -156,7 +155,7 @@ public class Larry {
 
 
 
-        } else if (input.isKeyDown(Input.KEY_RIGHT)) {
+        } else if (input.isKeyDown(Input.KEY_RIGHT) | input.isKeyDown(Input.KEY_D)) {
 
             if (!gps.isBlocked(pos.x + w + delta * SPEED, pos.y + h - 4) && !gps.isBlocked(pos.x + w + delta * SPEED, pos.y + 4)) {
 
