@@ -20,9 +20,9 @@ public class Larry {
 
     private Rectangle rectangle;
 
-    private static final int ANIMATIONSPEED = 500;
+    private static final int ANIMATIONSPEED = 200;
 
-    private static final float SPEED = 0.4f;
+    private static final float SPEED = 0.17f;
 
     private int w, h;
 
@@ -35,22 +35,14 @@ public class Larry {
          * Set the Image arrays needed for the animations.
 
          */
-
-        Image[] animationUp = {new Image("img/hero20.png"), new Image("img/hero22.png")};
-
-        Image[] animationDown = {new Image("img/hero00.png"), new Image("img/hero02.png")};
-
-        Image[] animationLeft = {new Image("img/hero30.png"), new Image("img/hero32.png")};
-
-        Image[] animationRight = {new Image("img/hero10.png"), new Image("img/hero12.png")};
-
-        Image[] up = {new Image("img/hero21.png")};
-
-        Image[] down = {new Image("img/hero01.png")};
-
-        Image[] left = {new Image("img/hero31.png")};
-
-        Image[] right = {new Image("img/hero11.png")};
+        SpriteSheet animUp = new SpriteSheet("img/animSheetBack.png",24,32,0);
+        SpriteSheet animDown = new SpriteSheet("img/animSheetFront.png",24,32,0);
+        SpriteSheet animLeft = new SpriteSheet("img/animSheetLeft.png",24,32,0);
+        SpriteSheet animRight = new SpriteSheet("img/animSheetRight.png",24,32,0);
+        Image[] up = {new Image("img/stillUp.png")};
+        Image[] down = {new Image("img/stillDown.png")};
+        Image[] left = {new Image("img/stillLeft.png")};
+        Image[] right = {new Image("img/stillRight.png")};
 
 
         /*
@@ -83,13 +75,13 @@ public class Larry {
 
         stillRight = new Animation(right, ANIMATIONSPEED);
 
-        movementUp = new Animation(animationUp, ANIMATIONSPEED);
+        movementUp = new Animation(animUp, ANIMATIONSPEED);
 
-        movementDown = new Animation(animationDown, ANIMATIONSPEED);
+        movementDown = new Animation(animDown, ANIMATIONSPEED);
 
-        movementLeft = new Animation(animationLeft, ANIMATIONSPEED);
+        movementLeft = new Animation(animLeft, ANIMATIONSPEED);
 
-        movementRight = new Animation(animationRight, ANIMATIONSPEED);
+        movementRight = new Animation(animRight, ANIMATIONSPEED);
 
 
 
