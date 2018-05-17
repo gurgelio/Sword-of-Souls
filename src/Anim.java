@@ -4,19 +4,18 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 
 public class Anim {
-    public int AnimSpeed = 120;
     public Animation up, down, left, right, upStill, downStill, leftStill, rightStill;
 
-    public Anim(Image img, int x, int y) throws SlickException {
+    public Anim(Image img, int x, int y, int AnimSpeed) throws SlickException {
 
         SpriteSheet upSheet = new SpriteSheet(img.getSubImage(x,0,img.getWidth() - x, y), x, y);
         SpriteSheet downSheet = new SpriteSheet(img.getSubImage(x, y,img.getWidth() - x,y), x, y);
         SpriteSheet leftSheet = new SpriteSheet(img.getSubImage(x,2*y,img.getWidth() - x,y), x, y);
         SpriteSheet rightSheet = new SpriteSheet(img.getSubImage(x,3*y,img.getWidth() - x,y), x, y);
         Image[] upStillImage = {img.getSubImage(0,0, x, y)};
-        Image[] leftStillImage = {img.getSubImage(0,y, x, 2*y)};
-        Image[] downStillImage = {img.getSubImage(0,2*y, x, 3*y)};
-        Image[] rightStillImage = {img.getSubImage(0,3*y, x, 4*y)};
+        Image[] leftStillImage = {img.getSubImage(0,y, x, y)};
+        Image[] downStillImage = {img.getSubImage(0,2*y, x, y)};
+        Image[] rightStillImage = {img.getSubImage(0,3*y, x, y)};
 
         up = new Animation(upSheet,AnimSpeed);
         left = new Animation(leftSheet,AnimSpeed);
