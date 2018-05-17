@@ -19,7 +19,9 @@ public class Larry {
     private Animation hero, movementUp, movementDown, movementLeft, movementRight, stillUp, stillDown, stillLeft, stillRight;
 
     private Anim skeleton = new Anim(new Image("img/skelTest.png"),64,64);
-    private Anim heroAnim = new Anim(new Image("anim/larry_walk.png"),24,32);
+    private Anim armor = new Anim(new Image("anim/armor_torso.png"),64,64);
+    private Anim pants = new Anim(new Image("anim/armor_pants_green.png"),64,64);
+    private Image img = new Image("anim/armor_torso.png");
 
 
     public Larry(float x, float y) throws SlickException {
@@ -190,6 +192,18 @@ public class Larry {
     public void render() {
 
         hero.draw(pos.x, pos.y);
+        skeleton.up.draw(300,300);
+        armor.up.draw(300,300);
+        pants.up.draw(300,300);
+        skeleton.down.draw(364,300);
+        armor.down.draw(364,300);
+        pants.down.draw(364,300);
+        skeleton.left.draw(364,364);
+        armor.left.draw(364,364);
+        pants.left.draw(364,364);
+        skeleton.right.draw(300,364);
+        armor.right.draw(300,364);
+        pants.right.draw(300,364);
 
     }
 
