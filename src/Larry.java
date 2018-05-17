@@ -1,22 +1,9 @@
 import org.newdawn.slick.*;
-
 import org.newdawn.slick.geom.Rectangle;
-
 import org.newdawn.slick.geom.Vector2f;
-
 import org.newdawn.slick.state.StateBasedGame;
 
-
-
 public class Larry {
-
-
-
-    private Animation hero, movementUp, movementDown, movementLeft, movementRight, stillUp, stillDown, stillLeft, stillRight;
-
-    private Animation charNew, moveUp, moveDown, moveLeft, moveRight, moveStillUp;
-    private Animation charcNew, movecUp, movecDown, movecLeft, movecRight, movecStillUp;
-
 
     private char lastDirection;
 
@@ -24,41 +11,27 @@ public class Larry {
 
     private Rectangle rectangle;
 
-    private static final int ANIMATIONSPEED = 200, speed2 = 120;
-
     private static final float SPEED = 0.17f;
 
-    private int w, h;
+    private int w, h, ANIMATIONSPEED = 200;
 
+
+    private Animation hero, movementUp, movementDown, movementLeft, movementRight, stillUp, stillDown, stillLeft, stillRight;
+
+    private Anim skeleton = new Anim(new Image("img/skelTest.png"),64,64);
+    private Anim heroAnim = new Anim(new Image("anim/larry_walk.png"),24,32);
 
 
     public Larry(float x, float y) throws SlickException {
 
-        /*
-
-         * Set the Image arrays needed for the animations.
-
-         */
-        SpriteSheet animUp = new SpriteSheet("img/animSheetBack.png",24,32,0);
-        SpriteSheet animDown = new SpriteSheet("img/animSheetFront.png",24,32,0);
-        SpriteSheet animLeft = new SpriteSheet("img/animSheetLeft.png",24,32,0);
-        SpriteSheet animRight = new SpriteSheet("img/animSheetRight.png",24,32,0);
-        Image[] up = {new Image("img/stillUp.png")};
-        Image[] down = {new Image("img/stillDown.png")};
-        Image[] left = {new Image("img/stillLeft.png")};
-        Image[] right = {new Image("img/stillRight.png")};
-
-        SpriteSheet upNew = new SpriteSheet("img/1.png", 64,64);
-        SpriteSheet leftNew = new SpriteSheet("img/2.png", 64,64);
-        SpriteSheet downNew = new SpriteSheet("img/3.png", 64,64);
-        SpriteSheet rightNew = new SpriteSheet("img/4.png", 64,64);
-        SpriteSheet upcNew = new SpriteSheet("img/c1.png", 64,64);
-        SpriteSheet leftcNew = new SpriteSheet("img/c2.png", 64,64);
-        SpriteSheet downcNew = new SpriteSheet("img/c3.png", 64,64);
-        SpriteSheet rightcNew = new SpriteSheet("img/c4.png", 64,64);
-        Image[] sup = {new Image("img/1still.png")};
-        Image[] supc = {new Image("img/c1still.png")};
-
+        SpriteSheet animUp = new SpriteSheet("anim/animSheetBack.png",24,32,0);
+        SpriteSheet animDown = new SpriteSheet("anim/animSheetFront.png",24,32,0);
+        SpriteSheet animLeft = new SpriteSheet("anim/animSheetLeft.png",24,32,0);
+        SpriteSheet animRight = new SpriteSheet("anim/animSheetRight.png",24,32,0);
+        Image[] up = {new Image("anim/stillUp.png")};
+        Image[] down = {new Image("anim/stillDown.png")};
+        Image[] left = {new Image("anim/stillLeft.png")};
+        Image[] right = {new Image("anim/stillRight.png")};
 
         /*
 
@@ -83,34 +56,13 @@ public class Larry {
          */
 
         stillUp = new Animation(up, ANIMATIONSPEED);
-
         stillDown = new Animation(down, ANIMATIONSPEED);
-
         stillLeft = new Animation(left, ANIMATIONSPEED);
-
         stillRight = new Animation(right, ANIMATIONSPEED);
-
         movementUp = new Animation(animUp, ANIMATIONSPEED);
-
         movementDown = new Animation(animDown, ANIMATIONSPEED);
-
         movementLeft = new Animation(animLeft, ANIMATIONSPEED);
-
         movementRight = new Animation(animRight, ANIMATIONSPEED);
-
-        moveUp = new Animation(upNew, speed2);
-        moveDown = new Animation(downNew, speed2);
-        moveLeft = new Animation(leftNew, speed2);
-        moveRight = new Animation(rightNew, speed2);
-        movecUp = new Animation(upcNew, speed2);
-        movecDown = new Animation(downcNew, speed2);
-        movecLeft = new Animation(leftcNew, speed2);
-        movecRight = new Animation(rightcNew, speed2);
-        moveStillUp = new Animation(sup, speed2);
-        movecStillUp = new Animation(supc, speed2);
-
-
-
 
         hero = stillDown;
 
@@ -238,16 +190,6 @@ public class Larry {
     public void render() {
 
         hero.draw(pos.x, pos.y);
-        //moveUp.draw(300,300);
-        //moveStillUp.draw(300,364);
-        //movecUp.draw(300,300);
-        //movecStillUp.draw(300,364);
-        //moveDown.draw(364,300);
-        //movecDown.draw(364,300);
-        //moveLeft.draw(428,300);
-        //movecLeft.draw(428,300);
-        //moveRight.draw(492,300);
-        //movecRight.draw(492,300);
 
     }
 
