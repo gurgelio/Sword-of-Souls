@@ -1,14 +1,13 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
-import org.newdawn.slick.tiled.TiledMap;
 
 class Game extends StateBasedGame{
 
     static final String gamename = "Larry Coppermann";
     private static final int menu = 0;
     private static final int play = 1;
-    static final int gameheight = 568;
-    static final int gamewidth = 800;
+    static final int height = 568;
+    static final int width = 800;
 
     //define o nome do jogo e adiciona os estados ao Game
     private Game(String gamename){
@@ -29,7 +28,7 @@ class Game extends StateBasedGame{
         AppGameContainer appgc;
         try{
             appgc = new AppGameContainer(new Game(gamename));
-            appgc.setDisplayMode(gamewidth, gameheight, false);
+            appgc.setDisplayMode(width, height, false);
             appgc.start();
 
         }catch(Exception e){

@@ -17,7 +17,7 @@ public class Camera {
 
         y = 0;
 
-        viewPort = new Rectangle(0, 0, Game.gamewidth, Game.gameheight);
+        viewPort = new Rectangle(0, 0, Game.width, Game.height);
 
         this.mapWidth = mapWidth;
 
@@ -29,32 +29,32 @@ public class Camera {
     public void translate(Graphics g, Larry larry) {
 
 
-        if (larry.getX() - Game.gamewidth / 2 + 16 < 0) {
+        if (larry.getX() - Game.width / 2 + 16 < 0) {
 
             x = 0;
 
-        } else if (larry.getX() + Game.gamewidth / 2 + 16 > mapWidth) {
+        } else if (larry.getX() + Game.width / 2 + 16 > mapWidth) {
 
-            x = -mapWidth + Game.gamewidth;
+            x = -mapWidth + Game.width;
 
         } else {
 
-            x = (int) -larry.getX() + Game.gamewidth / 2 - 16;
+            x = (int) -larry.getX() + Game.width / 2 - 16;
 
         }
 
 
-        if (larry.getY() - Game.gameheight / 2 + 16 < 0) {
+        if (larry.getY() - Game.height / 2 + 16 < 0) {
 
             y = 0;
 
-        } else if (larry.getY() + Game.gameheight / 2 + 16 > mapHeight) {
+        } else if (larry.getY() + Game.height / 2 + 16 > mapHeight) {
 
-            y = -mapHeight + Game.gameheight;
+            y = -mapHeight + Game.height;
 
         } else {
 
-            y = (int) -larry.getY() + Game.gameheight / 2 - 16;
+            y = (int) -larry.getY() + Game.height / 2 - 16;
 
         }
 
