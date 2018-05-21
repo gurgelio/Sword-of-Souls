@@ -3,11 +3,13 @@ import org.newdawn.slick.state.*;
 import java.awt.Font;
 
 class Menu extends BasicGameState{
+
     In in = new In();
-    private Fonte fonte1 = new Fonte("tahoma", Font.PLAIN, 50, 204, 0, 0, 255);
+    private Fonte fonte1 = new Fonte("Tahoma", Font.PLAIN, 50, 204, 0, 0, 255);
     private Fonte fonte2 = new Fonte("Verdana", Font.PLAIN, 35, 204, 153, 0, 255);
-    private Button name = new Button(Game.gamename, Game.width /2, (int) (Game.height *0.1), fonte1);
+    private Button name = new Button(Game.gamename, Game.width/2, (int) (Game.height *0.1), fonte1);
     private Button play = new Button("play", Game.width /2, Game.height /2, fonte2);
+
     Menu(int state){
     }
 
@@ -26,7 +28,7 @@ class Menu extends BasicGameState{
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
         if(In.mouseIsOver(play.area())){
-            play.setColor(204, 100, 100, 255);
+            play.setColor(200, 150, 0, 100);
             if (In.mouseIsPressed(1)){
                 sbg.enterState(1);
             }

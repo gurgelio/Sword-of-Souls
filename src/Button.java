@@ -1,6 +1,6 @@
 
 class Button{
-    int x, y, width, height;
+    int x, y;
     String st;
     Fonte fonte;
     Button(String st, int x, int y, Fonte fonte){
@@ -8,9 +8,6 @@ class Button{
 
         this.x = x;
         this.y = y;
-
-        this.width = fonte.ttf.getWidth(st);
-        this.height = fonte.ttf.getHeight(st);
 
         this.fonte = fonte;
     }
@@ -20,6 +17,14 @@ class Button{
     }
 
     int[] area(){
-        return new int[] {this.x, this.y, this.width, this.height};
+        return new int[] {this.x, this.y, this.getWidth(), this.getHeight()};
+    }
+
+    int getWidth(){
+        return fonte.getWidth(st);
+    }
+
+    int getHeight(){
+        return fonte.getHeight(st);
     }
 }
