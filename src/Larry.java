@@ -12,9 +12,6 @@ public class Larry {
 
     private Animation hero;
     private Anim larry = new Anim(new Image("anim/larry_move.png"),24,32, 200);
-    private Anim skeleton = new Anim(new Image("img/skelTest.png"),64,64, 120);
-    private Anim armor = new Anim(new Image("anim/armor_torso.png"),64,64, 120);
-    private Anim pants = new Anim(new Image("anim/armor_pants_green.png"),64,64, 120);
 
     public Larry(float x, float y) throws SlickException {
 

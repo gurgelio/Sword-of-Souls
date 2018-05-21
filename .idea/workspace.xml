@@ -7,7 +7,234 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2122613a-f116-48d7-b5a5-ccc59e18cd99" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Anim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Anim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anim/animSheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anim/animSheetBack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anim/animSheetFront.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anim/animSheetLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anim/animSheetRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anim/stillDown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anim/stillLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anim/stillRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anim/stillUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/CHANGELOG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/examples/combat_dummy_death.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/examples/skeleton_bow.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/examples/slash_longsword.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/examples/slash_rapier.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/examples/slash_shield.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/examples/thrust_longer_spear.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/png/192x192/slash/WEAPON_longsword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/png/192x192/slash/WEAPON_rapier.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/png/192x192/thrust/WEAPON_long_spear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/png/64x64/bow/BEHIND_quiver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/png/64x64/bow/BODY_skeleton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/png/64x64/combat_dummy/BODY_death.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/png/64x64/slash/WEAPON_shield_cutout_body.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/png/64x64/slash/WEAPON_shield_cutout_chain_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/xcf/combat_dummy_with_death.xcf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/xcf/male_slash_swords.xcf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/xcf/male_thrust_spears.xcf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/expansion_pack-0.04/xcf/skeleton_sprites_with_bow.xcf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero00.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hero32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/armored_skeleton_slash.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/chain_armor.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/chain_armor_bandit.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/combat_dummy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/dark_skinned_knight.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/leather_armor.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/mixed_metal.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/naked_bowman.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/naked_thrust_staff.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/orange_recolor_monk.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/plate_armor.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/robe.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/robed_skeleton_spellcast.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/robin_hoodlike.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/simple_clothes.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/examples/skeleton.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/BELT_leather.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/BELT_rope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/BODY_animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/FEET_plate_armor_shoes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/FEET_shoes_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/HANDS_plate_armor_gloves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/HEAD_chain_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/HEAD_chain_armor_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/HEAD_hair_blonde.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/HEAD_leather_armor_hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/HEAD_plate_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/HEAD_robe_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/LEGS_pants_greenish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/LEGS_plate_armor_pants.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/LEGS_robe_skirt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/TORSO_chain_armor_jacket_purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/TORSO_chain_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/TORSO_leather_armor_bracers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/TORSO_leather_armor_shirt_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/TORSO_leather_armor_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/TORSO_leather_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/TORSO_plate_armor_arms_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/TORSO_plate_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/TORSO_robe_shirt_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/WEAPON_arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/bow/WEAPON_bow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/combat_dummy/BODY_animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/BEHIND_quiver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/BELT_leather.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/BELT_rope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/BODY_male.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/BODY_skeleton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/FEET_plate_armor_shoes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/FEET_shoes_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/HANDS_plate_armor_gloves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/HEAD_chain_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/HEAD_chain_armor_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/HEAD_hair_blonde.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/HEAD_leather_armor_hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/HEAD_plate_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/HEAD_robe_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/LEGS_pants_greenish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/LEGS_plate_armor_pants.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/LEGS_robe_skirt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/TORSO_chain_armor_jacket_purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/TORSO_chain_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/TORSO_leather_armor_bracers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/TORSO_leather_armor_shirt_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/TORSO_leather_armor_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/TORSO_leather_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/TORSO_plate_armor_arms_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/TORSO_plate_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/hurt/TORSO_robe_shirt_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/BEHIND_quiver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/BELT_leather.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/BELT_rope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/BODY_human.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/BODY_skeleton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/FEET_plate_armor_shoes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/FEET_shoes_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/HANDS_plate_armor_gloves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/HEAD_chain_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/HEAD_chain_armor_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/HEAD_hair_blonde.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/HEAD_leather_armor_hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/HEAD_plate_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/HEAD_robe_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/LEGS_pants_greenish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/LEGS_plate_armor_pants.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/LEGS_robe_skirt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/TORSO_chain_armor_jacket_purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/TORSO_chain_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/TORSO_leather_armor_bracers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/TORSO_leather_armor_shirt_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/TORSO_leather_armor_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/TORSO_leather_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/TORSO_plate_armor_arms_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/TORSO_plate_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/TORSO_robe_shirt_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/slash/WEAPON_dagger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/BEHIND_quiver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/BELT_leather.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/BELT_rope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/BODY_male.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/BODY_skeleton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/FEET_plate_armor_shoes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/FEET_shoes_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/HANDS_plate_armor_gloves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/HEAD_chain_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/HEAD_chain_armor_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/HEAD_hair_blonde.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/HEAD_leather_armor_hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/HEAD_plate_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/HEAD_robe_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/HEAD_skeleton_eye_glow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/LEGS_pants_greenish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/LEGS_plate_armor_pants.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/LEGS_robe_skirt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/TORSO_chain_armor_jacket_purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/TORSO_chain_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/TORSO_leather_armor_bracers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/TORSO_leather_armor_shirt_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/TORSO_leather_armor_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/TORSO_leather_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/TORSO_plate_armor_arms_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/TORSO_plate_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/spellcast/TORSO_robe_shirt_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/BEHIND_quiver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/BELT_leather.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/BELT_rope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/BODY_animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/FEET_plate_armor_shoes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/FEET_shoes_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/HANDS_plate_armor_gloves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/HEAD_chain_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/HEAD_chain_armor_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/HEAD_hair_blonde.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/HEAD_leather_armor_hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/HEAD_plate_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/HEAD_robe_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/LEGS_pants_greenish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/LEGS_plate_armor_pants.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/LEGS_robe_skirt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/TORSO_chain_armor_jacket_purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/TORSO_chain_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/TORSO_leather_armor_bracers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/TORSO_leather_armor_shirt_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/TORSO_leather_armor_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/TORSO_leather_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/TORSO_plate_armor_arms_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/TORSO_plate_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/TORSO_robe_shirt_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/WEAPON_shield_cutout_body.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/WEAPON_shield_cutout_chain_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/WEAPON_spear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/thrust/WEAPON_staff.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/BEHIND_quiver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/BELT_leather.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/BELT_rope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/BODY_male.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/BODY_skeleton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/FEET_plate_armor_shoes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/FEET_shoes_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/HANDS_plate_armor_gloves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/HEAD_chain_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/HEAD_chain_armor_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/HEAD_hair_blonde.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/HEAD_leather_armor_hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/HEAD_plate_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/HEAD_robe_hood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/LEGS_pants_greenish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/LEGS_plate_armor_pants.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/LEGS_robe_skirt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/TORSO_chain_armor_jacket_purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/TORSO_chain_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/TORSO_leather_armor_bracers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/TORSO_leather_armor_shirt_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/TORSO_leather_armor_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/TORSO_leather_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/TORSO_plate_armor_arms_shoulders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/TORSO_plate_armor_torso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/TORSO_robe_shirt_brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/WEAPON_shield_cutout_body.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/png/walkcycle/WEAPON_shield_cutout_chain_armor_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/xcf/combat_dummy_sprites.xcf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/xcf/male_sprites.xcf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lpc_entry/xcf/skeleton_sprites.xcf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/skelTest.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Larry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Larry.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,8 +250,8 @@
       <file leaf-file-name="Play.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Play.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="80" column="86" selection-start-line="80" selection-start-column="86" selection-end-line="80" selection-end-column="86" />
+            <state relative-caret-position="124">
+              <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,25 +259,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Larry.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Larry.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Larry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2669">
-              <caret line="157" column="5" lean-forward="true" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
+            <state relative-caret-position="2295">
+              <caret line="135" selection-start-line="135" selection-end-line="135" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5152#5153#0" expanded="true" />
-                <element signature="e#5180#5181#0" expanded="true" />
-                <element signature="e#5202#5203#0" expanded="true" />
-                <element signature="e#5230#5231#0" expanded="true" />
-                <element signature="e#5260#5261#0" expanded="true" />
-                <element signature="e#5286#5287#0" expanded="true" />
-                <element signature="e#5331#5332#0" expanded="true" />
-                <element signature="e#5361#5362#0" expanded="true" />
-                <element signature="e#5406#5407#0" expanded="true" />
-                <element signature="e#5438#5439#0" expanded="true" />
-                <element signature="e#5497#5498#0" expanded="true" />
-                <element signature="e#5539#5540#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Menu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -59,8 +286,8 @@
       <file leaf-file-name="Anim.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Anim.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="17" column="61" lean-forward="true" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+            <state relative-caret-position="238">
+              <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,13 +313,13 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Fontes.java" />
         <option value="$PROJECT_DIR$/src/Mouse.java" />
-        <option value="$PROJECT_DIR$/src/Menu.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/Camera.java" />
-        <option value="$PROJECT_DIR$/src/Play.java" />
         <option value="$PROJECT_DIR$/src/Animation.java" />
         <option value="$PROJECT_DIR$/src/Anim.java" />
+        <option value="$PROJECT_DIR$/src/Play.java" />
         <option value="$PROJECT_DIR$/src/Larry.java" />
+        <option value="$PROJECT_DIR$/src/Menu.java" />
       </list>
     </option>
   </component>
@@ -105,7 +332,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="816" />
@@ -119,6 +346,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -135,9 +365,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -555,16 +782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Fontes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -592,13 +809,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Animation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Animation.java" />
     <entry file="jar://$PROJECT_DIR$/lib/jars/slick.jar!/org/newdawn/slick/SpriteSheet.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1156">
@@ -613,20 +824,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Play.java">
+    <entry file="file://$PROJECT_DIR$/src/Anim.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="80" column="86" selection-start-line="80" selection-start-column="86" selection-end-line="80" selection-end-column="86" />
+        <state relative-caret-position="238">
+          <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Anim.java">
+    <entry file="file://$PROJECT_DIR$/src/Play.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="17" column="61" lean-forward="true" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+        <state relative-caret-position="124">
+          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -635,22 +846,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Larry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2669">
-          <caret line="157" column="5" lean-forward="true" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
+        <state relative-caret-position="2295">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5152#5153#0" expanded="true" />
-            <element signature="e#5180#5181#0" expanded="true" />
-            <element signature="e#5202#5203#0" expanded="true" />
-            <element signature="e#5230#5231#0" expanded="true" />
-            <element signature="e#5260#5261#0" expanded="true" />
-            <element signature="e#5286#5287#0" expanded="true" />
-            <element signature="e#5331#5332#0" expanded="true" />
-            <element signature="e#5361#5362#0" expanded="true" />
-            <element signature="e#5406#5407#0" expanded="true" />
-            <element signature="e#5438#5439#0" expanded="true" />
-            <element signature="e#5497#5498#0" expanded="true" />
-            <element signature="e#5539#5540#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
