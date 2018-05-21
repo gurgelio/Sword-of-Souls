@@ -21,7 +21,7 @@
    <property name="blocked" type="bool" value="true"/>
   </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3WvQ6DIBSGYe//4pzbAed2sHM7tCkMJOQE5Ej5seZ9EhINRj/xAE7TuVxsuwbn78z1c8Msv7jZdt/oD3Mb25a2cYo9bXtt9Ie5V+U9TXmcanJ1peHet1f9uefIuZG6rkSv+nPPic0NmVvm8f3+uz0q5yoRmxth7liNyff6VE1UrkUdj1ib/fhq5sree/Ygxyy1j+xdQ3vPFzdm4TdI7SNyz5gTx96I+aJZr6QlcTxSbr2StDV21H8wn0v7XzL6O6VqX+Yy0zHH3GfS1v6a6Q/v2VOLOhhdWwAAAAAAAAAAAP/qCz8RZlMQJwAA
+   H4sIAAAAAAAACu2aMQ7CMAxFc//DdYahnWEoMwxFpINFZCWtE4j7Qf9JliolqvzAdjJ0CSEsfxIrpxjn8GYJ2ww7656kHpcY1429ad5jjKlXUg2kHvcYj429ad6z8f1jS1INpB65tU9ZfT3qTzx0b+Rozcej/sQj1xs6b52PrMv/dvtualWIR643JrVPo72eX8yrlrQ/etSx12xOPeT3tfSKFa/ZnJtXpXOkdoZ69ktuXpXOEX1mDIVnwbNfauaVZio8H4F1XmmsNXZEn1uQvKz3kiP7fKVU+zqvMWDce7WH5GSt/XlnPX1nT7RHjzrwvF/9OvTAgh5Y0AMLemBBDyzogQU9sKAHFvTAgh5Y0AMLemBBDyzogQU9sPD4tssrXgm35gQQJwAA
   </data>
  </layer>
  <layer name="Rio" width="50" height="50">
