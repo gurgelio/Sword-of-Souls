@@ -19,6 +19,16 @@ class Menu extends BasicGameState{
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         g.drawImage(new Image("img/bg.jpg"),0,0);
+<<<<<<< HEAD
+    }
+
+    @Override
+    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
+
+        if (In.mouseIsPressed(1)) {
+            sbg.enterState(1);
+        }
+=======
         Fonte.ShadowFont(name);
         Fonte.ShadowFont(play);
     }
@@ -32,7 +42,9 @@ class Menu extends BasicGameState{
                 sbg.enterState(1);
             }
         } else play.setColor(204, 0, 0, 255);
+>>>>>>> master
     }
+
 
     //retorna o ID do estado do jogo
     @Override
