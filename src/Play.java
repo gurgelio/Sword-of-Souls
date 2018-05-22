@@ -33,7 +33,7 @@ public class Play extends BasicGameState {
         mapHeight = map.getHeight() * map.getTileHeight();
         tileHeight = map.getTileHeight();
         tileWidth = map.getTileWidth();
-        player = new Larry(32, 128);
+        player = new Larry(tileHeight, tileWidth*4);
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initializeBlocked();
@@ -58,12 +58,12 @@ public class Play extends BasicGameState {
             if (gc.getInput().isKeyPressed(Input.KEY_TAB)) player.setpos(32,128);
         }
 
-        if (player.getX() == 32 & player.getY() == 128 & gc.getInput().isKeyPressed(Input.KEY_LSHIFT)) player.setpos(3*32, 38*32);
+        if (player.getX() == tileWidth & player.getY() == tileHeight*4 & gc.getInput().isKeyPressed(Input.KEY_LSHIFT)) player.setpos(3*32, 38*32);
     }
 
     boolean isBlocked(float x, float y) {
-        int xBlock = (int) x / map.getTileWidth();
-        int yBlock = (int) y / map.getTileHeight();
+        int xBlock = (int) x / tileWidth;
+        int yBlock = (int) y / tileHeight;
         return blocked[xBlock][yBlock];
     }
 
