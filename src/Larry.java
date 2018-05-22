@@ -150,8 +150,9 @@ public class Larry {
     }
 
 
-    public void setpos(Vector2f pos) {
-        this.pos = pos;
+    public void setpos(int x, int y) {
+        this.pos.x = x;
+        this.pos.y = y;
     }
 
 
