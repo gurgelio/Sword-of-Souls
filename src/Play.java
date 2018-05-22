@@ -10,14 +10,14 @@ import org.newdawn.slick.tiled.TiledMap;
 public class Play extends BasicGameState {
 
     private boolean[][] blocked;
-    TiledMap map;
-    Larry player;
-    Camera camera;
-    int mapHeight, mapWidth;
-    int tileHeight, tileWidth;
+    private TiledMap map;
+    private Larry player;
+    private Camera camera;
+    private int mapHeight, mapWidth;
+    private int tileHeight, tileWidth;
     private int stateid;
 
-    public Play(int id) {
+    Play(int id) {
         stateid = id;
     }
 
@@ -40,6 +40,13 @@ public class Play extends BasicGameState {
     }
 
     @Override
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+        camera.translate(g, player);
+        map.render(0, 0);
+        player.render();
+    }
+
+    @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         player.update(gc, delta, this);
 
@@ -54,14 +61,7 @@ public class Play extends BasicGameState {
         if (player.getX() == 32 & player.getY() == 128 & gc.getInput().isKeyPressed(Input.KEY_LSHIFT)) player.setpos(3*32, 38*32);
     }
 
-    @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        camera.translate(g, player);
-        map.render(0, 0);
-        player.render();
-    }
-
-    public boolean isBlocked(float x, float y) {
+    boolean isBlocked(float x, float y) {
         int xBlock = (int) x / map.getTileWidth();
         int yBlock = (int) y / map.getTileHeight();
         return blocked[xBlock][yBlock];
