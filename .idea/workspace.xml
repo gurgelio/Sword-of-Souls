@@ -8,9 +8,15 @@
   <component name="ChangeListManager">
     <list default="true" id="2122613a-f116-48d7-b5a5-ccc59e18cd99" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/map/mapa.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/map/mapa.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Trab/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trab/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Larry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Larry.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fonte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fonte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/In.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/In.java" afterDir="false" />
+>>>>>>> master
       <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Play.java" afterDir="false" />
     </list>
@@ -24,6 +30,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="Play.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Play.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -45,15 +52,35 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+=======
+      <file leaf-file-name="In.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/In.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#77#78#0" expanded="true" />
+                <element signature="e#151#152#0" expanded="true" />
+              </folding>
+>>>>>>> master
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Larry.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Larry.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1292">
               <caret line="152" column="27" lean-forward="true" selection-start-line="152" selection-start-column="27" selection-end-line="152" selection-end-column="27" />
+=======
+      <file leaf-file-name="Play.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Play.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+>>>>>>> master
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,20 +88,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Button.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Button.java">
+      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="153">
               <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+=======
+            <state relative-caret-position="374">
+              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1201#1202#0" expanded="true" />
+                <element signature="e#1225#1226#0" expanded="true" />
+              </folding>
+>>>>>>> master
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="292">
               <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+=======
+      <file leaf-file-name="Button.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Button.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Fonte.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Fonte.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+>>>>>>> master
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1127#1128#0" expanded="true" />
@@ -87,8 +137,13 @@
       <file leaf-file-name="Anim.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Anim.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="238">
               <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+=======
+            <state relative-caret-position="153">
+              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+>>>>>>> master
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,13 +172,16 @@
         <option value="$PROJECT_DIR$/src/Animation.java" />
         <option value="$PROJECT_DIR$/src/Anim.java" />
         <option value="$PROJECT_DIR$/src/Mouse.java" />
-        <option value="$PROJECT_DIR$/src/In.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/Fonte.java" />
         <option value="$PROJECT_DIR$/src/Button.java" />
         <option value="$PROJECT_DIR$/src/Menu.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/Larry.java" />
         <option value="$PROJECT_DIR$/src/Play.java" />
+=======
+        <option value="$PROJECT_DIR$/src/In.java" />
+>>>>>>> master
       </list>
     </option>
   </component>
@@ -137,10 +195,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="816" />
-    <option name="height" value="576" />
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -150,9 +207,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
+=======
+>>>>>>> master
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -163,15 +223,31 @@
             <path>
               <item name="Trab" type="b2602c69:ProjectViewProjectNode" />
               <item name="Trab" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Trab" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Trab" type="462c0819:PsiDirectoryNode" />
+>>>>>>> master
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+>>>>>>> master
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -252,16 +328,18 @@
       <option name="presentableId" value="Default" />
       <updated>1526393802522</updated>
       <workItem from="1526405396687" duration="969000" />
+      <workItem from="1526997367375" duration="5110000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9922000" />
+    <option name="totallyTimeSpent" value="15631000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32750398" />
@@ -292,24 +370,46 @@
       <window_info anchor="bottom" id="Terminal" order="17" />
       <window_info id="Structure" order="8" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+=======
+      <window_info anchor="right" id="Palette" order="10" />
+>>>>>>> master
       <window_info anchor="bottom" id="TODO" order="14" />
-      <window_info id="Favorites" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="18" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.3290938" />
-      <window_info id="Image Layers" order="9" />
-      <window_info id="Capture Tool" order="12" />
-      <window_info id="UI Designer" order="13" />
-      <window_info anchor="bottom" id="Debug" order="5" weight="0.3990461" />
-      <window_info anchor="right" id="Theme Preview" order="15" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32731137" />
       <window_info anchor="right" id="Palette&#9;" order="12" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Image Layers" order="9" />
+      <window_info anchor="right" id="Capture Analysis" order="11" />
       <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="16" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="18" />
+      <window_info anchor="bottom" id="Run" order="4" visible="true" weight="0.32837406" />
+      <window_info anchor="bottom" id="Terminal" order="17" />
+      <window_info id="Capture Tool" order="12" />
+      <window_info id="Designer" order="10" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.09010417" />
+      <window_info anchor="right" id="Database" order="14" />
+      <window_info id="Structure" order="8" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info id="UI Designer" order="13" />
+      <window_info anchor="right" id="Theme Preview" order="15" />
+<<<<<<< HEAD
+      <window_info anchor="right" id="Palette&#9;" order="12" />
+=======
+      <window_info id="Favorites" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.3990461" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+>>>>>>> master
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32731137" />
       <window_info anchor="right" id="Maven Projects" order="13" />
       <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.24963397" />
+=======
+>>>>>>> master
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,8 +447,13 @@
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1127#1128#0" expanded="true" />
             <element signature="e#1151#1152#0" expanded="true" />
+=======
+            <element signature="e#1201#1202#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -375,8 +480,9 @@
         <state relative-caret-position="85">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#69#70#0" expanded="true" />
-            <element signature="e#142#143#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#77#78#0" expanded="true" />
+            <element signature="e#151#152#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -404,8 +510,13 @@
           <caret line="16" column="93" selection-start-line="16" selection-start-column="93" selection-end-line="16" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1127#1128#0" expanded="true" />
             <element signature="e#1151#1152#0" expanded="true" />
+=======
+            <element signature="e#1201#1202#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -453,8 +564,13 @@
           <caret line="16" column="93" selection-start-line="16" selection-start-column="93" selection-end-line="16" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1127#1128#0" expanded="true" />
             <element signature="e#1151#1152#0" expanded="true" />
+=======
+            <element signature="e#1201#1202#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -465,8 +581,13 @@
           <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1127#1128#0" expanded="true" />
             <element signature="e#1151#1152#0" expanded="true" />
+=======
+            <element signature="e#1201#1202#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -502,8 +623,13 @@
           <caret line="21" column="129" selection-start-line="21" selection-start-column="129" selection-end-line="21" selection-end-column="129" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1127#1128#0" expanded="true" />
             <element signature="e#1151#1152#0" expanded="true" />
+=======
+            <element signature="e#1201#1202#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -531,8 +657,13 @@
           <caret line="22" column="131" selection-start-line="22" selection-start-column="131" selection-end-line="22" selection-end-column="131" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1127#1128#0" expanded="true" />
             <element signature="e#1151#1152#0" expanded="true" />
+=======
+            <element signature="e#1201#1202#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -577,8 +708,13 @@
           <caret line="16" column="144" selection-start-line="16" selection-start-column="144" selection-end-line="16" selection-end-column="144" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1127#1128#0" expanded="true" />
             <element signature="e#1151#1152#0" expanded="true" />
+=======
+            <element signature="e#1201#1202#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -638,6 +774,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -649,6 +786,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Larry.java">
+>>>>>>> master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
@@ -665,27 +805,46 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Button.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+=======
+    <entry file="jar://$PROJECT_DIR$/lib/jars/slick.jar!/org/newdawn/slick/TrueTypeFont.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fonte.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="221">
           <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+=======
+        <state relative-caret-position="153">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+>>>>>>> master
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
           <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/Fonte.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+>>>>>>> master
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1127#1128#0" expanded="true" />
@@ -694,6 +853,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/In.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -705,12 +865,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1292">
           <caret line="152" column="27" lean-forward="true" selection-start-line="152" selection-start-column="27" selection-end-line="152" selection-end-column="27" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/Button.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Play.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+>>>>>>> master
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1201#1202#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Play.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -721,6 +903,16 @@
             <element signature="e#2435#2436#0" expanded="true" />
             <element signature="e#2484#2485#0" expanded="true" />
             <element signature="e#2518#2519#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/In.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#77#78#0" expanded="true" />
+            <element signature="e#151#152#0" expanded="true" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
