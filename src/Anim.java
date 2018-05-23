@@ -25,6 +25,38 @@ public class Anim {
         leftStill = new Animation(leftStillImage,AnimSpeed);
         downStill = new Animation(downStillImage,AnimSpeed);
         rightStill = new Animation(rightStillImage,AnimSpeed);
+        Current = upStill;
 
     }
+
+    public void update(Anim an, int direction, int del){
+
+        /* 1 - Up
+           2 - Down
+           3 - Left
+           4 - Right
+         */
+
+        switch (direction){
+            case 1:
+                an.Current = an.up;
+                break;
+
+            case 2:
+                an.Current = an.down;
+                break;
+
+            case 3:
+                an.Current = an.left;
+                break;
+
+            case 4:
+                an.Current = an.right;
+                break;
+        }
+
+    an.Current.update(del);
+
+    }
+
 }

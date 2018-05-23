@@ -14,6 +14,9 @@ public class Larry {
     private Anim shirt = new Anim(new Image("anim/lpc_entry/png/walkcycle/TORSO_robe_shirt_brown.png"),64,64,120);
     private Anim hair = new Anim(new Image("anim/lpc_entry/png/walkcycle/HEAD_hair_blonde.png"),64,64,120);
     private Anim legs = new Anim(new Image("anim/lpc_entry/png/walkcycle/LEGS_pants_greenish.png"),64,64,120);
+    private Anim[] anims = {body, shirt, hair, legs};
+
+    private CharAnimation charAnimation = new CharAnimation(anims);
 
     public Larry(float x, float y) throws SlickException {
 
@@ -30,18 +33,6 @@ public class Larry {
         pos = new Vector2f(x, y);
 
         rectangle = new Rectangle(x, y, w, h);
-
-        /*
-
-         * Set the Animations needed.
-
-         */
-
-        body.Current = body.upStill;
-        shirt.Current = shirt.upStill;
-        legs.Current = legs.upStill;
-        hair.Current = hair.upStill;
-
 
     }
 
@@ -65,14 +56,7 @@ public class Larry {
                 pos.y -= delta * SPEED;
             }
 
-            body.Current = body.up;
-            shirt.Current = shirt.up;
-            hair.Current = hair.up;
-            legs.Current = legs.up;
-            body.Current.update(delta);
-            shirt.Current.update(delta);
-            hair.Current.update(delta);
-            legs.Current.update(delta);
+            charAnimation.update(1,delta);
             lastDirection = 'u';
 
 
@@ -82,14 +66,7 @@ public class Larry {
                 pos.y += delta * SPEED;
             }
 
-            body.Current = body.down;
-            shirt.Current = shirt.down;
-            hair.Current = hair.down;
-            legs.Current = legs.down;
-            body.Current.update(delta);
-            shirt.Current.update(delta);
-            hair.Current.update(delta);
-            legs.Current.update(delta);
+            charAnimation.update(2,delta);
             lastDirection = 'd';
 
         } else if (input.isKeyDown(Input.KEY_LEFT) | input.isKeyDown(Input.KEY_A)) {
@@ -98,14 +75,7 @@ public class Larry {
                 pos.x -= delta * SPEED;
             }
 
-            body.Current = body.left;
-            shirt.Current = shirt.left;
-            hair.Current = hair.left;
-            legs.Current = legs.left;
-            body.Current.update(delta);
-            shirt.Current.update(delta);
-            hair.Current.update(delta);
-            legs.Current.update(delta);
+            charAnimation.update(3,delta);
             lastDirection = 'l';
 
         } else if (input.isKeyDown(Input.KEY_RIGHT) | input.isKeyDown(Input.KEY_D)) {
@@ -114,14 +84,7 @@ public class Larry {
                 pos.x += delta * SPEED;
             }
 
-            body.Current = body.right;
-            shirt.Current = shirt.right;
-            hair.Current = hair.right;
-            legs.Current = legs.right;
-            body.Current.update(delta);
-            shirt.Current.update(delta);
-            hair.Current.update(delta);
-            legs.Current.update(delta);
+            charAnimation.update(4,delta);
             lastDirection = 'r';
 
         }

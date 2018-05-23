@@ -11,7 +11,7 @@ public class Play extends BasicGameState {
 
     private boolean[][] blocked;
     private TiledMap map;
-    private Larry player;
+    private Larry larry;
     private Camera camera;
     private int mapHeight, mapWidth;
     private int tileHeight, tileWidth;
@@ -33,7 +33,7 @@ public class Play extends BasicGameState {
         mapHeight = map.getHeight() * map.getTileHeight();
         tileHeight = map.getTileHeight();
         tileWidth = map.getTileWidth();
-        player = new Larry(tileHeight, tileWidth*4);
+        larry = new Larry(tileHeight, tileWidth*4);
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initializeBlocked();
@@ -41,24 +41,24 @@ public class Play extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        camera.translate(g, player);
+        camera.translate(g, larry);
         map.render(0, 0);
-        player.render();
+        larry.render();
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        player.update(gc, delta, this);
+        larry.update(gc, delta, this);
 
         if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
             sbg.enterState(0);
         }
 
-        if (player.getX() > 4*32 - 10 & player.getX() < 5*32 + 10 & player.getY() > 39*32 - 10 & player.getY() < 40*32 + 10){
-            if (gc.getInput().isKeyPressed(Input.KEY_TAB)) player.setpos(32,128);
+        if (larry.getX() > 4*32 - 10 & larry.getX() < 5*32 + 10 & larry.getY() > 39*32 - 10 & larry.getY() < 40*32 + 10){
+            if (gc.getInput().isKeyPressed(Input.KEY_TAB)) larry.setpos(32,128);
         }
 
-        if (player.getX() == tileWidth & player.getY() == tileHeight*4 & gc.getInput().isKeyPressed(Input.KEY_LSHIFT)) player.setpos(3*32, 38*32);
+        if (larry.getX() == tileWidth & larry.getY() == tileHeight*4 & gc.getInput().isKeyPressed(Input.KEY_LSHIFT)) larry.setpos(3*32, 38*32);
     }
 
     boolean isBlocked(float x, float y) {
@@ -68,11 +68,11 @@ public class Play extends BasicGameState {
     }
 
     public Vector2f getHeroPosition() {
-        return player.getpos();
+        return larry.getpos();
     }
 
     public void setHeroPosition(Vector2f pos) {
-        player.setpos((int) pos.x,(int) pos.y);
+        larry.setpos((int) pos.x,(int) pos.y);
     }
 
     private void initializeBlocked() {
