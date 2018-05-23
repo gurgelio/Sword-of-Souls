@@ -10,14 +10,10 @@ public class Larry {
     private static final float SPEED = 0.17f;
     private int w, h;
 
-    private Animation hero, shirt, hair, legs;
-    private Anim larry = new Anim(new Image("anim/lpc_entry/png/walkcycle/BODY_male.png"),64,64, 120);
-    private Anim shirtAnim = new Anim(new Image("anim/lpc_entry/png/walkcycle/TORSO_robe_shirt_brown.png"),64,64,120);
-    private Anim hairAnim = new Anim(new Image("anim/lpc_entry/png/walkcycle/HEAD_hair_blonde.png"),64,64,120);
-    private Anim legsAnim = new Anim(new Image("anim/lpc_entry/png/walkcycle/LEGS_pants_greenish.png"),64,64,120);
-
-    private Anim[] clAnim = {larry, shirtAnim, hairAnim, legsAnim};
-    private Animation[] clothes = {hero, shirt, hair, legs};
+    private Anim body = new Anim(new Image("anim/lpc_entry/png/walkcycle/BODY_male.png"),64,64, 120);
+    private Anim shirt = new Anim(new Image("anim/lpc_entry/png/walkcycle/TORSO_robe_shirt_brown.png"),64,64,120);
+    private Anim hair = new Anim(new Image("anim/lpc_entry/png/walkcycle/HEAD_hair_blonde.png"),64,64,120);
+    private Anim legs = new Anim(new Image("anim/lpc_entry/png/walkcycle/LEGS_pants_greenish.png"),64,64,120);
 
     public Larry(float x, float y) throws SlickException {
 
@@ -41,15 +37,11 @@ public class Larry {
 
          */
 
-        //for (Animation a : clothes){
-        //    for (Anim b : clAnim){
-        //        a = b.upStill;
-        //    }
-        //}
-        hero = larry.upStill;
-        shirt = shirtAnim.upStill;
-        legs = legsAnim.upStill;
-        hair = hairAnim.upStill;
+        body.Current = body.upStill;
+        shirt.Current = shirt.upStill;
+        legs.Current = legs.upStill;
+        hair.Current = hair.upStill;
+
 
     }
 
@@ -73,15 +65,16 @@ public class Larry {
                 pos.y -= delta * SPEED;
             }
 
-            hero = larry.up;
-            shirt = shirtAnim.up;
-            hair = hairAnim.up;
-            legs = legsAnim.up;
-            hero.update(delta);
-            shirt.update(delta);
-            hair.update(delta);
-            legs.update(delta);
+            body.Current = body.up;
+            shirt.Current = shirt.up;
+            hair.Current = hair.up;
+            legs.Current = legs.up;
+            body.Current.update(delta);
+            shirt.Current.update(delta);
+            hair.Current.update(delta);
+            legs.Current.update(delta);
             lastDirection = 'u';
+
 
         } else if (input.isKeyDown(Input.KEY_DOWN) | input.isKeyDown(Input.KEY_S)) {
 
@@ -89,14 +82,14 @@ public class Larry {
                 pos.y += delta * SPEED;
             }
 
-            hero = larry.down;
-            shirt = shirtAnim.down;
-            hair = hairAnim.down;
-            legs = legsAnim.down;
-            hero.update(delta);
-            shirt.update(delta);
-            hair.update(delta);
-            legs.update(delta);
+            body.Current = body.down;
+            shirt.Current = shirt.down;
+            hair.Current = hair.down;
+            legs.Current = legs.down;
+            body.Current.update(delta);
+            shirt.Current.update(delta);
+            hair.Current.update(delta);
+            legs.Current.update(delta);
             lastDirection = 'd';
 
         } else if (input.isKeyDown(Input.KEY_LEFT) | input.isKeyDown(Input.KEY_A)) {
@@ -105,14 +98,14 @@ public class Larry {
                 pos.x -= delta * SPEED;
             }
 
-            hero = larry.left;
-            shirt = shirtAnim.left;
-            hair = hairAnim.left;
-            legs = legsAnim.left;
-            hero.update(delta);
-            shirt.update(delta);
-            hair.update(delta);
-            legs.update(delta);
+            body.Current = body.left;
+            shirt.Current = shirt.left;
+            hair.Current = hair.left;
+            legs.Current = legs.left;
+            body.Current.update(delta);
+            shirt.Current.update(delta);
+            hair.Current.update(delta);
+            legs.Current.update(delta);
             lastDirection = 'l';
 
         } else if (input.isKeyDown(Input.KEY_RIGHT) | input.isKeyDown(Input.KEY_D)) {
@@ -121,14 +114,14 @@ public class Larry {
                 pos.x += delta * SPEED;
             }
 
-            hero = larry.right;
-            shirt = shirtAnim.right;
-            hair = hairAnim.right;
-            legs = legsAnim.right;
-            hero.update(delta);
-            shirt.update(delta);
-            hair.update(delta);
-            legs.update(delta);
+            body.Current = body.right;
+            shirt.Current = shirt.right;
+            hair.Current = hair.right;
+            legs.Current = legs.right;
+            body.Current.update(delta);
+            shirt.Current.update(delta);
+            hair.Current.update(delta);
+            legs.Current.update(delta);
             lastDirection = 'r';
 
         }
@@ -145,31 +138,31 @@ public class Larry {
             switch (lastDirection) {
 
                 case 'd':
-                    hero = larry.downStill;
-                    shirt = shirtAnim.downStill;
-                    hair = hairAnim.downStill;
-                    legs = legsAnim.downStill;
+                    body.Current = body.downStill;
+                    shirt.Current = shirt.downStill;
+                    hair.Current = hair.downStill;
+                    legs.Current = legs.downStill;
                     break;
 
                 case 'u':
-                    hero = larry.upStill;
-                    shirt = shirtAnim.upStill;
-                    hair = hairAnim.upStill;
-                    legs = legsAnim.upStill;
+                    body.Current = body.upStill;
+                    shirt.Current = shirt.upStill;
+                    hair.Current = hair.upStill;
+                    legs.Current = legs.upStill;
                     break;
 
                 case 'l':
-                    hero = larry.leftStill;
-                    shirt = shirtAnim.leftStill;
-                    hair = hairAnim.leftStill;
-                    legs = legsAnim.leftStill;
+                    body.Current = body.leftStill;
+                    shirt.Current = shirt.leftStill;
+                    hair.Current = hair.leftStill;
+                    legs.Current = legs.leftStill;
                     break;
 
                 case 'r':
-                    hero = larry.rightStill;
-                    shirt = shirtAnim.rightStill;
-                    hair = hairAnim.rightStill;
-                    legs = legsAnim.rightStill;
+                    body.Current = body.rightStill;
+                    shirt.Current = shirt.rightStill;
+                    hair.Current = hair.rightStill;
+                    legs.Current = legs.rightStill;
                     break;
 
             }
@@ -179,10 +172,10 @@ public class Larry {
 
     void render() {
 
-        hero.draw(pos.x, pos.y);
-        shirt.draw(pos.x,pos.y);
-        hair.draw(pos.x,pos.y);
-        legs.draw(pos.x,pos.y);
+        body.Current.draw(pos.x, pos.y);
+        shirt.Current.draw(pos.x,pos.y);
+        hair.Current.draw(pos.x,pos.y);
+        legs.Current.draw(pos.x,pos.y);
 
     }
 
