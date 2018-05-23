@@ -4,9 +4,9 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 
 public class Anim {
-    public Animation up, down, left, right, upStill, downStill, leftStill, rightStill;
+    Animation up, down, left, right, upStill, downStill, leftStill, rightStill;
 
-    public Anim(Image img, int x, int y, int AnimSpeed) throws SlickException {
+    Anim(Image img, int x, int y, int AnimSpeed) throws SlickException {
 
         SpriteSheet upSheet = new SpriteSheet(img.getSubImage(x,0,img.getWidth() - x, y), x, y);
         SpriteSheet leftSheet = new SpriteSheet(img.getSubImage(x, y,img.getWidth() - x,y), x, y);

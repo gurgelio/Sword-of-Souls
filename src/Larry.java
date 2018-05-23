@@ -16,6 +16,9 @@ public class Larry {
     private Anim hairAnim = new Anim(new Image("anim/lpc_entry/png/walkcycle/HEAD_hair_blonde.png"),64,64,120);
     private Anim legsAnim = new Anim(new Image("anim/lpc_entry/png/walkcycle/LEGS_pants_greenish.png"),64,64,120);
 
+    private Anim[] clAnim = {larry, shirtAnim, hairAnim, legsAnim};
+    private Animation[] clothes = {hero, shirt, hair, legs};
+
     public Larry(float x, float y) throws SlickException {
 
         /*
@@ -38,10 +41,15 @@ public class Larry {
 
          */
 
+        //for (Animation a : clothes){
+        //    for (Anim b : clAnim){
+        //        a = b.upStill;
+        //    }
+        //}
         hero = larry.upStill;
         shirt = shirtAnim.upStill;
-        hair = hairAnim.upStill;
         legs = legsAnim.upStill;
+        hair = hairAnim.upStill;
 
     }
 
@@ -61,7 +69,7 @@ public class Larry {
 
         if (input.isKeyDown(Input.KEY_UP) | input.isKeyDown(Input.KEY_W)) {
 
-            if (!gps.isBlocked(pos.x + w -4, pos.y - delta * SPEED) && !gps.isBlocked(pos.x + 4, pos.y - delta * SPEED)) {
+            if (!gps.isBlocked(pos.x - w/2, pos.y + delta * SPEED) && !gps.isBlocked(pos.x + w/2, pos.y - delta * SPEED)) {
                 pos.y -= delta * SPEED;
             }
 
