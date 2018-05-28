@@ -10,11 +10,11 @@ public class Larry {
     private static final float SPEED = 0.09f;
     int w, h;
 
-    private Anim body = new Anim(new Image("anim/lpc_entry/png/walkcycle/BODY_male.png"),64,64, 120);
-    private Anim shirt = new Anim(new Image("anim/lpc_entry/png/walkcycle/TORSO_robe_shirt_brown.png"),64,64,120);
-    private Anim hair = new Anim(new Image("anim/lpc_entry/png/walkcycle/HEAD_hair_blonde.png"),64,64,120);
-    private Anim legs = new Anim(new Image("anim/lpc_entry/png/walkcycle/LEGS_pants_greenish.png"),64,64,120);
-    private Anim feet = new Anim(new Image("anim/lpc_entry/png/walkcycle/FEET_shoes_brown.png"),64,64,120);
+    private Anim body = new Anim(new Image(Inventory.maleBody),64,64, 120);
+    private Anim shirt = new Anim(new Image(Inventory.brownShirt),64,64,120);
+    private Anim hair = new Anim(new Image(Inventory.blondeHair),64,64,120);
+    private Anim legs = new Anim(new Image(Inventory.greenPants),64,64,120);
+    private Anim feet = new Anim(new Image(Inventory.brownShoes),64,64,120);
 
     private Anim[] anims = {body, shirt, hair, legs, feet};
 
