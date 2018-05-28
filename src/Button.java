@@ -2,11 +2,13 @@ class Button{
     int x, y;
     String st;
     Fonte fonte;
+    boolean held;
     Button(String st, int x, int y, Fonte fonte){
         this.st = st;
         this.fonte = fonte;
         this.x = x - fonte.ttf.getWidth(st)/2;
         this.y = y - fonte.ttf.getHeight(st)/2;
+        this.held = false;
 
     }
 

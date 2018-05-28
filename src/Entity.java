@@ -7,5 +7,4 @@ public abstract class Entity {
     public Entity(Anim[] animationSet){
         chanim = new CharAnimation(animationSet);
     }
-    
 }
