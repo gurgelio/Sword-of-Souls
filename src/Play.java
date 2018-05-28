@@ -32,7 +32,7 @@ public class Play extends BasicGameState {
         mapHeight = map.getHeight() * map.getTileHeight();
         tileHeight = map.getTileHeight();
         tileWidth = map.getTileWidth();
-        larry = new Larry(tileHeight, tileWidth*4);
+        larry = new Larry(32,128);
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initializeBlocked();
@@ -60,6 +60,7 @@ public class Play extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         In.update();
         larry.update(gc, delta, this);
+
 
         if (In.keyPressed("escape")) {
             sbg.enterState(0);
