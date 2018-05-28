@@ -2,10 +2,10 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 
-public class Larry {
+public class Larry extends Entity {
 
     private char lastDirection;
-    private Vector2f pos;
+    private static Vector2f pos;
     private Rectangle rectangle;
     private static final float SPEED = 0.17f;
     private int w, h;
@@ -26,9 +26,9 @@ public class Larry {
 
          */
 
-        w = 32;
+        w = 64;
 
-        h = 32;
+        h = 64;
 
         pos = new Vector2f(x, y);
 
@@ -52,7 +52,7 @@ public class Larry {
 
         if (input.isKeyDown(Input.KEY_UP) | input.isKeyDown(Input.KEY_W)) {
 
-            if (!gps.isBlocked(pos.x - w/2, pos.y + delta * SPEED) && !gps.isBlocked(pos.x + w/2, pos.y - delta * SPEED)) {
+            if (!gps.isBlocked(pos.x, pos.y - delta * SPEED) && !gps.isBlocked(pos.x + w, pos.y - delta * SPEED)) {
                 pos.y -= delta * SPEED;
             }
 
@@ -62,7 +62,7 @@ public class Larry {
 
         } else if (input.isKeyDown(Input.KEY_DOWN) | input.isKeyDown(Input.KEY_S)) {
 
-            if (!gps.isBlocked(pos.x + w - 4, pos.y + h + delta * SPEED) && !gps.isBlocked(pos.x + 4, pos.y + h + delta * SPEED)) {
+            if (!gps.isBlocked(pos.x, pos.y + h + delta * SPEED) && !gps.isBlocked(pos.x + w, pos.y + h + delta * SPEED)) {
                 pos.y += delta * SPEED;
             }
 
@@ -71,7 +71,7 @@ public class Larry {
 
         } else if (input.isKeyDown(Input.KEY_LEFT) | input.isKeyDown(Input.KEY_A)) {
 
-            if (!gps.isBlocked(pos.x - delta * SPEED, pos.y + 4) && !gps.isBlocked(pos.x - delta * SPEED, pos.y + h - 4)) {
+            if (!gps.isBlocked(pos.x - delta * SPEED, pos.y) && !gps.isBlocked(pos.x - delta * SPEED, pos.y + h)) {
                 pos.x -= delta * SPEED;
             }
 
@@ -80,7 +80,7 @@ public class Larry {
 
         } else if (input.isKeyDown(Input.KEY_RIGHT) | input.isKeyDown(Input.KEY_D)) {
 
-            if (!gps.isBlocked(pos.x + w + delta * SPEED, pos.y + h - 4) && !gps.isBlocked(pos.x + w + delta * SPEED, pos.y + 4)) {
+            if (!gps.isBlocked(pos.x + w + delta * SPEED, pos.y + h) && !gps.isBlocked(pos.x + w + delta * SPEED, pos.y)) {
                 pos.x += delta * SPEED;
             }
 

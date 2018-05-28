@@ -33,7 +33,7 @@ public class Play extends BasicGameState {
         mapHeight = map.getHeight() * map.getTileHeight();
         tileHeight = map.getTileHeight();
         tileWidth = map.getTileWidth();
-        larry = new Larry(tileHeight, tileWidth*4);
+        larry = new Larry(32,128);
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initializeBlocked();
@@ -51,6 +51,7 @@ public class Play extends BasicGameState {
         larry.update(gc, delta, this);
 
         if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
+            larry.setpos(32,128);
             sbg.enterState(0);
         }
 
@@ -58,7 +59,7 @@ public class Play extends BasicGameState {
             if (gc.getInput().isKeyPressed(Input.KEY_TAB)) larry.setpos(32,128);
         }
 
-        if (larry.getX() == tileWidth & larry.getY() == tileHeight*4 & gc.getInput().isKeyPressed(Input.KEY_LSHIFT)) larry.setpos(3*32, 38*32);
+        if (gc.getInput().isKeyPressed(Input.KEY_LSHIFT)) larry.setpos(3*32, 38*32);
     }
 
     boolean isBlocked(float x, float y) {
