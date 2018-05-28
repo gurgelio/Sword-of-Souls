@@ -2,10 +2,10 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 
-public class Larry {
+public class Larry extends Entity {
 
     private char lastDirection;
-    private Vector2f pos;
+    private static Vector2f pos;
     private Rectangle rectangle;
     private static final float SPEED = 0.09f;
     int w, h;
@@ -17,7 +17,6 @@ public class Larry {
     private Anim feet = new Anim(new Image(Inventory.brownShoes),64,64,120);
 
     private Anim[] anims = {body, shirt, hair, legs, feet};
-
     private CharAnimation charAnimation = new CharAnimation(anims);
 
     Larry(float x, float y) throws SlickException {
@@ -25,9 +24,7 @@ public class Larry {
         h = 64;
         pos = new Vector2f(x, y);
         rectangle = new Rectangle(x, y, w, h);
-
     }
-
 
     void update(GameContainer gc, int delta, Play gps) {
 
