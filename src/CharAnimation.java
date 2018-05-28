@@ -1,16 +1,16 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.newdawn.slick.Animation;
 
-public class CharAnimation {
+class CharAnimation {
     private ArrayList<Anim> complete = new ArrayList<>();
 
-    public CharAnimation(Anim[] anims){
-        for (Anim a: anims){
-            complete.add(a);
-        }
+    CharAnimation(Anim[] anims){
+        complete.addAll(Arrays.asList(anims));
     }
 
-    public void update(int direction, int delt){
+    void update(int direction, int delt){
         for (Anim a : complete){
             a.update(a, direction, delt);
         }

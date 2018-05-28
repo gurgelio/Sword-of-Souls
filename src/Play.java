@@ -61,10 +61,20 @@ public class Play extends BasicGameState {
         if (larry.getX() == tileWidth & larry.getY() == tileHeight*4 & gc.getInput().isKeyPressed(Input.KEY_LSHIFT)) larry.setpos(3*32, 38*32);
     }
 
-    boolean isBlocked(float x, float y) {
+    boolean isBlocked(float x, float y, int radius) {
         int xBlock = (int) x / tileWidth;
         int yBlock = (int) y / tileHeight;
-        return blocked[xBlock][yBlock];
+        int n = (int) Math.ceil(radius / tileWidth);
+        if(n == 1) {
+            return blocked[xBlock][yBlock];
+        } else {
+            for(int i = n*(-1); i <= n; i++){
+                for(int j = n*(-1); j <= n; j++){
+                    if(blocked[xBlock+i][yBlock+j]) return true;
+                }
+            }
+            return false;
+        }
     }
 
     public Vector2f getHeroPosition() {

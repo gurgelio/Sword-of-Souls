@@ -7,7 +7,7 @@ public class Larry {
     private char lastDirection;
     private Vector2f pos;
     private Rectangle rectangle;
-    private static final float SPEED = 0.17f;
+    private static final float SPEED = 0.09f;
     private int w, h;
 
     private Anim body = new Anim(new Image("anim/lpc_entry/png/walkcycle/BODY_male.png"),64,64, 120);
@@ -18,86 +18,19 @@ public class Larry {
 
     private CharAnimation charAnimation = new CharAnimation(anims);
 
-    public Larry(float x, float y) throws SlickException {
-
-        /*
-
-         * Set the width and the height of Hero's image
-
-         */
-
+    Larry(float x, float y) throws SlickException {
         w = 32;
-
         h = 32;
-
         pos = new Vector2f(x, y);
-
         rectangle = new Rectangle(x, y, w, h);
 
     }
 
 
-
     void update(GameContainer gc, int delta, Play gps) {
 
-        Input input = gc.getInput();
-
-        /*
-
-         * If the hero is moving we have to deal with changing hero's position and
-
-         * his movement animations.
-
-         */
-
-        if (input.isKeyDown(Input.KEY_UP) | input.isKeyDown(Input.KEY_W)) {
-
-            if (!gps.isBlocked(pos.x - w/2, pos.y + delta * SPEED) && !gps.isBlocked(pos.x + w/2, pos.y - delta * SPEED)) {
-                pos.y -= delta * SPEED;
-            }
-
-            charAnimation.update(1,delta);
-            lastDirection = 'u';
-
-
-        } else if (input.isKeyDown(Input.KEY_DOWN) | input.isKeyDown(Input.KEY_S)) {
-
-            if (!gps.isBlocked(pos.x + w - 4, pos.y + h + delta * SPEED) && !gps.isBlocked(pos.x + 4, pos.y + h + delta * SPEED)) {
-                pos.y += delta * SPEED;
-            }
-
-            charAnimation.update(2,delta);
-            lastDirection = 'd';
-
-        } else if (input.isKeyDown(Input.KEY_LEFT) | input.isKeyDown(Input.KEY_A)) {
-
-            if (!gps.isBlocked(pos.x - delta * SPEED, pos.y + 4) && !gps.isBlocked(pos.x - delta * SPEED, pos.y + h - 4)) {
-                pos.x -= delta * SPEED;
-            }
-
-            charAnimation.update(3,delta);
-            lastDirection = 'l';
-
-        } else if (input.isKeyDown(Input.KEY_RIGHT) | input.isKeyDown(Input.KEY_D)) {
-
-            if (!gps.isBlocked(pos.x + w + delta * SPEED, pos.y + h - 4) && !gps.isBlocked(pos.x + w + delta * SPEED, pos.y + 4)) {
-                pos.x += delta * SPEED;
-            }
-
-            charAnimation.update(4,delta);
-            lastDirection = 'r';
-
-        }
-
-        /*
-
-         * If hero isn't moving he must be still so we have to change the
-
-         * animations.
-
-         */
-
-        else {
+        //movimentação do personagem, caso não haja, para a animação do mesmo
+        if(!move(gps, delta))
             switch (lastDirection) {
 
                 case 'd':
@@ -130,7 +63,6 @@ public class Larry {
 
             }
         }
-    }
 
 
     void render() {
@@ -173,4 +105,60 @@ public class Larry {
     private void setRectangle(Rectangle rectangle) {
         this.rectangle = rectangle;
     }
+
+    boolean move(Play gps, int delta){
+        boolean movedX = false;
+        boolean movedY = false;
+        if (In.keyIsPressed(In.KEY_A) && !In.keyIsPressed(In.KEY_D)){
+            if (!gps.isBlocked(pos.x - delta * SPEED, pos.y, 16)){
+                pos.x -= delta * SPEED;
+                movedX = true;
+            }
+
+            charAnimation.update(3,delta);
+            lastDirection = 'l';
+
+        }else if (In.keyIsPressed(In.KEY_D) && !In.keyIsPressed(In.KEY_A)){
+
+            if (!gps.isBlocked(pos.x + delta * SPEED, pos.y, 16)){
+                pos.x += delta * SPEED;
+                movedX = true;
+            }
+
+            charAnimation.update(4,delta);
+            lastDirection = 'r';
+        }
+
+        if (In.keyIsPressed(In.KEY_W) && !In.keyIsPressed(In.KEY_S)){
+            if (!gps.isBlocked(pos.x, pos.y + delta * SPEED, 16)){
+                pos.y -= delta * SPEED;
+                movedY = true;
+                if(!movedX) pos.y -= delta * SPEED;
+            }
+
+            charAnimation.update(1,delta);
+            lastDirection = 'u';
+
+
+        }else if (In.keyIsPressed(In.KEY_S) && !In.keyIsPressed(In.KEY_W)){
+
+            if (!gps.isBlocked(pos.x, pos.y + delta * SPEED, 16)){
+                pos.y += delta * SPEED;
+                movedY = true;
+                if(!movedX) pos.y += delta * SPEED;
+            }
+
+            charAnimation.update(2,delta);
+            lastDirection = 'd';
+        }
+
+        if(movedX && !movedY){
+            if(In.keyIsPressed(In.KEY_A)){
+                pos.x -= delta*SPEED;
+            } else pos.x += delta*SPEED;
+        }
+
+        return movedX || movedY;
+    }
+
 }
