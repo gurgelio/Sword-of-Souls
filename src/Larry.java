@@ -2,7 +2,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 
-public class Larry extends Entity {
+public class Larry extends Entity{
 
     private char lastDirection;
     private static Vector2f pos;
