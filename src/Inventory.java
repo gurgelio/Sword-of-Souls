@@ -19,4 +19,12 @@ public class Inventory {
     static String brownShirtCasting = castdir+"TORSO_robe_shirt_brown.png";
     static String brownShoesCasting = castdir+"FEET_shoes_brown.png";
 
+    //Death Cycle:
+
+    static String deathdir = dir+"hurt/";
+    static String maleBodyDying = deathdir+"BODY_male.png";
+    static String greenPantsDying = deathdir+"LEGS_pants_greenish.png";
+    static String blondeHairDying = deathdir+"HEAD_hair_blonde.png";
+    static String brownShirtDying = deathdir+"TORSO_robe_shirt_brown.png";
+    static String brownShoesDying = deathdir+"FEET_shoes_brown.png";
 }

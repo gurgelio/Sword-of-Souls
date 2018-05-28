@@ -13,6 +13,7 @@ public class Larry extends Entity{
     private Anim[] anims = {body, shirt, hair, legs, feet};
     private CharAnimation charAnimation = new CharAnimation(anims);
 
+
     Larry(float x, float y) throws SlickException {
         w = 64;
         h = 64;
@@ -102,7 +103,7 @@ public class Larry extends Entity{
             if (!gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w/2, h/2)){
                 pos.y += delta * SPEED;
                 movedY = true;
-                if(!(gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w/2, h/2) && movedX)) pos.y += delta * SPEED;
+                if(!(gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w/2, h/2) || movedX)) pos.y += delta * SPEED;
             }
 
             charAnimation.update(2,delta);

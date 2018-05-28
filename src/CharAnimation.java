@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 class CharAnimation {
     private ArrayList<Anim> complete = new ArrayList<>();
+    private Anim walk;
 
     CharAnimation(Anim[] anims){
         complete.addAll(Arrays.asList(anims));

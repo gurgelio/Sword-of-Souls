@@ -4,7 +4,7 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 
 class Anim {
-    private Animation up, down, left, right;
+    Animation up, down, left, right;
     Animation upStill, downStill, leftStill, rightStill, Current;
 
     Anim(Image img, int x, int y, int AnimSpeed) throws SlickException {

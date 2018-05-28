@@ -13,6 +13,7 @@ abstract class Entity {
     Anim legs = new Anim(new Image(Inventory.greenPants),64,64,120);
     Anim feet = new Anim(new Image(Inventory.brownShoes),64,64,120);
 
+    Anim death = new Anim(new Image(Inventory.maleBodyDying), 64, 64, 120);
 
 
     Entity(Anim[] animationSet) throws SlickException {
