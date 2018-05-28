@@ -10,12 +10,6 @@ public class Larry extends Entity{
     private static final float SPEED = 0.09f;
     int w, h;
 
-    private Anim body = new Anim(new Image(Inventory.maleBody),64,64, 120);
-    private Anim shirt = new Anim(new Image(Inventory.brownShirt),64,64,120);
-    private Anim hair = new Anim(new Image(Inventory.blondeHair),64,64,120);
-    private Anim legs = new Anim(new Image(Inventory.greenPants),64,64,120);
-    private Anim feet = new Anim(new Image(Inventory.brownShoes),64,64,120);
-
     private Anim[] anims = {body, shirt, hair, legs, feet};
     private CharAnimation charAnimation = new CharAnimation(anims);
 
