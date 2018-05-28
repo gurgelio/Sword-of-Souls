@@ -109,7 +109,7 @@ public class Larry {
     boolean move(Play gps, int delta){
         boolean movedX = false;
         boolean movedY = false;
-        if (In.keyIsPressed(In.KEY_A) && !In.keyIsPressed(In.KEY_D)){
+        if (In.keyHeld("a") && !In.keyHeld("d")){
             if (!gps.isBlocked(pos.x - delta * SPEED, pos.y, 16)){
                 pos.x -= delta * SPEED;
                 movedX = true;
@@ -118,7 +118,7 @@ public class Larry {
             charAnimation.update(3,delta);
             lastDirection = 'l';
 
-        }else if (In.keyIsPressed(In.KEY_D) && !In.keyIsPressed(In.KEY_A)){
+        }else if (In.keyHeld("d") && !In.keyHeld("a")){
 
             if (!gps.isBlocked(pos.x + delta * SPEED, pos.y, 16)){
                 pos.x += delta * SPEED;
@@ -129,7 +129,7 @@ public class Larry {
             lastDirection = 'r';
         }
 
-        if (In.keyIsPressed(In.KEY_W) && !In.keyIsPressed(In.KEY_S)){
+        if (In.keyHeld("w") && !In.keyHeld("s")){
             if (!gps.isBlocked(pos.x, pos.y + delta * SPEED, 16)){
                 pos.y -= delta * SPEED;
                 movedY = true;
@@ -140,7 +140,7 @@ public class Larry {
             lastDirection = 'u';
 
 
-        }else if (In.keyIsPressed(In.KEY_S) && !In.keyIsPressed(In.KEY_W)){
+        }else if (In.keyHeld("s") && !In.keyHeld("w")){
 
             if (!gps.isBlocked(pos.x, pos.y + delta * SPEED, 16)){
                 pos.y += delta * SPEED;
@@ -153,7 +153,7 @@ public class Larry {
         }
 
         if(movedX && !movedY){
-            if(In.keyIsPressed(In.KEY_A)){
+            if(In.keyHeld("a")){
                 pos.x -= delta*SPEED;
             } else pos.x += delta*SPEED;
         }

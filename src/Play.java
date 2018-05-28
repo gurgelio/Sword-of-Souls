@@ -1,6 +1,5 @@
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
@@ -37,6 +36,7 @@ public class Play extends BasicGameState {
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initializeBlocked();
+        In.init();
     }
 
     @Override
@@ -48,17 +48,18 @@ public class Play extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
+        In.update();
         larry.update(gc, delta, this);
 
-        if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
+        if (In.keyPressed("escape")) {
             sbg.enterState(0);
         }
 
         if (larry.getX() > 4*32 - 10 & larry.getX() < 5*32 + 10 & larry.getY() > 39*32 - 10 & larry.getY() < 40*32 + 10){
-            if (gc.getInput().isKeyPressed(Input.KEY_TAB)) larry.setpos(32,128);
+            if (In.keyPressed("tab")) larry.setpos(32,128);
         }
 
-        if (larry.getX() == tileWidth & larry.getY() == tileHeight*4 & gc.getInput().isKeyPressed(Input.KEY_LSHIFT)) larry.setpos(3*32, 38*32);
+        if (larry.getX() == tileWidth & larry.getY() == tileHeight*4 & In.keyPressed("lshift")) larry.setpos(3*32, 38*32);
     }
 
     boolean isBlocked(float x, float y, int radius) {
@@ -77,11 +78,11 @@ public class Play extends BasicGameState {
         }
     }
 
-    public Vector2f getHeroPosition() {
+    Vector2f getHeroPosition() {
         return larry.getpos();
     }
 
-    public void setHeroPosition(Vector2f pos) {
+    void setHeroPosition(Vector2f pos) {
         larry.setpos((int) pos.x,(int) pos.y);
     }
 
