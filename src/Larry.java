@@ -14,7 +14,9 @@ public class Larry {
     private Anim shirt = new Anim(new Image("anim/lpc_entry/png/walkcycle/TORSO_robe_shirt_brown.png"),64,64,120);
     private Anim hair = new Anim(new Image("anim/lpc_entry/png/walkcycle/HEAD_hair_blonde.png"),64,64,120);
     private Anim legs = new Anim(new Image("anim/lpc_entry/png/walkcycle/LEGS_pants_greenish.png"),64,64,120);
-    private Anim[] anims = {body, shirt, hair, legs};
+    private Anim feet = new Anim(new Image("anim/lpc_entry/png/walkcycle/FEET_shoes_brown.png"),64,64,120);
+
+    private Anim[] anims = {body, shirt, hair, legs, feet};
 
     private CharAnimation charAnimation = new CharAnimation(anims);
 
@@ -30,47 +32,19 @@ public class Larry {
     void update(GameContainer gc, int delta, Play gps) {
 
         //movimentação do personagem, caso não haja, para a animação do mesmo
-        if(!move(gps, delta))
-            switch (lastDirection) {
-
-                case 'd':
-                    body.Current = body.downStill;
-                    shirt.Current = shirt.downStill;
-                    hair.Current = hair.downStill;
-                    legs.Current = legs.downStill;
-                    break;
-
-                case 'u':
-                    body.Current = body.upStill;
-                    shirt.Current = shirt.upStill;
-                    hair.Current = hair.upStill;
-                    legs.Current = legs.upStill;
-                    break;
-
-                case 'l':
-                    body.Current = body.leftStill;
-                    shirt.Current = shirt.leftStill;
-                    hair.Current = hair.leftStill;
-                    legs.Current = legs.leftStill;
-                    break;
-
-                case 'r':
-                    body.Current = body.rightStill;
-                    shirt.Current = shirt.rightStill;
-                    hair.Current = hair.rightStill;
-                    legs.Current = legs.rightStill;
-                    break;
-
-            }
+        if(!move(gps, delta)){
+            charAnimation.lastDir(lastDirection);
         }
+    }
 
 
     void render() {
 
         body.Current.draw(pos.x, pos.y);
-        shirt.Current.draw(pos.x,pos.y);
-        hair.Current.draw(pos.x,pos.y);
-        legs.Current.draw(pos.x,pos.y);
+        shirt.Current.draw(pos.x, pos.y);
+        hair.Current.draw(pos.x, pos.y);
+        legs.Current.draw(pos.x, pos.y);
+        feet.Current.draw(pos.x, pos.y);
 
     }
 
