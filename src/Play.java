@@ -32,7 +32,7 @@ public class Play extends BasicGameState {
         mapHeight = map.getHeight() * map.getTileHeight();
         tileHeight = map.getTileHeight();
         tileWidth = map.getTileWidth();
-        larry = new Larry(tileHeight, tileWidth*4);
+        larry = new Larry(32,128);
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initializeBlocked();
@@ -44,12 +44,23 @@ public class Play extends BasicGameState {
         camera.translate(g, larry);
         map.render(0, 0);
         larry.render();
+        float[] hitbox = larry.hitbox();
+        g.drawRect(larry.getX(), larry.getY(), larry.w, larry.h);
+        g.drawRect(hitbox[0], hitbox[1], 32, 32);
+        for(int x=0; x < map.getWidth(); x++){
+            for(int y=0; y < map.getHeight(); y++){
+                if(blocked[x][y]){
+                    g.drawRect((float) x * tileWidth, (float) y * tileHeight, (float) tileWidth, (float) tileHeight);
+                }
+            }
+        }
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         In.update();
         larry.update(gc, delta, this);
+
 
         if (In.keyPressed("escape")) {
             sbg.enterState(0);
@@ -62,20 +73,17 @@ public class Play extends BasicGameState {
         if (In.keyPressed("lshift")) larry.setpos(3*32, 38*32);
     }
 
-    boolean isBlocked(float x, float y, int radius) {
+    boolean isBlocked(float x, float y, int width, int height) {
         int xBlock = (int) x / tileWidth;
         int yBlock = (int) y / tileHeight;
-        int n = (int) Math.ceil(radius / tileWidth);
-        if(n == 1) {
-            return blocked[xBlock][yBlock];
-        } else {
-            for(int i = n*(-1); i <= n; i++){
-                for(int j = n*(-1); j <= n; j++){
-                    if(blocked[xBlock+i][yBlock+j]) return true;
-                }
+        int nx = (int) Math.ceil(width / tileWidth);
+        int ny = (int) Math.ceil(height / tileHeight);
+        for(int i=0; i<=nx; i++){
+            for(int j=0; j<=ny; j++){
+                if(blocked[xBlock + i][yBlock + j]) return true;
             }
-            return false;
         }
+        return false;
     }
 
     Vector2f getHeroPosition() {
