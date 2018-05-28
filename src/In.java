@@ -121,7 +121,7 @@ class In {
                 heldButtons.add(button);
             }
         }
-        
+
         for(String key : allKeys){
             if(Keyboard.isKeyDown(keys.get(key)) && !heldKeys.contains(key)){
                 pressedKeys.add(key);

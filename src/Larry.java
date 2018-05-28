@@ -8,7 +8,7 @@ public class Larry {
     private Vector2f pos;
     private Rectangle rectangle;
     private static final float SPEED = 0.09f;
-    private int w, h;
+    int w, h;
 
     private Anim body = new Anim(new Image("anim/lpc_entry/png/walkcycle/BODY_male.png"),64,64, 120);
     private Anim shirt = new Anim(new Image("anim/lpc_entry/png/walkcycle/TORSO_robe_shirt_brown.png"),64,64,120);
@@ -19,8 +19,8 @@ public class Larry {
     private CharAnimation charAnimation = new CharAnimation(anims);
 
     Larry(float x, float y) throws SlickException {
-        w = 32;
-        h = 32;
+        w = 64;
+        h = 64;
         pos = new Vector2f(x, y);
         rectangle = new Rectangle(x, y, w, h);
 
@@ -109,8 +109,9 @@ public class Larry {
     boolean move(Play gps, int delta){
         boolean movedX = false;
         boolean movedY = false;
+        float[] hitbox = hitbox();
         if ((In.keyHeld("a") && !In.keyHeld("d")) || (In.keyHeld("left") && !In.keyHeld("right"))){
-            if (!gps.isBlocked(pos.x - delta * SPEED, pos.y, 16)){
+            if (!gps.isBlocked(hitbox[0] - delta * SPEED, hitbox[1], w/2, h/2)){
                 pos.x -= delta * SPEED;
                 movedX = true;
             }
@@ -120,7 +121,7 @@ public class Larry {
 
         }else if ((In.keyHeld("d") && !In.keyHeld("a")) || (In.keyHeld("right") && !In.keyHeld("left"))){
 
-            if (!gps.isBlocked(pos.x + delta * SPEED, pos.y, 16)){
+            if (!gps.isBlocked(hitbox[0] + delta * SPEED, hitbox[1], w/2, h/2)){
                 pos.x += delta * SPEED;
                 movedX = true;
             }
@@ -130,10 +131,10 @@ public class Larry {
         }
 
         if ((In.keyHeld("w") && !In.keyHeld("s")) || In.keyHeld("up") && !In.keyHeld("down")){
-            if (!gps.isBlocked(pos.x, pos.y + delta * SPEED, 16)){
+            if (!gps.isBlocked(hitbox[0], hitbox[1] - delta * SPEED, w/2, h/2)){
                 pos.y -= delta * SPEED;
                 movedY = true;
-                if(!movedX) pos.y -= delta * SPEED;
+                if(!(gps.isBlocked(hitbox[0], hitbox[1] - delta * SPEED, w/2, h/2) || movedX)) pos.y -= delta * SPEED;
             }
 
             charAnimation.update(1,delta);
@@ -142,10 +143,10 @@ public class Larry {
 
         }else if ((In.keyHeld("s") && !In.keyHeld("w")) || In.keyHeld("down") && !In.keyHeld("up")){
 
-            if (!gps.isBlocked(pos.x, pos.y + delta * SPEED, 16)){
+            if (!gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w/2, h/2)){
                 pos.y += delta * SPEED;
                 movedY = true;
-                if(!movedX) pos.y += delta * SPEED;
+                if(!(gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w/2, h/2) && movedX)) pos.y += delta * SPEED;
             }
 
             charAnimation.update(2,delta);
@@ -153,12 +154,15 @@ public class Larry {
         }
 
         if(movedX && !movedY){
-            if(In.keyHeld("a") || In.keyHeld("left")){
+            if(!gps.isBlocked(hitbox[0] - delta * SPEED, hitbox[1], w/2, h/2) && (In.keyHeld("a") || In.keyHeld("left"))){
                 pos.x -= delta*SPEED;
-            } else pos.x += delta*SPEED;
+            } else if(!gps.isBlocked(hitbox[0] + delta * SPEED, hitbox[1], w/2, h/2)) pos.x += delta*SPEED;
         }
-
         return movedX || movedY;
+    }
+
+    float[] hitbox(){
+        return new float[]{(float) (getX() + w/4), (float) (getY() + h/2)};
     }
 
 }
