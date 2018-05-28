@@ -7,11 +7,10 @@ public class Larry extends Entity{
     private char lastDirection;
     private static Vector2f pos;
     private Rectangle rectangle;
-    private static final float SPEED = 0.09f;
+    private static final float SPEED = 0.1f;
     int w, h;
 
-    private Anim[] anims = {body, shirt, hair, legs, feet};
-    private CharAnimation charAnimation = new CharAnimation(anims);
+    private CharAnimation charAnimation = chAnim;
 
 
     Larry(float x, float y) throws SlickException {

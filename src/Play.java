@@ -71,6 +71,8 @@ public class Play extends BasicGameState {
         }
 
         if (In.keyPressed("lshift")) larry.setpos(3*32, 38*32);
+
+        if (In.keyPressed("space")) larry.setDeath();
     }
 
     boolean isBlocked(float x, float y, int width, int height) {

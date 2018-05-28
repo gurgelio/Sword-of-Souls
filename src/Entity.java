@@ -4,7 +4,6 @@ import org.newdawn.slick.geom.Vector2f;
 
 abstract class Entity {
     private Vector2f pos;
-    private CharAnimation chanim;
     private int hp = 100, atack = 15, armor = 40;
 
     Anim body = new Anim(new Image(Inventory.maleBody),64,64, 120);
@@ -15,12 +14,16 @@ abstract class Entity {
 
     Anim death = new Anim(new Image(Inventory.maleBodyDying), 64, 64, 120);
 
+    CharAnimation chAnim = new CharAnimation(new Anim[] {body,shirt,hair,legs,feet});
 
-    Entity(Anim[] animationSet) throws SlickException {
-        chanim = new CharAnimation(animationSet);
+    void setAnimation(Anim[] animationSet){
+        chAnim = new CharAnimation(animationSet);
+    }
+
+    void setDeath() {
+        chAnim = new CharAnimation(new Anim[] {death});
     }
 
     Entity() throws SlickException {
-    //Construtor default
     }
 }
