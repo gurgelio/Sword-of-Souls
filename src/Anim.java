@@ -3,8 +3,9 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 
-public class Anim {
-    Animation up, down, left, right, upStill, downStill, leftStill, rightStill, Current;
+class Anim {
+    private Animation up, down, left, right;
+    Animation upStill, downStill, leftStill, rightStill, Current;
 
     Anim(Image img, int x, int y, int AnimSpeed) throws SlickException {
 
@@ -29,7 +30,7 @@ public class Anim {
 
     }
 
-    public void update(Anim an, int direction, int del){
+    void update(Anim an, int direction, int del){
 
         /* 1 - Up
            2 - Down

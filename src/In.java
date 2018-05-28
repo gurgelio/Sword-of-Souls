@@ -1,11 +1,8 @@
-import org.lwjgl.Sys;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.input.Keyboard;
-
 import java.util.*;
 
 class In {
-    private static boolean initialized = false;
 
     private static Map<String, Integer> buttons = new HashMap<>();
     private static Set<String> allButtons = new HashSet<>();
@@ -74,7 +71,6 @@ class In {
         keys.put("lshift", Keyboard.KEY_LSHIFT);
         keys.put("tab", Keyboard.KEY_TAB);
         allKeys = keys.keySet();
-        initialized = true;
     }
 
     //atualiza todas as teclas e botões pressionados, segurados e soltos

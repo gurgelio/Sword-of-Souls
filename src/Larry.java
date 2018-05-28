@@ -27,7 +27,6 @@ public class Larry extends Entity{
     }
 
     void update(GameContainer gc, int delta, Play gps) {
-
         //movimentação do personagem, caso não haja, para a animação do mesmo
         if(!move(gps, delta)){
             charAnimation.lastDir(lastDirection);
@@ -36,42 +35,34 @@ public class Larry extends Entity{
 
 
     void render() {
-
         body.Current.draw(pos.x, pos.y);
         shirt.Current.draw(pos.x, pos.y);
         hair.Current.draw(pos.x, pos.y);
         legs.Current.draw(pos.x, pos.y);
         feet.Current.draw(pos.x, pos.y);
-
     }
-
 
     float getX() {
         return pos.x;
     }
 
 
-
     float getY() {
         return pos.y;
     }
 
-
     Vector2f getpos() {
         return pos;
     }
-
 
     public void setpos(int x, int y) {
         this.pos.x = x;
         this.pos.y = y;
     }
 
-
     private Rectangle getRectangle() {
         return rectangle;
     }
-
 
     private void setRectangle(Rectangle rectangle) {
         this.rectangle = rectangle;
@@ -135,5 +126,4 @@ public class Larry extends Entity{
     float[] hitbox(){
         return new float[]{(float) (getX() + w/4), (float) (getY() + h/2)};
     }
-
 }

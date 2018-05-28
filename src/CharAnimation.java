@@ -32,7 +32,6 @@ class CharAnimation {
                 case 'r':
                     a.Current = a.rightStill;
                     break;
-
             }
         }
     }
