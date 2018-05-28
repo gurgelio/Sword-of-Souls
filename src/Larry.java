@@ -109,7 +109,7 @@ public class Larry {
     boolean move(Play gps, int delta){
         boolean movedX = false;
         boolean movedY = false;
-        if (In.keyHeld("a") && !In.keyHeld("d")){
+        if ((In.keyHeld("a") && !In.keyHeld("d")) || (In.keyHeld("left") && !In.keyHeld("right"))){
             if (!gps.isBlocked(pos.x - delta * SPEED, pos.y, 16)){
                 pos.x -= delta * SPEED;
                 movedX = true;
@@ -118,7 +118,7 @@ public class Larry {
             charAnimation.update(3,delta);
             lastDirection = 'l';
 
-        }else if (In.keyHeld("d") && !In.keyHeld("a")){
+        }else if ((In.keyHeld("d") && !In.keyHeld("a")) || (In.keyHeld("right") && !In.keyHeld("left"))){
 
             if (!gps.isBlocked(pos.x + delta * SPEED, pos.y, 16)){
                 pos.x += delta * SPEED;
@@ -129,7 +129,7 @@ public class Larry {
             lastDirection = 'r';
         }
 
-        if (In.keyHeld("w") && !In.keyHeld("s")){
+        if ((In.keyHeld("w") && !In.keyHeld("s")) || In.keyHeld("up") && !In.keyHeld("down")){
             if (!gps.isBlocked(pos.x, pos.y + delta * SPEED, 16)){
                 pos.y -= delta * SPEED;
                 movedY = true;
@@ -140,7 +140,7 @@ public class Larry {
             lastDirection = 'u';
 
 
-        }else if (In.keyHeld("s") && !In.keyHeld("w")){
+        }else if ((In.keyHeld("s") && !In.keyHeld("w")) || In.keyHeld("down") && !In.keyHeld("up")){
 
             if (!gps.isBlocked(pos.x, pos.y + delta * SPEED, 16)){
                 pos.y += delta * SPEED;
@@ -153,7 +153,7 @@ public class Larry {
         }
 
         if(movedX && !movedY){
-            if(In.keyHeld("a")){
+            if(In.keyHeld("a") || In.keyHeld("left")){
                 pos.x -= delta*SPEED;
             } else pos.x += delta*SPEED;
         }

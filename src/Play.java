@@ -59,7 +59,7 @@ public class Play extends BasicGameState {
             if (In.keyPressed("tab")) larry.setpos(32,128);
         }
 
-        if (larry.getX() == tileWidth & larry.getY() == tileHeight*4 & In.keyPressed("lshift")) larry.setpos(3*32, 38*32);
+        if (In.keyPressed("lshift")) larry.setpos(3*32, 38*32);
     }
 
     boolean isBlocked(float x, float y, int radius) {
