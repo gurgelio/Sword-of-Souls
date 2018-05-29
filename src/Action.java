@@ -6,17 +6,17 @@ class Action {
     Animation up, down, left, right;
     Animation Current;
 
-    Action(Image img, int x, int y, int AnimSpeed){
+    Action(Image img, int x, int y, int deltaFrame){
 
         SpriteSheet upSheet = new SpriteSheet(img.getSubImage(0,0,img.getWidth() - x, y), x, y);
         SpriteSheet leftSheet = new SpriteSheet(img.getSubImage(0, y,img.getWidth() - x,y), x, y);
         SpriteSheet downSheet = new SpriteSheet(img.getSubImage(0,2*y,img.getWidth() - x,y), x, y);
         SpriteSheet rightSheet = new SpriteSheet(img.getSubImage(0,3*y,img.getWidth() - x,y), x, y);
 
-        up = new Animation(upSheet,AnimSpeed);
-        left = new Animation(leftSheet,AnimSpeed);
-        down = new Animation(downSheet,AnimSpeed);
-        right = new Animation(rightSheet,AnimSpeed);
+        up = new Animation(upSheet,deltaFrame);
+        left = new Animation(leftSheet,deltaFrame);
+        down = new Animation(downSheet,deltaFrame);
+        right = new Animation(rightSheet,deltaFrame);
         Current = up;
     }
 

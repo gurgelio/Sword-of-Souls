@@ -9,6 +9,7 @@ public class Larry extends Entity{
     private Rectangle rectangle;
     private static final float SPEED = 0.1f;
     int w, h;
+    private float tpCooldown = 0, auxTpCooldown = 0;
 
     Larry(float x, float y, String[] equipment) throws SlickException {
         super(equipment);
@@ -19,20 +20,58 @@ public class Larry extends Entity{
     }
 
     void update(GameContainer gc, int delta, Play gps) {
+        tpCooldown += delta;
         //movimentação do personagem, caso não haja, para a animação do mesmo
-        if(!(hp <= 0)) {
+        if (!(hp <= 0)) {
             animation.walk();
-            if (In.buttonHeld("lmb")) {
+            if (In.keyHeld("r")) {
+                for (Action act : animation.current) {
+                    switch (lastDirection) {
+                        case 'r':
+                            act.Current.draw(pos.x + 64,pos.y);
+                            break;
+                        case 'l':
+                            act.Current.draw(pos.x - 64, pos.y);
+                            break;
+                        case 'u':
+                            act.Current.draw(pos.x, pos.y - 64);
+                            break;
+                        case 'd':
+                            act.Current.draw(pos.x,pos.y + 64);
+                            break;
+                    }
+                }
+                animation.spell();
+            }
+            else if (In.keyReleased("r") && tpCooldown > 2000) {
+                switch (lastDirection) {
+                    case 'r':
+                        pos.x += 64;
+                        break;
+                    case 'l':
+                        pos.x -= 64;
+                        break;
+                    case 'u':
+                        pos.y -= 64;
+                        break;
+                    case 'd':
+                        pos.y += 64;
+                        break;
+                }
+
+                tpCooldown = 0;
+            }
+            else if (In.buttonHeld("lmb")) {
                 animation.thrust();
             } else if (!move(gps, delta)) {
                 animation.stop();
             }
-        }else animation.death();
-        if(In.keyHeld("space")){
+        } else animation.death();
+        if (In.keyHeld("space")) {
             hp = 0;
-        } else if(hp <= 0){
+        } else if (hp <= 0) {
             hp = 100;
-            for(Action act : animation.current){
+            for (Action act : animation.current) {
                 act.up.restart();
                 act.left.restart();
                 act.right.restart();
@@ -40,16 +79,19 @@ public class Larry extends Entity{
             }
         }
 
-        if(lastDirection == 'u'){
-            animation.update(1, delta);
-        } else if(lastDirection == 'l'){
-            animation.update(3, delta);
-        } else if(lastDirection == 'r'){
-            animation.update(4, delta);
-        } else {
-            animation.update(2, delta);
-        }
+
+
+            if (lastDirection == 'u') {
+                animation.update(1, delta);
+            } else if (lastDirection == 'l') {
+                animation.update(3, delta);
+            } else if (lastDirection == 'r') {
+                animation.update(4, delta);
+            } else if (lastDirection == 'd') {
+                animation.update(2, delta);
+            }
     }
+
 
 
     void render() {

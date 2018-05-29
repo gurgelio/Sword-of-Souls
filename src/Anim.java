@@ -12,14 +12,14 @@ class Anim {
     private ArrayList<Action> walk = new ArrayList<>();
     private ArrayList<Action> thrust = new ArrayList<>();
     private ArrayList<Action> death = new ArrayList<>();
-    private ArrayList<Action> spell = new ArrayList<>();
+    ArrayList<Action> spell = new ArrayList<>();
     private ArrayList<Action> stop = new ArrayList<>();
 
     Anim(ArrayList<String> strList) throws SlickException {
         for (String st : strList){
             walk.add(new Action(new Image(walkdir+st),64,64, 120));
             thrust.add(new Action(new Image(thrustdir+st),64,64,120));
-            death.add(new Action(new Image(deathdir+st),64,64,120));
+            death.add(new Action(new Image(deathdir+st),64,64,270));
             spell.add(new Action(new Image(castdir+st),64,64,120));
             stop.add(new Action(new Image(walkdir+st),64,64, 120));
         }
@@ -33,13 +33,13 @@ class Anim {
 
         for(Action act : thrust){
             act.up.setDuration(0, 0);
-            act.up.setDuration(act.up.getFrameCount() - 1, 500);
+            act.up.setDuration(act.up.getFrameCount() - 1, 800);
             act.down.setDuration(0, 0);
-            act.down.setDuration(act.down.getFrameCount() - 1, 500);
+            act.down.setDuration(act.down.getFrameCount() - 1, 800);
             act.left.setDuration(0, 0);
-            act.left.setDuration(act.left.getFrameCount() - 1, 500);
+            act.left.setDuration(act.left.getFrameCount() - 1, 800);
             act.right.setDuration(0, 0);
-            act.right.setDuration(act.right.getFrameCount() - 1, 500);
+            act.right.setDuration(act.right.getFrameCount() - 1, 800);
         }
 
 
@@ -56,8 +56,14 @@ class Anim {
 
 
         for(Action act : spell) {
-            act.Current.setDuration(0, 0);
-            act.Current.setDuration(act.Current.getFrameCount() - 1, 1000);
+            act.up.setDuration(0, 0);
+            act.up.setDuration(act.up.getFrameCount() - 1, 2000);
+            act.down.setDuration(0, 0);
+            act.down.setDuration(act.down.getFrameCount() - 1, 2000);
+            act.left.setDuration(0, 0);
+            act.left.setDuration(act.left.getFrameCount() - 1, 2000);
+            act.right.setDuration(0, 0);
+            act.right.setDuration(act.right.getFrameCount() - 1, 2000);
         }
 
         for(Action act : stop){
@@ -94,6 +100,11 @@ class Anim {
     void death(){
         this.current.clear();
         this.current.addAll(death);
+    }
+
+    void spell(){
+        this.current.clear();
+        this.current.addAll(spell);
     }
 
 }

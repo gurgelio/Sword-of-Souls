@@ -72,7 +72,9 @@ public class Play extends BasicGameState {
         }
 
         if (larry.getX() > 4*32 - 10 & larry.getX() < 5*32 + 10 & larry.getY() > 39*32 - 10 & larry.getY() < 40*32 + 10){
-            if (In.keyPressed("tab")) larry.setpos(32,128);
+            if (In.keyPressed("tab")){
+                larry.setpos(32,128);
+            }
         }
 
         if (In.keyPressed("lshift")) larry.setpos(3*32, 38*32);
