@@ -16,25 +16,44 @@ public class Larry extends Entity{
         h = 64;
         pos = new Vector2f(x, y);
         rectangle = new Rectangle(x, y, w, h);
-
-
-
     }
 
     void update(GameContainer gc, int delta, Play gps) {
         //movimentação do personagem, caso não haja, para a animação do mesmo
-        if(!move(gps, delta)){
-            animation.lastDir(lastDirection);
+        if(!(hp <= 0)) {
+            animation.walk();
+            if (In.buttonHeld("lmb")) {
+                animation.thrust();
+            } else if (!move(gps, delta)) {
+                animation.stop();
+            }
+        }else animation.death();
+        if(In.keyHeld("space")){
+            hp = 0;
+        } else if(hp <= 0){
+            hp = 100;
+            for(Action act : animation.current){
+                act.up.restart();
+                act.left.restart();
+                act.right.restart();
+                act.down.restart();
+            }
         }
-        if(In.keyPressed("space")){
-            animation.thrust();
-            
+
+        if(lastDirection == 'u'){
+            animation.update(1, delta);
+        } else if(lastDirection == 'l'){
+            animation.update(3, delta);
+        } else if(lastDirection == 'r'){
+            animation.update(4, delta);
+        } else {
+            animation.update(2, delta);
         }
     }
 
 
     void render() {
-        for (Action act : animation.getAnimList()){
+        for (Action act : animation.current){
             act.Current.draw(pos.x, pos.y);
         }
     }
@@ -68,57 +87,53 @@ public class Larry extends Entity{
     boolean move(Play gps, int delta){
         boolean movedX = false;
         boolean movedY = false;
+
         float[] hitbox = hitbox();
-        if ((In.keyHeld("a") && !In.keyHeld("d")) || (In.keyHeld("left") && !In.keyHeld("right"))){
-            if (!gps.isBlocked(hitbox[0] - delta * SPEED, hitbox[1], w/2, h/2)){
+        if ((In.keyHeld("a") && !In.keyHeld("d")) || (In.keyHeld("left") && !In.keyHeld("right"))) {
+            if (!gps.isBlocked(hitbox[0] - delta * SPEED, hitbox[1], w / 2, h / 2)) {
                 pos.x -= delta * SPEED;
                 movedX = true;
             }
-
-            animation.update(3,delta);
             lastDirection = 'l';
 
-        }else if ((In.keyHeld("d") && !In.keyHeld("a")) || (In.keyHeld("right") && !In.keyHeld("left"))){
+        } else if ((In.keyHeld("d") && !In.keyHeld("a")) || (In.keyHeld("right") && !In.keyHeld("left"))) {
 
-            if (!gps.isBlocked(hitbox[0] + delta * SPEED, hitbox[1], w/2, h/2)){
+            if (!gps.isBlocked(hitbox[0] + delta * SPEED, hitbox[1], w / 2, h / 2)) {
                 pos.x += delta * SPEED;
                 movedX = true;
             }
-
-            animation.update(4,delta);
             lastDirection = 'r';
         }
 
-        if ((In.keyHeld("w") && !In.keyHeld("s")) || In.keyHeld("up") && !In.keyHeld("down")){
-            if (!gps.isBlocked(hitbox[0], hitbox[1] - delta * SPEED, w/2, h/2)){
+        if ((In.keyHeld("w") && !In.keyHeld("s")) || In.keyHeld("up") && !In.keyHeld("down")) {
+            if (!gps.isBlocked(hitbox[0], hitbox[1] - delta * SPEED, w / 2, h / 2)) {
                 pos.y -= delta * SPEED;
                 movedY = true;
-                if(!(gps.isBlocked(hitbox[0], hitbox[1] - delta * SPEED, w/2, h/2) || movedX)) pos.y -= delta * SPEED;
+                if (!(gps.isBlocked(hitbox[0], hitbox[1] - delta * SPEED, w / 2, h / 2) || movedX))
+                    pos.y -= delta * SPEED;
             }
-
-            animation.update(1,delta);
             lastDirection = 'u';
 
 
-        }else if ((In.keyHeld("s") && !In.keyHeld("w")) || In.keyHeld("down") && !In.keyHeld("up")){
+        } else if ((In.keyHeld("s") && !In.keyHeld("w")) || In.keyHeld("down") && !In.keyHeld("up")) {
 
-            if (!gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w/2, h/2)){
+            if (!gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w / 2, h / 2)) {
                 pos.y += delta * SPEED;
                 movedY = true;
-                if(!(gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w/2, h/2) || movedX)) pos.y += delta * SPEED;
+                if (!(gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w / 2, h / 2) || movedX))
+                    pos.y += delta * SPEED;
             }
-
-            animation.update(2,delta);
             lastDirection = 'd';
         }
 
-        if(movedX && !movedY){
-            if(!gps.isBlocked(hitbox[0] - delta * SPEED, hitbox[1], w/2, h/2) && (In.keyHeld("a") || In.keyHeld("left"))){
-                pos.x -= delta*SPEED;
-            } else if(!gps.isBlocked(hitbox[0] + delta * SPEED, hitbox[1], w/2, h/2)) pos.x += delta*SPEED;
+        if (movedX && !movedY) {
+            if (!gps.isBlocked(hitbox[0] - delta * SPEED, hitbox[1], w / 2, h / 2) && (In.keyHeld("a") || In.keyHeld("left"))) {
+                pos.x -= delta * SPEED;
+            } else if (!gps.isBlocked(hitbox[0] + delta * SPEED, hitbox[1], w / 2, h / 2)) pos.x += delta * SPEED;
         }
-        return movedX || movedY;
-    }
+
+    return movedX || movedY;
+}
 
     float[] hitbox(){
         return new float[]{(float) (getX() + w/4), (float) (getY() + h/2)};
