@@ -1,11 +1,6 @@
 import java.util.*;
 
 public class Items {
-    private static String dir = "anim/lpc_entry/png/";
-    static String walkdir = dir+"walkcycle/";
-    static String castdir = dir+"spellcast/";
-    static String thrustdir = dir+"thrust/";
-    static String deathdir = dir+"hurt/";
     static Map<String, String> items = new HashMap<>();
 
     Map<String, String> equipment;

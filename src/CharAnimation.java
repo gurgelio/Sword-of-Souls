@@ -1,20 +1,19 @@
-import java.util.ArrayList;
-
 class CharAnimation {
-    private ArrayList<Action> complete;
+    private Anim complete;
 
-    CharAnimation(ArrayList<Action> anims){
-        complete = anims;
+    CharAnimation(Anim an){
+        complete = an;
+        complete.current = an.getAnimList();
     }
 
     void update(int direction, int delt){
-        for (Action a : complete){
+        for (Action a : complete.current){
             a.update(a, direction, delt);
         }
     }
 
     void lastDir(char last){
-        for (Action a : complete) {
+        for (Action a : complete.current) {
             switch (last) {
                 case 'd':
                     a.Current = a.downStill;

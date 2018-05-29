@@ -37,7 +37,7 @@ public class Play extends BasicGameState {
         tileWidth = map.getTileWidth();
         Items.init();
         In.init();
-        larry = new Larry(32,128, new String[]{"male body", "blonde hair", "white shirt", "leather skirt", "brown shoes"});
+        larry = new Larry(32,128, new String[]{"male body", "blonde hair", "white shirt", "green pants", "armor shoes"});
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initializeBlocked();

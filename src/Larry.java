@@ -2,9 +2,6 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Larry extends Entity{
 
     private char lastDirection;
@@ -35,7 +32,7 @@ public class Larry extends Entity{
 
 
     void render() {
-        for (Action act : walk.getAnimList()){
+        for (Action act : current.getAnimList()){
             act.Current.draw(pos.x, pos.y);
         }
     }
