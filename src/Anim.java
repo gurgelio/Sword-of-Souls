@@ -10,7 +10,7 @@ class Anim {
     private static String deathdir = dir+"hurt/";
     private ArrayList<Action> current = new ArrayList<>();
     private ArrayList<Action> walk = new ArrayList<>();
-    private ArrayList<Action> thrust = new ArrayList<>();
+    ArrayList<Action> thrust = new ArrayList<>();
     private ArrayList<Action> death = new ArrayList<>();
     private ArrayList<Action> spell = new ArrayList<>();
 

@@ -26,7 +26,10 @@ public class Larry extends Entity{
         if(!move(gps, delta)){
             animation.lastDir(lastDirection);
         }
-        if(In.buttonPressed("lmb")) animation.thrust();
+        if(In.keyPressed("space")){
+            animation.thrust();
+            
+        }
     }
 
 
