@@ -2,3 +2,5 @@
 *.class
 out/
 .idea/
+.idea/workspace.xml
+out/production/Trab/Menu.class

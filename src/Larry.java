@@ -7,17 +7,10 @@ public class Larry extends Entity{
     private char lastDirection;
     private static Vector2f pos;
     private Rectangle rectangle;
-    private static final float SPEED = 0.09f;
+    private static final float SPEED = 0.1f;
     int w, h;
 
-    private Anim body = new Anim(new Image(Inventory.maleBody),64,64, 120);
-    private Anim shirt = new Anim(new Image(Inventory.brownShirt),64,64,120);
-    private Anim hair = new Anim(new Image(Inventory.blondeHair),64,64,120);
-    private Anim legs = new Anim(new Image(Inventory.greenPants),64,64,120);
-    private Anim feet = new Anim(new Image(Inventory.brownShoes),64,64,120);
-
-    private Anim[] anims = {body, shirt, hair, legs, feet};
-    private CharAnimation charAnimation = new CharAnimation(anims);
+    private CharAnimation charAnimation = chAnim;
 
     Larry(float x, float y) throws SlickException {
         w = 64;
@@ -35,11 +28,9 @@ public class Larry extends Entity{
 
 
     void render() {
-        body.Current.draw(pos.x, pos.y);
-        shirt.Current.draw(pos.x, pos.y);
-        hair.Current.draw(pos.x, pos.y);
-        legs.Current.draw(pos.x, pos.y);
-        feet.Current.draw(pos.x, pos.y);
+        for (Actions act : walk.getAnimList()){
+            act.Current.draw(pos.x, pos.y);
+        }
     }
 
     float getX() {
@@ -108,7 +99,7 @@ public class Larry extends Entity{
             if (!gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w/2, h/2)){
                 pos.y += delta * SPEED;
                 movedY = true;
-                if(!(gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w/2, h/2) && movedX)) pos.y += delta * SPEED;
+                if(!(gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w/2, h/2) || movedX)) pos.y += delta * SPEED;
             }
 
             charAnimation.update(2,delta);
