@@ -2,6 +2,9 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Larry extends Entity{
 
     private char lastDirection;
@@ -12,11 +15,15 @@ public class Larry extends Entity{
 
     private CharAnimation charAnimation = chAnim;
 
-    Larry(float x, float y) throws SlickException {
+    Larry(float x, float y, String[] equipment) throws SlickException {
+        super(equipment);
         w = 64;
         h = 64;
         pos = new Vector2f(x, y);
         rectangle = new Rectangle(x, y, w, h);
+
+
+
     }
 
     void update(GameContainer gc, int delta, Play gps) {
@@ -28,7 +35,7 @@ public class Larry extends Entity{
 
 
     void render() {
-        for (Actions act : walk.getAnimList()){
+        for (Action act : walk.getAnimList()){
             act.Current.draw(pos.x, pos.y);
         }
     }

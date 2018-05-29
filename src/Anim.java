@@ -1,17 +1,14 @@
-import org.newdawn.slick.SlickException;
-
 import java.util.ArrayList;
+import java.util.Collections;
 
 class Anim {
-    ArrayList<Actions> action = new ArrayList<>();
+    private ArrayList<Action> action = new ArrayList<>();
 
-    Anim(Actions[] actList) throws SlickException {
-        for(Actions ac : actList){
-            action.add(ac);
-        }
+    Anim(Action[] actList){
+        Collections.addAll(action, actList);
     }
 
-    ArrayList<Actions> getAnimList(){
+    ArrayList<Action> getAnimList(){
         return action;
     }
 }

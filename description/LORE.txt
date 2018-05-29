@@ -3,7 +3,7 @@ Desde  então vê o mundo com outros olhos, combatendo os espíritos da discórd
 
 Classes necessárias:
     - Character: Art, HP, DEF, ATK, Dialog
-        - Larry: Inventory, Equipment, Spellbook
+        - Larry: Items, Equipment, Spellbook
         - Enemy: Spells, Mode
         - Spirit: AutoAtack
         - NPC
@@ -11,7 +11,7 @@ Classes necessárias:
         - Grass: Orientation
         - Dirt
         - Build: Orientation
-    - Inventory
+    - Items
         - Gold
         - EXP
     - Animation

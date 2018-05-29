@@ -1,13 +1,12 @@
-import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Animation;
 
-class Actions {
+class Action {
     Animation up, down, left, right;
     Animation upStill, downStill, leftStill, rightStill, Current;
 
-    Actions(Image img, int x, int y, int AnimSpeed) throws SlickException {
+    Action(Image img, int x, int y, int AnimSpeed){
 
         SpriteSheet upSheet = new SpriteSheet(img.getSubImage(x,0,img.getWidth() - x, y), x, y);
         SpriteSheet leftSheet = new SpriteSheet(img.getSubImage(x, y,img.getWidth() - x,y), x, y);
@@ -30,12 +29,13 @@ class Actions {
 
     }
 
-    void update(Actions an, int direction, int del){
+    void update(Action an, int direction, int del){
 
-        /* 1 - Up
-           2 - Down
-           3 - Left
-           4 - Right
+        /*
+        1 - Up
+        2 - Down
+        3 - Left
+        4 - Right
          */
 
         switch (direction){

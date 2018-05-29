@@ -6,6 +6,9 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Play extends BasicGameState {
 
     private boolean[][] blocked;
@@ -32,12 +35,13 @@ public class Play extends BasicGameState {
         mapHeight = map.getHeight() * map.getTileHeight();
         tileHeight = map.getTileHeight();
         tileWidth = map.getTileWidth();
-        Inventory.init();
-        larry = new Larry(32,128);
+        Items.init();
+        In.init();
+        larry = new Larry(32,128, new String[]{"male body", "blonde hair", "white shirt", "leather skirt", "brown shoes"});
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initializeBlocked();
-        In.init();
+
     }
 
     @Override
@@ -73,7 +77,6 @@ public class Play extends BasicGameState {
 
         if (In.keyPressed("lshift")) larry.setpos(3*32, 38*32);
 
-        if (In.keyPressed("space")) larry.setDeath();
     }
 
     boolean isBlocked(float x, float y, int width, int height) {
