@@ -10,8 +10,6 @@ public class Larry extends Entity{
     private static final float SPEED = 0.1f;
     int w, h;
 
-    private CharAnimation charAnimation = chAnim;
-
     Larry(float x, float y, String[] equipment) throws SlickException {
         super(equipment);
         w = 64;
@@ -26,13 +24,14 @@ public class Larry extends Entity{
     void update(GameContainer gc, int delta, Play gps) {
         //movimentação do personagem, caso não haja, para a animação do mesmo
         if(!move(gps, delta)){
-            charAnimation.lastDir(lastDirection);
+            animation.lastDir(lastDirection);
         }
+        if(In.buttonPressed("lmb")) animation.thrust();
     }
 
 
     void render() {
-        for (Action act : current.getAnimList()){
+        for (Action act : animation.getAnimList()){
             act.Current.draw(pos.x, pos.y);
         }
     }
@@ -73,7 +72,7 @@ public class Larry extends Entity{
                 movedX = true;
             }
 
-            charAnimation.update(3,delta);
+            animation.update(3,delta);
             lastDirection = 'l';
 
         }else if ((In.keyHeld("d") && !In.keyHeld("a")) || (In.keyHeld("right") && !In.keyHeld("left"))){
@@ -83,7 +82,7 @@ public class Larry extends Entity{
                 movedX = true;
             }
 
-            charAnimation.update(4,delta);
+            animation.update(4,delta);
             lastDirection = 'r';
         }
 
@@ -94,7 +93,7 @@ public class Larry extends Entity{
                 if(!(gps.isBlocked(hitbox[0], hitbox[1] - delta * SPEED, w/2, h/2) || movedX)) pos.y -= delta * SPEED;
             }
 
-            charAnimation.update(1,delta);
+            animation.update(1,delta);
             lastDirection = 'u';
 
 
@@ -106,7 +105,7 @@ public class Larry extends Entity{
                 if(!(gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w/2, h/2) || movedX)) pos.y += delta * SPEED;
             }
 
-            charAnimation.update(2,delta);
+            animation.update(2,delta);
             lastDirection = 'd';
         }
 
