@@ -12,7 +12,6 @@ public class Larry extends Entity{
 
     private CharAnimation charAnimation = chAnim;
 
-
     Larry(float x, float y) throws SlickException {
         w = 64;
         h = 64;
@@ -29,11 +28,9 @@ public class Larry extends Entity{
 
 
     void render() {
-        body.Current.draw(pos.x, pos.y);
-        shirt.Current.draw(pos.x, pos.y);
-        hair.Current.draw(pos.x, pos.y);
-        legs.Current.draw(pos.x, pos.y);
-        feet.Current.draw(pos.x, pos.y);
+        for (Actions act : walk.getAnimList()){
+            act.Current.draw(pos.x, pos.y);
+        }
     }
 
     float getX() {
