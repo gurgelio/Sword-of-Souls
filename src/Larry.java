@@ -10,6 +10,7 @@ public class Larry extends Entity{
     private static final float SPEED = 0.1f;
     int w, h;
     private float tpCooldown = 0, auxTpCooldown = 0;
+    private boolean tp1, tp2, tp3, tp4;
 
     Larry(float x, float y, String[] equipment) throws SlickException {
         super(equipment);
@@ -21,23 +22,23 @@ public class Larry extends Entity{
 
     void update(GameContainer gc, int delta, Play gps) {
         tpCooldown += delta;
-        //movimentação do personagem, caso não haja, para a animação do mesmo
+
         if (!(hp <= 0)) {
             animation.walk();
             if (In.keyHeld("r")) {
                 for (Action act : animation.current) {
                     switch (lastDirection) {
                         case 'r':
-                            act.Current.draw(pos.x + 64,pos.y);
+                            tp1 = true;
                             break;
                         case 'l':
-                            act.Current.draw(pos.x - 64, pos.y);
+                            tp2 = true;
                             break;
                         case 'u':
-                            act.Current.draw(pos.x, pos.y - 64);
+                            tp3 = true;
                             break;
                         case 'd':
-                            act.Current.draw(pos.x,pos.y + 64);
+                            tp4 = true;
                             break;
                     }
                 }
@@ -47,15 +48,19 @@ public class Larry extends Entity{
                 switch (lastDirection) {
                     case 'r':
                         pos.x += 64;
+                        tp1 = false;
                         break;
                     case 'l':
                         pos.x -= 64;
+                        tp2 = false;
                         break;
                     case 'u':
                         pos.y -= 64;
+                        tp3 = false;
                         break;
                     case 'd':
                         pos.y += 64;
+                        tp4 = false;
                         break;
                 }
 
@@ -96,6 +101,18 @@ public class Larry extends Entity{
 
     void render() {
         for (Action act : animation.current){
+            if (tp1){
+                act.Current.draw(pos.x + 64,pos.y);
+            }
+            else if (tp2){
+                act.Current.draw(pos.x - 64,pos.y);
+            }
+            else if (tp3){
+                act.Current.draw(pos.x ,pos.y - 64);
+            }
+            else if (tp4){
+                act.Current.draw(pos.x,pos.y + 64);
+            }
             act.Current.draw(pos.x, pos.y);
         }
     }
