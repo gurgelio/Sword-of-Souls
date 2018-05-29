@@ -8,11 +8,11 @@ public class Inventory {
     static String thrustdir = dir+"thrust/";
     static Map<String, String> Items = new HashMap<>();
 
-    void init(){
+    static void init(){
         Items.put("blondehair", walkdir+"HEAD_hair_blonde.png");
     }
-    //Walk Cycle:
 
+    //Walk Cycle:
 
     static String blondeHair = walkdir+"HEAD_hair_blonde.png";
     static String brownShirt = walkdir+"TORSO_robe_shirt_brown.png";

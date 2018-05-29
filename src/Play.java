@@ -32,6 +32,7 @@ public class Play extends BasicGameState {
         mapHeight = map.getHeight() * map.getTileHeight();
         tileHeight = map.getTileHeight();
         tileWidth = map.getTileWidth();
+        Inventory.init();
         larry = new Larry(32,128);
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];

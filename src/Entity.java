@@ -8,7 +8,7 @@ abstract class Entity {
 
     Anim body = new Anim(new Image(Inventory.maleBody),64,64, 120);
     Anim shirt = new Anim(new Image(Inventory.brownShirt),64,64,120);
-    Anim hair = new Anim(new Image(Inventory.Items.get("blonde hair")),64,64,120);
+    Anim hair = new Anim(new Image(Inventory.Items.get("blondehair")),64,64,120);
     Anim legs = new Anim(new Image(Inventory.greenPants),64,64,120);
     Anim feet = new Anim(new Image(Inventory.brownShoes),64,64,120);
 
