@@ -12,7 +12,7 @@ class Anim {
     private ArrayList<Action> walk = new ArrayList<>();
     private ArrayList<Action> thrust = new ArrayList<>();
     private ArrayList<Action> death = new ArrayList<>();
-    ArrayList<Action> spell = new ArrayList<>();
+    private ArrayList<Action> spell = new ArrayList<>();
     private ArrayList<Action> stop = new ArrayList<>();
 
     Anim(ArrayList<String> strList) throws SlickException {

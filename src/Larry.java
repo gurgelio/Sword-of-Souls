@@ -5,10 +5,7 @@ import org.newdawn.slick.geom.Vector2f;
 public class Larry extends Entity{
 
     private char lastDirection;
-    private static Vector2f pos;
-    private Rectangle rectangle;
     private static final float SPEED = 0.1f;
-    int w, h;
     private float tpCooldown = 0, auxTpCooldown = 0;
     private boolean tp1, tp2, tp3, tp4;
 
@@ -117,32 +114,6 @@ public class Larry extends Entity{
         }
     }
 
-    float getX() {
-        return pos.x;
-    }
-
-
-    float getY() {
-        return pos.y;
-    }
-
-    Vector2f getpos() {
-        return pos;
-    }
-
-    public void setpos(int x, int y) {
-        this.pos.x = x;
-        this.pos.y = y;
-    }
-
-    private Rectangle getRectangle() {
-        return rectangle;
-    }
-
-    private void setRectangle(Rectangle rectangle) {
-        this.rectangle = rectangle;
-    }
-
     boolean move(Play gps, int delta){
         boolean movedX = false;
         boolean movedY = false;
@@ -192,9 +163,5 @@ public class Larry extends Entity{
         }
 
     return movedX || movedY;
-}
-
-    float[] hitbox(){
-        return new float[]{(float) (getX() + w/4), (float) (getY() + h/2)};
     }
 }
