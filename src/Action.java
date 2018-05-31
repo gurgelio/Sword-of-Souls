@@ -22,16 +22,16 @@ class Action {
 
     void update(String direction, int delta){
         if ("down".equals(direction)) {
-            Current = down.copy();
+            Current = down;
 
         } else if ("left".equals(direction)) {
-            Current = left.copy();
+            Current = left;
 
         } else if ("right".equals(direction)) {
-            Current = right.copy();
+            Current = right;
 
         } else {
-            Current = up.copy();
+            Current = up;
 
         }
         Current.update(delta);

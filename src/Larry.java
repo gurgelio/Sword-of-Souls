@@ -18,7 +18,7 @@ public class Larry extends Entity {
             if (In.buttonPressed("rmb")) {
                 thrust();
                 walkcd = 1000;
-            } else if (In.buttonPressed("r")) {
+            } else if (In.keyPressed("r")) {
                 cast();
                 walkcd = 2000;
             } else if (In.buttonPressed("lmb")) {
