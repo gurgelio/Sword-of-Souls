@@ -20,34 +20,21 @@ class Action {
         Current = up;
     }
 
-    void update(Action an, int direction, int del){
+    void update(String direction, int delta){
+        if ("down".equals(direction)) {
+            Current = down.copy();
 
-        /*
-        1 - Up
-        2 - Down
-        3 - Left
-        4 - Right
-         */
+        } else if ("left".equals(direction)) {
+            Current = left.copy();
 
-        switch (direction){
-            case 1:
-                an.Current = an.up;
-                break;
+        } else if ("right".equals(direction)) {
+            Current = right.copy();
 
-            case 2:
-                an.Current = an.down;
-                break;
+        } else {
+            Current = up.copy();
 
-            case 3:
-                an.Current = an.left;
-                break;
-
-            case 4:
-                an.Current = an.right;
-                break;
         }
-
-        an.Current.update(del);
+        Current.update(delta);
 
     }
 

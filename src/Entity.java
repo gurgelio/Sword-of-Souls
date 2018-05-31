@@ -1,5 +1,5 @@
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,8 +10,7 @@ abstract class Entity {
     int hp = 100, atack = 15, armor = 40;
     private Map<String, String> inventory;
     Anim animation;
-    Rectangle rectangle;
-    int w, h;
+    int w=64, h=64;
 
     Entity(String[]equipment) throws SlickException {
         this.inventory = new HashMap<>();
@@ -20,12 +19,9 @@ abstract class Entity {
         for(String str : new String[] {"body", "head", "torso", "hands", "belt", "legs", "feet", "weapon", "behind"}){
             if(inventory.containsKey(str)) actions.add(Items.items.get(inventory.get(str)));
         }
-
         animation = new Anim(actions);
 
     }
-
-
     float getX() {
         return pos.x;
     }
@@ -36,20 +32,40 @@ abstract class Entity {
         return pos;
     }
 
-    public void setpos(int x, int y) {
+    void setpos(int x, int y) {
         this.pos.x = x;
         this.pos.y = y;
     }
 
-    void setRectangle(Rectangle rectangle) {
-        this.rectangle = rectangle;
-    }
-    Rectangle getRectangle() {
-        return rectangle;
+    float[] hitbox(){
+        return new float[]{getX() + w/4, getY() + h/2};
     }
 
-    float[] hitbox(){
-        return new float[]{(float) (getX() + w/4), (float) (getY() + h/2)};
+    void update(GameContainer gc, int delta, Play gps){
+
     }
+
+    void die(){
+        animation.setState("die");
+    }
+
+    void thrust(){
+        animation.setState("thrust");
+
+    }
+
+    void cast(){
+        animation.setState("cast");
+    }
+
+    void slash(){
+        animation.setState("slash");
+    }
+
+    void shoot(){
+        animation.setState("shoot");
+    }
+
+
 
 }

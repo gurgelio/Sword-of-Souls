@@ -1,13 +1,9 @@
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class Play extends BasicGameState {
 
@@ -19,7 +15,7 @@ public class Play extends BasicGameState {
     private int tileHeight, tileWidth;
     private int stateid;
 
-    Play(int id) {
+    Play(int id){
         stateid = id;
     }
 
@@ -40,7 +36,7 @@ public class Play extends BasicGameState {
         larry = new Larry(32,128, new String[]{"male body", "blonde hair", "white shirt", "green pants", "armor shoes"});
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
-        initializeBlocked();
+        initBlocks();
 
     }
 
@@ -94,15 +90,7 @@ public class Play extends BasicGameState {
         return false;
     }
 
-    Vector2f getHeroPosition() {
-        return larry.getpos();
-    }
-
-    void setHeroPosition(Vector2f pos) {
-        larry.setpos((int) pos.x,(int) pos.y);
-    }
-
-    private void initializeBlocked() {
+    private void initBlocks() {
         for (int l = 0; l < map.getLayerCount(); l++) {
             String layerValue = map.getLayerProperty(l, "blocked", "false");
 
