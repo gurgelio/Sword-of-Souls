@@ -7,7 +7,7 @@ import java.util.Map;
 
 abstract class Entity {
     Vector2f pos;
-    int hp = 100, atack = 15, armor = 40;
+    int hp = 100;
     private Map<String, String> inventory;
     Anim animation;
     int w=64, h=64;

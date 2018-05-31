@@ -38,6 +38,11 @@ public class Items {
 
         items.put("body shield", "WEAPON_shield_cutout_body.png");
         items.put("shield", "WEAPON_shield_cutout_chain_armor_helmet.png");
+        items.put("sword", "WEAPON_sword.png");
+        items.put("bow", "WEAPON_bow.png");
+        items.put("arrow", "WEAPON_arrow.png");
+        items.put("staff", "WEAPON_staff.png");
+        items.put("spear", "WEAPON_spear.png");
 
         items.put("quiver", "BEHIND_quiver.png");
     }

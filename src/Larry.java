@@ -1,12 +1,11 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Vector2f;
 
-public class Larry extends Entity{
+public class Larry extends Entity {
 
     private String direction;
     private static final float SPEED = 0.1f;
     private float walkcd = 0;
-    private boolean tp1, tp2, tp3, tp4;
 
     Larry(float x, float y, String[] equipment) throws SlickException {
         super(equipment);
@@ -14,54 +13,42 @@ public class Larry extends Entity{
     }
 
     @Override
-    void update(GameContainer gc, int delta, Play gps){
-        if(hp > 0){
-            if (In.buttonPressed("rmb")){
+    void update(GameContainer gc, int delta, Play gps) {
+        if (hp > 0) {
+            if (In.buttonPressed("rmb")) {
                 thrust();
                 walkcd = 1000;
-            }else if (In.buttonPressed("r")){
+            } else if (In.buttonPressed("r")) {
                 cast();
                 walkcd = 2000;
-            }else if (In.buttonPressed("lmb")){
+            } else if (In.buttonPressed("lmb")) {
                 slash();
                 walkcd = 1000;
             }
-            if(walkcd <= 0){
+            if (walkcd <= 0) {
                 walk(gps, delta);
-            } else if(walkcd > 0) {
+            } else if (walkcd > 0) {
                 walkcd -= delta;
             }
 
         } else die();
-            if (In.keyHeld("space")){
-                hp = 0;
-            } else if (hp <= 0){
-                hp = 100;
-            }
+        if (In.keyHeld("space")) {
+            hp = 0;
+        } else if (hp <= 0) {
+            hp = 100;
+        }
         animation.update(direction, delta);
 
     }
 
 
-
     void render() {
-        for (Action act : animation.current){
-            if (tp1){
-                act.Current.draw(pos.x + 64,pos.y);
-            }
-            else if (tp2){
-                act.Current.draw(pos.x - 64,pos.y);
-            }
-            else if (tp3){
-                act.Current.draw(pos.x ,pos.y - 64);
-            }
-            else if (tp4){
-                act.Current.draw(pos.x,pos.y + 64);
-            } else act.Current.draw(pos.x, pos.y);
+        for (Action act : animation.current) {
+            act.Current.draw(pos.x, pos.y);
         }
     }
 
-    void walk(Play gps, int delta){
+    void walk(Play gps, int delta) {
         boolean movedX = false;
         boolean movedY = false;
         float[] hitbox = hitbox();

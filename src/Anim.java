@@ -3,8 +3,8 @@ import org.newdawn.slick.SlickException;
 import java.util.ArrayList;
 
 class Anim {
-    private static String shootdir = "anim/bow/";
-    private static String deathdir = "anim/hurt/";
+    private static String shootdir = "anim/shoot/";
+    private static String deathdir = "anim/die/";
     private static String slashdir = "anim/slash/";
     private static String castdir = "anim/cast/";
     private static String thrustdir = "anim/thrust/";
@@ -24,13 +24,35 @@ class Anim {
     Anim(ArrayList<String> strList) throws SlickException {
 
         for (String st : strList){ //carregamento das animações
-            shoot.add(new Action(new Image(shootdir+st), 64, 64, 120));
-            die.add(new Action(new Image(deathdir+st),64,64,270));
-            slash.add(new Action(new Image(slashdir+st), 64, 64, 120));
-            cast.add(new Action(new Image(castdir+st),64,64,120));
-            thrust.add(new Action(new Image(thrustdir+st),64,64,120));
-            walk.add(new Action(new Image(walkdir+st),64,64, 120));
-            stop.add(new Action(new Image(walkdir+st),64,64, 120));
+            try {
+                shoot.add(new Action(new Image(shootdir + st), 64, 64, 120));
+            } finally {
+                try {
+                    die.add(new Action(new Image(deathdir + st), 64, 64, 270));
+                } finally {
+                    try {
+                        slash.add(new Action(new Image(slashdir + st), 64, 64, 120));
+                    } finally {
+                        try {
+                            cast.add(new Action(new Image(castdir+st),64,64,120));
+                        } finally {
+                            try {
+                                thrust.add(new Action(new Image(thrustdir+st),64,64,120));
+                            } finally {
+                                try {
+                                    walk.add(new Action(new Image(walkdir+st),64,64, 120));
+                                } finally {
+                                    try {
+                                        stop.add(new Action(new Image(walkdir + st), 64, 64, 120));
+                                    } finally {
+                                        int i = 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         /*
@@ -97,34 +119,26 @@ class Anim {
 
     void setState(String state){
         if(this.state.equals(state)) return;
+
         current.clear();
-        if ("thrust".equals(state)) {
+        if ("thrust".equals(state)){
             current.addAll(thrust);
-            this.state = "thrust";
-        } else if ("slash".equals(state)) {
+        } else if ("slash".equals(state)){
             current.addAll(slash);
-            this.state = "slash";
-        } else if ("cast".equals(state)) {
+        } else if ("cast".equals(state)){
             current.addAll(cast);
-            this.state = "cast";
 
-        } else if ("die".equals(state)) {
+        } else if ("die".equals(state)){
             current.addAll(die);
-            this.state = "die";
 
-        } else if ("shoot".equals(state)) {
+        } else if ("shoot".equals(state)){
             current.addAll(shoot);
-            this.state = "shoot";
 
-        } else if ("walk".equals(state)) {
+        } else if ("walk".equals(state)){
             current.addAll(walk);
-            this.state = "walk";
+        } else current.addAll(stop);
 
-        } else {
-            current.addAll(stop);
-            this.state = "stop";
-
-        }
+        this.state = state;
     }
 }
 

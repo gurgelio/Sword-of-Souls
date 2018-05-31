@@ -33,7 +33,8 @@ public class Play extends BasicGameState {
         tileWidth = map.getTileWidth();
         Items.init();
         In.init();
-        larry = new Larry(32,128, new String[]{"male body", "blonde hair", "white shirt", "green pants", "armor shoes"});
+        //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, DON'T PLACE WEAPONS HERE
+        larry = new Larry(32,128, new String[]{"quiver", "male body", "armor shoes", "green pants", "white shirt", "rope belt", "blonde hair"});
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initBlocks();
@@ -80,15 +81,12 @@ public class Play extends BasicGameState {
     boolean isBlocked(float x, float y, int width, int height) {
         int xBlock = (int) x / tileWidth;
         int yBlock = (int) y / tileHeight;
-        int nx = (int) Math.ceil(width / tileWidth);
-        int ny = (int) Math.ceil(height / tileHeight);
-        for(int i=0; i<=nx; i++){
-            for(int j=0; j<=ny; j++){
-                if(blocked[xBlock + i][yBlock + j]) return true;
-            }
-        }
-        return false;
+        int xBlock2 = (int) ((x + width) / tileWidth);
+        int yBlock2 = (int) ((y + height) / tileHeight);
+         return (blocked[xBlock][yBlock] || blocked[xBlock2][yBlock] || blocked[xBlock][yBlock2] || blocked[xBlock2][yBlock2]);
     }
+
+
 
     private void initBlocks() {
         for (int l = 0; l < map.getLayerCount(); l++) {
