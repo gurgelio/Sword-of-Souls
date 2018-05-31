@@ -70,6 +70,7 @@ class In {
         keys.put("escape", Keyboard.KEY_ESCAPE);
         keys.put("lshift", Keyboard.KEY_LSHIFT);
         keys.put("tab", Keyboard.KEY_TAB);
+        keys.put("e", Keyboard.KEY_E);
         keys.put("r", Keyboard.KEY_R);
         allKeys = keys.keySet();
     }

@@ -3,8 +3,6 @@ import java.util.*;
 public class Items {
     static Map<String, String> items = new HashMap<>();
 
-    Map<String, String> equipment;
-
     static void init(){
         items.put("male body", "BODY_male.png");
         items.put("skeleton body", "BODY_skeleton.png");
