@@ -20,12 +20,28 @@ class Anim {
     private ArrayList<Action> walk = new ArrayList<>();
     private ArrayList<Action> stop = new ArrayList<>();
     private String state;
+    private Action sword, spear;
 
     Anim(ArrayList<String> strList) throws SlickException {
 
+
         for (String st : strList){ //carregamento das animações
             try {
+                // Weapon handling
+
+                sword = new Action(new Image(slashdir+"WEAPON_sword.png"),64,64,120);
+                spear = new Action(new Image(thrustdir+"WEAPON_spear.png"),64,64,120);
+                spear.up.setDuration(spear.up.getFrameCount() - 1, 800);
+                spear.up.setLooping(false);
+                spear.down.setDuration(spear.down.getFrameCount() - 1, 800);
+                spear.down.setLooping(false);
+                spear.left.setDuration(spear.left.getFrameCount() - 1, 800);
+                spear.left.setLooping(false);
+                spear.right.setDuration(spear.right.getFrameCount() - 1, 800);
+                spear.right.setLooping(false);
                 shoot.add(new Action(new Image(shootdir + st), 64, 64, 120));
+
+                
             } finally {
                 try {
                     die.add(new Action(new Image(deathdir + st), 64, 64, 270));
@@ -66,7 +82,7 @@ class Anim {
         }
 
         for(Action act : thrust){
-            act.up.setDuration(act.up.getFrameCount() -1, 800);
+            act.up.setDuration(act.up.getFrameCount() - 1, 800);
             act.up.setLooping(false);
             act.down.setDuration(act.down.getFrameCount() - 1, 800);
             act.down.setLooping(false);
@@ -123,8 +139,10 @@ class Anim {
         current.clear();
         if ("thrust".equals(state)){
             current.addAll(thrust);
+            current.add(spear);
         } else if ("slash".equals(state)){
             current.addAll(slash);
+            current.add(sword);
         } else if ("cast".equals(state)){
             current.addAll(cast);
 
