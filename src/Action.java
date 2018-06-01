@@ -4,7 +4,7 @@ import org.newdawn.slick.Animation;
 
 class Action {
     Animation up, down, left, right;
-    Animation Current;
+    private Animation current_direction;
 
     Action(Image img, int x, int y, int deltaFrame){
 
@@ -17,25 +17,36 @@ class Action {
         left = new Animation(leftSheet,deltaFrame);
         down = new Animation(downSheet,deltaFrame);
         right = new Animation(rightSheet,deltaFrame);
-        Current = up;
+        current_direction = up;
     }
 
     void update(String direction, int delta){
         if ("down".equals(direction)) {
-            Current = down;
+            this.current_direction = down;
 
         } else if ("left".equals(direction)) {
-            Current = left;
+            this.current_direction = left;
 
         } else if ("right".equals(direction)) {
-            Current = right;
+            this.current_direction = right;
 
         } else {
-            Current = up;
+            this.current_direction = up;
 
         }
-        Current.update(delta);
+        this.current_direction.update(delta);
+    }
 
+    int getFrame(){
+        return this.current_direction.getFrame();
+    }
+
+    void setFrame(int index){
+        current_direction.setCurrentFrame(index);
+    }
+
+    void render(float x, float y){
+        this.current_direction.draw(x, y);
     }
 
 }

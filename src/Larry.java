@@ -4,46 +4,26 @@ import org.newdawn.slick.geom.Vector2f;
 
 public class Larry extends Entity {
 
-    private String direction;
-    private static final float SPEED = 0.1f;
-    private float walkcd = 0;
-    private Rectangle atackHitBox = new Rectangle(0,0,w/2,h/2);
-    private boolean atacking = false;
-
     Larry(float x, float y, String[] equipment) throws SlickException {
-        super(equipment);
+        super(equipment, 1, 1, 1, 1);
         pos = new Vector2f(x, y);
     }
 
     @Override
     void update(GameContainer gc, int delta, Play gps) {
         if (hp > 0) {
-            if (In.buttonPressed("rmb")) {
-                thrust();
-                atacking = true;
-                atackUpdate(direction, atackHitBox, w);
-                walkcd = animation.current.get(0).Current.getFrameCount()*60;
-            } else if (In.buttonPressed("mb4")) {
-                cast();
-                walkcd = animation.current.get(0).Current.getFrameCount()*60;
-            } else if (In.buttonPressed("lmb")) {
+            if (In.buttonHeld("lmb")) {
                 slash();
-                atacking = true;
-                atackUpdate(direction, atackHitBox, w/2);
-                walkcd = animation.current.get(0).Current.getFrameCount()*60;
-            } else if (In.buttonPressed("mb5")) {
+            }else if (In.keyHeld("q")){
+                thrust();
+            }else if (In.keyHeld("r")) {
+                cast();
+            }else if (In.keyHeld("e")) {
                 shoot();
-                atacking = true;
-                atackUpdate(direction, atackHitBox, 5*w/2);
-                walkcd = animation.current.get(0).Current.getFrameCount()*60;
-            }
-            if (walkcd <= 0) {
+            } else {
+                animation.setState("stop");
                 walk(gps, delta);
-                atacking = false;
-            } else if (walkcd > 0) {
-                walkcd -= delta;
             }
-
         } else die();
         if (In.keyHeld("space")) {
             hp = 0;
@@ -59,68 +39,56 @@ public class Larry extends Entity {
 
 
     }
-
-
-    void render(Graphics g) {
-        for (Action act : animation.current) {
-            act.Current.draw(pos.x, pos.y);
-        }
-        if (atacking) g.draw(atackHitBox);
-
-    }
-
+  
     void walk(Play gps, int delta) {
         boolean movedX = false;
         boolean movedY = false;
-        float[] hitbox = hitbox();
+        float[] hitbox;
 
         if ((In.keyHeld("a") && !In.keyHeld("d")) || (In.keyHeld("left") && !In.keyHeld("right"))) {
-            if (!gps.isBlocked(hitbox[0] - delta * SPEED, hitbox[1], w / 2, h / 2)) {
-                pos.x -= delta * SPEED;
+            hitbox = hitbox();
+            if (!gps.isBlocked(hitbox[0] - delta * speed, hitbox[1], w / 2, h / 2)) {
+                pos.x -= delta * speed;
                 movedX = true;
-                hitbox = hitbox();
             }
             direction = "left";
 
         } else if ((In.keyHeld("d") && !In.keyHeld("a")) || (In.keyHeld("right") && !In.keyHeld("left"))) {
-
-            if (!gps.isBlocked(hitbox[0] + delta * SPEED, hitbox[1], w / 2, h / 2)) {
-                pos.x += delta * SPEED;
+            hitbox = hitbox();
+            if (!gps.isBlocked(hitbox[0] + delta * speed, hitbox[1], w / 2, h / 2)) {
+                pos.x += delta * speed;
                 movedX = true;
-                hitbox = hitbox();
             }
             direction = "right";
         }
         if ((In.keyHeld("w") && !In.keyHeld("s")) || In.keyHeld("up") && !In.keyHeld("down")) {
-            if (!gps.isBlocked(hitbox[0], hitbox[1] - delta * SPEED, w / 2, h / 2)) {
-                pos.y -= delta * SPEED;
+            hitbox = hitbox();
+            if (!gps.isBlocked(hitbox[0], hitbox[1] - delta * speed, w / 2, h / 2)) {
+                pos.y -= delta * speed;
                 movedY = true;
                 hitbox = hitbox();
-                if (!(gps.isBlocked(hitbox[0], hitbox[1] - delta * SPEED, w / 2, h / 2) || movedX))
-                    pos.y -= delta * SPEED;
+                if (!(gps.isBlocked(hitbox[0], hitbox[1] - delta * speed, w / 2, h / 2) || movedX))
+                    pos.y -= delta * speed;
             }
             direction = "up";
         } else if ((In.keyHeld("s") && !In.keyHeld("w")) || In.keyHeld("down") && !In.keyHeld("up")) {
-
-            if (!gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w / 2, h / 2)) {
-                pos.y += delta * SPEED;
+            hitbox = hitbox();
+            if (!gps.isBlocked(hitbox[0], hitbox[1] + delta * speed, w / 2, h / 2)) {
+                pos.y += delta * speed;
                 movedY = true;
                 hitbox = hitbox();
-                if (!(gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w / 2, h / 2) || movedX))
-                    pos.y += delta * SPEED;
+                if (!(gps.isBlocked(hitbox[0], hitbox[1] + delta * speed, w / 2, h / 2) || movedX))
+                    pos.y += delta * speed;
             }
             direction = "down";
         }
 
         if (movedX && !movedY) {
             hitbox = hitbox();
-            if (!gps.isBlocked(hitbox[0] - delta * SPEED, hitbox[1], w / 2, h / 2) && (In.keyHeld("a") || In.keyHeld("left"))) {
-                pos.x -= delta * SPEED;
-            } else if (!gps.isBlocked(hitbox[0] + delta * SPEED, hitbox[1], w / 2, h / 2)) pos.x += delta * SPEED;
+            if (!gps.isBlocked(hitbox[0] - delta * speed, hitbox[1], w / 2, h / 2) && (In.keyHeld("a") || In.keyHeld("left"))) {
+                pos.x -= delta * speed;
+            } else if (!gps.isBlocked(hitbox[0] + delta * speed, hitbox[1], w / 2, h / 2)) pos.x += delta * speed;
         }
-        if (movedX || movedY) {
-            animation.setState("walk");
-        } else animation.setState("stop");
-
+        if (movedX || movedY) animation.setState("walk");
     }
 }
