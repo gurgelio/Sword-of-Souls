@@ -57,6 +57,7 @@ public class Larry extends Entity {
             if (!gps.isBlocked(hitbox[0] - delta * SPEED, hitbox[1], w / 2, h / 2)) {
                 pos.x -= delta * SPEED;
                 movedX = true;
+                hitbox = hitbox();
             }
             direction = "left";
 
@@ -65,25 +66,25 @@ public class Larry extends Entity {
             if (!gps.isBlocked(hitbox[0] + delta * SPEED, hitbox[1], w / 2, h / 2)) {
                 pos.x += delta * SPEED;
                 movedX = true;
+                hitbox = hitbox();
             }
             direction = "right";
         }
-
         if ((In.keyHeld("w") && !In.keyHeld("s")) || In.keyHeld("up") && !In.keyHeld("down")) {
             if (!gps.isBlocked(hitbox[0], hitbox[1] - delta * SPEED, w / 2, h / 2)) {
                 pos.y -= delta * SPEED;
                 movedY = true;
+                hitbox = hitbox();
                 if (!(gps.isBlocked(hitbox[0], hitbox[1] - delta * SPEED, w / 2, h / 2) || movedX))
                     pos.y -= delta * SPEED;
             }
             direction = "up";
-
-
         } else if ((In.keyHeld("s") && !In.keyHeld("w")) || In.keyHeld("down") && !In.keyHeld("up")) {
 
             if (!gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w / 2, h / 2)) {
                 pos.y += delta * SPEED;
                 movedY = true;
+                hitbox = hitbox();
                 if (!(gps.isBlocked(hitbox[0], hitbox[1] + delta * SPEED, w / 2, h / 2) || movedX))
                     pos.y += delta * SPEED;
             }
@@ -91,6 +92,7 @@ public class Larry extends Entity {
         }
 
         if (movedX && !movedY) {
+            hitbox = hitbox();
             if (!gps.isBlocked(hitbox[0] - delta * SPEED, hitbox[1], w / 2, h / 2) && (In.keyHeld("a") || In.keyHeld("left"))) {
                 pos.x -= delta * SPEED;
             } else if (!gps.isBlocked(hitbox[0] + delta * SPEED, hitbox[1], w / 2, h / 2)) pos.x += delta * SPEED;
