@@ -49,4 +49,11 @@ class Action {
         this.current_direction.draw(x, y);
     }
 
+    boolean isStopped(){
+        return this.current_direction.isStopped();
+    }
+
+    void start(){
+        this.current_direction.start();
+    }
 }

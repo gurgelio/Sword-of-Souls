@@ -21,7 +21,6 @@ public class Larry extends Entity {
             }else if (In.keyHeld("e")) {
                 shoot();
             } else {
-                animation.setState("stop");
                 walk(gps, delta);
             }
         } else die();
@@ -89,6 +88,8 @@ public class Larry extends Entity {
                 pos.x -= delta * speed;
             } else if (!gps.isBlocked(hitbox[0] + delta * speed, hitbox[1], w / 2, h / 2)) pos.x += delta * speed;
         }
-        if (movedX || movedY) animation.setState("walk");
+        if (movedX || movedY) {
+            animation.setState("walk");
+        } else animation.setState("stop");
     }
 }

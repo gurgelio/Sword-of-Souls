@@ -45,7 +45,7 @@ public class Play extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         camera.translate(g, larry);
         map.render(0, 0);
-        larry.render(g);
+        larry.render();
         float[] hitbox = larry.hitbox();
         g.drawRect(hitbox[0], hitbox[1], 32, 32);
         for(int x=0; x < map.getWidth(); x++){

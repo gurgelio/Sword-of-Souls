@@ -12,7 +12,7 @@ class Anim {
     private static String walkdir = "anim/walk/";
 
 
-    ArrayList<Action> current = new ArrayList<>();
+    private ArrayList<Action> current = new ArrayList<>();
     private ArrayList<Action> shoot = new ArrayList<>();
     private ArrayList<Action> die = new ArrayList<>();
     private ArrayList<Action> slash = new ArrayList<>();
@@ -31,70 +31,63 @@ class Anim {
             slash.add(new Action(new Image(slashdir + st), 64, 64, (int) (300 - Math.sqrt(dexterity))));
             cast.add(new Action(new Image(castdir + st), 64, 64, 350));
             thrust.add(new Action(new Image(thrustdir + st), 64, 64, (int) (250 - Math.pow(dexterity, 0.3))));
-            walk.add(new Action(new Image(walkdir + st), 64, 64, (int) (100/(0.05f + dexterity))));
-            stop.add(new Action(new Image(walkdir + st), 64, 64, 120));
+            walk.add(new Action(new Image(walkdir + st), 64, 64, (int) (250/(1 + Math.sqrt(dexterity)))));
+            stop.add(new Action(new Image(walkdir + st), 64, 64, 1));
         }
         // Weapon handling
         sword = new Action(new Image(slashdir + "WEAPON_sword.png"), 64, 64, (int) (300 - Math.sqrt(dexterity)));
         spear = new Action(new Image(thrustdir + "WEAPON_spear.png"), 64, 64, (int) (250 - Math.pow(dexterity, 0.3)));
         bow = new Action(new Image(shootdir + "WEAPON_bow.png"), 64, 64, (int) (230 - Math.sqrt(dexterity)));
         arrow = new Action(new Image(shootdir + "WEAPON_arrow.png"), 64, 64, (int) (230 - Math.sqrt(dexterity)));
+        for(Action act : slash){
+            for(Animation an : new Animation[]{act.up, act.down, act.left, act.right}){
+                an.setDuration(0,0);
+                an.setPingPong(true);
+            }
+        }
+        for (Animation an : new Animation[]{sword.up, sword.down, sword.left, sword.right}){
+            an.setDuration(0, 0);
+            an.setPingPong(true);
+        }
 
-        sword.up.setDuration(0, 0);
-        sword.up.setPingPong(true);
-        sword.down.setDuration(0, 0);
-        sword.down.setPingPong(true);
-        sword.left.setDuration(0, 0);
-        sword.left.setPingPong(true);
-        sword.right.setDuration(0, 0);
-        sword.right.setPingPong(true);
-
-        spear.up.setDuration(7, 530);
-        spear.down.setDuration(7, 530);
-        spear.left.setDuration(7, 530);
-        spear.right.setDuration(7, 530);
-
-        // Weapon handling
-        bow = new Action(new Image(shootdir+"WEAPON_bow.png"),64,64,120);
-        sword = new Action(new Image(slashdir+"WEAPON_sword.png"),64,64,120);
-        spear = new Action(new Image(thrustdir+"WEAPON_spear.png"),64,64,120);
-        for(Animation an :new Animation[] {spear.up, spear.down, spear.left, spear.right, spear.Current}) {
-            an.setDuration(spear.up.getFrameCount() - 1, 800);
-            //an.setLooping(false);
+        for(Action act : thrust){
+            for(Animation an : new Animation[]{act.up, act.down, act.left, act.right}){
+                an.setDuration(7, 530);
+                an.setLooping(false);
+            }
+        }
+        for(Animation an : new Animation[]{spear.up, spear.down, spear.left, spear.right}){
+            an.setDuration(7, 530);
+            an.setLooping(false);
         }
 
 
         /*
         configuração especial de cada animação
          */
-        for (Action act : walk) {
-            act.up.setDuration(0, 0);
-            act.down.setDuration(0, 0);
-            act.left.setDuration(0, 0);
-            act.right.setDuration(0, 0);
+        for(Action act : walk){
+            for (Animation an : new Animation[]{act.up, act.down, act.left, act.right}){
+                an.setDuration(0, 0);
+            }
         }
 
-
         for (Action act : die) {
-            act.up.setLooping(false);
-            act.down.setLooping(false);
-            act.left.setLooping(false);
-            act.right.setLooping(false);
+            for(Animation an : new Animation[]{act.up, act.down, act.left, act.right}) {
+                an.setLooping(false);
+            }
         }
 
 
         for (Action act : cast) {
-            act.up.setLooping(false);
-            act.down.setLooping(false);
-            act.left.setLooping(false);
-            act.right.setLooping(false);
+            for(Animation an : new Animation[]{act.up, act.down, act.left, act.right}){
+                an.setLooping(false);
+            }
         }
 
         for (Action act : stop) {
-            act.up.stop();
-            act.left.stop();
-            act.right.stop();
-            act.down.stop();
+            for(Animation an : new Animation[]{act.up, act.down, act.left, act.right}){
+                an.stop();
+            }
         }
 
         state = "";
@@ -149,6 +142,16 @@ class Anim {
     void setFrame(int index){
         for(Action act : current){
             act.setFrame(index);
+        }
+    }
+
+    boolean isStopped(){
+        return this.current.get(0).isStopped();
+    }
+
+    void start(){
+        for(Action act : this.current){
+            act.start();
         }
     }
 }

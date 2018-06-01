@@ -8,12 +8,11 @@ import java.util.Map;
 
 abstract class Entity {
     Vector2f pos;
-    Rectangle atackHitBox = new Rectangle(0,0,w/2,h/2);
     private boolean atacking = false;
-    int hp, dexterity, strength, constitution, willpower;
-    float speed;
+    int hp;
     String direction;
-
+    private int dexterity, strength, constitution, willpower;
+    float speed;
     private Map<String, String> inventory;
     Anim animation;
     int w = 64, h = 64;
@@ -70,9 +69,9 @@ abstract class Entity {
 
     void thrust() {
         animation.setState("thrust");
-        if(animation.getFrame() == 7){
-
+        if(animation.isStopped()){
             animation.setFrame(4);
+            animation.start();
         }
     }
 
@@ -91,9 +90,8 @@ abstract class Entity {
             }
         }
 
-    void render(Graphics g) {
+    void render() {
         animation.render(pos.x, pos.y);
-        if (atacking) g.draw(atackHitBox);
     }
 
     void atackUpdate(String direction, Rectangle atackHitBox, int range) {
