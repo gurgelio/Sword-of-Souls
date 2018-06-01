@@ -34,7 +34,7 @@ public class Play extends BasicGameState {
         Items.init();
         In.init();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, DON'T PLACE WEAPONS HERE
-        larry = new Larry(32,128, new String[]{"quiver", "male body", "armor shoes", "green pants", "white shirt", "rope belt", "blonde hair"});
+        larry = new Larry(32,128, new String[]{"male body", "armor shoes", "green pants", "white shirt", "rope belt", "blonde hair"});
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initBlocks();
