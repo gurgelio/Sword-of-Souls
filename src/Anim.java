@@ -1,3 +1,4 @@
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ class Anim {
     private ArrayList<Action> walk = new ArrayList<>();
     private ArrayList<Action> stop = new ArrayList<>();
     private String state;
-    private Action sword, spear;
+    private Action sword, spear, bow;
 
     Anim(ArrayList<String> strList) throws SlickException {
 
@@ -36,70 +37,52 @@ class Anim {
         }
 
         // Weapon handling
+        bow = new Action(new Image(shootdir+"WEAPON_bow.png"),64,64,120);
         sword = new Action(new Image(slashdir+"WEAPON_sword.png"),64,64,120);
         spear = new Action(new Image(thrustdir+"WEAPON_spear.png"),64,64,120);
-        spear.up.setDuration(spear.up.getFrameCount() - 1, 800);
-        spear.up.setLooping(false);
-        spear.down.setDuration(spear.down.getFrameCount() - 1, 800);
-        spear.down.setLooping(false);
-        spear.left.setDuration(spear.left.getFrameCount() - 1, 800);
-        spear.left.setLooping(false);
-        spear.right.setDuration(spear.right.getFrameCount() - 1, 800);
-        spear.right.setLooping(false);
+        for(Animation an :new Animation[] {spear.up, spear.down, spear.left, spear.right, spear.Current}) {
+            an.setDuration(spear.up.getFrameCount() - 1, 800);
+            //an.setLooping(false);
+        }
 
 
         /*
         configuração especial de cada animação
-         */
+        */
+
         for(Action act : walk) {
-            act.up.setDuration(0, 0);
-            act.down.setDuration(0, 0);
-            act.left.setDuration(0, 0);
-            act.right.setDuration(0, 0);
+            for(Animation an :new Animation[] {act.up, act.down, act.left, act.right, act.Current}) {
+                an.setDuration(0, 0);
+                }
         }
 
         for(Action act : thrust){
-            act.up.setDuration(act.up.getFrameCount() - 1, 800);
-            act.up.setLooping(false);
-            act.down.setDuration(act.down.getFrameCount() - 1, 800);
-            act.down.setLooping(false);
-            act.left.setDuration(act.left.getFrameCount() - 1, 800);
-            act.left.setLooping(false);
-            act.right.setDuration(act.right.getFrameCount() - 1, 800);
-            act.right.setLooping(false);
+            for(Animation an :new Animation[] {act.up, act.down, act.left, act.right, act.Current}) {
+                an.setDuration(act.up.getFrameCount() - 1, 800);
+                //an.setLooping(false);
+            }
         }
-
 
         for(Action act : die){
-            act.up.setDuration(0, 0);
-            act.up.setLooping(false);
-            act.down.setDuration(0, 0);
-            act.down.setLooping(false);
-            act.left.setDuration(0, 0);
-            act.left.setLooping(false);
-            act.right.setDuration(0, 0);
-            act.right.setLooping(false);
+            for(Animation an : new Animation[] {act.up, act.down, act.left, act.right, act.Current}) {
+                an.setDuration(0, 0);
+                an.setLooping(false);
+            }
         }
 
-
         for(Action act : cast) {
-            act.up.setDuration(0, 0);
-            act.up.setLooping(false);
-            act.down.setDuration(0, 0);
-            act.down.setLooping(false);
-            act.left.setDuration(0, 0);
-            act.left.setLooping(false);
-            act.right.setDuration(0, 0);
-            act.right.setLooping(false);
+            for(Animation an : new Animation[] {act.up, act.down, act.left, act.right, act.Current}) {
+                an.setDuration(0, 0);
+                //an.setLooping(false);
+            }
         }
 
         for(Action act : stop){
-            act.Current.stop();
-            act.up.stop();
-            act.left.stop();
-            act.right.stop();
-            act.down.stop();
+            for(Animation an : new Animation[] {act.up, act.down, act.left, act.right, act.Current}){
+                an.stop();
+            }
         }
+
         state = "";
         setState("stop");
     }
@@ -128,6 +111,7 @@ class Anim {
 
         } else if ("shoot".equals(state)){
             current.addAll(shoot);
+            current.add(bow);
 
         } else if ("walk".equals(state)){
             current.addAll(walk);

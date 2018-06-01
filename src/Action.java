@@ -8,10 +8,10 @@ class Action {
 
     Action(Image img, int x, int y, int deltaFrame){
 
-        SpriteSheet upSheet = new SpriteSheet(img.getSubImage(0,0,img.getWidth() - x, y), x, y);
-        SpriteSheet leftSheet = new SpriteSheet(img.getSubImage(0, y,img.getWidth() - x,y), x, y);
-        SpriteSheet downSheet = new SpriteSheet(img.getSubImage(0,2*y,img.getWidth() - x,y), x, y);
-        SpriteSheet rightSheet = new SpriteSheet(img.getSubImage(0,3*y,img.getWidth() - x,y), x, y);
+        SpriteSheet upSheet = new SpriteSheet(img.getSubImage(0,0,img.getWidth(), y), x, y);
+        SpriteSheet leftSheet = new SpriteSheet(img.getSubImage(0, y,img.getWidth(),y), x, y);
+        SpriteSheet downSheet = new SpriteSheet(img.getSubImage(0,2*y,img.getWidth(),y), x, y);
+        SpriteSheet rightSheet = new SpriteSheet(img.getSubImage(0,3*y,img.getWidth(),y), x, y);
 
         up = new Animation(upSheet,deltaFrame);
         left = new Animation(leftSheet,deltaFrame);

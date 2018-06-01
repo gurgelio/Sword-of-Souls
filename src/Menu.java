@@ -12,8 +12,8 @@ class Menu extends BasicGameState{
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-        name  = new Button(Game.gamename, Game.width/2, (int) (Game.height *0.1), new Fonte("Tahoma", Font.PLAIN, 50, 204, 0, 0, 255));
-        play = new Button("play", Game.width /2, Game.height /2, new Fonte("Verdana", Font.PLAIN, 35, 204, 153, 0, 255));
+        name  = new Button(Game.gamename, Game.width/2, (int) (Game.height * 0.1), new Fonte("Tahoma", Font.PLAIN, 50, 204, 0, 0, 255));
+        play = new Button("Play", Game.width/2, Game.height/2 , new Fonte("Verdana", Font.PLAIN, 35, 204, 153, 0, 255));
         In.init();
     }
 

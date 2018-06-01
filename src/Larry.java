@@ -1,4 +1,5 @@
 import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 
 public class Larry extends Entity {
@@ -6,6 +7,8 @@ public class Larry extends Entity {
     private String direction;
     private static final float SPEED = 0.1f;
     private float walkcd = 0;
+    private Rectangle atackHitBox = new Rectangle(0,0,w/2,h/2);
+    private boolean atacking = false;
 
     Larry(float x, float y, String[] equipment) throws SlickException {
         super(equipment);
@@ -17,16 +20,26 @@ public class Larry extends Entity {
         if (hp > 0) {
             if (In.buttonPressed("rmb")) {
                 thrust();
-                walkcd = 1000;
-            } else if (In.keyPressed("r")) {
+                atacking = true;
+                atackUpdate(direction, atackHitBox, w);
+                walkcd = animation.current.get(0).Current.getFrameCount()*60;
+            } else if (In.buttonPressed("mb4")) {
                 cast();
-                walkcd = 2000;
+                walkcd = animation.current.get(0).Current.getFrameCount()*60;
             } else if (In.buttonPressed("lmb")) {
                 slash();
-                walkcd = 1000;
+                atacking = true;
+                atackUpdate(direction, atackHitBox, w/2);
+                walkcd = animation.current.get(0).Current.getFrameCount()*60;
+            } else if (In.buttonPressed("mb5")) {
+                shoot();
+                atacking = true;
+                atackUpdate(direction, atackHitBox, 5*w/2);
+                walkcd = animation.current.get(0).Current.getFrameCount()*60;
             }
             if (walkcd <= 0) {
                 walk(gps, delta);
+                atacking = false;
             } else if (walkcd > 0) {
                 walkcd -= delta;
             }
@@ -39,13 +52,21 @@ public class Larry extends Entity {
         }
         animation.update(direction, delta);
 
+        if (In.keyPressed("lshift")) {
+            cast();
+            setpos(3*w/2, 38*h/2);
+        }
+
+
     }
 
 
-    void render() {
+    void render(Graphics g) {
         for (Action act : animation.current) {
             act.Current.draw(pos.x, pos.y);
         }
+        if (atacking) g.draw(atackHitBox);
+
     }
 
     void walk(Play gps, int delta) {
