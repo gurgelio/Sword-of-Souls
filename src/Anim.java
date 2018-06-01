@@ -25,27 +25,28 @@ class Anim {
     Anim(ArrayList<String> strList) throws SlickException {
 
 
-        for (String st : strList){ //carregamento das animações
-                shoot.add(new Action(new Image(shootdir + st), 64, 64, 120));
-                die.add(new Action(new Image(deathdir + st), 64, 64, 270));
-                slash.add(new Action(new Image(slashdir + st), 64, 64, 120));
-                cast.add(new Action(new Image(castdir+st),64,64,120));
-                thrust.add(new Action(new Image(thrustdir+st),64,64,120));
-                walk.add(new Action(new Image(walkdir+st),64,64, 120));
-                stop.add(new Action(new Image(walkdir + st), 64, 64, 120));
-
-                // Weapon handling
-                sword = new Action(new Image(slashdir+"WEAPON_sword.png"),64,64,120);
-                spear = new Action(new Image(thrustdir+"WEAPON_spear.png"),64,64,120);
-                spear.up.setDuration(spear.up.getFrameCount() - 1, 800);
-                spear.up.setLooping(false);
-                spear.down.setDuration(spear.down.getFrameCount() - 1, 800);
-                spear.down.setLooping(false);
-                spear.left.setDuration(spear.left.getFrameCount() - 1, 800);
-                spear.left.setLooping(false);
-                spear.right.setDuration(spear.right.getFrameCount() - 1, 800);
-                spear.right.setLooping(false);
+        for (String st : strList) { //carregamento das animações
+            shoot.add(new Action(new Image(shootdir + st), 64, 64, 120));
+            die.add(new Action(new Image(deathdir + st), 64, 64, 270));
+            slash.add(new Action(new Image(slashdir + st), 64, 64, 120));
+            cast.add(new Action(new Image(castdir + st), 64, 64, 120));
+            thrust.add(new Action(new Image(thrustdir + st), 64, 64, 120));
+            walk.add(new Action(new Image(walkdir + st), 64, 64, 120));
+            stop.add(new Action(new Image(walkdir + st), 64, 64, 120));
         }
+
+        // Weapon handling
+        sword = new Action(new Image(slashdir+"WEAPON_sword.png"),64,64,120);
+        spear = new Action(new Image(thrustdir+"WEAPON_spear.png"),64,64,120);
+        spear.up.setDuration(spear.up.getFrameCount() - 1, 800);
+        spear.up.setLooping(false);
+        spear.down.setDuration(spear.down.getFrameCount() - 1, 800);
+        spear.down.setLooping(false);
+        spear.left.setDuration(spear.left.getFrameCount() - 1, 800);
+        spear.left.setLooping(false);
+        spear.right.setDuration(spear.right.getFrameCount() - 1, 800);
+        spear.right.setLooping(false);
+
 
         /*
         configuração especial de cada animação
