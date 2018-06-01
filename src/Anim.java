@@ -1,3 +1,4 @@
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import java.util.ArrayList;
@@ -53,6 +54,16 @@ class Anim {
         spear.left.setDuration(7, 530);
         spear.right.setDuration(7, 530);
 
+        // Weapon handling
+        bow = new Action(new Image(shootdir+"WEAPON_bow.png"),64,64,120);
+        sword = new Action(new Image(slashdir+"WEAPON_sword.png"),64,64,120);
+        spear = new Action(new Image(thrustdir+"WEAPON_spear.png"),64,64,120);
+        for(Animation an :new Animation[] {spear.up, spear.down, spear.left, spear.right, spear.Current}) {
+            an.setDuration(spear.up.getFrameCount() - 1, 800);
+            //an.setLooping(false);
+        }
+
+
         /*
         configuração especial de cada animação
          */
@@ -85,6 +96,7 @@ class Anim {
             act.right.stop();
             act.down.stop();
         }
+
         state = "";
         setState("stop");
     }

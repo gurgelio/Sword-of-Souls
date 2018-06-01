@@ -1,4 +1,5 @@
 import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 
 public class Larry extends Entity {
@@ -31,8 +32,14 @@ public class Larry extends Entity {
         }
         animation.update(direction, delta);
 
-    }
+        if (In.keyPressed("lshift")) {
+            cast();
+            setpos(3*w/2, 38*h/2);
+        }
 
+
+    }
+  
     void walk(Play gps, int delta) {
         boolean movedX = false;
         boolean movedY = false;
