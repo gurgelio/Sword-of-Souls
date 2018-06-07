@@ -106,19 +106,25 @@ class Anim {
         if ("thrust".equals(state)) {
             current.addAll(thrust);
             current.add(spear);
+            this.start();
         } else if ("slash".equals(state)) {
             current.addAll(slash);
             current.add(sword);
+            this.start();
         } else if ("cast".equals(state)) {
             current.addAll(cast);
+            this.start();
         } else if ("die".equals(state)) {
             current.addAll(die);
+            this.start();
         } else if ("shoot".equals(state)) {
             current.addAll(shoot);
             current.add(bow);
             current.add(arrow);
+            this.start();
         } else if ("walk".equals(state)) {
             current.addAll(walk);
+            this.start();
         } else current.addAll(stop);
 
         this.state = state;

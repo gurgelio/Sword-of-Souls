@@ -5,15 +5,17 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
+import java.util.ArrayList;
+
 public class Play extends BasicGameState {
 
     private boolean[][] blocked;
     private TiledMap map;
-    private Larry larry;
     private Camera camera;
     private int mapHeight, mapWidth;
     private int tileHeight, tileWidth;
     private int stateid;
+    private ArrayList<Entity> entities;
 
     Play(int id){
         stateid = id;
@@ -33,8 +35,10 @@ public class Play extends BasicGameState {
         tileWidth = map.getTileWidth();
         Items.init();
         In.init();
+        entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, DON'T PLACE WEAPONS HERE
-        larry = new Larry(32,128, new String[]{"quiver", "male body", "armor shoes", "green pants", "white shirt", "rope belt", "blonde hair"});
+        entities.add(new Larry(32,128, new String[]{"quiver", "male body", "armor shoes", "green pants", "white shirt", "rope belt", "blonde hair"}));
+        entities.add(new Skeleton(1000, 1000, new int[]{1, 1, 1, 1},new String[]{"skeleton body", "armor shoes", "armor pants", "plate armor"}));
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initBlocks();
@@ -43,11 +47,14 @@ public class Play extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        camera.translate(g, larry);
+        camera.translate(g, entities.get(0));
         map.render(0, 0);
-        larry.render();
-        float[] hitbox = larry.hitbox();
-        g.drawRect(hitbox[0], hitbox[1], 32, 32);
+        float[] hitbox;
+        for(Entity e : entities) {
+            e.render();
+            hitbox = e.hitbox();
+            g.drawOval(hitbox[0] - hitbox[2], hitbox[1] - hitbox[2], 2 * hitbox[2], 2 * hitbox[2]);
+        }
         for(int x=0; x < map.getWidth(); x++){
             for(int y=0; y < map.getHeight(); y++){
                 if(blocked[x][y]){
@@ -60,31 +67,28 @@ public class Play extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         In.update();
-        larry.update(gc, delta, this);
+        for(Entity e: entities) e.update(gc, delta, this);
 
 
         if (In.keyPressed("escape")) {
             sbg.enterState(0);
         }
 
-        if (larry.getX() > 4*32 - 10 & larry.getX() < 5*32 + 10 & larry.getY() > 39*32 - 10 & larry.getY() < 40*32 + 10){
-            if (In.keyPressed("tab")){
-                larry.setpos(32,128);
-            }
+        if (In.keyPressed("tab")){
+            entities.get(0).setpos(32,128);
         }
 
 
+
     }
 
-    boolean isBlocked(float x, float y, int width, int height) {
-        int xBlock = (int) x / tileWidth;
-        int yBlock = (int) y / tileHeight;
-        int xBlock2 = (int) ((x + width) / tileWidth);
-        int yBlock2 = (int) ((y + height) / tileHeight);
-         return (blocked[xBlock][yBlock] || blocked[xBlock2][yBlock] || blocked[xBlock][yBlock2] || blocked[xBlock2][yBlock2]);
+    boolean isBlocked(float x, float y, float radius) {
+        int xBlock0 = (int) ((x-radius) / tileWidth);
+        int yBlock0 = (int) ((y-radius) / tileHeight);
+        int xBlock1 = (int) ((x + radius) / tileWidth);
+        int yBlock1 = (int) ((y + radius) / tileHeight);
+        return (blocked[xBlock0][yBlock0] || blocked[xBlock0][yBlock1] || blocked[xBlock1][yBlock0] || blocked[xBlock1][yBlock1]);
     }
-
-
 
     private void initBlocks() {
         for (int l = 0; l < map.getLayerCount(); l++) {

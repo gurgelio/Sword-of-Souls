@@ -55,7 +55,7 @@ abstract class Entity {
     }
 
     float[] hitbox() {
-        return new float[]{getX() + w / 4, getY() + h / 2};
+        return new float[]{getX() + w/2, getY() + 3*h/4, w/4};
     }
 
     void update(GameContainer gc, int delta, Play gps) {
@@ -77,6 +77,12 @@ abstract class Entity {
 
     void cast() {
         animation.setState("cast");
+        if(animation.isStopped()){
+            //spell effect
+            animation.setFrame(0);
+            animation.start();
+            animation.setState("stop");
+        }
     }
 
     void slash() {

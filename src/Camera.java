@@ -19,7 +19,7 @@ public class Camera {
     }
 
 
-    void translate(Graphics g, Larry larry) {
+    void translate(Graphics g, Entity larry) {
 
         if (larry.getX() - Game.width / 2 + 16 < 0) {
             x = 0;
