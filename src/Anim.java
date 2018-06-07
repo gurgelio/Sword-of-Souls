@@ -31,7 +31,7 @@ class Anim {
             slash.add(new Action(new Image(slashdir + st), 64, 64, (int) (300 - Math.sqrt(dexterity))));
             cast.add(new Action(new Image(castdir + st), 64, 64, 350));
             thrust.add(new Action(new Image(thrustdir + st), 64, 64, (int) (250 - Math.pow(dexterity, 0.3))));
-            walk.add(new Action(new Image(walkdir + st), 64, 64, (int) (250/(1 + Math.sqrt(dexterity)))));
+            walk.add(new Action(new Image(walkdir + st), 64, 64, (int) ((0.5/Math.log10(dexterity + 1))*300)));
             stop.add(new Action(new Image(walkdir + st), 64, 64, 1));
         }
         // Weapon handling

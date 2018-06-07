@@ -20,7 +20,7 @@ abstract class Entity {
     Entity(String[]equipment, int strength, int dexterity, int constitution, int willpower) throws SlickException {
 
         hp = (int) (50 + Math.sqrt(constitution));
-        speed = (float) (0.05 + Math.sqrt(dexterity)*0.1);
+        speed = (float) (Math.log10(dexterity + 1)/3);
         if(speed > 1.5f) speed = 1.5f;
         this.strength = strength;
         this.dexterity = dexterity;
