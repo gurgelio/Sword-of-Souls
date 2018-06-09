@@ -51,12 +51,14 @@ public class Play extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         camera.translate(g, entities.get(0));
         map.render(0, 0);
+
         float[] hitbox;
         for(Entity e : entities) {
             e.render();
             hitbox = e.hitbox();
             g.drawOval(hitbox[0] - hitbox[2], hitbox[1] - hitbox[2], 2 * hitbox[2], 2 * hitbox[2]);
         }
+
         for(int x=0; x < map.getWidth(); x++){
             for(int y=0; y < map.getHeight(); y++){
                 if(blocked[x][y]){
@@ -64,13 +66,11 @@ public class Play extends BasicGameState {
                 }
             }
         }
-        g.drawImage(new Image("img/lifeHud.png"),cameraX,cameraY + Game.height - 64);
+        g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        cameraX = camera.getX();
-        cameraY = camera.getY();
         In.update();
         for(Entity e: entities) e.update(gc, delta, this);
 

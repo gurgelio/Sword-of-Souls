@@ -1,4 +1,6 @@
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
 public class Camera {
@@ -19,7 +21,7 @@ public class Camera {
     }
 
 
-    void translate(Graphics g, Entity larry) {
+    void translate(Graphics g, Entity larry) throws SlickException {
 
         if (larry.getX() - Game.width / 2 + 16 < 0) {
             x = 0;
