@@ -40,4 +40,12 @@ public class Camera {
         viewPort.setX(-x);
         viewPort.setY(-y);
     }
+
+    float getX(){
+        return -this.x;
+    }
+
+    float getY(){
+        return -this.y;
+    }
 }

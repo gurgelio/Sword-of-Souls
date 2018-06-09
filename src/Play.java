@@ -1,5 +1,6 @@
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -15,6 +16,7 @@ public class Play extends BasicGameState {
     private int mapHeight, mapWidth;
     private int tileHeight, tileWidth;
     private int stateid;
+    private float cameraX = 0, cameraY = 0;
     private ArrayList<Entity> entities;
 
     Play(int id){
@@ -62,10 +64,13 @@ public class Play extends BasicGameState {
                 }
             }
         }
+        g.drawImage(new Image("img/lifeHud.png"),cameraX,cameraY + Game.height - 64);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
+        cameraX = camera.getX();
+        cameraY = camera.getY();
         In.update();
         for(Entity e: entities) e.update(gc, delta, this);
 
