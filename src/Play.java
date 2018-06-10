@@ -13,6 +13,7 @@ public class Play extends BasicGameState {
 
     private boolean[][] blocked;
     private TiledMap map;
+    private Map firstMap;
     private Camera camera;
     private int mapHeight, mapWidth;
     private int tileHeight, tileWidth;
@@ -39,6 +40,7 @@ public class Play extends BasicGameState {
         tileWidth = map.getTileWidth();
         Items.init();
         In.init();
+        firstMap = new Map(map);
         entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, DON'T PLACE WEAPONS HERE
         entities.add(new Larry(32,128, new String[]{"quiver", "male body", "armor shoes", "green pants", "white shirt", "rope belt", "blonde hair"}));
@@ -77,8 +79,8 @@ public class Play extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         In.update();
-        mx = entities.get(0).getX()/((map.getWidth()*map.getTileWidth())/128);
-        my = entities.get(0).getY()/((map.getHeight()*map.getTileHeight())/128);
+        mx = entities.get(0).getX()/(firstMap.getWidth()/128);
+        my = entities.get(0).getY()/(firstMap.getHeight()/128);
         minimapRect.setBounds(camera.getCameraRect().getX() + Game.width - 128, camera.getCameraRect().getY() + Game.height - 128,(camera.getCameraRect().getWidth()/128),(camera.getCameraRect().getHeight()/128));
         for(Entity e: entities) e.update(gc, delta, this);
 
