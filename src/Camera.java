@@ -1,27 +1,21 @@
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Rectangle;
 
 public class Camera {
 
     private int x, y;
     private int mapWidth, mapHeight;
-    private Rectangle viewPort;
 
     public Camera(int mapWidth, int mapHeight) {
 
         x = 0;
         y = 0;
 
-        viewPort = new Rectangle(0, 0, Game.width, Game.height);
-
         this.mapWidth = mapWidth;
         this.mapHeight = mapHeight;
     }
 
 
-    void translate(Graphics g, Entity larry) throws SlickException {
+    void translate(Graphics g, Entity larry) {
 
         if (larry.getX() - Game.width / 2 + 16 < 0) {
             x = 0;
@@ -39,8 +33,6 @@ public class Camera {
         }
 
         g.translate(x, y);
-        viewPort.setX(-x);
-        viewPort.setY(-y);
     }
 
     float getX(){
@@ -51,7 +43,4 @@ public class Camera {
         return -this.y;
     }
 
-    Rectangle getCameraRect(){
-        return this.viewPort;
-    }
 }

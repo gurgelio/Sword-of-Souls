@@ -37,6 +37,8 @@ abstract class Entity {
 
     }
 
+    private void update(GameContainer gc, int delta, Play gps){}
+
     float getX() {
         return pos.x;
     }
@@ -56,10 +58,6 @@ abstract class Entity {
 
     float[] hitbox() {
         return new float[]{getX() + w/2, getY() + 3*h/4, w/4};
-    }
-
-    void update(GameContainer gc, int delta, Play gps) {
-
     }
 
     void die() {
@@ -96,8 +94,23 @@ abstract class Entity {
             }
         }
 
-    void render() {
+    private void render() {
         animation.render(pos.x, pos.y);
+    }
+
+    static void render(ArrayList<Entity> entities){
+        //float[] hitbox;
+        for(Entity e : entities) {
+            e.render();
+            //hitbox = e.hitbox();
+            //g.drawOval(hitbox[0] - hitbox[2], hitbox[1] - hitbox[2], 2 * hitbox[2], 2 * hitbox[2]);
+        }
+    }
+
+    static void update(ArrayList<Entity> entities, GameContainer gc, int delta, Play gps){
+        for(Entity e : entities){
+            e.update(gc, delta, gps);
+        }
     }
 
     void atackUpdate(String direction, Rectangle atackHitBox, int range) {
