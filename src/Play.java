@@ -17,9 +17,7 @@ public class Play extends BasicGameState {
     private int mapHeight, mapWidth;
     private int tileHeight, tileWidth;
     private int stateid;
-    private float mx = 0, my = 0;
     private ArrayList<Entity> entities;
-    private Rectangle minimapRect = new Rectangle(0,0,10,10);
     private MiniMap minimap;
 
     Play(int id){
