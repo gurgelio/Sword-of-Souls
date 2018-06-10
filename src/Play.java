@@ -20,6 +20,7 @@ public class Play extends BasicGameState {
     private float mx = 0, my = 0;
     private ArrayList<Entity> entities;
     private Rectangle minimapRect = new Rectangle(0,0,10,10);
+    private MiniMap minimap;
 
     Play(int id){
         stateid = id;
@@ -46,6 +47,7 @@ public class Play extends BasicGameState {
         camera = new Camera(mapWidth, mapHeight);
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initBlocks();
+        minimap = new MiniMap(new Image("map/mapa128.png"));
 
     }
 
@@ -53,6 +55,7 @@ public class Play extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         camera.translate(g, entities.get(0));
         map.render(0, 0);
+        minimap.render(g, camera);
 
         float[] hitbox;
         for(Entity e : entities) {
@@ -69,17 +72,14 @@ public class Play extends BasicGameState {
             }
         }
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
-        g.drawImage(new Image("map/mapa128.png"),camera.getX() + Game.width - 128, camera.getY() + Game.height - 128);
         //g.draw(minimapRect);
-        g.drawRect(camera.getX() + mx - 128 + Game.width,camera.getY() + my - 128 + Game.height,1,1);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         In.update();
-        mx = entities.get(0).getX()/(mapWidth/128);
-        my = entities.get(0).getY()/(mapHeight/128);
-        minimapRect.setBounds(camera.getCameraRect().getX() + Game.width - 128, camera.getCameraRect().getY() + Game.height - 128,(camera.getCameraRect().getWidth()/128),(camera.getCameraRect().getHeight()/128));
+        minimap.update(entities.get(0), mapWidth, mapHeight);
+        //minimap.minimapRect.setBounds(camera.getCameraRect().getX() + Game.width - 128, camera.getCameraRect().getY() + Game.height - 128,(camera.getCameraRect().getWidth()/128),(camera.getCameraRect().getHeight()/128));
         for(Entity e: entities) e.update(gc, delta, this);
 
 
