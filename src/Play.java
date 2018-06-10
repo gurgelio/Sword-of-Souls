@@ -16,7 +16,7 @@ public class Play extends BasicGameState {
     private int mapHeight, mapWidth;
     private int tileHeight, tileWidth;
     private int stateid;
-    private float cameraX = 0, cameraY = 0;
+    private float mx = 0, my = 0;
     private ArrayList<Entity> entities;
 
     Play(int id){
@@ -67,11 +67,15 @@ public class Play extends BasicGameState {
             }
         }
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
+        g.drawImage(new Image("map/mapa128.png"),camera.getX() + Game.width - 128, camera.getY() + Game.height - 128);
+        g.drawRect(camera.getX() + mx - 128 + Game.width,camera.getY() + my - 128 + Game.height,1,1);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         In.update();
+        mx = entities.get(0).getX()/((map.getWidth()*map.getTileWidth())/128);
+        my = entities.get(0).getY()/((map.getHeight()*map.getTileHeight())/128);
         for(Entity e: entities) e.update(gc, delta, this);
 
 
