@@ -2,6 +2,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
@@ -18,6 +19,7 @@ public class Play extends BasicGameState {
     private int stateid;
     private float mx = 0, my = 0;
     private ArrayList<Entity> entities;
+    private Rectangle minimapRect = new Rectangle(0,0,10,10);
 
     Play(int id){
         stateid = id;
@@ -68,6 +70,7 @@ public class Play extends BasicGameState {
         }
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
         g.drawImage(new Image("map/mapa128.png"),camera.getX() + Game.width - 128, camera.getY() + Game.height - 128);
+        //g.draw(minimapRect);
         g.drawRect(camera.getX() + mx - 128 + Game.width,camera.getY() + my - 128 + Game.height,1,1);
     }
 
@@ -76,6 +79,7 @@ public class Play extends BasicGameState {
         In.update();
         mx = entities.get(0).getX()/((map.getWidth()*map.getTileWidth())/128);
         my = entities.get(0).getY()/((map.getHeight()*map.getTileHeight())/128);
+        minimapRect.setBounds(camera.getCameraRect().getX() + Game.width - 128, camera.getCameraRect().getY() + Game.height - 128,(camera.getCameraRect().getWidth()/128),(camera.getCameraRect().getHeight()/128));
         for(Entity e: entities) e.update(gc, delta, this);
 
 

@@ -50,4 +50,8 @@ public class Camera {
     float getY(){
         return -this.y;
     }
+
+    Rectangle getCameraRect(){
+        return this.viewPort;
+    }
 }
