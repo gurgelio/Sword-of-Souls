@@ -16,6 +16,7 @@ public class Play extends BasicGameState {
     private Camera camera;
     private int mapHeight, mapWidth;
     private int tileHeight, tileWidth;
+    private float inX = 0 , inY = 0;
     private int stateid;
     private ArrayList<Entity> entities;
     private MiniMap minimap;
@@ -53,7 +54,6 @@ public class Play extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         camera.translate(g, entities.get(0));
         map.render(0, 0);
-        minimap.render(g, camera);
 
         float[] hitbox;
         for(Entity e : entities) {
@@ -71,10 +71,14 @@ public class Play extends BasicGameState {
         }
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
         //g.draw(minimapRect);
+        minimap.render(g, camera);
+        if (In.buttonHeld("rmb")) renderInventory(g);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
+        inX = camera.getX() + 640;
+        inY = camera.getY() + 20;
         In.update();
         minimap.update(entities.get(0), mapWidth, mapHeight);
         //minimap.minimapRect.setBounds(camera.getCameraRect().getX() + Game.width - 128, camera.getCameraRect().getY() + Game.height - 128,(camera.getCameraRect().getWidth()/128),(camera.getCameraRect().getHeight()/128));
@@ -116,6 +120,10 @@ public class Play extends BasicGameState {
                 }
             }
         }
+    }
+
+    void renderInventory(Graphics g) throws SlickException {
+        g.drawImage(new Image("img/equipInventory.png"),inX, inY);
     }
 
 }
