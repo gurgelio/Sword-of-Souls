@@ -3,26 +3,22 @@ import org.newdawn.slick.Graphics;
 
 class MiniMap {
     private Image minimap;
-    private float scale;
-    private float x = 0, y = 0;
+    private double scale;
 
-    MiniMap(Image map){
+    MiniMap(Image map, int mapSize){
         minimap = map;
-        scale = 128/1600;
+        scale = (double) map.getWidth()/mapSize;
     }
 
     void render(Graphics g, Camera camera, Entity larry) {
 
-        x = camera.getX() + Game.width - 128;
-        y = camera.getY() + Game.height - 128;
-
-        g.drawImage(minimap, x, y);
-        g.drawRect(x + toScale(camera.getX()), y + toScale(camera.getY()),Game.width/minimap.getWidth(),Game.height/minimap.getHeight());
-        g.drawRect(x + toScale(camera.getX() + larry.getX()), y + toScale(camera.getY() + larry.getY()), 1, 1);
+        g.drawImage(minimap, camera.getX() + Game.width - 128, camera.getY() + Game.height - 128);
+        g.drawRect(camera.getX() + Game.width - 128 + toScale(camera.getX()), camera.getY() + Game.height - 128 + toScale(camera.getY()), toScale(Game.width), toScale(Game.height));
+        g.drawRect(camera.getX() + Game.width - 128 + toScale(larry.getX()), camera.getY() + Game.height - 128 + toScale(larry.getY()), 1, 1);
     }
 
     private float toScale(float x){
-        return x * scale;
+        return x * (float) scale;
     }
 
 }
