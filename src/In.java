@@ -17,7 +17,7 @@ class In {
     private static Set<String> releasedKeys = new HashSet<>();
 
     static int[] getMouse(){
-        return new int[] {Mouse.getX(), Mouse.getY()};
+        return new int[] {Mouse.getX(), Game.height - Mouse.getY()};
     }
 
     static boolean mouseIsOver(int[] area){ //x, y, width, height
@@ -73,6 +73,8 @@ class In {
         keys.put("q", Keyboard.KEY_Q);
         keys.put("e", Keyboard.KEY_E);
         keys.put("r", Keyboard.KEY_R);
+        keys.put("o", Keyboard.KEY_O);
+        keys.put("m", Keyboard.KEY_M);
         allKeys = keys.keySet();
     }
 

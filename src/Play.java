@@ -58,7 +58,7 @@ class Play extends BasicGameState {
         for(int x=0; x < map.getWidth(); x++){
             for(int y=0; y < map.getHeight(); y++){
                 if(blocked[x][y]){
-                    g.drawRect((float) x * tileWidth, (float) y * tileHeight, (float) tileWidth, (float) tileHeight);
+                    //g.drawRect((float) x * tileWidth, (float) y * tileHeight, (float) tileWidth, (float) tileHeight);
                 }
             }
         }

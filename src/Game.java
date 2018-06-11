@@ -3,11 +3,11 @@ import org.newdawn.slick.state.*;
 
 class Game extends StateBasedGame{
 
-    static final String gamename = "Larry Coppermann";
+    static final String gamename = "Larry Coppermann: Sword of Souls";
     private static final int menu = 0;
     private static final int play = 1;
-    static final int height = 568;
-    static final int width = 800;
+    static int height = 768;
+    static int width = 1360;
 
     //define o nome do jogo e adiciona os estados ao Game
     private Game(String gamename){
@@ -34,12 +34,10 @@ class Game extends StateBasedGame{
         AppGameContainer appgc;
         try{
             appgc = new AppGameContainer(new Game(gamename));
-            appgc.setDisplayMode(width, height, false);
+            appgc.setDisplayMode(width, height, true);
             appgc.start();
-
         }catch(Exception e){
             e.printStackTrace();
         }
-
     }
 }

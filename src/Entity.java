@@ -104,7 +104,7 @@ abstract class Entity {
         for(Entity e : entities) {
             e.render();
             hitbox = e.hitbox();
-            g.drawOval(hitbox[0] - hitbox[2], hitbox[1] - hitbox[2], 2 * hitbox[2], 2 * hitbox[2]);
+            //g.drawOval(hitbox[0] - hitbox[2], hitbox[1] - hitbox[2], 2 * hitbox[2], 2 * hitbox[2]);
         }
     }
 
