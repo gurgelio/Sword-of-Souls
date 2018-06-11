@@ -14,6 +14,9 @@ class Play extends BasicGameState {
     private boolean[][] blocked;
     private TiledMap map;
     private Camera camera;
+    private int mapHeight, mapWidth;
+    private int tileHeight, tileWidth;
+    private float inX = 0 , inY = 0;
     private int stateid;
     private Larry larry;
     private ArrayList<Entity> entities;
@@ -51,12 +54,27 @@ class Play extends BasicGameState {
         camera.render(map, g, larry);
         map.render(0, 0);
         Entity.render(entities, g);
+
+        for(int x=0; x < map.getWidth(); x++){
+            for(int y=0; y < map.getHeight(); y++){
+                if(blocked[x][y]){
+                    g.drawRect((float) x * tileWidth, (float) y * tileHeight, (float) tileWidth, (float) tileHeight);
+                }
+            }
+        }
+        g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
+        //g.draw(minimapRect);
+        minimap.render(g, camera);
+        if (In.buttonHeld("rmb")) renderInventory(g);
+        Entity.render(entities);
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
         minimap.render(g, camera, larry);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
+        inX = camera.getX() + 640;
+        inY = camera.getY() + 20;
         In.update();
         Entity.update(entities, gc, delta, this);
         if (In.keyPressed("escape")) {
@@ -88,5 +106,9 @@ class Play extends BasicGameState {
                 }
             }
         }
+    }
+
+    void renderInventory(Graphics g) throws SlickException {
+        g.drawImage(new Image("img/equipInventory.png"),inX, inY);
     }
 }
