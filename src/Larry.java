@@ -2,7 +2,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 
-public class Larry extends Entity {
+class Larry extends Entity {
 
     Larry(float x, float y, String[] equipment) throws SlickException {
         super(equipment, 1, 1, 1, 1);
@@ -30,16 +30,19 @@ public class Larry extends Entity {
             hp = 100;
         }
         animation.update(direction, delta);
-
         if (In.keyPressed("lshift")) {
             cast();
             setpos(3*w/2, 38*h/2);
         }
 
+        if (In.keyPressed("tab")){
+            setpos(32,128);
+        }
+
 
     }
   
-    void walk(Play gps, int delta) {
+    private void walk(Play gps, int delta) {
         boolean movedX = false;
         boolean movedY = false;
         float[] hitbox;

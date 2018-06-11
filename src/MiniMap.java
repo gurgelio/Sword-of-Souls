@@ -1,23 +1,26 @@
 import org.newdawn.slick.Image;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.Graphics;
 
-public class MiniMap {
+class MiniMap {
     private Image minimap;
-    //private Rectangle minimapRect = new Rectangle(0,0,10,10);
-    private float x = 0, y = 0;
+    private float scale;
+    private float x, y;
 
-    public MiniMap(Image map){
+    MiniMap(Image map, Camera camera){
         minimap = map;
+        scale = minimap.getWidth()/Game.width;
+        x = camera.getX() + Game.width - 128;
+        y = camera.getY() + Game.height - 128;
     }
 
-    void render(Graphics g, Camera camera) {
-        g.drawImage(minimap,camera.getX() + Game.width - 128, camera.getY() + Game.height - 128);
-        g.drawRect(camera.getX() + x - 128 + Game.width,camera.getY() + y - 128 + Game.height,1,1);
+    void render(Graphics g, Camera camera, Entity larry) {
+
+        g.drawImage(minimap, x, y);
+        g.drawRect(x + toScale(camera.getX()), y + toScale(camera.getY()),Game.width/minimap.getWidth(),Game.height/minimap.getHeight());
+        g.drawOval(x + toScale(camera.getX() + larry.getX()), y + toScale(camera.getY() + larry.getY()), 1, 1);
     }
 
-    void update(Entity larry, int mapWidth, int mapHeight){
-        x = larry.getX()/(mapWidth/128);
-        y = larry.getY()/(mapHeight/128);
+    private float toScale(float x){
+        return x * scale;
     }
 }
