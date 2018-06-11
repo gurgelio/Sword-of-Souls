@@ -39,7 +39,7 @@ class Play extends BasicGameState {
         initBlocks();
 
         camera = new Camera();
-        minimap = new MiniMap(new Image("map/mapa128.png"), camera);
+        minimap = new MiniMap(new Image("map/mapa128.png"));
 
         Items.init();
         entities = new ArrayList<>();
@@ -64,9 +64,9 @@ class Play extends BasicGameState {
         }
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
         //g.draw(minimapRect);
-        minimap.render(g, camera);
+        minimap.render(g, camera, larry);
         if (In.buttonHeld("rmb")) renderInventory(g);
-        Entity.render(entities);
+        Entity.render(entities, g);
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
         minimap.render(g, camera, larry);
     }
