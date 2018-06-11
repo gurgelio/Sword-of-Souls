@@ -9,7 +9,7 @@ import org.newdawn.slick.tiled.TiledMap;
 
 import java.util.ArrayList;
 
-public class Play extends BasicGameState {
+class Play extends BasicGameState {
 
     private boolean[][] blocked;
     private TiledMap map;
@@ -35,7 +35,7 @@ public class Play extends BasicGameState {
         map = new TiledMap("map/mapa.tmx");
         initBlocks();
 
-        camera = new Camera(map.getWidth(), map.getHeight());
+        camera = new Camera();
         minimap = new MiniMap(new Image("map/mapa128.png"), camera);
 
         Items.init();
@@ -48,9 +48,9 @@ public class Play extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        camera.translate(g, larry);
+        camera.render(map, g, larry);
         map.render(0, 0);
-        Entity.render(entities);
+        Entity.render(entities, g);
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
         minimap.render(g, camera, larry);
     }
@@ -89,5 +89,4 @@ public class Play extends BasicGameState {
             }
         }
     }
-
 }

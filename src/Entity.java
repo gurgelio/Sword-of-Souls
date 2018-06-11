@@ -1,4 +1,5 @@
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
@@ -37,7 +38,7 @@ abstract class Entity {
 
     }
 
-    private void update(GameContainer gc, int delta, Play gps){}
+    void update(GameContainer gc, int delta, Play gps){}
 
     float getX() {
         return pos.x;
@@ -98,12 +99,12 @@ abstract class Entity {
         animation.render(pos.x, pos.y);
     }
 
-    static void render(ArrayList<Entity> entities){
-        //float[] hitbox;
+    static void render(ArrayList<Entity> entities, Graphics g){
+        float[] hitbox;
         for(Entity e : entities) {
             e.render();
-            //hitbox = e.hitbox();
-            //g.drawOval(hitbox[0] - hitbox[2], hitbox[1] - hitbox[2], 2 * hitbox[2], 2 * hitbox[2]);
+            hitbox = e.hitbox();
+            g.drawOval(hitbox[0] - hitbox[2], hitbox[1] - hitbox[2], 2 * hitbox[2], 2 * hitbox[2]);
         }
     }
 

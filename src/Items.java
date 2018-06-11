@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Items {
+abstract class Items {
     static Map<String, String> items = new HashMap<>();
 
     static void init(){
