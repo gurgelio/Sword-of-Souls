@@ -9,17 +9,14 @@ import org.newdawn.slick.tiled.TiledMap;
 
 import java.util.ArrayList;
 
-public class Play extends BasicGameState {
+class Play extends BasicGameState {
 
     private boolean[][] blocked;
     private TiledMap map;
     private Camera camera;
-<<<<<<< HEAD
     private int mapHeight, mapWidth;
     private int tileHeight, tileWidth;
     private float inX = 0 , inY = 0;
-=======
->>>>>>> 6e46ea6621328279b5143aa9beb196e320ff3c10
     private int stateid;
     private Larry larry;
     private ArrayList<Entity> entities;
@@ -41,7 +38,7 @@ public class Play extends BasicGameState {
         map = new TiledMap("map/mapa.tmx");
         initBlocks();
 
-        camera = new Camera(map.getWidth(), map.getHeight());
+        camera = new Camera();
         minimap = new MiniMap(new Image("map/mapa128.png"), camera);
 
         Items.init();
@@ -54,16 +51,9 @@ public class Play extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        camera.translate(g, larry);
+        camera.render(map, g, larry);
         map.render(0, 0);
-<<<<<<< HEAD
-
-        float[] hitbox;
-        for(Entity e : entities) {
-            e.render();
-            hitbox = e.hitbox();
-            g.drawOval(hitbox[0] - hitbox[2], hitbox[1] - hitbox[2], 2 * hitbox[2], 2 * hitbox[2]);
-        }
+        Entity.render(entities, g);
 
         for(int x=0; x < map.getWidth(); x++){
             for(int y=0; y < map.getHeight(); y++){
@@ -76,11 +66,9 @@ public class Play extends BasicGameState {
         //g.draw(minimapRect);
         minimap.render(g, camera);
         if (In.buttonHeld("rmb")) renderInventory(g);
-=======
         Entity.render(entities);
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
         minimap.render(g, camera, larry);
->>>>>>> 6e46ea6621328279b5143aa9beb196e320ff3c10
     }
 
     @Override
@@ -123,5 +111,4 @@ public class Play extends BasicGameState {
     void renderInventory(Graphics g) throws SlickException {
         g.drawImage(new Image("img/equipInventory.png"),inX, inY);
     }
-
 }

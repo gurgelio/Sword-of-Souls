@@ -1,33 +1,30 @@
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.tiled.TiledMap;
 
-public class Camera {
+class Camera {
 
     private int x, y;
-    private int mapWidth, mapHeight;
 
-    public Camera(int mapWidth, int mapHeight) {
+    public Camera() {
 
         x = 0;
         y = 0;
-
-        this.mapWidth = mapWidth;
-        this.mapHeight = mapHeight;
     }
 
 
-    void translate(Graphics g, Entity larry) {
+    void render(TiledMap map, Graphics g, Entity larry) {
 
         if (larry.getX() - Game.width / 2 + 16 < 0) {
             x = 0;
-        } else if (larry.getX() + Game.width / 2 + 16 > mapWidth) {
-            x = -mapWidth + Game.width;
+        } else if (larry.getX() + Game.width / 2 + 16 > map.getWidth()) {
+            x = -map.getWidth() + Game.width;
         } else {
             x = (int) -larry.getX() + Game.width / 2 - 16;
         }
         if (larry.getY() - Game.height / 2 + 16 < 0) {
             y = 0;
-        } else if (larry.getY() + Game.height / 2 + 16 > mapHeight) {
-            y = -mapHeight + Game.height;
+        } else if (larry.getY() + Game.height / 2 + 16 > map.getHeight()) {
+            y = -map.getHeight() + Game.height;
         } else {
             y = (int) -larry.getY() + Game.height / 2 - 16;
         }
