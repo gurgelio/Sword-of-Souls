@@ -14,14 +14,14 @@ class Menu extends BasicGameState{
     Menu(int state){
     }
 
-    @Override
+    @Override               //(53, 109, 61)
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-        name  = new Button(Game.gamename, Game.width/2, (int) (Game.height * 0.1), new Fonte("Tahoma", Font.PLAIN, 50, 204, 0, 0, 255));
-        continueGame = new Button("Continue", (int) (Game.width*(0.5)), (int) (Game.height*(0.5)) , new Fonte("Verdana", Font.PLAIN, 35, 204, 0, 0, 255));
-        newGame = new Button("New Game", (int) (Game.width*(0.5)), (int) (Game.height*(0.6)), new Fonte("Verdana", Font.PLAIN, 35, 204, 0, 0, 255));
-        loadGame = new Button("Load", (int) (Game.width*(0.5)), (int) (Game.height*(0.7)), new Fonte("Verdana", Font.PLAIN, 35, 204, 0, 0, 255));
-        quit = new Button("Quit", (int) (Game.width*(0.5)), (int) (Game.height*(0.9)), new Fonte("Verdana", Font.PLAIN, 35, 204, 0, 0, 255));
-        save = new Button("Save", (int) (Game.width*(0.5)), (int) (Game.height*(0.8)), new Fonte("Verdana", Font.PLAIN, 35, 204, 0, 0, 255));
+        name  = new Button(Game.gamename, Game.width/2, (int) (Game.height * 0.1), new Fonte("Tahoma", Font.PLAIN, 50, 59, 66, 60, 255));
+        continueGame = new Button("Continue", (int) (Game.width*(0.5)), (int) (Game.height*(0.5)) , new Fonte("Verdana", Font.PLAIN, 35, 59, 66, 60, 255));
+        newGame = new Button("New Game", (int) (Game.width*(0.5)), (int) (Game.height*(0.6)), new Fonte("Verdana", Font.PLAIN, 35, 59, 66, 60, 255));
+        loadGame = new Button("Load", (int) (Game.width*(0.5)), (int) (Game.height*(0.7)), new Fonte("Verdana", Font.PLAIN, 35, 59, 66, 60, 255));
+        quit = new Button("Quit", (int) (Game.width*(0.5)), (int) (Game.height*(0.9)), new Fonte("Verdana", Font.PLAIN, 35, 59, 66, 60, 255));
+        save = new Button("Save", (int) (Game.width*(0.5)), (int) (Game.height*(0.8)), new Fonte("Verdana", Font.PLAIN, 35, 59, 66, 60, 255));
         In.init();
     }
 
@@ -41,7 +41,7 @@ class Menu extends BasicGameState{
         In.update();
 
         if(In.mouseIsOver(continueGame.area())){
-            continueGame.setColor(204, 153, 0, 255);
+            continueGame.setColor(200, 200, 200, 255);
             if (In.buttonPressed("lmb")){
                 continueGame.held = true;
             }
@@ -50,18 +50,18 @@ class Menu extends BasicGameState{
                 sbg.enterState(1);
             }
         } else {
-            continueGame.setColor(204, 0, 0, 255);
+            continueGame.setColor(59, 66, 60, 255);
             continueGame.held = false;
         }
         if(In.mouseIsOver(quit.area())){
-            quit.setColor(204, 153, 0, 255);
+            quit.setColor(200, 200, 200, 255);
             if(In.buttonPressed("lmb")) quit.held = true;
 
             if (In.buttonReleased("lmb") && quit.held) {
                 gc.exit();
             }
         } else {
-            quit.setColor(204, 0, 0, 255);
+            quit.setColor(59, 66, 60, 255);
             quit.held = false;
         }
     }

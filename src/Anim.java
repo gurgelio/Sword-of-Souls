@@ -35,19 +35,19 @@ class Anim {
             stop.add(new Action(new Image(walkdir + st), 64, 64, 1));
         }
         // Weapon handling
-        sword = new Action(new Image(slashdir + "WEAPON_sword.png"), 64, 64, (int) (300 - Math.sqrt(dexterity)));
+        sword = new Action(new Image(slashdir + "WEAPON_short sword_male.png"), 64, 64, (int) (300 - Math.sqrt(dexterity)));
         spear = new Action(new Image(thrustdir + "WEAPON_spear.png"), 64, 64, (int) (250 - Math.pow(dexterity, 0.3)));
         bow = new Action(new Image(shootdir + "WEAPON_bow.png"), 64, 64, (int) (230 - Math.sqrt(dexterity)));
         arrow = new Action(new Image(shootdir + "WEAPON_arrow.png"), 64, 64, (int) (230 - Math.sqrt(dexterity)));
         for(Action act : slash){
             for(Animation an : new Animation[]{act.up, act.down, act.left, act.right}){
                 an.setDuration(0,0);
-                an.setPingPong(true);
+                //an.setPingPong(true);
             }
         }
         for (Animation an : new Animation[]{sword.up, sword.down, sword.left, sword.right}){
             an.setDuration(0, 0);
-            an.setPingPong(true);
+            //an.setPingPong(true);
         }
 
         for(Action act : thrust){

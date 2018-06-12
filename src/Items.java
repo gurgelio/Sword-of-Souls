@@ -43,6 +43,7 @@ abstract class Items {
         items.put("arrow", "WEAPON_arrow.png");
         items.put("staff", "WEAPON_staff.png");
         items.put("spear", "WEAPON_spear.png");
+        items.put("rapier", "WEAPON_rapier.png");
 
         items.put("quiver", "BEHIND_quiver.png");
     }
