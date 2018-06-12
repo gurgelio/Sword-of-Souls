@@ -3,7 +3,7 @@ import org.newdawn.slick.state.*;
 
 class Game extends StateBasedGame{
 
-    static final String gamename = "Larry Coppermann: Sword of Souls";
+    static final String gamename = "Sword of Souls";
     private static final int menu = 0;
     private static final int play = 1;
     static int height = 768;

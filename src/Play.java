@@ -12,7 +12,7 @@ import java.util.ArrayList;
 class Play extends BasicGameState {
 
     private boolean[][] blocked;
-    private TiledMap map;
+    private TiledMap map, map2;
     private Camera camera;
     private int mapHeight, mapWidth;
     private int tileHeight, tileWidth;
@@ -36,6 +36,7 @@ class Play extends BasicGameState {
         In.init();
 
         map = new TiledMap("map/mapa.tmx");
+        map2 = new TiledMap("map/mapa2.tmx");
         initBlocks();
 
         camera = new Camera();
@@ -66,6 +67,7 @@ class Play extends BasicGameState {
         minimap.render(g, camera, larry);
         if (In.buttonHeld("rmb")) renderInventory(g);
         Entity.render(entities, g);
+        map2.render(0,0);
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
         minimap.render(g, camera, larry);
     }

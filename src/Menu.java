@@ -9,6 +9,7 @@ class Menu extends BasicGameState{
     private Button newGame;
     private Button loadGame;
     private Button quit;
+    private Button save;
 
     Menu(int state){
     }
@@ -19,18 +20,20 @@ class Menu extends BasicGameState{
         continueGame = new Button("Continue", (int) (Game.width*(0.5)), (int) (Game.height*(0.5)) , new Fonte("Verdana", Font.PLAIN, 35, 204, 0, 0, 255));
         newGame = new Button("New Game", (int) (Game.width*(0.5)), (int) (Game.height*(0.6)), new Fonte("Verdana", Font.PLAIN, 35, 204, 0, 0, 255));
         loadGame = new Button("Load", (int) (Game.width*(0.5)), (int) (Game.height*(0.7)), new Fonte("Verdana", Font.PLAIN, 35, 204, 0, 0, 255));
-        quit = new Button("Save & Quit", (int) (Game.width*(0.5)), (int) (Game.height*(0.8)), new Fonte("Verdana", Font.PLAIN, 35, 204, 0, 0, 255));
+        quit = new Button("Quit", (int) (Game.width*(0.5)), (int) (Game.height*(0.9)), new Fonte("Verdana", Font.PLAIN, 35, 204, 0, 0, 255));
+        save = new Button("Save", (int) (Game.width*(0.5)), (int) (Game.height*(0.8)), new Fonte("Verdana", Font.PLAIN, 35, 204, 0, 0, 255));
         In.init();
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        g.drawImage(new Image("img/bg.jpg"),0,0);
+        g.drawImage(new Image("img/bgnew.jpg"),0,0);
         Fonte.ShadowFont(name);
         Fonte.ShadowFont(continueGame);
         Fonte.ShadowFont(newGame);
         Fonte.ShadowFont(loadGame);
         Fonte.ShadowFont(quit);
+        Fonte.ShadowFont(save);
     }
 
     @Override

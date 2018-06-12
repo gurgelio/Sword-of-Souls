@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" source="blocks.tsx"/>
+ <tileset firstgid="257" source="blocks_river.tsx"/>
+ <tileset firstgid="513" source="more_blocks.tsx"/>
+ <layer name="Grass" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3PMQ0AAAgEsXeIBfyrQAUJCR2631WSAgAAAGBNH2jwAQAAAAB8MECtbXsQJwAA
+  </data>
+ </layer>
+ <layer name="Caminho" width="50" height="50">
+  <properties>
+   <property name="blocked" type="bool" value="false"/>
+  </properties>
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu2ZyU7DMBRFHaYVUOYNUxlXlFFFLAAxCySCBAIEEixgAWJF/4D+GfwJfAo3ip94BDd1SF5xUK90FJE64Z04dp1Uqa+MgFEwpn6XtMeb4oEW0AraQDvo0EjVIeHRC/pAPxgAg2BIuA4JjwkwCabANJgBs8J1SHgsgWWwAtZAGawK1yHhsQ12wC44BEfgQLgOCY9TcAZewRu4BpfCdUh43IF78A4+wBN4EK7D9vhO0GWgO6b9qCauXbSOSo3/U49nS485UNK8sBorhho79XnXwQbYrNHO5JGWJP05F+NCDsH+Y1AEJ8p8raPnLKWA6rG5r/j1NLnw/iWPHrCown6JkmVsx8eIoU3UJQp5+IxxTU825X+rz9aDrnl3ZH+cRwFsgVsDWSaJh2ks1fMoqnB8VNXPezrLSHsE99KJxfnTxtaDjwU+7/BxnQePIPXGda1x7poHb593jyR9QvOVix5BbF34fOWiBz8ur/cVrXvj5inXPfga0HZ8FFVjPWzW/Ukcov1hOr+EB0HPDFmwoMLvwUaud4c1wTXka9KC3hY143rrs/0+a1vQbXz2Nx1bYFtfyIO4Uea1qQQSHlX185lVGgkPmk/o+VLCp6oav2638alafM7rns+4dhsPiuk9CdU3r+LfD0jWHU3SdXuj67ONxPvEv0jTw600PdxK0yP70DNavd8YTHHJI00tZS9k1cu4qF8kzffsvhdy4IBHmpDHY849LlD/lXbJc4KxtfdPPM69sF/yHJfm3TRperiVv/T4BMXdxqkQJwAA
+  </data>
+ </layer>
+ <layer name="Arvores" width="50" height="50">
+  <properties>
+   <property name="blocked" type="bool" value="true"/>
+  </properties>
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu2WTU/DMAyGw///XYzL6I0B0rIbYzsUuPB1GOBqrWRZSWonoXMrP9K7pm3S+ZXj1ifn3Gkh6ngAPTo+jWDuNWgFuhGskYB9HEBH5joP2gn+5w60Ad0L1kjAPr5A38x1LXOe749PoD3omR+aCOwjdK+Uzm+3/95BH6DPCs8MkfJBkdQDRrL/cpH4oPFQXy/l4WTD9RGaQ339lIeTDfaRu29q4iPXaa7pOfYxxT4eI/YepLmm55L6kMKpl1vGHM94VomPJjIeqFUvLeNZKR9j9bKLjEuI5ackHxrqZYDmI1XnHGq/02LvJwqNO6fOcew0R96VeeP2adJ8hGJK7a925H4Or6C3frzuj9J8XLImhph/u5+r83jbX6tdH//JNnGvRn1oYE75wKzROPQ9n0s+8B4Lfc+15mOsz5prPigl/dWcMB+6mNIHtyek82LxeTJnKh+4J8QxNCSGltwLraHzLrWvcAy0p4v1e6ne2OpDF+ZDF+ZDF+ZDF+ZDF+ZDF+ZDF+ZDF+ZDF0vzsQT9AWmrfcoQJwAA
+  </data>
+ </layer>
+ <layer name="Rio" width="50" height="50">
+  <properties>
+   <property name="blocked" type="bool" value="true"/>
+  </properties>
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3WwQmEMBBGYacorcC1ggh2sP13sOxBMg4jiAeTX94Hc/cRQ2YYAAAAAAAAAABoZ7Q6k7X+mvs+Vucr3OI79hbFs4kdsSdOr32r1dlOmvwsnXZ45UKLyh0qdjyj7LxUWs6UF7XMgv9YJt4hWvqQtaiKLcp8i9f7+5/Z3xzvDXfnT3EHyMT9RrUl29VoaS9rUdj9M/MDHT/niJIYECcAAA==
+  </data>
+ </layer>
+ <layer name="Arvores 2" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu1YSW4VQQztzT8RcBDIWcgN4GYBKVlDpnUIwzph2uCvpJSnJ09V5e6PBE+y1KpWtYeyn921LP8WTkTeibwP1ipwIXLZuSdryweRjyLnwdoI2O7PIl8693i2nIqcPT7fiHwSuYX32loWaAfb/UPkZ7Cf93i2XIlcPz7fidyLfF+e/MM1RnTOaEfGbgbv8Wz5KvJNWUf/LEQ5Z9k+UhsRfon8VtYt/xCjOZepjT3YX6yBLCz/EN45e8jmGPubyZEKVOcL+5vJkQpk82UUmRypwAgnjcKrld7evVavz8CrFeTRDDdovGvtq64drBXWiTyK/lpx13jXilNF7aC9WCusE3kU/bX6nca7FqeM1A6foRUjj8fQ355+V8kpfIaWvVmdo/1uFnyGMzE6JCftYfGDZ5f2ruf/o2IeYlj8wHahbs3mntpYYx6y+IHtQt2azVFtYBy2nIfYLtQ9Us9eX9hqHqrAljNVBK5vzJVD85WFDCdhrlTdl1Qjw0mYKzP3JWuil5MO1csjjNhV0c/WRqbvb/V/P4NM39/q/34Gmb7v9bM17tQqka0jPk+spZnes0bf8mLO54m11Nt7MAbW3hn/on9r/DbWEnM8x4NtwhhYfcub1yMfoxkKv421xLnJ8WCbMAZWXnvz+uzsocUO49TyhePB+0bulK3ZY6TnabHDOFl3SNq+mfzH71X1PIxT5g5pSb5veC1yrDw3jPS8aCaI7pBwP773ePKNyFvluQF1Zs84exewR5SD+N7jyeg8Ijue7ZbluciL3dNa9i6ggWvQ2u/xZHQekR2aH5aNFnduPXeiHS1XIz8yNrYatPK2Z2br5beWq5EfGk+wrlaDFjf13M1H/Ma6W65Gfmi9zNJl1U/TlYl19N9t6UY/sudv6dLyNmOD9Y0e3S/F/lciR7v8+Wf+AbRvVdxxZHRX3sFp3/pb7zj+4wF/AMjJywQQJwAA
+  </data>
+ </layer>
+</map>

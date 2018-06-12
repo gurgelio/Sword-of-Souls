@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" source="blocks.tsx"/>
+ <tileset firstgid="257" source="blocks_river.tsx"/>
+ <tileset firstgid="513" source="more_blocks.tsx"/>
+ <layer name="Arvores 2" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu1Yu44VMQwdWKDf5dEDy/YgQQ8S9CBBv0jwYfAB7B9AA0hQ865517wbzhUz4sjYsZN45m7BkY40d+Ymdhy/kmHY3zgAHgQ3wEPgYfBIx3wPwUfgY+ddBl6Cr8bnTXALPAoeA4+DJ4L6aXgGPgdfOO9awHqv8AH8OD6fBE+Bp8Ft8Ay4E9RvwhPw6fj8FnwHvqfv2rsW3VnvFb6DP8bns+A58A54FzwPXlDmK+nyGnwzPn8Bv4Lfhr/r43cS3j6z7qy3xEXwEngP3AMvg1eU/5V0+QR+Vt7z+ix4PmfpLn3sKngNvA8+AK+DNxzZEj/BX8p7a32MVp+TPrYL3qTft8Dbw7/r5RiIwlofo7TPJZR8jCHXG/GRDEj79UKuN+IjGZD2y0bERzIQ9ZcMlGKltnbPVesjKMUK59FIbtDyrjUuO3Y4VqRMzqO8XsvuWt617JQRO6wvx4qUyXmU12vVOy3vWjmlJXbkHlo2KuUxXm9NvcvMKXIPLX2jMlvrXS/kHvbYaJ05aQUrP5T00r7VnD8y+iEJKz9IvVi2pnNNbMzRD1n5QerFsjWdvdhgOyzZD0m9WHZLPJfqwlL9UAaW7Kk8yPhmX1l3vrIQyUnsK1n3JdmI5CT2lZ77kjlRm5PWVcs9tOiVUc/mRqTuL3W+70Gk7i91vu9BpO6X6ln2OS8b0TiS+8mx1FN75qhbJZvL/eRYqq09bANrbM/6vLM1z82xJHO8tIfUiW1g1a1Sv+6t0euheG6OJemb0h5SJ7aB5delfr2399Bsx3aa/EXaQ45ruVO2eo+WmqfZju1k3SFp43r8n+fLqnlsp8gd0hD8HkVLzfN6Au8Oicfz957axDKjexy9C1jB80H+nnV/H93j6F3ABBmD1viss2bL2YN1tHLn0n0n6xH11YiOUwxaflsTF7X5LeqrWp6QsqYYtPy2Ji4835eyo76q1TJLluW3k6yIrT3fj8R4dP8tWZ7fRnTw+vJIjEf3P3IG0ObKuOOIyM68g9Pm2q93HP/xB78BnuSdERAnAAA=
+  </data>
+ </layer>
+</map>
