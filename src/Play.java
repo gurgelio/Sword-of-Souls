@@ -10,9 +10,6 @@ import org.newdawn.slick.tiled.TiledMap;
 import java.util.ArrayList;
 
 class Play extends BasicGameState {
-
-    private boolean[][] blocked;
-    private TiledMap map, map2;
     private Camera camera;
     private int mapHeight, mapWidth;
     private int tileHeight, tileWidth;
@@ -21,6 +18,7 @@ class Play extends BasicGameState {
     private Larry larry;
     private ArrayList<Entity> entities;
     private MiniMap minimap;
+    private Mapa map;
 
     Play(int id){
         stateid = id;
@@ -34,13 +32,11 @@ class Play extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         In.init();
-
-        map = new TiledMap("map/mapa.tmx");
-        map2 = new TiledMap("map/mapa2.tmx");
-        initBlocks();
+        map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
+        map.init();
 
         camera = new Camera();
-        minimap = new MiniMap(new Image("map/mapa128.png"), map.getWidth()*map.getTileWidth());
+        minimap = new MiniMap(new Image("map/mapa128.png"), map.size());
 
         Items.init();
         entities = new ArrayList<>();
@@ -52,10 +48,10 @@ class Play extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        camera.render(map, g, larry);
-        map.render(0, 0);
-        Entity.render(entities, g);
+        camera.render(g, larry, map.size());
+        map.renderWithEntities(entities, g);
 
+        /*
         for(int x=0; x < map.getWidth(); x++){
             for(int y=0; y < map.getHeight(); y++){
                 if(blocked[x][y]){
@@ -63,11 +59,11 @@ class Play extends BasicGameState {
                 }
             }
         }
+        */
+        
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
         minimap.render(g, camera, larry);
         if (In.buttonHeld("rmb")) renderInventory(g);
-        Entity.render(entities, g);
-        map2.render(0,0);
         g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
         minimap.render(g, camera, larry);
     }
@@ -83,31 +79,9 @@ class Play extends BasicGameState {
         }
     }
 
-    boolean isBlocked(float x, float y, float radius) {
-        int xBlock0 = (int) ((x-radius) / map.getTileWidth());
-        int yBlock0 = (int) ((y-radius) / map.getTileHeight());
-        int xBlock1 = (int) ((x + radius) / map.getTileWidth());
-        int yBlock1 = (int) ((y + radius) / map.getTileHeight());
-        return (blocked[xBlock0][yBlock0] || blocked[xBlock0][yBlock1] || blocked[xBlock1][yBlock0] || blocked[xBlock1][yBlock1]);
-    }
 
-    private void initBlocks() {
-        blocked = new boolean[map.getWidth()][map.getHeight()];
-        for (int l = 0; l < map.getLayerCount(); l++) {
-            String layerValue = map.getLayerProperty(l, "blocked", "false");
 
-            if (layerValue.equals("true")) {
-                for (int c = 0; c < map.getWidth(); c++) {
-                    for (int r = 0; r < map.getHeight(); r++) {
 
-                        if (map.getTileId(c, r, l) != 0) {
-                            blocked[c][r] = true;
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     void renderInventory(Graphics g) throws SlickException {
         g.drawImage(new Image("img/equipInventory.png"),inX, inY);

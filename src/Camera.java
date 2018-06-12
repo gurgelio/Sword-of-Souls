@@ -12,19 +12,19 @@ class Camera {
     }
 
 
-    void render(TiledMap map, Graphics g, Entity larry) {
+    void render(Graphics g, Entity larry, int mapSize) {
 
         if (larry.getX() - Game.width / 2 + 32 < 0) {
             x = 0;
-        } else if (larry.getX() + Game.width / 2 + 32 > map.getWidth()*map.getTileWidth()) {
-            x = -map.getWidth()*map.getTileWidth() + Game.width;
+        } else if (larry.getX() + Game.width / 2 + 32 > mapSize) {
+            x = -mapSize + Game.width;
         } else {
             x = (int) -larry.getX() + Game.width / 2 - 32;
         }
         if (larry.getY() - Game.height / 2 + 32 < 0) {
             y = 0;
-        } else if (larry.getY() + Game.height / 2 + 32 > map.getHeight()*map.getTileHeight()) {
-            y = -map.getHeight()*map.getTileHeight() + Game.height;
+        } else if (larry.getY() + Game.height / 2 + 32 > mapSize) {
+            y = -mapSize + Game.height;
         } else {
             y = (int) -larry.getY() + Game.height / 2 - 32;
         }
