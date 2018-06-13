@@ -39,6 +39,16 @@ class Mapa {
         overEntitiesMap.render(0, 0);
     }
 
+    void renderCollisionRectangles(Graphics g){
+        for(int x=0; x < map.getWidth(); x++){
+            for(int y=0; y < map.getHeight(); y++){
+                if(blocked[x][y]){
+                    g.drawRect((float) x * 32, (float) y * 32, (float) 32, (float) 32);
+                }
+            }
+        }
+    }
+
     boolean isBlocked(float x, float y, float radius) {
         int xBlock0 = (int) ((x-radius) / map.getTileWidth());
         int yBlock0 = (int) ((y-radius) / map.getTileHeight());
@@ -47,7 +57,11 @@ class Mapa {
         return (blocked[xBlock0][yBlock0] || blocked[xBlock0][yBlock1] || blocked[xBlock1][yBlock0] || blocked[xBlock1][yBlock1]);
     }
 
-    int size(){
+    int getWidth(){
         return map.getWidth()*map.getTileWidth();
+    }
+
+    int getHeight(){
+        return map.getHeight()*map.getTileHeight();
     }
 }
