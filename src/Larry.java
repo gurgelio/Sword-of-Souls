@@ -23,7 +23,7 @@ class Larry extends Entity {
             } else {
                 walk(map, delta);
             }
-        } else hp = 1234124;//die();
+        } else die();
         if (In.keyHeld("space")) {
             hp = 0;
         } else if (hp <= 0) {

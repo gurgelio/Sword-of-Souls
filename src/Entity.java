@@ -15,7 +15,6 @@ abstract class Entity {
     //private int dexterity, strength, constitution, willpower;
     float speed;
     //private Map<String, String> inventory;
-    Action animation;
     ArrayList<Action> charAnimation = new ArrayList<>();
     int w = 64, h = 64;
 
@@ -29,7 +28,6 @@ abstract class Entity {
         //this.constitution = constitution;
         //this.willpower = willpower;
         for (String st : equipment){
-            System.out.println(st);
             charAnimation.add(new Action(new Image(st),64,64,120));
         }
 
@@ -80,7 +78,14 @@ abstract class Entity {
     }
 
     void die() {
-        animation.setState("die");
+        for (Action act : charAnimation) {
+            act.setState("die");
+            if (act.isStopped()) {
+                act.setFrame(0);
+                act.start();
+                System.exit(0);
+            }
+        }
     }
 
     void thrust() {
