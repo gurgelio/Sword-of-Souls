@@ -38,7 +38,26 @@ abstract class Entity {
 
     }
 
-    void update(GameContainer gc, int delta, Play gps){}
+    private void render() {
+        animation.render(pos.x, pos.y);
+    }
+
+    static void render(ArrayList<Entity> entities, Graphics g){
+        //float[] hitbox;
+        for(Entity e : entities) {
+            e.render();
+            //hitbox = e.hitbox();
+            //g.drawOval(hitbox[0] - hitbox[2], hitbox[1] - hitbox[2], 2 * hitbox[2], 2 * hitbox[2]);
+        }
+    }
+
+    void update(GameContainer gc, int delta, Mapa map){}
+
+    static void update(ArrayList<Entity> entities, GameContainer gc, int delta, Mapa map){
+        for(Entity e : entities){
+            e.update(gc, delta, map);
+        }
+    }
 
     float getX() {
         return pos.x;
@@ -86,33 +105,15 @@ abstract class Entity {
 
     void slash() {
         animation.setState("slash");
-        }
+    }
 
     void shoot() {
         animation.setState("shoot");
         if(animation.getFrame() == 12){
-                animation.setFrame(4);
-            }
-        }
-
-    private void render() {
-        animation.render(pos.x, pos.y);
-    }
-
-    static void render(ArrayList<Entity> entities, Graphics g){
-        float[] hitbox;
-        for(Entity e : entities) {
-            e.render();
-            hitbox = e.hitbox();
-            //g.drawOval(hitbox[0] - hitbox[2], hitbox[1] - hitbox[2], 2 * hitbox[2], 2 * hitbox[2]);
+            animation.setFrame(4);
         }
     }
 
-    static void update(ArrayList<Entity> entities, GameContainer gc, int delta, Play gps){
-        for(Entity e : entities){
-            e.update(gc, delta, gps);
-        }
-    }
 
     void atackUpdate(String direction, Rectangle atackHitBox, int range) {
         switch (direction) {
