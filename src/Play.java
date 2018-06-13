@@ -11,14 +11,11 @@ import java.util.ArrayList;
 
 class Play extends BasicGameState {
     private Camera camera;
-    private int mapHeight, mapWidth;
-    private int tileHeight, tileWidth;
     private int stateid;
     private Larry larry;
     private ArrayList<Entity> entities;
     private MiniMap minimap;
     Mapa map;
-
     Play(int id){
         stateid = id;
     }

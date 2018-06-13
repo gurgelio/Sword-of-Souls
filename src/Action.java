@@ -24,7 +24,7 @@ class Action {
     // 0: Cast | 1: Thrust | 2: Walk | 3: Slash | 4: Bow | 5: Die
     Action(Image img, int x, int y, int deltaFrame, int num){
 
-        SpriteSheet upSheet = new SpriteSheet(img.getSubImage(0,0 + 4*num*y, img.getWidth(), y), x, y);
+        SpriteSheet upSheet = new SpriteSheet(img.getSubImage(0,4*num*y, img.getWidth(), y), x, y);
         SpriteSheet leftSheet = new SpriteSheet(img.getSubImage(0, y + 4*num*y, img.getWidth(), y), x, y);
         SpriteSheet downSheet = new SpriteSheet(img.getSubImage(0,2*y + 4*num*y, img.getWidth(), y), x, y);
         SpriteSheet rightSheet = new SpriteSheet(img.getSubImage(0,3*y + 4*num*y, img.getWidth(), y), x, y);
