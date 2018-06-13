@@ -22,6 +22,7 @@ class Play extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        String[] larryEquip = {"light.png"};
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
@@ -32,17 +33,16 @@ class Play extends BasicGameState {
         Items.init();
         entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, DON'T PLACE WEAPONS HERE
-        larry = new Larry(32,128, new String[]{"quiver", "male body", "armor shoes", "green pants", "white shirt", "rope belt", "blonde hair"});
+        larry = new Larry(3*32,128, larryEquip);
         entities.add(larry);
-        entities.add(new Skeleton(1000, 1000, new int[]{1, 1, 1, 1},new String[]{"skeleton body", "armor shoes", "armor pants", "plate armor"}));
+        //entities.add(new Skeleton(1000, 1000, new int[]{1, 1, 1, 1},new String[]{"skeleton body", "armor shoes", "armor pants", "plate armor"}));
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         camera.render(g, larry, map);
-
         map.renderWithEntities(entities, g);
-        map.renderCollisionRectangles(g);
+        //map.renderCollisionRectangles(g);
         if (In.buttonHeld("rmb")) renderInventory(g);
         minimap.render(g, camera, larry);
         renderHud(g);
@@ -51,7 +51,7 @@ class Play extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         In.update();
-        Entity.update(entities, gc, delta, map);
+        Entity.update(entities, delta, map);
         if (In.keyPressed("escape")) {
             sbg.enterState(0);
         }

@@ -31,7 +31,10 @@ class Menu extends BasicGameState{
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
         In.update();
-        if(buttons.get("continue").isClicked()) sbg.enterState(1);
+        if(buttons.get("continue").isClicked()) {
+            sbg.enterState(1);
+
+        }
         if(buttons.get("quit").isClicked()) System.exit(0);
 
     }

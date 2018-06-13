@@ -17,16 +17,8 @@ class Game extends StateBasedGame{
     }
 
     //Inicia os estados do jogo (menu e ingame) e define menu como inicial
-    public void initStatesList(GameContainer gc) throws SlickException{
-
-        /*if(!gc.isFullscreen()){
-            gc.setIcon("img/gameIcon.ico");
-        }*/
-
-        this.getState(menu).init(gc, this);
-        this.getState(play).init(gc, this);
+    public void initStatesList(GameContainer gc){
         this.enterState(menu);
-
     }
 
     public static void main(String[] args){

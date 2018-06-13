@@ -1,5 +1,5 @@
-import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
@@ -9,37 +9,33 @@ import java.util.Map;
 
 abstract class Entity {
     Vector2f pos;
-    private boolean atacking = false;
+    //private boolean atacking = false;
     int hp;
     String direction;
-    private int dexterity, strength, constitution, willpower;
+    //private int dexterity, strength, constitution, willpower;
     float speed;
-    private Map<String, String> inventory;
-    Anim animation;
+    //private Map<String, String> inventory;
+    ArrayList<Action> charAnimation = new ArrayList<>();
     int w = 64, h = 64;
 
     Entity(String[]equipment, int strength, int dexterity, int constitution, int willpower) throws SlickException {
 
-        hp = (int) (50 + Math.sqrt(constitution));
+        //hp = (int) (50 + Math.sqrt(constitution));
         speed = (float) (Math.log10(dexterity + 1)/3);
         if(speed > 1.5f) speed = 1.5f;
-        this.strength = strength;
-        this.dexterity = dexterity;
-        this.constitution = constitution;
-        this.willpower = willpower;
-
-        this.inventory = new HashMap<>();
-        this.inventory.putAll(Items.createinventory(equipment));
-        ArrayList<String> actions = new ArrayList<>();
-        for(String str : new String[] {"behind", "body", "feet", "legs", "torso",  "belt", "head", "hands"}){
-            if(inventory.containsKey(str)) actions.add(Items.items.get(inventory.get(str)));
+        //this.strength = strength;
+        //this.dexterity = dexterity;
+        //this.constitution = constitution;
+        //this.willpower = willpower;
+        for (String st : equipment){
+            charAnimation.add(new Action(new Image(st),64,64,120));
         }
-        animation = new Anim(actions, dexterity);
 
     }
 
+
     private void render() {
-        animation.render(pos.x, pos.y);
+        for (Action act : charAnimation) act.render(pos.x, pos.y);
     }
 
     static void render(ArrayList<Entity> entities, Graphics g){
@@ -51,11 +47,12 @@ abstract class Entity {
         }
     }
 
-    void update(GameContainer gc, int delta, Mapa map){}
+    void update(int delta, Mapa map){
+    }
 
-    static void update(ArrayList<Entity> entities, GameContainer gc, int delta, Mapa map){
+    static void update(ArrayList<Entity> entities, int delta, Mapa map){
         for(Entity e : entities){
-            e.update(gc, delta, map);
+            e.update(delta, map);
         }
     }
 
@@ -81,36 +78,50 @@ abstract class Entity {
     }
 
     void die() {
-        animation.setState("die");
-
+        for (Action act : charAnimation) {
+            act.setState("die");
+            if (act.isStopped()) {
+                act.setFrame(0);
+                act.start();
+                System.exit(0);
+            }
+        }
     }
 
     void thrust() {
-        animation.setState("thrust");
-        if(animation.isStopped()){
-            animation.setFrame(4);
-            animation.start();
+        for (Action act : charAnimation) {
+            act.setState("thrust");
+            if (act.isStopped()) {
+                act.setFrame(4);
+                act.start();
+            }
         }
     }
 
     void cast() {
-        animation.setState("cast");
-        if(animation.isStopped()){
-            //spell effect
-            animation.setFrame(0);
-            animation.start();
-            animation.setState("stop");
+        for (Action act : charAnimation) {
+            act.setState("cast");
+            if (act.isStopped()) {
+                //spell effect
+                act.setFrame(0);
+                act.start();
+                act.setState("stop");
+            }
         }
     }
 
     void slash() {
-        animation.setState("slash");
+        for (Action act : charAnimation) {
+            act.setState("slash");
+        }
     }
 
     void shoot() {
-        animation.setState("shoot");
-        if(animation.getFrame() == 12){
-            animation.setFrame(4);
+        for (Action act : charAnimation) {
+            act.setState("shoot");
+            if (act.getFrame() == 12) {
+                act.setFrame(4);
+            }
         }
     }
 

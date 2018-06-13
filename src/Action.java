@@ -3,73 +3,143 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Animation;
 
 class Action {
-    Animation up, down, left, right;
-    private Animation current_direction;
+    private Animation[] walk = {null,null,null,null,null}, cast = {null,null,null,null,null}, shoot = {null,null,null,null,null}, current;
+    Animation[] die = {null,null,null,null,null}, slash = {null,null,null,null,null}, thrust = {null,null,null,null,null}, stop = {null,null,null,null,null};
 
     Action(Image img, int x, int y, int deltaFrame){
 
-        SpriteSheet upSheet = new SpriteSheet(img.getSubImage(0,0,img.getWidth(), y), x, y);
-        SpriteSheet leftSheet = new SpriteSheet(img.getSubImage(0, y,img.getWidth(),y), x, y);
-        SpriteSheet downSheet = new SpriteSheet(img.getSubImage(0,2*y,img.getWidth(),y), x, y);
-        SpriteSheet rightSheet = new SpriteSheet(img.getSubImage(0,3*y,img.getWidth(),y), x, y);
+        stop[0] = new Animation(new Image[] {img.getSubImage(0,0,x,y)}, deltaFrame);
+        stop[1] = new Animation(new Image[] {img.getSubImage(0,y,x,y)}, deltaFrame);
+        stop[2] = new Animation(new Image[] {img.getSubImage(0,2*y,x,y)}, deltaFrame);
+        stop[3] = new Animation(new Image[] {img.getSubImage(0,3*y,x,y)}, deltaFrame);
+        stop[4] = stop[0];
 
-        up = new Animation(upSheet,deltaFrame);
-        left = new Animation(leftSheet,deltaFrame);
-        down = new Animation(downSheet,deltaFrame);
-        right = new Animation(rightSheet,deltaFrame);
-        current_direction = up;
-    }
+        cast[0] = new Animation(new SpriteSheet(img.getSubImage(0,0, 7*x, y), x, y),deltaFrame);
+        cast[1] = new Animation(new SpriteSheet(img.getSubImage(0, y, 7*x, y), x, y),deltaFrame);
+        cast[2] = new Animation(new SpriteSheet(img.getSubImage(0,2*y, 7*x, y), x, y),deltaFrame);
+        cast[3] = new Animation(new SpriteSheet(img.getSubImage(0,3*y, 7*x, y), x, y),deltaFrame);
+        cast[4] = cast[0];
 
-    // Construtor para folha com todas as animações
-    // 0: Cast | 1: Thrust | 2: Walk | 3: Slash | 4: Bow | 5: Die
-    Action(Image img, int x, int y, int deltaFrame, int num){
+        thrust[0] = new Animation(new SpriteSheet(img.getSubImage(0,4*y, 8*x, y), x, y),deltaFrame);
+        thrust[1] = new Animation(new SpriteSheet(img.getSubImage(0, 5*y, 8*x, y), x, y),deltaFrame);
+        thrust[2] = new Animation(new SpriteSheet(img.getSubImage(0,6*y, 8*x, y), x, y),deltaFrame);
+        thrust[3] = new Animation(new SpriteSheet(img.getSubImage(0,7*y, 8*x, y), x, y),deltaFrame);
+        thrust[4] = thrust[0];
 
-        SpriteSheet upSheet = new SpriteSheet(img.getSubImage(0,4*num*y, img.getWidth(), y), x, y);
-        SpriteSheet leftSheet = new SpriteSheet(img.getSubImage(0, y + 4*num*y, img.getWidth(), y), x, y);
-        SpriteSheet downSheet = new SpriteSheet(img.getSubImage(0,2*y + 4*num*y, img.getWidth(), y), x, y);
-        SpriteSheet rightSheet = new SpriteSheet(img.getSubImage(0,3*y + 4*num*y, img.getWidth(), y), x, y);
+        walk[0] = new Animation(new SpriteSheet(img.getSubImage(0,8*y, 9*x, y), x, y),deltaFrame);
+        walk[1] = new Animation(new SpriteSheet(img.getSubImage(0, 9*y, 9*x, y), x, y),deltaFrame);
+        walk[2] = new Animation(new SpriteSheet(img.getSubImage(0,10*y, 9*x, y), x, y),deltaFrame);
+        walk[3] = new Animation(new SpriteSheet(img.getSubImage(0,11*y, 9*x, y), x, y),deltaFrame);
+        walk[4] = walk[0];
 
-        up = new Animation(upSheet,deltaFrame);
-        left = new Animation(leftSheet,deltaFrame);
-        down = new Animation(downSheet,deltaFrame);
-        right = new Animation(rightSheet,deltaFrame);
-        current_direction = up;
+        slash[0] = new Animation(new SpriteSheet(img.getSubImage(0,12*y, 6*x, y), x, y),deltaFrame);
+        slash[1] = new Animation(new SpriteSheet(img.getSubImage(0, 13*y, 6*x, y), x, y),deltaFrame);
+        slash[2] = new Animation(new SpriteSheet(img.getSubImage(0,14*y, 6*x, y), x, y),deltaFrame);
+        slash[3] = new Animation(new SpriteSheet(img.getSubImage(0,15*y, 6*x, y), x, y),deltaFrame);
+        slash[4] = slash[0];
+
+        shoot[0] = new Animation(new SpriteSheet(img.getSubImage(0,16*y, 13*x, y), x, y),deltaFrame);
+        shoot[1] = new Animation(new SpriteSheet(img.getSubImage(0, 17*y, 13*x, y), x, y),deltaFrame);
+        shoot[2] = new Animation(new SpriteSheet(img.getSubImage(0,18*y, 13*x, y), x, y),deltaFrame);
+        shoot[3] = new Animation(new SpriteSheet(img.getSubImage(0,19*y, 13*x, y), x, y),deltaFrame);
+        shoot[4] = shoot[0];
+
+        die[0] = new Animation(new SpriteSheet(img.getSubImage(0,20*y, 6*x, y), x, y),deltaFrame);
+        die[1] = die[0];
+        die[2] = die[0];
+        die[3] = die[0];
+        die[4] = die[0];
+
+        for (Animation an : slash){
+            an.setDuration(0,0);
+        }
+
+        for(Animation an : thrust){
+            an.setDuration(7, 530);
+            an.setLooping(false);
+        }
+
+        for (Animation an : walk){
+            an.setDuration(0, 0);
+        }
+
+        for(Animation an : die) {
+            an.setCurrentFrame(0);
+            an.setLooping(false);
+        }
+
+        for(Animation an : cast){
+            an.setLooping(false);
+        }
+
+        for(Animation an : stop) {
+            an.stop();
+        }
+
+        current = stop;
+
     }
 
     void update(String direction, int delta){
-        if ("down".equals(direction)) {
-            this.current_direction = down;
 
-        } else if ("left".equals(direction)) {
-            this.current_direction = left;
+        if ("up".equals(direction)) this.current[4] = this.current[0];
+        else if ("left".equals(direction)) this.current[4] = this.current[1];
+        else if ("right".equals(direction)) this.current[4] = this.current[3];
+        else this.current[4] = this.current[2];
 
-        } else if ("right".equals(direction)) {
-            this.current_direction = right;
+        this.current[4].update(delta);
 
-        } else {
-            this.current_direction = up;
-
-        }
-        this.current_direction.update(delta);
     }
 
     int getFrame(){
-        return this.current_direction.getFrame();
+        return this.current[4].getFrame();
     }
 
     void setFrame(int index){
-        current_direction.setCurrentFrame(index);
+        this.current[4].setCurrentFrame(index);
     }
 
     void render(float x, float y){
-        this.current_direction.draw(x, y);
+        this.current[4].draw(x, y);
     }
 
     boolean isStopped(){
-        return this.current_direction.isStopped();
+        return this.current[4].isStopped();
     }
 
     void start(){
-        this.current_direction.start();
+        this.current[4].start();
+    }
+
+    void setState(String state){
+        switch(state){
+            case "walk":
+                this.current = this.walk;
+                break;
+
+            case "slash":
+                this.current = this.slash;
+                break;
+
+            case "cast":
+                this.current = this.cast;
+                break;
+
+            case "thrust":
+                this.current = this.thrust;
+                break;
+
+            case "shoot":
+                this.current = this.shoot;
+                break;
+
+            case "die":
+                this.current = this.die;
+                break;
+
+            case "stop":
+                this.current = this.stop;
+                break;
+        }
     }
 }
