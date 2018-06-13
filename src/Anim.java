@@ -13,124 +13,45 @@ class Anim {
 
 
     private ArrayList<Action> current = new ArrayList<>();
-    private ArrayList<Action> shoot = new ArrayList<>();
-    private ArrayList<Action> die = new ArrayList<>();
-    private ArrayList<Action> slash = new ArrayList<>();
-    private ArrayList<Action> cast = new ArrayList<>();
-    private ArrayList<Action> thrust = new ArrayList<>();
-    private ArrayList<Action> walk = new ArrayList<>();
-    private ArrayList<Action> stop = new ArrayList<>();
 
     private String state;
     private Action sword, spear, bow, arrow;
 
-    Anim(ArrayList<String> strList, int dexterity) throws SlickException {
+    Anim(ArrayList<String> strList) throws SlickException {
 
         for (String st : strList) { //carregamento das animações
-            shoot.add(new Action(new Image(shootdir + st), 64, 64, (int) (230 - Math.sqrt(dexterity))));
-            die.add(new Action(new Image(deathdir + st), 64, 64, 340));
-            slash.add(new Action(new Image(slashdir + st), 64, 64, (int) (300 - Math.sqrt(dexterity))));
-            cast.add(new Action(new Image(castdir + st), 64, 64, 350));
-            thrust.add(new Action(new Image(thrustdir + st), 64, 64, (int) (250 - Math.pow(dexterity, 0.3))));
-            walk.add(new Action(new Image(walkdir + st), 64, 64, (int) ((0.5/Math.log10(dexterity + 1))*300)));
-            stop.add(new Action(new Image(walkdir + st), 64, 64, 1));
+            current.add(new Action(new Image(st), 64, 64, 120));
         }
         // Weapon handling
-        sword = new Action(new Image(slashdir + "WEAPON_short sword_male.png"), 64, 64, (int) (300 - Math.sqrt(dexterity)));
-        spear = new Action(new Image(thrustdir + "WEAPON_spear.png"), 64, 64, (int) (250 - Math.pow(dexterity, 0.3)));
-        bow = new Action(new Image(shootdir + "WEAPON_bow.png"), 64, 64, (int) (230 - Math.sqrt(dexterity)));
-        arrow = new Action(new Image(shootdir + "WEAPON_arrow.png"), 64, 64, (int) (230 - Math.sqrt(dexterity)));
-        for(Action act : slash){
-            for(Animation an : new Animation[]{act.up, act.down, act.left, act.right}){
-                an.setDuration(0,0);
-                //an.setPingPong(true);
-            }
-        }
-        for (Animation an : new Animation[]{sword.up, sword.down, sword.left, sword.right}){
+        sword = new Action(new Image(slashdir + "WEAPON_short sword_male.png"), 64, 64, 120);
+        spear = new Action(new Image(thrustdir + "WEAPON_spear.png"), 64, 64, 120);
+        bow = new Action(new Image(shootdir + "WEAPON_bow.png"), 64, 64, 120);
+        arrow = new Action(new Image(shootdir + "WEAPON_arrow.png"), 64, 64, 120);
+
+        for (Animation an : sword.slash) {
             an.setDuration(0, 0);
-            //an.setPingPong(true);
         }
 
-        for(Action act : thrust){
-            for(Animation an : new Animation[]{act.up, act.down, act.left, act.right}){
-                an.setDuration(7, 530);
-                an.setLooping(false);
-            }
-        }
-        for(Animation an : new Animation[]{spear.up, spear.down, spear.left, spear.right}){
+        for(Animation an : spear.thrust){
             an.setDuration(7, 530);
             an.setLooping(false);
         }
 
-
         /*
         configuração especial de cada animação
          */
-        for(Action act : walk){
-            for (Animation an : new Animation[]{act.up, act.down, act.left, act.right}){
-                an.setDuration(0, 0);
-            }
-        }
-
-        for (Action act : die) {
-            for(Animation an : new Animation[]{act.up, act.down, act.left, act.right}) {
-                an.setLooping(false);
-            }
-        }
 
 
-        for (Action act : cast) {
-            for(Animation an : new Animation[]{act.up, act.down, act.left, act.right}){
-                an.setLooping(false);
-            }
-        }
-
-        for (Action act : stop) {
-            for(Animation an : new Animation[]{act.up, act.down, act.left, act.right}){
-                an.stop();
-            }
-        }
 
         state = "";
-        setState("stop");
     }
 
-    void update(String direction, int delta) {
+    void update(String direction, int delta) { // Não pronto
         for (Action a : current) {
             a.update(direction, delta);
         }
     }
 
-    void setState(String state) {
-        if (this.state.equals(state)) return;
-        current.clear();
-        if ("thrust".equals(state)) {
-            current.addAll(thrust);
-            current.add(spear);
-            this.start();
-        } else if ("slash".equals(state)) {
-            current.addAll(slash);
-            current.add(sword);
-            this.start();
-        } else if ("cast".equals(state)) {
-            current.addAll(cast);
-            this.start();
-        } else if ("die".equals(state)) {
-            current.addAll(die);
-            this.start();
-        } else if ("shoot".equals(state)) {
-            current.addAll(shoot);
-            current.add(bow);
-            current.add(arrow);
-            this.start();
-        } else if ("walk".equals(state)) {
-            current.addAll(walk);
-            this.start();
-        } else current.addAll(stop);
-
-        this.state = state;
-        this.setFrame(0);
-    }
 
     void render(float x, float y){
         for (Action act : current){

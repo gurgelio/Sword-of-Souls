@@ -14,14 +14,14 @@ public class Inventory {
         this.equiped = equipment;
         for (Action act : character){
             for (String st : equiped){
-                act = new Action(new Image(Items.items.get(st)), 64, 64, 120, 3);
+                act = new Action(new Image(Items.items.get(st)), 64, 64, 120);
             }
         }
     }
 
     void render(float x, float y, Animation[] action){
         for (Action act : character){
-            act.render(x, y, action);
+            act.render(x, y);
         }
     }
 }

@@ -9,11 +9,6 @@ class Larry extends Entity {
         pos = new Vector2f(x, y);
     }
 
-    Larry(float x, float y, String[] equipment, String[] body) throws SlickException {
-        super(equipment, 1, 1, 1, 1, body);
-        pos = new Vector2f(x, y);
-    }
-
     @Override
     void update(int delta, Mapa map) {
         if (hp > 0) {
