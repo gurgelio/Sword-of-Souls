@@ -20,6 +20,22 @@ class Action {
         current_direction = up;
     }
 
+    // Construtor para folha com todas as animações
+    // 0: Cast | 1: Thrust | 2: Walk | 3: Slash | 4: Bow | 5: Die
+    Action(Image img, int x, int y, int deltaFrame, int num){
+
+        SpriteSheet upSheet = new SpriteSheet(img.getSubImage(0,0 + 4*num*y, img.getWidth(), y), x, y);
+        SpriteSheet leftSheet = new SpriteSheet(img.getSubImage(0, y + 4*num*y, img.getWidth(), y), x, y);
+        SpriteSheet downSheet = new SpriteSheet(img.getSubImage(0,2*y + 4*num*y, img.getWidth(), y), x, y);
+        SpriteSheet rightSheet = new SpriteSheet(img.getSubImage(0,3*y + 4*num*y, img.getWidth(), y), x, y);
+
+        up = new Animation(upSheet,deltaFrame);
+        left = new Animation(leftSheet,deltaFrame);
+        down = new Animation(downSheet,deltaFrame);
+        right = new Animation(rightSheet,deltaFrame);
+        current_direction = up;
+    }
+
     void update(String direction, int delta){
         if ("down".equals(direction)) {
             this.current_direction = down;
