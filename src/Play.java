@@ -18,7 +18,7 @@ class Play extends BasicGameState {
     private Larry larry;
     private ArrayList<Entity> entities;
     private MiniMap minimap;
-    private Mapa map;
+    Mapa map;
 
     Play(int id){
         stateid = id;
@@ -61,11 +61,10 @@ class Play extends BasicGameState {
         }
         */
         
-        g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
-        minimap.render(g, camera, larry);
+
         if (In.buttonHeld("rmb")) renderInventory(g);
-        g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
         minimap.render(g, camera, larry);
+        renderHud(g);
     }
 
     @Override
@@ -85,5 +84,9 @@ class Play extends BasicGameState {
 
     void renderInventory(Graphics g) throws SlickException {
         g.drawImage(new Image("img/equipInventory.png"),inX, inY);
+    }
+
+    void renderHud(Graphics g) throws SlickException {
+        g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
     }
 }

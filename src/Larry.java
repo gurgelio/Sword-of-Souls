@@ -49,7 +49,7 @@ class Larry extends Entity {
 
         if ((In.keyHeld("a") && !In.keyHeld("d")) || (In.keyHeld("left") && !In.keyHeld("right"))) {
             hitbox = hitbox();
-            if (!gps.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2])) {
+            if (!gps.map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2])) {
                 pos.x -= delta * speed;
                 movedX = true;
             }
@@ -57,7 +57,7 @@ class Larry extends Entity {
 
         } else if ((In.keyHeld("d") && !In.keyHeld("a")) || (In.keyHeld("right") && !In.keyHeld("left"))) {
             hitbox = hitbox();
-            if (!gps.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2])) {
+            if (!gps.map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2])) {
                 pos.x += delta * speed;
                 movedX = true;
             }
@@ -65,21 +65,21 @@ class Larry extends Entity {
         }
         if ((In.keyHeld("w") && !In.keyHeld("s")) || In.keyHeld("up") && !In.keyHeld("down")) {
             hitbox = hitbox();
-            if (!gps.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2])) {
+            if (!gps.map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2])) {
                 pos.y -= delta * speed;
                 movedY = true;
                 hitbox = hitbox();
-                if (!(gps.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2]) || movedX))
+                if (!(gps.map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2]) || movedX))
                     pos.y -= delta * speed;
             }
             direction = "up";
         } else if ((In.keyHeld("s") && !In.keyHeld("w")) || In.keyHeld("down") && !In.keyHeld("up")) {
             hitbox = hitbox();
-            if (!gps.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2])) {
+            if (!gps.map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2])) {
                 pos.y += delta * speed;
                 movedY = true;
                 hitbox = hitbox();
-                if (!(gps.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2]) || movedX))
+                if (!(gps.map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2]) || movedX))
                     pos.y += delta * speed;
             }
             direction = "down";
@@ -87,9 +87,9 @@ class Larry extends Entity {
 
         if (movedX && !movedY) {
             hitbox = hitbox();
-            if (!gps.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2]) && (In.keyHeld("a") || In.keyHeld("left"))) {
+            if (!gps.map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2]) && (In.keyHeld("a") || In.keyHeld("left"))) {
                 pos.x -= delta * speed;
-            } else if (!gps.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2])) pos.x += delta * speed;
+            } else if (!gps.map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2])) pos.x += delta * speed;
         }
         if (movedX || movedY) {
             animation.setState("walk");
