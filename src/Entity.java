@@ -28,8 +28,10 @@ abstract class Entity {
         //this.dexterity = dexterity;
         //this.constitution = constitution;
         //this.willpower = willpower;
-
-        for (String st : equipment) charAnimation.add(new Action(new Image(st),64,64,120));
+        for (String st : equipment){
+            System.out.println(st);
+            charAnimation.add(new Action(new Image(st),64,64,120));
+        }
 
     }
 
@@ -79,7 +81,6 @@ abstract class Entity {
 
     void die() {
         animation.setState("die");
-
     }
 
     void thrust() {

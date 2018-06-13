@@ -22,7 +22,7 @@ class Play extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        String[] larryEquip = {"anim/Universal-LPC-spritesheet/body/male/light.png"};
+        String[] larryEquip = {"light.png"};
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
@@ -33,7 +33,7 @@ class Play extends BasicGameState {
         Items.init();
         entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, DON'T PLACE WEAPONS HERE
-        larry = new Larry(32,128, larryEquip);
+        larry = new Larry(3*32,128, larryEquip);
         entities.add(larry);
         //entities.add(new Skeleton(1000, 1000, new int[]{1, 1, 1, 1},new String[]{"skeleton body", "armor shoes", "armor pants", "plate armor"}));
     }

@@ -23,15 +23,14 @@ class Larry extends Entity {
             } else {
                 walk(map, delta);
             }
-        } else die();
+        } else hp = 1234124;//die();
         if (In.keyHeld("space")) {
             hp = 0;
         } else if (hp <= 0) {
             hp = 100;
         }
-        animation.update(direction, delta);
+        for (Action act : charAnimation) act.update(direction, delta);
         if (In.keyPressed("lshift")) {
-            cast();
             setpos(3*w/2, 38*h/2);
         }
 
@@ -92,7 +91,7 @@ class Larry extends Entity {
             } else if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2])) pos.x += delta * speed;
         }
         if (movedX || movedY) {
-            animation.setState("walk");
-        } else animation.setState("stop");
+            for (Action act : charAnimation) act.setState("walk");
+        } else for (Action act : charAnimation) act.setState("stop");
     }
 }

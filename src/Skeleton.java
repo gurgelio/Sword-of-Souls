@@ -6,4 +6,5 @@ class Skeleton extends Entity{
         super(equipment, stats[0], stats[1], stats[2], stats[3]);
         pos = new Vector2f(x, y);
     }
+
 }

@@ -3,7 +3,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Animation;
 
 class Action {
-    Animation[] walk = {null,null,null,null,null}, cast = {null,null,null,null,null}, shoot = {null,null,null,null,null}, current;
+    private Animation[] walk = {null,null,null,null,null}, cast = {null,null,null,null,null}, shoot = {null,null,null,null,null}, current;
     Animation[] die = {null,null}, slash = {null,null,null,null,null}, thrust = {null,null,null,null,null}, stop = {null,null,null,null,null};
 
     Action(Image img, int x, int y, int deltaFrame){
@@ -11,6 +11,8 @@ class Action {
         for (Animation[] anim : new Animation[][] {stop, cast, thrust, walk, slash, shoot}){
             for (int j : new int[] {0,0,4,8,12,16})
                 for (int i : new int[] {0,1,2,3}){
+                    System.out.println(i+j);
+                    System.out.print(anim[i]);
                     anim[i] = new Animation(new SpriteSheet(img.getSubImage(0,(i + j) * y, img.getWidth(), y), x, y),deltaFrame);
             }
             anim[4] = anim[0];
@@ -44,7 +46,7 @@ class Action {
             an.stop();
         }
 
-        current = walk;
+        current = stop;
 
     }
 
