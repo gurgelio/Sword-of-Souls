@@ -38,6 +38,26 @@ abstract class Entity {
 
     }
 
+    Entity(String[]equipment, int strength, int dexterity, int constitution, int willpower, String[] body) throws SlickException {
+
+        hp = (int) (50 + Math.sqrt(constitution));
+        speed = (float) (Math.log10(dexterity + 1)/3);
+        if(speed > 1.5f) speed = 1.5f;
+        this.strength = strength;
+        this.dexterity = dexterity;
+        this.constitution = constitution;
+        this.willpower = willpower;
+
+        this.inventory = new HashMap<>();
+        this.inventory.putAll(Items.createinventory(equipment));
+        ArrayList<String> actions = new ArrayList<>();
+        for(String str : new String[] {"behind", "body", "feet", "legs", "torso",  "belt", "head", "hands"}){
+            if(inventory.containsKey(str)) actions.add(Items.items.get(inventory.get(str)));
+        }
+        animation = new Anim(actions, dexterity);
+
+    }
+
     private void render() {
         animation.render(pos.x, pos.y);
     }
@@ -51,11 +71,12 @@ abstract class Entity {
         }
     }
 
-    void update(GameContainer gc, int delta, Mapa map){}
+    void update(int delta, Mapa map){
+    }
 
-    static void update(ArrayList<Entity> entities, GameContainer gc, int delta, Mapa map){
+    static void update(ArrayList<Entity> entities, int delta, Mapa map){
         for(Entity e : entities){
-            e.update(gc, delta, map);
+            e.update(delta, map);
         }
     }
 

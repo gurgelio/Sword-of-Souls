@@ -40,9 +40,8 @@ class Play extends BasicGameState {
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         camera.render(g, larry, map);
-
         map.renderWithEntities(entities, g);
-        map.renderCollisionRectangles(g);
+        //map.renderCollisionRectangles(g);
         if (In.buttonHeld("rmb")) renderInventory(g);
         minimap.render(g, camera, larry);
         renderHud(g);
@@ -51,7 +50,7 @@ class Play extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         In.update();
-        Entity.update(entities, gc, delta, map);
+        Entity.update(entities, delta, map);
         if (In.keyPressed("escape")) {
             sbg.enterState(0);
         }

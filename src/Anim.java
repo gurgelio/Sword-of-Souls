@@ -20,6 +20,7 @@ class Anim {
     private ArrayList<Action> thrust = new ArrayList<>();
     private ArrayList<Action> walk = new ArrayList<>();
     private ArrayList<Action> stop = new ArrayList<>();
+
     private String state;
     private Action sword, spear, bow, arrow;
 
