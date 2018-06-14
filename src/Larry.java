@@ -26,6 +26,8 @@ class Larry extends Entity {
         } else die();
         if (In.keyHeld("space")) {
             hp = 0;
+        }else if (In.keyPressed("m")){
+            hp -= 10;
         } else if (hp <= 0) {
             hp = 100;
         }

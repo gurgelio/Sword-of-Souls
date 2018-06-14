@@ -16,6 +16,7 @@ class Play extends BasicGameState {
     private ArrayList<Entity> entities;
     private MiniMap minimap;
     Mapa map;
+    private Hud hud;
     Play(int id){
         stateid = id;
     }
@@ -32,7 +33,7 @@ class Play extends BasicGameState {
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
-
+        hud = new Hud("img/lifeHud.png");
         camera = new Camera();
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
 
@@ -51,7 +52,7 @@ class Play extends BasicGameState {
         //map.renderCollisionRectangles(g);
         if (In.buttonHeld("rmb")) renderInventory(g);
         minimap.render(g, camera, larry);
-        renderHud(g);
+        hud.render(camera.getX(), camera.getY(), 100, larry.hp);
     }
 
     @Override
@@ -73,7 +74,4 @@ class Play extends BasicGameState {
         g.drawImage(new Image("img/equipInventory.png"), camera.getX() + 640, camera.getY() + 20);
     }
 
-    void renderHud(Graphics g) throws SlickException {
-        g.drawImage(new Image("img/lifeHud.png"),camera.getX(),camera.getY() + Game.height - 64);
-    }
 }
