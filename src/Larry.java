@@ -54,7 +54,7 @@ class Larry extends Entity {
 
         if ((In.keyHeld("a") && !In.keyHeld("d")) || (In.keyHeld("left") && !In.keyHeld("right"))) {
             hitbox = hitbox();
-            if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2])) {
+            if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2] - 1)) {
                 pos.x -= delta * speed;
                 movedX = true;
             }
@@ -62,7 +62,7 @@ class Larry extends Entity {
 
         } else if ((In.keyHeld("d") && !In.keyHeld("a")) || (In.keyHeld("right") && !In.keyHeld("left"))) {
             hitbox = hitbox();
-            if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2])) {
+            if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2] - 1)) {
                 pos.x += delta * speed;
                 movedX = true;
             }
@@ -70,21 +70,21 @@ class Larry extends Entity {
         }
         if ((In.keyHeld("w") && !In.keyHeld("s")) || In.keyHeld("up") && !In.keyHeld("down")) {
             hitbox = hitbox();
-            if (!map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2])) {
+            if (!map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2] - 1)) {
                 pos.y -= delta * speed;
                 movedY = true;
                 hitbox = hitbox();
-                if (!(map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2]) || movedX))
+                if (!(map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2] - 1) || movedX))
                     pos.y -= delta * speed;
             }
             direction = "up";
         } else if ((In.keyHeld("s") && !In.keyHeld("w")) || In.keyHeld("down") && !In.keyHeld("up")) {
             hitbox = hitbox();
-            if (!map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2])) {
+            if (!map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2] - 1)) {
                 pos.y += delta * speed;
                 movedY = true;
                 hitbox = hitbox();
-                if (!(map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2]) || movedX))
+                if (!(map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2] - 1) || movedX))
                     pos.y += delta * speed;
             }
             direction = "down";
@@ -92,9 +92,9 @@ class Larry extends Entity {
 
         if (movedX && !movedY) {
             hitbox = hitbox();
-            if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2]) && (In.keyHeld("a") || In.keyHeld("left"))) {
+            if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2] - 1) && (In.keyHeld("a") || In.keyHeld("left"))) {
                 pos.x -= delta * speed;
-            } else if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2])) pos.x += delta * speed;
+            } else if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2] - 1)) pos.x += delta * speed;
         }
         if (movedX || movedY) {
             for (Action act : charAnimation) act.setState("walk");
