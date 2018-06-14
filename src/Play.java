@@ -22,7 +22,13 @@ class Play extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        String[] larryEquip = {"light.png"};
+        String hair = Items.hairDir+"bangslong2/redhead.png";
+        String gloves = "anim/Universal-LPC-spritesheet/hands/gloves/female/metal_gloves_female.png";
+        String sandals = "anim/Universal-LPC-spritesheet/feet/slippers_female/white.png";
+        String dress = "anim/Universal-LPC-spritesheet/torso/dress_female/dress_w_sash_female.png";
+        String eyes = Items.bodyDir+"/eyes/blue.png";
+        String body = Items.bodyDir+"/light.png";
+        String[] larryEquip = {"anim/NPC/lara.png"}; // Usando NPC Lara
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();

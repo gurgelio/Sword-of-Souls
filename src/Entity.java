@@ -83,7 +83,6 @@ abstract class Entity {
             if (act.isStopped()) {
                 act.setFrame(0);
                 act.start();
-                System.exit(0);
             }
         }
     }

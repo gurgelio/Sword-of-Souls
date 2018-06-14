@@ -2,6 +2,9 @@ import java.util.*;
 
 abstract class Items {
     static Map<String, String> items = new HashMap<>();
+    static String mainDir = "anim/Universal-LPC-spritesheet/";
+    static String bodyDir = mainDir+"body/female";
+    static String hairDir = mainDir+"hair/female/";
 
     static void init(){
         items.put("male body", "BODY_male.png");

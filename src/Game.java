@@ -7,7 +7,7 @@ class Game extends StateBasedGame{
     private static final int menu = 0;
     private static final int play = 1;
     static int height = 768;
-    static int width = 1360;
+    static int width = 1366;
 
     //define o nome do jogo e adiciona os estados ao Game
     private Game(String gamename){

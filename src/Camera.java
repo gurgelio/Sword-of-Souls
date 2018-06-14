@@ -28,6 +28,7 @@ class Camera {
             y = (int) -larry.getY() + Game.height / 2 - 32;
         }
 
+        //g.scale(3f,3f);
         g.translate(x, y);
     }
 
