@@ -15,7 +15,8 @@ class Play extends BasicGameState {
     private Larry larry;
     private ArrayList<Entity> entities;
     private MiniMap minimap;
-    Mapa map;
+    private String currentMap = "mapa";
+    Mapa map, cave;
     private Hud hud;
     Play(int id){
         stateid = id;
@@ -33,6 +34,8 @@ class Play extends BasicGameState {
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
+        cave = new Mapa("map/cave.tmx", "map/cave2.tmx");
+        cave.init();
         hud = new Hud("img/lifeHud.png");
         camera = new Camera();
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
@@ -47,9 +50,14 @@ class Play extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        camera.render(g, larry, map);
-        map.renderWithEntities(entities, g);
-        //map.renderCollisionRectangles(g);
+        if (currentMap == "mapa") {
+            camera.render(g, larry, map);
+            map.renderWithEntities(entities, g);
+            //map.renderCollisionRectangles(g);
+        } else if (currentMap == "cave"){
+            camera.render(g, larry, cave);
+            cave.renderWithEntities(entities, g);
+        }
         if (In.buttonHeld("rmb")) renderInventory(g);
         minimap.render(g, camera, larry);
         hud.render(camera.getX(), camera.getY(), 100, larry.hp);
@@ -58,11 +66,18 @@ class Play extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         In.update();
-        Entity.update(entities, delta, map);
+        if (currentMap == "mapa") Entity.update(entities, delta, map);
+        else if (currentMap == "cave") Entity.update(entities, delta, cave);
         if (In.keyPressed("escape")) {
             sbg.enterState(0);
         }
+        if (larry.getX() > 42*32 && larry.getX() < 44*32){
+            if (larry.getY() < 6*32){
+                currentMap = "cave";
+            }
+        }
     }
+
 
     @Override
     public int getID() {

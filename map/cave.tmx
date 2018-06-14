@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" source="Caveblocks.tsx"/>
+ <layer name="Camada de Tiles 1" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3ZV2gVQRiG4d1jBWsCsYJdiB27YBe7YBf7hV3sYLrYwXSxg+liB7tgB7tgB1si2MF+wA72+EpYdhg3ZZMDO8JcPMyQGSbf8P/nZmehYRhhCEcEIhGFaMRIozwPBDfnrTENYy3WYT02YCM2YRXrsYhDPBKQiCQkS6M8DwQ3520l7zZsxw7sxC7sxmbWU5CKNKQjA5nIkkZ5HghuzjtC3qM4huM4gZM4hT2s78U+7McBHMQhHJZGeR4Ibs67TN4ruIpruI4buInTrJ/BWZzDeVzARVxCDu4jW5h75QF5H+IRHuMJnuIZbrF+G3dwF/ekzG/hxxth7pV35H2PD/iIT/iML3jO+gu8xCu8ljL/Ri5+CXOv+HyGUQqlUQZlUQ7l8ZX1b/iOH/gpZQ7irsGm+74S9webtpL0Zwh5q6E6aqAmaqG2dI/K/J8qqGra+XOkTEXtAbGm+eXyuzw7lLxN0BTN0Bwt0BIVyFoRlVAfDdAQjdDYzMsiZipqD4g19eeTOdfl2Z3J2wVd0c2X12dWr9Uha13UM+2+6sC8IzqZeVmyjX/7obD+EGtq/c2pRuJ9C+urwVL2EJ/da073GMB8IAYV0M9F6RuZU2an++bXg1Z+awz12b0m3sP6fQT9h5zq4XWmkt5D18N7uh5q0fVQi66HWnQ91KLroRZdD7XoeqhF10Mtuh5q0fVQi66HWnQ91CLew3qPEr9NW6PXOYtzD/FbujV6nbM4fSV+3xff11Tm9DsX3yTE0UsFvam1kt4/nN7VVCG/qXVHD/REL7RmTxu0RTu0N+13Na+zi/6+qQ3BUAzDcIzASIxCb/b0QV/0Q3/TflfzOrtoElknYwqmYhqmYwZmYjR7xmAsxmE8JmCiAtlFYWQNRwQiEYVoxGARZrFnNuZgLuZhPhYokF0US9Y4xCMBiUhCMlZjMXuWYCmWYTlWYKUC2UUpZE1FGtKRgUxkYQv+AO0YQJkQJwAA
+  </data>
+ </layer>
+</map>
