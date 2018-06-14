@@ -22,7 +22,7 @@ class Play extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        String[] larryEquip = {"anim/NPC/Lara.png"}; // Usando NPC Lara
+        String[] larryEquip = {"anim/NPC/LarryBase.png"}; // Usando NPC Lara
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
