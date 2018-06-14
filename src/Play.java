@@ -2,10 +2,8 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.tiled.TiledMap;
 
 import java.util.ArrayList;
 
@@ -14,82 +12,68 @@ class Play extends BasicGameState {
     private int stateid;
     private Larry larry;
     private ArrayList<Entity> entities;
-    private MiniMap minimap, caveMinimap;
-    private String currentMap = "mapa";
-    Mapa map, cave;
+    private MiniMap minimap;
+    Mapa map, cave, currentmap;
     private Hud hud;
+
     Play(int id){
         stateid = id;
     }
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        String hair = Items.hairDir+"bangslong2/redhead.png";
-        String gloves = "anim/Universal-LPC-spritesheet/hands/gloves/female/metal_gloves_female.png";
-        String sandals = "anim/Universal-LPC-spritesheet/feet/slippers_female/white.png";
-        String dress = "anim/Universal-LPC-spritesheet/torso/dress_female/dress_w_sash_female.png";
-        String eyes = Items.bodyDir+"/eyes/blue.png";
-        String body = Items.bodyDir+"/light.png";
         String[] larryEquip = {"anim/NPC/Lara.png"}; // Usando NPC Lara
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
-        cave = new Mapa("map/cave.tmx", "map/cave2.tmx");
-        cave.init();
+        currentmap = map;
+
         hud = new Hud("img/lifeHud.png");
         camera = new Camera();
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
-        caveMinimap = new MiniMap(new Image("map/cave128.png"), cave);
-
         Items.init();
         entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, DON'T PLACE WEAPONS HERE
         larry = new Larry(3*32,128, larryEquip);
         entities.add(larry);
-        //entities.add(new Skeleton(1000, 1000, new int[]{1, 1, 1, 1},new String[]{"skeleton body", "armor shoes", "armor pants", "plate armor"}));
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        if (currentMap == "mapa") {
-            camera.render(g, larry, map);
-            map.renderWithEntities(entities, g);
-            minimap.render(g, camera, larry);
-            //map.renderCollisionRectangles(g);
-        } else if (currentMap == "cave"){
-            camera.render(g, larry, cave);
-            cave.renderWithEntities(entities, g);
-            caveMinimap.render(g, camera, larry);
-        }
-        if (In.buttonHeld("rmb")) renderInventory(g);
-        hud.render(camera.getX(), camera.getY(), 100, larry.hp);
+
+        camera.render(g, larry, currentmap);
+        currentmap.renderWithEntities(entities, g);
+        minimap.render(g, camera, larry);
+        hud.render(camera.getX(), camera.getY(), larry.hp, larry.mana);
+
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         In.update();
-        if (currentMap == "mapa") Entity.update(entities, delta, map);
-        else if (currentMap == "cave") Entity.update(entities, delta, cave);
+        Entity.update(entities, delta, currentmap);
+
         if (In.keyPressed("escape")) {
             sbg.enterState(0);
         }
-        if (larry.getX() > 42*32 & larry.getX() < 44*32 & currentMap == "mapa"){
-            if (larry.getY() < 6*32){
-                currentMap = "cave";
+
+        if (larry.getX() > 41*32 & larry.getX() < 43*32){
+            if (larry.getY() < 4*32 & currentmap == map){
+                cave = new Mapa("map/cave.tmx", "map/cave2.tmx");
+                cave.init();
+                currentmap = cave;
+                minimap.setMinimap(new Image("map/cave128.png"), cave);
                 larry.setpos(47*32,40*32);
             }
         }
+
+        if (In.buttonReleased("mb4")) larry.setpos((int) camera.getX() + In.getMouse()[0] - 16,(int) camera.getY() + In.getMouse()[1] - 32);
     }
 
 
     @Override
     public int getID() {
         return stateid;
-    }
-
-
-    void renderInventory(Graphics g) throws SlickException {
-        g.drawImage(new Image("img/equipInventory.png"), camera.getX() + 640, camera.getY() + 20);
     }
 
 }

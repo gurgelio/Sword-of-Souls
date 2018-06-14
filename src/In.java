@@ -75,6 +75,11 @@ class In {
         keys.put("r", Keyboard.KEY_R);
         keys.put("o", Keyboard.KEY_O);
         keys.put("m", Keyboard.KEY_M);
+        keys.put("n", Keyboard.KEY_N);
+        keys.put("g", Keyboard.KEY_G);
+        keys.put("h", Keyboard.KEY_H);
+        keys.put("t", Keyboard.KEY_T);
+        keys.put("y", Keyboard.KEY_Y);
         allKeys = keys.keySet();
     }
 

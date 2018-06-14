@@ -1,49 +1,39 @@
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 abstract class Entity {
     Vector2f pos;
-    //private boolean atacking = false;
-    int hp;
+    int hp, mana;
     String direction;
-    //private int dexterity, strength, constitution, willpower;
     float speed;
-    //private Map<String, String> inventory;
     ArrayList<Action> charAnimation = new ArrayList<>();
     int w = 64, h = 64;
+    private Inventory inventory;
 
-    Entity(String[]equipment, int strength, int dexterity, int constitution, int willpower) throws SlickException {
+    Entity(String[]equipment, int dexterity) throws SlickException {
 
-        //hp = (int) (50 + Math.sqrt(constitution));
+        inventory = new Inventory(equipment);
+        hp = 100;
+        mana = 100;
         speed = (float) (Math.log10(dexterity + 1)/3);
         if(speed > 1.5f) speed = 1.5f;
-        //this.strength = strength;
-        //this.dexterity = dexterity;
-        //this.constitution = constitution;
-        //this.willpower = willpower;
-        for (String st : equipment){
+
+        for (String st : inventory.getEquiped()){
             charAnimation.add(new Action(new Image(st),64,64,120));
         }
 
     }
 
-
     private void render() {
         for (Action act : charAnimation) act.render(pos.x, pos.y);
     }
 
-    static void render(ArrayList<Entity> entities, Graphics g){
-        //float[] hitbox;
+    static void render(ArrayList<Entity> entities){
         for(Entity e : entities) {
             e.render();
-            //hitbox = e.hitbox();
-            //g.drawOval(hitbox[0] - hitbox[2], hitbox[1] - hitbox[2], 2 * hitbox[2], 2 * hitbox[2]);
         }
     }
 
@@ -64,9 +54,6 @@ abstract class Entity {
         return pos.y;
     }
 
-    Vector2f getpos() {
-        return pos;
-    }
 
     void setpos(int x, int y) {
         this.pos.x = x;
@@ -140,6 +127,10 @@ abstract class Entity {
                 atackHitBox.setBounds(pos.x + 16, pos.y + 64, 32, range);
                 break;
         }
+    }
+
+    Inventory getInventory(){
+        return this.inventory;
     }
 
 }

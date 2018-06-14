@@ -1,27 +1,33 @@
-import org.newdawn.slick.Animation;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-
 import java.util.ArrayList;
 
 public class Inventory {
 
     private String[] equiped;
-    private ArrayList<String> inventory;
-    private Action[] character = {null,null,null,null,null,null,null,null,null,null};
+    private ArrayList<String> inventory = new ArrayList<>();
+    private int gold;
 
-    public Inventory(String[] equipment) throws SlickException {
+    public Inventory(String[] equipment){
         this.equiped = equipment;
-        for (Action act : character){
-            for (String st : equiped){
-                act = new Action(new Image(Items.items.get(st)), 64, 64, 120);
-            }
+        this.gold = 0;
+    }
+
+    void sellItem(int price, String item){
+        this.inventory.remove(item);
+        this.gold += price;
+    }
+
+    void buyItem(int price, String item){
+        if (this.gold >= price){
+            this.inventory.add(item);
+            this.gold -= price;
         }
     }
 
-    void render(float x, float y, Animation[] action){
-        for (Action act : character){
-            act.render(x, y);
-        }
+    void addItem(String item){
+        this.buyItem(0, item);
+    }
+
+    String[] getEquiped(){
+        return this.equiped;
     }
 }

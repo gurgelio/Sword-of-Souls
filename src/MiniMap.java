@@ -23,4 +23,10 @@ class MiniMap {
         return v * scaleY;
     }
 
+    void setMinimap(Image img, Mapa map){
+        this.minimap = img;
+        scaleX = (float) minimap.getWidth()/map.getWidth();
+        scaleY = (float) minimap.getHeight()/map.getHeight();
+    }
+
 }

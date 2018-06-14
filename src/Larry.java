@@ -5,12 +5,13 @@ import org.newdawn.slick.geom.Vector2f;
 class Larry extends Entity {
 
     Larry(float x, float y, String[] equipment) throws SlickException {
-        super(equipment, 1, 1, 1, 1);
+        super(equipment, 1);
         pos = new Vector2f(x, y);
     }
 
     @Override
     void update(int delta, Mapa map) {
+
         if (hp > 0) {
             if (In.buttonHeld("lmb")) {
                 slash();
@@ -26,23 +27,21 @@ class Larry extends Entity {
         } else die();
         if (In.keyHeld("space")) {
             hp = 0;
-        }else if (In.keyPressed("m")){
-            hp -= 10;
         } else if (hp <= 0) {
             hp = 100;
         }
+
         for (Action act : charAnimation) act.update(direction, delta);
-        if (In.keyPressed("lshift")) {
-            setpos(3*w/2, 38*h/2);
-        }
 
-        if (In.keyPressed("tab")){
-            setpos(32,128);
-        }
+        if (In.keyPressed("lshift")) setpos(3*w/2, 38*h/2);
+        if (In.keyPressed("tab")) setpos(32,128);
+        if (In.keyPressed("o")) setpos(43*32,25*32);
 
-        if (In.keyPressed("o")){
-            setpos(43*32,25*32);
-        }
+
+        if (In.keyPressed("m")) mana -= 10;
+        if (In.keyPressed("n")) mana += 10;
+        if (mana >= 100) mana = 100;
+        if (mana <= 0) mana = 0;
 
 
     }
