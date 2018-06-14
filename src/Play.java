@@ -28,7 +28,7 @@ class Play extends BasicGameState {
         String dress = "anim/Universal-LPC-spritesheet/torso/dress_female/dress_w_sash_female.png";
         String eyes = Items.bodyDir+"/eyes/blue.png";
         String body = Items.bodyDir+"/light.png";
-        String[] larryEquip = {"anim/NPC/Zoey.png"}; // Usando NPC Lara
+        String[] larryEquip = {"anim/NPC/Lara.png"}; // Usando NPC Lara
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();

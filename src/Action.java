@@ -14,10 +14,10 @@ class Action {
         stop[3] = new Animation(new Image[] {img.getSubImage(0,3*y,x,y)}, deltaFrame);
         stop[4] = stop[0];
 
-        cast[0] = new Animation(new SpriteSheet(img.getSubImage(0,0, 7*x, y), x, y),deltaFrame);
-        cast[1] = new Animation(new SpriteSheet(img.getSubImage(0, y, 7*x, y), x, y),deltaFrame);
-        cast[2] = new Animation(new SpriteSheet(img.getSubImage(0,2*y, 7*x, y), x, y),deltaFrame);
-        cast[3] = new Animation(new SpriteSheet(img.getSubImage(0,3*y, 7*x, y), x, y),deltaFrame);
+        cast[0] = new Animation(new SpriteSheet(img.getSubImage(0,0, 7*x, y), x, y),2*deltaFrame);
+        cast[1] = new Animation(new SpriteSheet(img.getSubImage(0, y, 7*x, y), x, y),2*deltaFrame);
+        cast[2] = new Animation(new SpriteSheet(img.getSubImage(0,2*y, 7*x, y), x, y),2*deltaFrame);
+        cast[3] = new Animation(new SpriteSheet(img.getSubImage(0,3*y, 7*x, y), x, y),2*deltaFrame);
         cast[4] = cast[0];
 
         thrust[0] = new Animation(new SpriteSheet(img.getSubImage(0,4*y, 8*x, y), x, y),deltaFrame);
@@ -32,10 +32,10 @@ class Action {
         walk[3] = new Animation(new SpriteSheet(img.getSubImage(0,11*y, 9*x, y), x, y),deltaFrame);
         walk[4] = walk[0];
 
-        slash[0] = new Animation(new SpriteSheet(img.getSubImage(0,12*y, 6*x, y), x, y),deltaFrame);
-        slash[1] = new Animation(new SpriteSheet(img.getSubImage(0, 13*y, 6*x, y), x, y),deltaFrame);
-        slash[2] = new Animation(new SpriteSheet(img.getSubImage(0,14*y, 6*x, y), x, y),deltaFrame);
-        slash[3] = new Animation(new SpriteSheet(img.getSubImage(0,15*y, 6*x, y), x, y),deltaFrame);
+        slash[0] = new Animation(new SpriteSheet(img.getSubImage(0,12*y, 6*x, y), x, y),2*deltaFrame);
+        slash[1] = new Animation(new SpriteSheet(img.getSubImage(0, 13*y, 6*x, y), x, y),2*deltaFrame);
+        slash[2] = new Animation(new SpriteSheet(img.getSubImage(0,14*y, 6*x, y), x, y),2*deltaFrame);
+        slash[3] = new Animation(new SpriteSheet(img.getSubImage(0,15*y, 6*x, y), x, y),2*deltaFrame);
         slash[4] = slash[0];
 
         shoot[0] = new Animation(new SpriteSheet(img.getSubImage(0,16*y, 13*x, y), x, y),deltaFrame);
@@ -44,7 +44,7 @@ class Action {
         shoot[3] = new Animation(new SpriteSheet(img.getSubImage(0,19*y, 13*x, y), x, y),deltaFrame);
         shoot[4] = shoot[0];
 
-        die[0] = new Animation(new SpriteSheet(img.getSubImage(0,20*y, 6*x, y), x, y),deltaFrame);
+        die[0] = new Animation(new SpriteSheet(img.getSubImage(0,20*y, 6*x, y), x, y),3*deltaFrame);
         die[1] = die[0];
         die[2] = die[0];
         die[3] = die[0];
