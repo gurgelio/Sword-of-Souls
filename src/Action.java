@@ -80,6 +80,10 @@ class Action {
 
     }
 
+    void render(float x, float y){
+        this.current[4].draw(x, y);
+    }
+
     void update(String direction, int delta){
 
         if ("up".equals(direction)) this.current[4] = this.current[0];
@@ -99,9 +103,7 @@ class Action {
         this.current[4].setCurrentFrame(index);
     }
 
-    void render(float x, float y){
-        this.current[4].draw(x, y);
-    }
+
 
     boolean isStopped(){
         return this.current[4].isStopped();

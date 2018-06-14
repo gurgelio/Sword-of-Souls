@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class Inventory {
+class Inventory {
 
-    private String[] equiped;
+    private String[] equipped;
     private ArrayList<String> inventory = new ArrayList<>();
     private int gold;
 
-    public Inventory(String[] equipment){
-        this.equiped = equipment;
+    Inventory(String[] equipment){
+        this.equipped = equipment;
         this.gold = 0;
     }
 
@@ -27,7 +27,7 @@ public class Inventory {
         this.buyItem(0, item);
     }
 
-    String[] getEquiped(){
-        return this.equiped;
+    String[] getEquipped(){
+        return this.equipped;
     }
 }

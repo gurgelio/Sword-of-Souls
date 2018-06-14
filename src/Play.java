@@ -22,7 +22,7 @@ class Play extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        String[] larryEquip = {"anim/NPC/LarryBase.png"}; // Usando NPC Lara
+        String[] larryEquip = {"Larry", "Brown Shoes", "Blue Pants", "White Shirt", "Blonde Hair" ,"Short Sword Male", "Spear", "Bow"}; // Usando NPC Lara
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
@@ -31,9 +31,8 @@ class Play extends BasicGameState {
         hud = new Hud("img/lifeHud.png");
         camera = new Camera();
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
-        Items.init();
         entities = new ArrayList<>();
-        //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, DON'T PLACE WEAPONS HERE
+        //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, WEAPONS
         larry = new Larry(3*32,128, larryEquip);
         entities.add(larry);
     }

@@ -14,26 +14,22 @@ abstract class Entity {
     private Inventory inventory;
 
     Entity(String[]equipment, int dexterity) throws SlickException {
-
         inventory = new Inventory(equipment);
         hp = 100;
         mana = 100;
         speed = (float) (Math.log10(dexterity + 1)/3);
         if(speed > 1.5f) speed = 1.5f;
 
-        for (String st : inventory.getEquiped()){
-            charAnimation.add(new Action(new Image(st),64,64,120));
+        for (String st : inventory.getEquipped()){
+            System.out.println("anim/"+st+".png");
+            charAnimation.add(new Action(new Image("anim/"+st+".png"),64,64,120));
         }
 
     }
 
-    private void render() {
-        for (Action act : charAnimation) act.render(pos.x, pos.y);
-    }
-
     static void render(ArrayList<Entity> entities){
         for(Entity e : entities) {
-            e.render();
+            for (Action act : e.charAnimation) act.render(e.pos.x, e.pos.y);
         }
     }
 
