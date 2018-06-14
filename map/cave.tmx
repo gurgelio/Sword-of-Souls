@@ -10,7 +10,7 @@
  </layer>
  <layer name="Camada de Tiles 2" width="50" height="50">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu2YWQ6CMBRF/RHdjK7BPTjP87QDF+K4RTdg/PN+QIQKhRaf9uk7yUkoDUlPQppCoZBMvaSZZIR0fBd13XHjOBuwCVuwDTuwC3uwDwdwCEdwDCdwCmdwDhdwCVdwDTdwm8E8Ha4gHdJBgXRIBwXSIR0UmHSYzn+Sd3XcvPxKR3pHmlw6smK7Htc77sV0456zhbJDB7eOivdqeJ5LR1VZX5V5x7UcHXPtCODakQSnjvD+GvCOfTfvfx+TDurnTLDt0J03qM4lOqSDtqNWerr0ouNA245Po65Vh3TQ86sdui7poEc63EI63OJfO3YJfhubDhf5545feK8C9yke4BGe4MX37I9P/rV6L+67wcSsHZyQDrdQOx5oHA1OECcAAA==
+   H4sIAAAAAAAACu2YWQ6CMBRF/RHdjK7BPTjP87QDF+K4RTdg/PMmQsQKhRaf9uk7yUlamiY9CSFALhdPtaBZZIR0fBf13FHzKGuwDhuwCVuwDTuwC3uwDwdwCEdwDCdwCmdwDhdwCVdwncIsHa4gHdJBgXRIBwXSIR0UmHSYrn+Sd3VcvOxKR3JHklw60mJ7Htc7rvlko/bZQtmhg1tHyXs1vM6lo6ycr8y841x8nnPtCODaEQenjvDzNeAdz92s/31MOqj3mWDboXvfoHov0SEd9B2Vwt259xiHte34NOpZdUgHPb/aoeuSDnqkwy2kwy3+tWMT47ex6XCRf+74hfsqcJvgDu7hAZ58j/784I/Va1HfDSam7eCEdLiF2nEDqKugchAnAAA=
   </data>
  </layer>
  <layer name="block" width="50" height="50">
@@ -18,7 +18,7 @@
    <property name="blocked" type="bool" value="true"/>
   </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3PAQkAMAzAsHP/7mboNvLRQAV07jmzpN/1YenD0oelD0sflj4sfVj6sPRh6cPSh6UPSx+WPix9WPqw9GHpw9KHpQ9LH5Y+LH1Ytn1s6AHtjHuFECcAAA==
+   H4sIAAAAAAAACu2WQQ7DMAgEo/7/d/lQr1WEKWCga7ojcbAcA+NEju/Xdd1DYoU2h8RUj2ff0hgpdjxQoAc9KqAHPSqgBz0q8Hhoa39Nlkfm/Ygeaw/vHRPVw5Mn0g+6h3X/T/Cw1D3FQ3sP0rooHR5SPXqs6z97keYseSZ7fKt7gofUX8a5q53j2R7V6yw5P8eRflb75HluB3r0e2h5djy60XqjRz9TPbL+H93QAwt6YEEPLLwe1Xe6KBEPRP7ZY8p3hRpWj5OY7DEh3kf1vGQQJwAA
   </data>
  </layer>
 </map>

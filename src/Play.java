@@ -14,7 +14,7 @@ class Play extends BasicGameState {
     private int stateid;
     private Larry larry;
     private ArrayList<Entity> entities;
-    private MiniMap minimap;
+    private MiniMap minimap, caveMinimap;
     private String currentMap = "mapa";
     Mapa map, cave;
     private Hud hud;
@@ -39,6 +39,7 @@ class Play extends BasicGameState {
         hud = new Hud("img/lifeHud.png");
         camera = new Camera();
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
+        caveMinimap = new MiniMap(new Image("map/cave128.png"), cave);
 
         Items.init();
         entities = new ArrayList<>();
@@ -53,13 +54,14 @@ class Play extends BasicGameState {
         if (currentMap == "mapa") {
             camera.render(g, larry, map);
             map.renderWithEntities(entities, g);
+            minimap.render(g, camera, larry);
             //map.renderCollisionRectangles(g);
         } else if (currentMap == "cave"){
             camera.render(g, larry, cave);
             cave.renderWithEntities(entities, g);
+            caveMinimap.render(g, camera, larry);
         }
         if (In.buttonHeld("rmb")) renderInventory(g);
-        minimap.render(g, camera, larry);
         hud.render(camera.getX(), camera.getY(), 100, larry.hp);
     }
 
@@ -71,9 +73,10 @@ class Play extends BasicGameState {
         if (In.keyPressed("escape")) {
             sbg.enterState(0);
         }
-        if (larry.getX() > 42*32 && larry.getX() < 44*32){
+        if (larry.getX() > 42*32 & larry.getX() < 44*32 & currentMap == "mapa"){
             if (larry.getY() < 6*32){
                 currentMap = "cave";
+                larry.setpos(47*32,40*32);
             }
         }
     }

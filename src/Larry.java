@@ -40,6 +40,10 @@ class Larry extends Entity {
             setpos(32,128);
         }
 
+        if (In.keyPressed("o")){
+            setpos(43*32,25*32);
+        }
+
 
     }
   
