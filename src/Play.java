@@ -5,6 +5,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 class Play extends BasicGameState {
@@ -26,6 +27,8 @@ class Play extends BasicGameState {
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
+        cave = new Mapa("map/cave.tmx", "map/cave2.tmx");
+        cave.init();
         currentmap = map;
 
         hud = new Hud("img/lifeHud.png");
@@ -33,7 +36,7 @@ class Play extends BasicGameState {
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
         entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, WEAPONS
-        larry = new Larry(3*32,128, larryEquip);
+        larry = new Larry(3,4, larryEquip);
         entities.add(larry);
     }
 
@@ -43,7 +46,7 @@ class Play extends BasicGameState {
         camera.render(g, larry, currentmap);
         currentmap.renderWithEntities(entities, g);
         minimap.render(g, camera, larry);
-        hud.render(camera.getX(), camera.getY(), larry.hp, larry.mana);
+        //hud.render(camera.getX(), camera.getY(), larry.hp, larry.mana);
 
     }
 
@@ -58,15 +61,13 @@ class Play extends BasicGameState {
 
         if (larry.getX() > 41*32 & larry.getX() < 43*32){
             if (larry.getY() < 4*32 & currentmap == map){
-                cave = new Mapa("map/cave.tmx", "map/cave2.tmx");
-                cave.init();
                 currentmap = cave;
                 minimap.setMinimap(new Image("map/cave128.png"), cave);
-                larry.setpos(47*32,40*32);
+                larry.setpos(47,40);
             }
         }
 
-        if (In.buttonReleased("mb4")) larry.setpos((int) camera.getX() + In.getMouse()[0] - 16,(int) camera.getY() + In.getMouse()[1] - 32);
+        if (In.buttonReleased("rmb")) larry.setpos((int) (camera.getX() + In.getMouse()[0] - 16)/32,(int) (camera.getY() + In.getMouse()[1] - 32)/32);
     }
 
 

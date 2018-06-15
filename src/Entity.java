@@ -21,7 +21,6 @@ abstract class Entity {
         if(speed > 1.5f) speed = 1.5f;
 
         for (String st : inventory.getEquipped()){
-            System.out.println("anim/"+st+".png");
             charAnimation.add(new Action(new Image("anim/"+st+".png"),64,64,120));
         }
 
@@ -52,8 +51,8 @@ abstract class Entity {
 
 
     void setpos(int x, int y) {
-        this.pos.x = x;
-        this.pos.y = y;
+        this.pos.x = 32*x;
+        this.pos.y = 32*y;
     }
 
     float[] hitbox() {

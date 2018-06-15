@@ -6,7 +6,7 @@ class Larry extends Entity {
 
     Larry(float x, float y, String[] equipment) throws SlickException {
         super(equipment, 1);
-        pos = new Vector2f(x, y);
+        pos = new Vector2f(32*x, 32*y);
     }
 
     @Override
@@ -33,9 +33,9 @@ class Larry extends Entity {
 
         for (Action act : charAnimation) act.update(direction, delta);
 
-        if (In.keyPressed("lshift")) setpos(3*w/2, 38*h/2);
-        if (In.keyPressed("tab")) setpos(32,128);
-        if (In.keyPressed("o")) setpos(43*32,25*32);
+        if (In.keyPressed("lshift")) setpos(3, 38);
+        if (In.keyPressed("tab")) setpos(1,4);
+        if (In.keyPressed("o")) setpos(43,25);
 
 
         if (In.keyPressed("m")) mana -= 10;
