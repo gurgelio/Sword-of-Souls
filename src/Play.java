@@ -37,7 +37,7 @@ class Play extends BasicGameState {
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
         entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, WEAPONS
-        larry = new Larry(3,4, new String[] {"NPC/Joe","Short Sword Male", "Spear", "Recurve Bow"});
+        larry = new Larry(3,4, new String[] {"NPC/Joe","Axe", "Spear", "Recurve Bow", "Kite Shield"});
         entities.add(larry);
 
         inventoryHud = new Image("img/inventoryHud.png");
