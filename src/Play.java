@@ -4,8 +4,6 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 class Play extends BasicGameState {
@@ -55,6 +53,8 @@ class Play extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
+        //for (Item it : larry.getInventory().getInventory()) System.out.println(it.toString()+" "+it.getX()+" "+it.getY());
+
         In.update();
         Entity.update(entities, delta, currentmap);
 

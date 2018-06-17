@@ -2,6 +2,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 class Inventory {
 
@@ -13,12 +14,13 @@ class Inventory {
     private Image equip = new Image("img/equipInventory2.png");
     private Image title = new Image("img/InventoryBaseTitle.png");
     private float x = 138, y = 0;
+    private float rx, ry;
 
     Inventory(String[]  equipment) throws SlickException {
-        for (String s : equipment) this.equipped.add(s);
+        this.equipped.addAll(Arrays.asList(equipment));
         this.gold = 0;
         for (String it : equipped){
-            Item each = new Item(it, lin, col);
+            Item each = new Item(it, col, lin);
             inventory.add(each);
             if (col < 4) col++;
             else{
@@ -58,13 +60,15 @@ class Inventory {
     }
 
     boolean overArea(){
-        return (In.mouseIsOver(new int[] {(int) (Game.width - this.x - title.getWidth()), (int) (Game.height - this.y - inventoryImg.getHeight()), inventoryImg.getWidth(), inventoryImg.getHeight()}) && invState);
+        return (In.mouseIsOver(new int[] {(int) (Game.width - this.x - title.getWidth()), (int) (Game.height - this.y - inventoryImg.getHeight()), title.getWidth(), inventoryImg.getHeight()}) && invState);
     }
 
     void render(float a, float b){
 
         if (In.keyPressed("i")) invState = !invState;
 
+        rx = a - x + Game.width - inventoryImg.getWidth();
+        ry = b - y + Game.height - inventoryImg.getHeight() + 24;
 
         if (invState) {
             inventoryImg.draw( a - x + Game.width - inventoryImg.getWidth(), b - y + Game.height - inventoryImg.getHeight());
@@ -76,8 +80,25 @@ class Inventory {
                     y = Game.height - In.getMouse()[1] - inventoryImg.getHeight() + 12;
                 }
             }
-            for (Item it : inventory) it.renderImage(a - x + Game.width - inventoryImg.getWidth(), b - y + Game.height - inventoryImg.getHeight() + 24);
+
+            for (Item it : inventory){
+                it.renderImage(a - x + Game.width - inventoryImg.getWidth(), b - y + Game.height - inventoryImg.getHeight() + 24);
+                if (In.mouseIsOver(new int[] {(int) rx + it.getX(), (int) ry + it.getY(), 32, 32})){
+                    if (In.buttonHeld("lmb")){
+                        //it.setX(In.getMouse()[0] - Game.width + title.getWidth());
+                        //it.setY(In.getMouse()[1] - Game.height + inventoryImg.getHeight() + 24);
+                    }
+                }
+            }
+
         }
     }
 
+    float getRx() {
+        return rx;
+    }
+
+    float getRy() {
+        return ry;
+    }
 }
