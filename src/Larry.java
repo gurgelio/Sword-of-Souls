@@ -13,7 +13,7 @@ class Larry extends Entity {
     void update(int delta, Mapa map) {
 
         if (hp > 0) {
-            if (In.buttonHeld("lmb") && !this.getInventory().overArea()) {
+            if (In.buttonHeld("lmb")) {
                 slash();
             }else if (In.keyHeld("q")){
                 thrust();
