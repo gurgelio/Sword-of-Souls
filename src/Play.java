@@ -16,6 +16,8 @@ class Play extends BasicGameState {
     private MiniMap minimap;
     Mapa map, cave, currentmap;
     private Hud hud;
+    private Image inventoryHud;
+    private boolean invState = false;
 
     Play(int id){
         stateid = id;
@@ -38,6 +40,8 @@ class Play extends BasicGameState {
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, WEAPONS
         larry = new Larry(3,4, larryEquip);
         entities.add(larry);
+
+        inventoryHud = new Image("img/inventoryHud.png");
     }
 
     @Override
@@ -46,6 +50,7 @@ class Play extends BasicGameState {
         camera.render(g, larry, currentmap);
         currentmap.renderWithEntities(entities, g);
         minimap.render(g, camera, larry);
+        hud.renderInventory(invState);
         //hud.render(camera.getX(), camera.getY(), larry.hp, larry.mana);
 
     }
@@ -58,6 +63,8 @@ class Play extends BasicGameState {
         if (In.keyPressed("escape")) {
             sbg.enterState(0);
         }
+
+        if (In.keyPressed("i")) invState = !invState;
 
         if (larry.getX() > 41*32 & larry.getX() < 43*32){
             if (larry.getY() < 4*32 & currentmap == map){

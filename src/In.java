@@ -22,7 +22,7 @@ class In {
 
     static boolean mouseIsOver(int[] area){ //x, y, width, height
         int[] mouse = getMouse();
-        return area[0] <= mouse[0] && mouse[0] <= area[2] && area[1] <= mouse[1] && mouse[1] <= area[3];
+        return area[0] <= mouse[0] && mouse[0] <= area[0] + area[2] && area[1] <= mouse[1] && mouse[1] <= area[1] + area[3];
     }
 
     static boolean buttonPressed(String button){
@@ -80,6 +80,7 @@ class In {
         keys.put("h", Keyboard.KEY_H);
         keys.put("t", Keyboard.KEY_T);
         keys.put("y", Keyboard.KEY_Y);
+        keys.put("i", Keyboard.KEY_I);
         allKeys = keys.keySet();
     }
 
