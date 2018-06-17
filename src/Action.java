@@ -113,6 +113,50 @@ class Action {
         this.current[4].start();
     }
 
+    void setItem(Image img, int deltaFrame, int x, int y){
+        stop[0] = new Animation(new Image[] {img.getSubImage(0,0,x,y)}, deltaFrame);
+        stop[1] = new Animation(new Image[] {img.getSubImage(0,y,x,y)}, deltaFrame);
+        stop[2] = new Animation(new Image[] {img.getSubImage(0,2*y,x,y)}, deltaFrame);
+        stop[3] = new Animation(new Image[] {img.getSubImage(0,3*y,x,y)}, deltaFrame);
+        stop[4] = stop[0];
+
+        cast[0] = new Animation(new SpriteSheet(img.getSubImage(0,0, 7*x, y), x, y),2*deltaFrame);
+        cast[1] = new Animation(new SpriteSheet(img.getSubImage(0, y, 7*x, y), x, y),2*deltaFrame);
+        cast[2] = new Animation(new SpriteSheet(img.getSubImage(0,2*y, 7*x, y), x, y),2*deltaFrame);
+        cast[3] = new Animation(new SpriteSheet(img.getSubImage(0,3*y, 7*x, y), x, y),2*deltaFrame);
+        cast[4] = cast[0];
+
+        thrust[0] = new Animation(new SpriteSheet(img.getSubImage(0,4*y, 8*x, y), x, y),deltaFrame);
+        thrust[1] = new Animation(new SpriteSheet(img.getSubImage(0, 5*y, 8*x, y), x, y),deltaFrame);
+        thrust[2] = new Animation(new SpriteSheet(img.getSubImage(0,6*y, 8*x, y), x, y),deltaFrame);
+        thrust[3] = new Animation(new SpriteSheet(img.getSubImage(0,7*y, 8*x, y), x, y),deltaFrame);
+        thrust[4] = thrust[0];
+
+        walk[0] = new Animation(new SpriteSheet(img.getSubImage(0,8*y, 9*x, y), x, y),deltaFrame);
+        walk[1] = new Animation(new SpriteSheet(img.getSubImage(0, 9*y, 9*x, y), x, y),deltaFrame);
+        walk[2] = new Animation(new SpriteSheet(img.getSubImage(0,10*y, 9*x, y), x, y),deltaFrame);
+        walk[3] = new Animation(new SpriteSheet(img.getSubImage(0,11*y, 9*x, y), x, y),deltaFrame);
+        walk[4] = walk[0];
+
+        slash[0] = new Animation(new SpriteSheet(img.getSubImage(0,12*y, 6*x, y), x, y),2*deltaFrame);
+        slash[1] = new Animation(new SpriteSheet(img.getSubImage(0, 13*y, 6*x, y), x, y),2*deltaFrame);
+        slash[2] = new Animation(new SpriteSheet(img.getSubImage(0,14*y, 6*x, y), x, y),2*deltaFrame);
+        slash[3] = new Animation(new SpriteSheet(img.getSubImage(0,15*y, 6*x, y), x, y),2*deltaFrame);
+        slash[4] = slash[0];
+
+        shoot[0] = new Animation(new SpriteSheet(img.getSubImage(0,16*y, 13*x, y), x, y),deltaFrame);
+        shoot[1] = new Animation(new SpriteSheet(img.getSubImage(0, 17*y, 13*x, y), x, y),deltaFrame);
+        shoot[2] = new Animation(new SpriteSheet(img.getSubImage(0,18*y, 13*x, y), x, y),deltaFrame);
+        shoot[3] = new Animation(new SpriteSheet(img.getSubImage(0,19*y, 13*x, y), x, y),deltaFrame);
+        shoot[4] = shoot[0];
+
+        die[0] = new Animation(new SpriteSheet(img.getSubImage(0,20*y, 6*x, y), x, y),3*deltaFrame);
+        die[1] = die[0];
+        die[2] = die[0];
+        die[3] = die[0];
+        die[4] = die[0];
+    }
+
     void setState(String state){
         switch(state){
             case "walk":

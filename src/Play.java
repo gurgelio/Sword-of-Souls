@@ -39,7 +39,7 @@ class Play extends BasicGameState {
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, WEAPONS
         larry = new Larry(3,4, new String[] {"NPC/Joe","Axe", "Spear", "Recurve Bow", "Kite Shield"});
         entities.add(larry);
-
+        for (String st : larry.getInventory().getEquipped()) System.out.println(st);
         inventoryHud = new Image("img/inventoryHud.png");
     }
 
@@ -62,6 +62,9 @@ class Play extends BasicGameState {
         if (In.keyPressed("escape")) {
             sbg.enterState(0);
         }
+
+        if (In.keyPressed("h")) larry.getInventory().setItem(3, "Bow", larry);
+
 
         if (larry.getX() > 41*32 & larry.getX() < 43*32){
             if (larry.getY() < 4*32 & currentmap == map){

@@ -35,6 +35,10 @@ abstract class Entity {
     void update(int delta, Mapa map){
     }
 
+    void setItem(Image img, Action act){
+        act.setItem(img, 120, 64, 64);
+    }
+
     static void update(ArrayList<Entity> entities, int delta, Mapa map){
         for(Entity e : entities){
             e.update(delta, map);

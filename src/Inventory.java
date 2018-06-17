@@ -1,15 +1,16 @@
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import java.util.ArrayList;
 
 class Inventory {
 
-    private String[] equipped;
+    private ArrayList<String> equipped = new ArrayList<>();
     private ArrayList<Item> inventory = new ArrayList<>();
     private int gold;
 
-    Inventory(String[] equipment) throws SlickException {
-        this.equipped = equipment;
+    Inventory(String[]  equipment) throws SlickException {
+        for (String s : equipment) this.equipped.add(s);
         this.gold = 0;
         for (String it : equipped){
             inventory.add(new Item(it));
@@ -32,7 +33,12 @@ class Inventory {
         this.buyItem(0, item);
     }
 
-    String[] getEquipped(){
+    void setItem(int index, String item, Entity e) throws SlickException {
+        this.equipped.set(index, item);
+        e.setItem(new Image("anim/"+item+".png"), e.charAnimation.get(index));
+    }
+
+    ArrayList<String> getEquipped(){
         return this.equipped;
     }
 }
