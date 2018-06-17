@@ -10,14 +10,18 @@ public class Item {
     private int buyCost, sellCost;
     private String name;
     private Image image;
-    private Vector<Integer> inventoryPosition = new Vector<>(2);
-    public Item(String name) throws SlickException {
+    int[] inventoryPosition = new int[]{0,0};
+    int x = 0, y = 0;
+
+    public Item(String name, int lin, int col) throws SlickException {
         this.name = name;
-        this.image = new Image("anim/"+name+".png").getSubImage(0,128,64,64);
+        this.image = new Image("anim/"+name+".png").getSubImage(0,128,64,64).getScaledCopy(32,32);
+        this.inventoryPosition[0] = lin;
+        this.inventoryPosition[1] = col;
     }
 
-    void renderImage(Graphics g, float x, float y){
-        g.drawImage(this.image, x + inventoryPosition.get(0)*32, y + inventoryPosition.get(1)*32);
+    void renderImage(float x, float y){
+        image.draw(this.x + x + inventoryPosition[1]*38, this.y + y + inventoryPosition[0]*38);
     }
 
     @Override

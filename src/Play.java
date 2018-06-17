@@ -24,7 +24,8 @@ class Play extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        //String[] larryEquip = {"Larry", "Brown Shoes", "Blue Pants", "White Shirt", "Blonde Hair" ,"Short Sword Male", "Spear", "Bow"}; // Usando NPC Lara
+        String[] larryEquip = {"Larry", "Brown Shoes", "Blue Pants", "White Shirt", "Blonde Hair" ,"Short Sword Male", "Spear", "Bow"}; // Usando NPC Lara
+        //String[] kk = new String[] {"NPC/Joe","Axe", "Spear", "Recurve Bow"};
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
@@ -37,9 +38,8 @@ class Play extends BasicGameState {
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
         entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, WEAPONS
-        larry = new Larry(3,4, new String[] {"NPC/Joe","Axe", "Spear", "Recurve Bow", "Kite Shield"});
+        larry = new Larry(3,4, larryEquip);
         entities.add(larry);
-        for (String st : larry.getInventory().getEquipped()) System.out.println(st);
         inventoryHud = new Image("img/inventoryHud.png");
     }
 
@@ -49,8 +49,7 @@ class Play extends BasicGameState {
         camera.render(g, larry, currentmap);
         currentmap.renderWithEntities(entities, g);
         minimap.render(g, camera, larry);
-        hud.renderInventory();
-        //hud.render(camera.getX(), camera.getY(), larry.hp, larry.mana);
+        larry.getInventory().render(camera.getX(), camera.getY());
 
     }
 

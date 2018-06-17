@@ -7,13 +7,24 @@ class Inventory {
 
     private ArrayList<String> equipped = new ArrayList<>();
     private ArrayList<Item> inventory = new ArrayList<>();
-    private int gold;
+    private int gold, col = 0, lin = 0;
+    private boolean invState = false;
+    private Image inventoryImg = new Image("img/inventoryHud.png");
+    private Image equip = new Image("img/equipInventory2.png");
+    private Image title = new Image("img/InventoryBaseTitle.png");
+    private float x = 138, y = 0;
 
     Inventory(String[]  equipment) throws SlickException {
         for (String s : equipment) this.equipped.add(s);
         this.gold = 0;
         for (String it : equipped){
-            inventory.add(new Item(it));
+            Item each = new Item(it, lin, col);
+            inventory.add(each);
+            if (col < 4) col++;
+            else{
+                lin++;
+                col = 0;
+            }
         }
     }
 
@@ -41,4 +52,32 @@ class Inventory {
     ArrayList<String> getEquipped(){
         return this.equipped;
     }
+
+    ArrayList<Item> getInventory(){
+        return this.inventory;
+    }
+
+    boolean overArea(){
+        return (In.mouseIsOver(new int[] {(int) (Game.width - this.x - title.getWidth()), (int) (Game.height - this.y - inventoryImg.getHeight()), inventoryImg.getWidth(), inventoryImg.getHeight()}) && invState);
+    }
+
+    void render(float a, float b){
+
+        if (In.keyPressed("i")) invState = !invState;
+
+
+        if (invState) {
+            inventoryImg.draw( a - x + Game.width - inventoryImg.getWidth(), b - y + Game.height - inventoryImg.getHeight());
+            equip.draw(a - x + Game.width - inventoryImg.getWidth() - equip.getWidth(), b - y + Game.height - inventoryImg.getHeight() + 24);
+            title.draw(a - x + Game.width - inventoryImg.getWidth() - equip.getWidth(), b - y + Game.height - inventoryImg.getHeight());
+            if (In.mouseIsOver(new int[]{(int) -x + Game.width - title.getWidth(), (int) -y + Game.height - inventoryImg.getHeight(), 188, 24})) {
+                if (In.buttonHeld("lmb")) {
+                    x = Game.width - In.getMouse()[0] - title.getWidth() / 2;
+                    y = Game.height - In.getMouse()[1] - inventoryImg.getHeight() + 12;
+                }
+            }
+            for (Item it : inventory) it.renderImage(a - x + Game.width - inventoryImg.getWidth(), b - y + Game.height - inventoryImg.getHeight() + 24);
+        }
+    }
+
 }
