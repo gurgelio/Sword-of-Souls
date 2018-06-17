@@ -17,7 +17,6 @@ class Play extends BasicGameState {
     Mapa map, cave, currentmap;
     private Hud hud;
     private Image inventoryHud;
-    private boolean invState = false;
 
     Play(int id){
         stateid = id;
@@ -25,7 +24,7 @@ class Play extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        String[] larryEquip = {"Larry", "Brown Shoes", "Blue Pants", "White Shirt", "Blonde Hair" ,"Short Sword Male", "Spear", "Bow"}; // Usando NPC Lara
+        //String[] larryEquip = {"Larry", "Brown Shoes", "Blue Pants", "White Shirt", "Blonde Hair" ,"Short Sword Male", "Spear", "Bow"}; // Usando NPC Lara
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
@@ -38,7 +37,7 @@ class Play extends BasicGameState {
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
         entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, WEAPONS
-        larry = new Larry(3,4, larryEquip);
+        larry = new Larry(3,4, new String[] {"NPC/Lara"});
         entities.add(larry);
 
         inventoryHud = new Image("img/inventoryHud.png");
@@ -50,7 +49,7 @@ class Play extends BasicGameState {
         camera.render(g, larry, currentmap);
         currentmap.renderWithEntities(entities, g);
         minimap.render(g, camera, larry);
-        hud.renderInventory(invState);
+        hud.renderInventory();
         //hud.render(camera.getX(), camera.getY(), larry.hp, larry.mana);
 
     }
@@ -63,8 +62,6 @@ class Play extends BasicGameState {
         if (In.keyPressed("escape")) {
             sbg.enterState(0);
         }
-
-        if (In.keyPressed("i")) invState = !invState;
 
         if (larry.getX() > 41*32 & larry.getX() < 43*32){
             if (larry.getY() < 4*32 & currentmap == map){
