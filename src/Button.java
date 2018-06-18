@@ -1,13 +1,13 @@
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.Color;
-import java.awt.*;
+import java.awt.Font;
 
 class Button {
     private int x, y;
     private String st;
     private TrueTypeFont ttf;
     private boolean held;
-    private Color color, defaultColor,colorHover;
+    private Color color, defaultColor, colorOver;
 
 
     Button(String st, int x, int y, Font font, Color color) {
@@ -18,10 +18,10 @@ class Button {
         this.held = false;
         this.defaultColor = color;
         this.color = defaultColor;
-        this.colorHover = defaultColor;
+        this.colorOver = defaultColor;
     }
 
-    Button(String st, int x, int y, Font font, Color defaultColor, Color colorHover){
+    Button(String st, int x, int y, Font font, Color defaultColor, Color colorOver){
         this.st = st;
         this.ttf = new TrueTypeFont(font, true);
         this.x = x - ttf.getWidth(st) / 2;
@@ -29,7 +29,7 @@ class Button {
         this.held = false;
         this.defaultColor = defaultColor;
         this.color = defaultColor;
-        this.colorHover = colorHover;
+        this.colorOver = colorOver;
     }
 
     private int[] area() {
@@ -39,7 +39,7 @@ class Button {
 
     boolean isClicked() {
         if (In.mouseIsOver(area())) {
-            color = colorHover;
+            color = colorOver;
             if (In.buttonPressed("lmb")) {
                 held = true;
             }

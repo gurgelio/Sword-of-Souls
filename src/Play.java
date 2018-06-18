@@ -5,6 +5,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import java.util.ArrayList;
+import java.lang.reflect.*;
 
 class Play extends BasicGameState {
     private Camera camera;
@@ -39,12 +40,24 @@ class Play extends BasicGameState {
         larry = new Larry(3,4, larryEquip);
         entities.add(larry);
         inventoryHud = new Image("img/inventoryHud.png");
+
+
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 
-        camera.render(g, larry, currentmap);
+        //camera.render(g, larry, currentmap);
+        try {
+            Method met = camera.getClass().getDeclaredMethod("render", Graphics.class, Entity.class, Mapa.class);
+            met.invoke(camera, g, larry, currentmap);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
         currentmap.renderWithEntities(entities, g);
         minimap.render(g, camera, larry);
         larry.getInventory().render(camera.getX(), camera.getY());
@@ -53,16 +66,13 @@ class Play extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        //for (Item it : larry.getInventory().getInventory()) System.out.println(it.toString()+" "+it.getX()+" "+it.getY());
 
         In.update();
         Entity.update(entities, delta, currentmap);
 
-        if (In.keyPressed("escape")) {
-            sbg.enterState(0);
-        }
+        if (In.keyPressed("escape")) sbg.enterState(0);
 
-        if (In.keyPressed("h")) larry.getInventory().setItem(7, "Bow", larry);
+        if (In.keyPressed("h")) larry.getInventory().setItem(7, "Recurve Bow", larry);
 
 
         if (larry.getX() > 41*32 & larry.getX() < 43*32){
