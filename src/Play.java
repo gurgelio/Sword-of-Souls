@@ -62,7 +62,7 @@ class Play extends BasicGameState {
             sbg.enterState(0);
         }
 
-        if (In.keyPressed("h")) larry.getInventory().setItem(3, "Bow", larry);
+        if (In.keyPressed("h")) larry.getInventory().setItem(7, "Bow", larry);
 
 
         if (larry.getX() > 41*32 & larry.getX() < 43*32){

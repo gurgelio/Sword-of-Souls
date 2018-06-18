@@ -1,9 +1,6 @@
-import org.newdawn.slick.Graphics;
+import java.io.File;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-
-import java.util.ArrayList;
-import java.util.Vector;
 
 public class Item {
 
@@ -15,7 +12,8 @@ public class Item {
 
     public Item(String name, int lin, int col) throws SlickException {
         this.name = name;
-        this.image = new Image("anim/"+name+".png").getSubImage(0,128,64,64).getScaledCopy(32,32);
+        if (new File("anim/Icons/"+name+".png").isFile()) this.image = new Image("anim/Icons/"+name+".png");
+        else this.image = new Image("anim/"+name+".png").getSubImage(0,128,64,64).getScaledCopy(32,32);
         this.inventoryPosition[0] = lin;
         this.inventoryPosition[1] = col;
         this.x = inventoryPosition[0]*38;
