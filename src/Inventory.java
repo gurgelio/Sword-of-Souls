@@ -84,9 +84,9 @@ class Inventory {
             for (Item it : inventory){
                 it.renderImage(a - x + Game.width - inventoryImg.getWidth(), b - y + Game.height - inventoryImg.getHeight() + 24);
                 if (In.mouseIsOver(new int[] {(int) rx + it.getX(), (int) ry + it.getY(), 32, 32})){
-                    if (In.buttonHeld("lmb")){
-                        it.setX(In.getMouse()[0]/title.getWidth());
-                        it.setY(In.getMouse()[1]/(inventoryImg.getHeight() + 24));
+                    if (In.buttonHeld("mmb")){
+                        it.setX((int)(In.getMouse()[0]*(((float)title.getWidth()/((float)Game.width)))) + (int)rx - 1152);
+                        it.setY((int)(In.getMouse()[1]*((float)(inventoryImg.getHeight() + 24)/(float)Game.height)) + (int)ry - 768 + 212);
                     }
                 }
             }
