@@ -10,7 +10,7 @@ abstract class Entity {
     String direction;
     float speed;
     ArrayList<Action> charAnimation = new ArrayList<>();
-    int w = 64, h = 64;
+    private int w = 64, h = 64;
     private Inventory inventory;
 
     Entity(String[]equipment, int dexterity) throws SlickException {
@@ -23,7 +23,7 @@ abstract class Entity {
         for (String st : inventory.getEquipped()){
             charAnimation.add(new Action(new Image("anim/"+st+".png"),64,64,120));
         }
-
+        direction = "down";
     }
 
     static void render(ArrayList<Entity> entities){
@@ -54,14 +54,16 @@ abstract class Entity {
     }
 
 
-    void setpos(int x, int y) {
+    void setpos(float x, float y) {
         this.pos.x = 32*x;
         this.pos.y = 32*y;
     }
 
-    float[] hitbox() {
+    float[] collisionBox() {
         return new float[]{getX() + w/2, getY() + 3*h/4, w/4};
     }
+
+    float[] hitbox() { return new float[]{getX(), getY(), getX() + w, getY() + h}; }
 
     void die() {
         for (Action act : charAnimation) {
@@ -79,6 +81,7 @@ abstract class Entity {
             if (act.isStopped()) {
                 act.setFrame(4);
                 act.start();
+                DamageBox.createBox(this.getX(), this.getY(), 8, 10, direction, 120);
             }
         }
     }
@@ -98,6 +101,9 @@ abstract class Entity {
     void slash() {
         for (Action act : charAnimation) {
             act.setState("slash");
+            if (act.getFrame() == act.slash.length - 1){
+                DamageBox.createBox(this.getX(), this.getY(), 8, 10, direction,120);
+            }
         }
     }
 

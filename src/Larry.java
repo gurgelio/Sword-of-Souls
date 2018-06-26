@@ -1,5 +1,4 @@
 import org.newdawn.slick.*;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 
 class Larry extends Entity {
@@ -11,25 +10,23 @@ class Larry extends Entity {
 
     @Override
     void update(int delta, Mapa map) {
-
-        if (hp > 0) {
-            if (In.buttonHeld("lmb") && !getInventory().overArea()){
-                slash();
-            }else if (In.keyHeld("q")){
-                thrust();
-            }else if (In.keyHeld("r")) {
-                cast();
-            }else if (In.keyHeld("e")) {
-                shoot();
-            } else {
-                walk(map, delta);
-            }
-        } else die();
-        if (In.keyHeld("space")) {
-            hp = 0;
-        } else if (hp <= 0) {
-            hp = 100;
+        if(hp <= 0){
+            die();
+            return;
         }
+
+        if (In.buttonHeld("lmb") && !getInventory().overArea()){
+            slash();
+        }else if (In.keyHeld("q")){
+            thrust();
+        }else if (In.keyHeld("r")) {
+            cast();
+        }else if (In.keyHeld("e")) {
+            shoot();
+        } else {
+            walk(map, delta);
+        }
+
 
         for (Action act : charAnimation) act.update(direction, delta);
 
@@ -52,7 +49,7 @@ class Larry extends Entity {
         float[] hitbox;
 
         if ((In.keyHeld("a") && !In.keyHeld("d")) || (In.keyHeld("left") && !In.keyHeld("right"))) {
-            hitbox = hitbox();
+            hitbox = collisionBox();
             if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2] - 1)) {
                 pos.x -= delta * speed;
                 movedX = true;
@@ -60,7 +57,7 @@ class Larry extends Entity {
             direction = "left";
 
         } else if ((In.keyHeld("d") && !In.keyHeld("a")) || (In.keyHeld("right") && !In.keyHeld("left"))) {
-            hitbox = hitbox();
+            hitbox = collisionBox();
             if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2] - 1)) {
                 pos.x += delta * speed;
                 movedX = true;
@@ -68,21 +65,21 @@ class Larry extends Entity {
             direction = "right";
         }
         if ((In.keyHeld("w") && !In.keyHeld("s")) || In.keyHeld("up") && !In.keyHeld("down")) {
-            hitbox = hitbox();
+            hitbox = collisionBox();
             if (!map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2] - 1)) {
                 pos.y -= delta * speed;
                 movedY = true;
-                hitbox = hitbox();
+                hitbox = collisionBox();
                 if (!(map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2] - 1) || movedX))
                     pos.y -= delta * speed;
             }
             direction = "up";
         } else if ((In.keyHeld("s") && !In.keyHeld("w")) || In.keyHeld("down") && !In.keyHeld("up")) {
-            hitbox = hitbox();
+            hitbox = collisionBox();
             if (!map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2] - 1)) {
                 pos.y += delta * speed;
                 movedY = true;
-                hitbox = hitbox();
+                hitbox = collisionBox();
                 if (!(map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2] - 1) || movedX))
                     pos.y += delta * speed;
             }
@@ -90,7 +87,7 @@ class Larry extends Entity {
         }
 
         if (movedX && !movedY) {
-            hitbox = hitbox();
+            hitbox = collisionBox();
             if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2] - 1) && (In.keyHeld("a") || In.keyHeld("left"))) {
                 pos.x -= delta * speed;
             } else if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2] - 1)) pos.x += delta * speed;

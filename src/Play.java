@@ -2,20 +2,22 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import java.util.ArrayList;
 import java.lang.reflect.*;
 
 class Play extends BasicGameState {
+    static Larry larry;
     private Camera camera;
     private int stateid;
-    private Larry larry;
     private ArrayList<Entity> entities;
     private MiniMap minimap;
     Mapa map, cave, currentmap;
     private Hud hud;
     private Image inventoryHud;
+
 
     Play(int id){
         stateid = id;
@@ -39,8 +41,8 @@ class Play extends BasicGameState {
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, WEAPONS
         larry = new Larry(3,4, larryEquip);
         entities.add(larry);
+        entities.add(new SpearSkeleton(600, 600, new int[]{1, 1, 1, 1}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
         inventoryHud = new Image("img/inventoryHud.png");
-
 
     }
 
@@ -61,6 +63,7 @@ class Play extends BasicGameState {
         currentmap.renderWithEntities(entities, g);
         minimap.render(g, camera, larry);
         larry.getInventory().render(camera.getX(), camera.getY());
+        DamageBox.render(g);
 
     }
 
@@ -68,6 +71,7 @@ class Play extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
 
         In.update();
+        DamageBox.update(entities, delta);
         Entity.update(entities, delta, currentmap);
 
         if (In.keyPressed("escape")) sbg.enterState(0);
@@ -82,14 +86,11 @@ class Play extends BasicGameState {
                 larry.setpos(47,40);
             }
         }
-
         if (In.buttonReleased("rmb")) larry.setpos((int) (camera.getX() + In.getMouse()[0] - 16)/32,(int) (camera.getY() + In.getMouse()[1] - 32)/32);
     }
-
 
     @Override
     public int getID() {
         return stateid;
     }
-
 }
