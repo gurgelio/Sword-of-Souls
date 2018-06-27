@@ -157,26 +157,26 @@ class Action {
         die[4] = die[0];
     }
 
-    void setState(String state){
+    void setState(String state, float speed){
         switch(state){
             case "walk":
-                this.current = this.walk;
+                this.current = setSpeed(walk, speed*8);
                 break;
 
             case "slash":
-                this.current = this.slash;
+                this.current = setSpeed(slash, speed*10);
                 break;
 
             case "cast":
-                this.current = this.cast;
+                this.current = setSpeed(cast, 0.75f);
                 break;
 
             case "thrust":
-                this.current = this.thrust;
+                this.current = setSpeed(thrust, speed*6);
                 break;
 
             case "shoot":
-                this.current = this.shoot;
+                this.current = setSpeed(shoot, speed*4);
                 break;
 
             case "die":
@@ -187,5 +187,12 @@ class Action {
                 this.current = this.stop;
                 break;
         }
+    }
+
+    private Animation[] setSpeed(Animation[] state, double speed){
+        for(Animation an : state){
+            an.setSpeed((float) speed);
+        }
+        return state;
     }
 }

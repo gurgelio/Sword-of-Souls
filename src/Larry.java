@@ -3,8 +3,8 @@ import org.newdawn.slick.geom.Vector2f;
 
 class Larry extends Entity {
 
-    Larry(float x, float y, String[] equipment) throws SlickException {
-        super(equipment, 1);
+    Larry(float x, float y, String[] equipment, int[] stats) throws SlickException {
+        super(equipment, stats);
         pos = new Vector2f(32*x, 32*y);
     }
 
@@ -28,18 +28,14 @@ class Larry extends Entity {
         }
 
 
-        for (Action act : charAnimation) act.update(direction, delta);
+        for (Action act : charAnimation) {
+            act.update(direction, delta);
+
+        }
 
         if (In.keyPressed("lshift")) setpos(3, 38);
         if (In.keyPressed("tab")) setpos(1,4);
         if (In.keyPressed("o")) setpos(43,25);
-
-
-        if (In.keyPressed("m")) mana -= 10;
-        if (In.keyPressed("n")) mana += 10;
-        if (mana >= 100) mana = 100;
-        if (mana <= 0) mana = 0;
-
 
     }
   
@@ -93,7 +89,7 @@ class Larry extends Entity {
             } else if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2] - 1)) pos.x += delta * speed;
         }
         if (movedX || movedY) {
-            for (Action act : charAnimation) act.setState("walk");
-        } else for (Action act : charAnimation) act.setState("stop");
+            for (Action act : charAnimation) act.setState("walk", speed);
+        } else for (Action act : charAnimation) act.setState("stop", speed);
     }
 }

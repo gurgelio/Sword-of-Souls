@@ -34,7 +34,7 @@ class Button {
 
     private int[] area() {
         int x = this.x, y = this.y;
-        return new int[]{x, y, x + this.ttf.getWidth(this.st), y + this.ttf.getHeight(this.st)};
+        return new int[]{x, y, this.ttf.getWidth(this.st), this.ttf.getHeight(this.st)};
     }
 
     boolean isClicked() {

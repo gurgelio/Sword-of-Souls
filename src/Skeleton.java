@@ -5,7 +5,7 @@ class Skeleton extends Entity{
     private Vector2f guardposition;
 
     Skeleton(float x, float y, int[] stats, String[] equipment) throws SlickException {
-        super(equipment, stats[0]);
+        super(equipment, stats);
         pos = new Vector2f(x, y);
         guardposition = new Vector2f(x, y);
     }
@@ -77,8 +77,8 @@ class Skeleton extends Entity{
         }
 
         if (movedX || movedY) {
-            for (Action act : charAnimation) act.setState("walk");
-        } else for (Action act : charAnimation) act.setState("stop");
+            for (Action act : charAnimation) act.setState("walk", speed);
+        } else for (Action act : charAnimation) act.setState("stop", speed);
     }
 
 

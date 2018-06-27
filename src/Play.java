@@ -39,9 +39,9 @@ class Play extends BasicGameState {
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
         entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, WEAPONS
-        larry = new Larry(3,4, larryEquip);
+        larry = new Larry(3,4, larryEquip, new int[]{5, 5, 5});
         entities.add(larry);
-        entities.add(new SpearSkeleton(600, 600, new int[]{1, 1, 1, 1}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
+        entities.add(new SpearSkeleton(600, 600, new int[]{1, 1, 1}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
         inventoryHud = new Image("img/inventoryHud.png");
 
     }
@@ -71,6 +71,7 @@ class Play extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
 
         In.update();
+        Entity.deleteDeadEntities(entities);
         DamageBox.update(entities, delta);
         Entity.update(entities, delta, currentmap);
 

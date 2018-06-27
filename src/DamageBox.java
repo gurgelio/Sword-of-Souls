@@ -4,30 +4,30 @@ import java.util.ArrayList;
 
 class DamageBox {
     private float x, y;
-    private int damage, radius, duration;
+    private float damage, radius, duration;
     static private ArrayList<DamageBox> dmgBoxes = new ArrayList<>();
 
     private DamageBox(){}
 
-    private DamageBox(float x, float y, int radius, int damage, String direction, int duration){
+    private DamageBox(float x, float y, int radius, float damage, String direction, int duration){
         this.damage = damage;
         this.radius = radius;
         this.duration = duration;
-        this.x = x + 24;
+        this.x = x + 32;
         this.y = y + 32;
 
         switch (direction) {
             case "up":
-                this.y -= 32;
+                this.y -= (32 + radius);
                 break;
             case "down":
-                this.y += 32;
+                this.y += (32 + radius);
                 break;
             case "right":
-                this.x += 32;
+                this.x += (32 + radius);
                 break;
             default:
-                this.x -= 32;
+                this.x -= (32 + radius);
                 break;
         }
 
@@ -55,9 +55,7 @@ class DamageBox {
     private boolean isOver(Entity e){
         float[] hitbox = e.hitbox();
         if(hitbox[0] <= x && x <= hitbox[2]){
-            if(hitbox[1] <= y && y <= hitbox[3]){
-                return true;
-            }
+            return hitbox[1] <= y && y <= hitbox[3];
         }
         return false;
     }
@@ -81,7 +79,7 @@ class DamageBox {
         e.pos = new Vector2f(e.getX() + deltaX, e.getY() + deltaY);
     }
 
-    static void createBox(float x, float y, int radius, int damage, String direction,int duration){
+    static void createBox(float x, float y, int radius, float damage, String direction,int duration){
         dmgBoxes.add(new DamageBox(x, y, radius, damage, direction, duration));
     }
 
