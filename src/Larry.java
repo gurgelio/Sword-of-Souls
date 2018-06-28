@@ -5,7 +5,7 @@ class Larry extends Entity {
 
     Larry(float x, float y, String[] equipment, int[] stats) throws SlickException {
         super(equipment, stats);
-        pos = new Vector2f(32*x, 32*y);
+        pos = new Vector2f(x, y);
     }
 
     @Override
@@ -13,6 +13,17 @@ class Larry extends Entity {
         if(hp <= 0){
             die();
             return;
+        }
+
+        if(isKnockedBack){
+            if(knockBackTime <= 0){
+                isKnockedBack = false;
+            } else {
+                pos.x += knockback[0] * delta / 1000;
+                pos.y += knockback[1] * delta / 1000;
+                knockBackTime -= delta;
+                return;
+            }
         }
 
         if (In.buttonHeld("lmb") && !getInventory().overArea()){

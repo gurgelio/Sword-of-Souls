@@ -18,10 +18,21 @@ class Skeleton extends Entity{
         }
 
         for (Action act : charAnimation) act.update(direction, delta);
-
-        double distance = Math.sqrt(Math.pow(getX() + 24 - Play.larry.getX() , 2) + Math.pow(getY() + 32 - Play.larry.getY(), 2));
-        if(distance <= 500){
-            if(distance <= 50){
+        float[] larryHitbox = Play.larry.hitbox();
+        float[] hitbox = hitbox();
+        double distance = Math.sqrt(Math.pow((hitbox[0] + hitbox[2])/2 - (larryHitbox[0]+larryHitbox[2])/2, 2) + Math.pow((hitbox[1] + hitbox[3])/2 - (larryHitbox[1]+larryHitbox[3])/2, 2));
+        if(isKnockedBack){
+            if(knockBackTime <= 0){
+                isKnockedBack = false;
+            } else {
+                pos.x += knockback[0] * delta / 1000;
+                pos.y += knockback[1] * delta / 1000;
+                knockBackTime -= delta;
+                return;
+            }
+        }
+        if(distance <= 400){
+            if(distance <= 64){
                 attack();
             } else follow(Play.larry.getX(), Play.larry.getY(), delta, map);
 
@@ -31,47 +42,50 @@ class Skeleton extends Entity{
     private void follow(float x, float y, int delta, Mapa map){
         boolean movedX = false, movedY = false;
         float[] hitbox;
-
-        if(this.getX() > x) {
-            hitbox = collisionBox();
-            if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2] - 1)) {
-                pos.x -= delta * speed;
-                movedX = true;
+        if(Math.abs(getX() - x) > 0.1) {
+            if (this.getX() > x) {
+                hitbox = collisionBox();
+                if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2] - 1)) {
+                    pos.x -= delta * speed;
+                    movedX = true;
+                }
+                direction = "left";
+            } else if (getX() < x) {
+                hitbox = collisionBox();
+                if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2] - 1)) {
+                    pos.x += delta * speed;
+                    movedX = true;
+                }
+                direction = "right";
             }
-            direction = "left";
-        } else if(getX() < x){
-            hitbox = collisionBox();
-            if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2] - 1)) {
-                pos.x += delta * speed;
-                movedX = true;
-            }
-            direction = "right";
         }
-        if(this.getY() > y){
-            hitbox = collisionBox();
-            if (!map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2] - 1)) {
-                pos.y -= delta * speed;
-                movedY = true;
+        if(Math.abs(getY() - y) > 0.1) {
+            if (this.getY() > y) {
                 hitbox = collisionBox();
-                if (!(map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2] - 1) || movedX))
+                if (!map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2] - 1)) {
                     pos.y -= delta * speed;
-            }
-            direction = "up";
-        } else if(this.getY() < y){
-            hitbox = collisionBox();
-            if (!map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2] - 1)) {
-                pos.y += delta * speed;
-                movedY = true;
+                    movedY = true;
+                    hitbox = collisionBox();
+                    if (!(map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2] - 1) || movedX))
+                        pos.y -= delta * speed;
+                }
+                direction = "up";
+            } else if (this.getY() < y) {
                 hitbox = collisionBox();
-                if (!(map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2] - 1) || movedX))
+                if (!map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2] - 1)) {
                     pos.y += delta * speed;
+                    movedY = true;
+                    hitbox = collisionBox();
+                    if (!(map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2] - 1) || movedX))
+                        pos.y += delta * speed;
+                }
+                direction = "down";
             }
-            direction = "down";
         }
 
         if (movedX && !movedY) {
             hitbox = collisionBox();
-            if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2] - 1) && (In.keyHeld("a") || In.keyHeld("left"))) {
+            if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2] - 1) && getX() > x) {
                 pos.x -= delta * speed;
             } else if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2] - 1)) pos.x += delta * speed;
         }

@@ -1,5 +1,5 @@
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.geom.Vector2f;
+
 import java.util.ArrayList;
 
 class DamageBox {
@@ -43,12 +43,14 @@ class DamageBox {
         ArrayList<DamageBox> deadBoxes = new ArrayList<>();
         for(DamageBox box : dmgBoxes){
             for(Entity e : entities){
-                if(box.isOver(e)) box.hit(e);
+                if(box.isOver(e)) {
+                    box.hit(e);
+                    deadBoxes.add(box);
+                }
             }
             box.duration -= delta;
             if(box.duration <= 0) deadBoxes.add(box);
         }
-
         dmgBoxes.removeAll(deadBoxes);
     }
 
@@ -61,22 +63,13 @@ class DamageBox {
     }
 
     private void hit(Entity e){
-        e.hp -= damage;
-        float deltaX = 0, deltaY = 0;
-        float[] hitbox = e.hitbox();
-        switch (e.direction){
-            case "up":
-                deltaY += radius;
-                break;
-            case "down":
-                deltaY -= radius;
-                break;
-            case "left":
-                deltaX -= radius;
-            case "right":
-                deltaX += radius;
+        if(!e.isKnockedBack) {
+            e.hp -= damage;
+            float deltaX = 0, deltaY = 0;
+            float[] hitbox = e.hitbox();
+            float[] center = new float[]{(hitbox[0] + hitbox[2]) / 2, (hitbox[1] + hitbox[3]) / 2};
+            e.setKnockback(center[0] - x, center[1] - y);
         }
-        e.pos = new Vector2f(e.getX() + deltaX, e.getY() + deltaY);
     }
 
     static void createBox(float x, float y, int radius, float damage, String direction,int duration){
