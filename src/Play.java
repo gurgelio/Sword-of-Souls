@@ -29,8 +29,10 @@ class Play extends BasicGameState {
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
+        map.setEnemySpawnPosition(new int[][]{{20, 9}, {20, 25}, {43, 15}, {41, 24}});
         cave = new Mapa("map/cave.tmx", "map/cave2.tmx");
         cave.init();
+        cave.setEnemySpawnPosition(new int[][]{{47, 31}, {43, 47}, {1, 47}, {0, 20}, {4, 14}, {8, 14}, {8, 0}, {24, 0}, {47, 0}, {47, 27}, {21, 24}, {21, 29}});
         currentmap = map;
 
         hud = new Hud("img/lifeHud.png");
@@ -38,10 +40,10 @@ class Play extends BasicGameState {
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
         entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, WEAPONS
-        larry = new Larry(100,128, larryEquip, new int[]{5, 5, 5});
+        larry = new Larry(100,128, larryEquip, new int[]{5, 5, 15});
         entities.add(larry);
-        entities.add(new SpearSkeleton(1300, 760, new int[]{2, 2, 2}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
         inventoryHud = new Image("img/inventoryHud.png");
+        map.spawnEnemies(entities);
 
     }
 
@@ -52,6 +54,7 @@ class Play extends BasicGameState {
         currentmap.renderWithEntities(entities, g);
         minimap.render(g, camera, larry);
         larry.getInventory().render(camera.getX(), camera.getY());
+        hud.render(camera.getX(), camera.getY(), larry.hp, larry.getInventory().getGold());
         DamageBox.render(g);
 
     }
@@ -59,10 +62,12 @@ class Play extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
 
+        System.out.println(larry.getInventory().getGold()+" "+ larry.hp);
+
         In.update();
         Entity.deleteDeadEntities(entities);
         DamageBox.update(entities, delta);
-        Entity.update(entities, delta, currentmap);
+        Entity.update(entities, delta, currentmap, larry);
 
         if (In.keyPressed("escape")) sbg.enterState(0);
 
@@ -71,15 +76,21 @@ class Play extends BasicGameState {
 
         if (larry.getX() > 41*32 & larry.getX() < 43*32){
             if (larry.getY() < 4*32 & currentmap == map){
+                Entity.clearArea(entities);
                 currentmap = cave;
                 minimap.setMinimap(new Image("map/cave128.png"), cave);
+                //cave.spawnEnemies(entities);
                 larry.setpos(47,40);
-                entities.add(new SpearSkeleton(0, 0, new int[]{2, 2, 2}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
-                entities.add(new SpearSkeleton(1366, 768, new int[]{2, 2, 2}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
-                entities.add(new SpearSkeleton(2600, 760, new int[]{2, 2, 2}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
 
             }
         }
+
+        if (larry.getX() > 21*32 & larry.getX() < 22*32){
+            if (larry.getY() < 5*23 & currentmap == cave){
+                System.out.println("YOU WON!");
+            }
+        }
+
         if (In.buttonReleased("rmb")) larry.setpos((int) (camera.getX() + In.getMouse()[0] - 16)/32,(int) (camera.getY() + In.getMouse()[1] - 32)/32);
     }
 

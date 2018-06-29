@@ -8,6 +8,8 @@ class Mapa {
     private boolean[][] blocked;
     private TiledMap map;
     private TiledMap overEntitiesMap;
+    //private ArrayList<Integer> spawnPos = new ArrayList<>();
+    private int[][] spawnPos;
 
     Mapa(String ref, String refOverEntities) throws SlickException {
         map = new TiledMap(ref);
@@ -30,7 +32,37 @@ class Mapa {
                     }
                 }
             }
+
+            /*if (map.getLayerProperty(l, "spawned", "false").equals("true")) {
+                for (int c = 0; c < map.getWidth(); c++) {
+                    for (int r = 0; r < map.getHeight(); r++) {
+                         if (map.getTileId(c, r, l) != 0) {
+                            spawnPos.add(c*32);
+                            spawnPos.add(r*32);
+
+                        }
+                    }
+                }
+            }*/
         }
+
+    }
+
+    /*void spawnEnemies(ArrayList<Entity> entities) throws SlickException {
+        for (int i : new int[spawnPos.size()/2]){
+                entities.add(new SpearSkeleton(spawnPos.get(i), spawnPos.get(i+1), new int[]{2, 2, 2}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
+        }
+    }
+    */
+
+    void spawnEnemies(ArrayList<Entity> entities) throws SlickException {
+        for (int[] i : spawnPos){
+            entities.add(new SpearSkeleton(i[0]*32, i[1]*32, new int[]{2, 2, 2}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
+        }
+    }
+
+    void setEnemySpawnPosition(int[][] pos){
+        this.spawnPos = pos;
     }
 
     void renderWithEntities(ArrayList<Entity> entities, Graphics g){

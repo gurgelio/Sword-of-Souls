@@ -9,11 +9,13 @@ class Larry extends Entity {
     }
 
     @Override
-    void update(int delta, Mapa map) {
+    void update(int delta, Mapa map, Larry larry) {
         if(hp <= 0){
             die();
             return;
         }
+
+        if(hp > 100) hp = 100;
 
         if(isKnockedBack){
             if(knockBackTime <= 0){

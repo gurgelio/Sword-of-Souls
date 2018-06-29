@@ -37,4 +37,12 @@
    H4sIAAAAAAAACu3SwQmAMBAEwHxSkVqIWot2oHV7IP7yEBSNMgML99yFSwkAAAAAAACAt02RuXB/zRJZC/dZTU6pjXT53l5Pq2XH1b+qZYe/2tlRl7/s6KP/EBk/vgMOG/Qur+IQJwAA
   </data>
  </layer>
+ <layer name="Enemies" width="50" height="50">
+  <properties>
+   <property name="spawned" type="bool" value="true"/>
+  </properties>
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3WMQ0AAAjAMC78S0YDD4TQKti5CAAAunI7AACA9zwpAADM8N4AcEsBNEJCuhAnAAA=
+  </data>
+ </layer>
 </map>

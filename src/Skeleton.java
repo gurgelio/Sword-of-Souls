@@ -3,6 +3,7 @@ import org.newdawn.slick.geom.Vector2f;
 
 abstract class Skeleton extends Entity{
     private Vector2f guardposition;
+    private int killTime = 0;
 
     Skeleton(float x, float y, int[] stats, String[] equipment) throws SlickException {
         super(equipment, stats);
@@ -11,10 +12,15 @@ abstract class Skeleton extends Entity{
     }
 
     @Override
-    void update(int delta, Mapa map){
+    void update(int delta, Mapa map, Larry larry){
+        killTime += delta;
         if(hp <= 0) {
             die();
-            //larry.getInventory().addGold(50);
+            if (killTime > 4000) {
+                larry.getInventory().addGold(50);
+                larry.hp += 10;
+                killTime = 0;
+            }
             return;
         }
 

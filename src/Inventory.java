@@ -67,6 +67,10 @@ class Inventory {
         this.gold += gold;
     }
 
+    int getGold(){
+        return this.gold;
+    }
+
     void render(float a, float b){
 
         if (In.keyPressed("i")) invState = !invState;
