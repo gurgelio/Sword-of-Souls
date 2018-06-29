@@ -26,7 +26,6 @@ class Play extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         String[] larryEquip = {"Larry", "Brown Shoes", "Blue Pants", "White Shirt", "Blonde Hair" ,"Short Sword Male", "Spear", "Bow"}; // Usando NPC Lara
-        //String[] kk = new String[] {"NPC/Joe","Axe", "Spear", "Recurve Bow"};
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
@@ -49,17 +48,7 @@ class Play extends BasicGameState {
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 
-        //camera.render(g, larry, currentmap);
-        try {
-            Method met = camera.getClass().getDeclaredMethod("render", Graphics.class, Entity.class, Mapa.class);
-            met.invoke(camera, g, larry, currentmap);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
+        camera.render(g, larry, currentmap);
         currentmap.renderWithEntities(entities, g);
         minimap.render(g, camera, larry);
         larry.getInventory().render(camera.getX(), camera.getY());
@@ -85,6 +74,10 @@ class Play extends BasicGameState {
                 currentmap = cave;
                 minimap.setMinimap(new Image("map/cave128.png"), cave);
                 larry.setpos(47,40);
+                entities.add(new SpearSkeleton(0, 0, new int[]{2, 2, 2}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
+                entities.add(new SpearSkeleton(1366, 768, new int[]{2, 2, 2}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
+                entities.add(new SpearSkeleton(2600, 760, new int[]{2, 2, 2}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
+
             }
         }
         if (In.buttonReleased("rmb")) larry.setpos((int) (camera.getX() + In.getMouse()[0] - 16)/32,(int) (camera.getY() + In.getMouse()[1] - 32)/32);

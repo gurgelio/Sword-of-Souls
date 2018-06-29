@@ -63,6 +63,10 @@ class Inventory {
         return (In.mouseIsOver(new int[] {(int) (Game.width - this.x - title.getWidth()), (int) (Game.height - this.y - inventoryImg.getHeight()), title.getWidth(), inventoryImg.getHeight()}) && invState);
     }
 
+    void addGold(int gold){
+        this.gold += gold;
+    }
+
     void render(float a, float b){
 
         if (In.keyPressed("i")) invState = !invState;

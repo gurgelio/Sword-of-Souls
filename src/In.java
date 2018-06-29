@@ -2,7 +2,7 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.input.Keyboard;
 import java.util.*;
 
-class In {
+abstract class In {
 
     private static Map<String, Integer> buttons = new HashMap<>();
     private static Set<String> allButtons = new HashSet<>();

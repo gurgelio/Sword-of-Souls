@@ -1,7 +1,7 @@
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 
-class Skeleton extends Entity{
+abstract class Skeleton extends Entity{
     private Vector2f guardposition;
 
     Skeleton(float x, float y, int[] stats, String[] equipment) throws SlickException {
@@ -14,6 +14,7 @@ class Skeleton extends Entity{
     void update(int delta, Mapa map){
         if(hp <= 0) {
             die();
+            //larry.getInventory().addGold(50);
             return;
         }
 
@@ -98,5 +99,6 @@ class Skeleton extends Entity{
 
     void attack(){
     }
+
 
 }
