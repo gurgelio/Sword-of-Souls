@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 class Menu extends BasicGameState{
     private HashMap<String, Button> buttons = new HashMap<>();
+    private Image bg;
 
     Menu(int state){
     }
@@ -18,13 +19,13 @@ class Menu extends BasicGameState{
         buttons.put("load", new Button("Load", (int) (Game.width*(0.5)), (int) (Game.height*(0.7)), font, new Color(59, 66, 60, 255), new Color(128, 128, 128, 255)));
         buttons.put("save", new Button("Save", (int) (Game.width*(0.5)), (int) (Game.height*(0.8)), font, new Color(59, 66, 60, 255), new Color(128, 128, 128, 255)));
         buttons.put("quit", new Button("Quit", (int) (Game.width*(0.5)), (int) (Game.height*(0.9)), font, new Color(59, 66, 60, 255), new Color(128, 128, 128, 255)));
-
+        Image bg = new Image("img/bgnew.jpg");
         In.init();
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        g.drawImage(new Image("img/bgnew.jpg"),0,0);
+        bg.draw(0, 0, Game.width, Game.height);
         for(String st : buttons.keySet()) buttons.get(st).render();
     }
 

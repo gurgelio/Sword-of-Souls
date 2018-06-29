@@ -28,7 +28,7 @@ public class winState extends BasicGameState {
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
-        bg.draw(0,0);
+        bg.draw(0,0, Game.width, Game.height);
         bt.render();
     }
 

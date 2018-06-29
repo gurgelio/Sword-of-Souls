@@ -22,13 +22,13 @@ public class death extends BasicGameState {
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         In.init();
         Font font = new java.awt.Font("Tahome", java.awt.Font.PLAIN, 35);
-        bg = new Image("img/winScreen.png");;
+        bg = new Image("img/winScreen.png");
         bt = new Button("Errou!", Game.width/2, (int) (Game.height * 0.5), new Font("Verdana", Font.PLAIN, 45), new Color(59, 66, 60, 255));
     }
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
-        bg.draw(0,0,1366,768);
+        bg.draw(0,0,Game.width, Game.height);
         bt.render();
     }
 
