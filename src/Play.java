@@ -55,7 +55,7 @@ class Play extends BasicGameState {
         minimap.render(g, camera, larry);
         larry.getInventory().render(camera.getX(), camera.getY());
         hud.render(camera.getX(), camera.getY(), larry.hp, larry.getInventory().getGold());
-        DamageBox.render(g);
+        //DamageBox.render(g);
 
     }
 
@@ -63,9 +63,9 @@ class Play extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
 
         In.update();
-        Entity.deleteDeadEntities(entities);
+        EntityHandling.deleteDeadEntities(entities);
         DamageBox.update(entities, delta);
-        Entity.update(entities, delta, currentmap, larry);
+        EntityHandling.update(entities, delta, currentmap, larry);
 
         if (In.keyPressed("escape")) sbg.enterState(0);
 
@@ -74,7 +74,7 @@ class Play extends BasicGameState {
 
         if (larry.getX() > 41*32 & larry.getX() < 43*32){
             if (larry.getY() < 4*32 & currentmap == map){
-                Entity.clearArea(entities);
+                EntityHandling.clearArea(entities);
                 currentmap = cave;
                 minimap.setMinimap(new Image("map/cave128.png"), cave);
                 cave.spawnEnemies(entities);

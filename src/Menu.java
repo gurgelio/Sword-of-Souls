@@ -19,7 +19,7 @@ class Menu extends BasicGameState{
         buttons.put("load", new Button("Load", (int) (Game.width*(0.5)), (int) (Game.height*(0.7)), font, new Color(59, 66, 60, 255), new Color(128, 128, 128, 255)));
         buttons.put("save", new Button("Save", (int) (Game.width*(0.5)), (int) (Game.height*(0.8)), font, new Color(59, 66, 60, 255), new Color(128, 128, 128, 255)));
         buttons.put("quit", new Button("Quit", (int) (Game.width*(0.5)), (int) (Game.height*(0.9)), font, new Color(59, 66, 60, 255), new Color(128, 128, 128, 255)));
-        Image bg = new Image("img/bgnew.jpg");
+        bg = new Image("img/bgnew.jpg");
         In.init();
     }
 

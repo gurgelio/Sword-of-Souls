@@ -67,7 +67,7 @@ class Mapa {
 
     void renderWithEntities(ArrayList<Entity> entities, Graphics g){
         map.render(0, 0);
-        Entity.render(entities);
+        EntityHandling.render(entities);
         overEntitiesMap.render(0, 0);
     }
 
