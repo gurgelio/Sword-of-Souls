@@ -6,6 +6,8 @@ class Game extends StateBasedGame{
     static final String gamename = "Sword of Souls";
     private static final int menu = 0;
     private static final int play = 1;
+    private static final int win = 2;
+    private static final int die = 3;
     static int height = 768;
     static int width = 1366;
 
@@ -14,6 +16,8 @@ class Game extends StateBasedGame{
         super(gamename);
         this.addState(new Menu(menu));
         this.addState(new Play(play));
+        this.addState(new winState(win));
+        this.addState(new death(die));
     }
 
     //Inicia os estados do jogo (menu e ingame) e define menu como inicial

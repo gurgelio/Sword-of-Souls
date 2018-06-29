@@ -7,7 +7,7 @@ abstract class Entity {
     int hp, strength, dexterity, constitution;
     float speed, atkDmg;
     float[] knockback = new float[2];
-    boolean isKnockedBack;
+    boolean isKnockedBack, died = false;
     int knockBackTime;
 
     String direction;
@@ -137,8 +137,12 @@ abstract class Entity {
     }
 
     static void clearArea(ArrayList<Entity> entities){
-        for (int i  = 1; i < entities.size(); i++){
-            entities.remove(i);
-        }
+        Larry aux = (Larry) entities.get(0);
+        entities.clear();
+        entities.add(aux);
+    }
+
+    boolean getDied(){
+        return died;
     }
 }

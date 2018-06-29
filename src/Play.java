@@ -25,7 +25,7 @@ class Play extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        String[] larryEquip = {"Larry", "Brown Shoes", "Blue Pants", "White Shirt", "Blonde Hair" ,"Short Sword Male", "Spear", "Bow"}; // Usando NPC Lara
+        String[] larryEquip = {"Larry", "Brown Shoes", "Blue Pants", "White Shirt" ,"Short Sword Male", "Spear", "Bow"}; // Usando NPC Lara
         In.init();
         map = new Mapa("map/mapa.tmx", "map/mapa2.tmx");
         map.init();
@@ -62,8 +62,6 @@ class Play extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
 
-        System.out.println(larry.getInventory().getGold()+" "+ larry.hp);
-
         In.update();
         Entity.deleteDeadEntities(entities);
         DamageBox.update(entities, delta);
@@ -79,19 +77,23 @@ class Play extends BasicGameState {
                 Entity.clearArea(entities);
                 currentmap = cave;
                 minimap.setMinimap(new Image("map/cave128.png"), cave);
-                //cave.spawnEnemies(entities);
+                cave.spawnEnemies(entities);
                 larry.setpos(47,40);
 
             }
         }
 
-        if (larry.getX() > 21*32 & larry.getX() < 22*32){
-            if (larry.getY() < 5*23 & currentmap == cave){
-                System.out.println("YOU WON!");
+        if (larry.getX() > 21*32 & larry.getX() < 23*32){
+            if (larry.getY() < 24*32 && larry.getY() > 22*32 && currentmap == cave){
+                sbg.enterState(2);
             }
         }
 
         if (In.buttonReleased("rmb")) larry.setpos((int) (camera.getX() + In.getMouse()[0] - 16)/32,(int) (camera.getY() + In.getMouse()[1] - 32)/32);
+
+        if (larry.getDied()){
+            sbg.enterState(3);
+        }
     }
 
     @Override

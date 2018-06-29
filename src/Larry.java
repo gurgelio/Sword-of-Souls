@@ -10,8 +10,10 @@ class Larry extends Entity {
 
     @Override
     void update(int delta, Mapa map, Larry larry) {
-        if(hp <= 0){
+        if(hp < 0){
             die();
+            hp = 0;
+            died = true;
             return;
         }
 
