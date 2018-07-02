@@ -1,3 +1,7 @@
+/*
+Estado de jogo, menu inicial
+ */
+
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 import java.awt.Font;
@@ -13,7 +17,7 @@ class Menu extends BasicGameState{
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
         Font font = new Font("Tahome", Font.PLAIN, 35);
-        buttons.put("name", new Button(Game.gamename, Game.width/2, (int) (Game.height * 0.1), new Font("Verdana", Font.PLAIN, 45), new Color(59, 66, 60, 255)));
+        buttons.put("name", new Button(Game.gamename, Game.width/2, (int) (Game.height * 0.1), new Font("Verdana", Font.PLAIN, 45), new Color(59, 66, 60, 255), new Color(59, 66, 60, 255)));
         buttons.put("continue", new Button("Continue", (int) (Game.width*(0.5)), (int) (Game.height*(0.5)) , font, new Color(59, 66, 60, 255), new Color(128, 128, 128, 255)));
         buttons.put("newgame", new Button("New Game", (int) (Game.width*(0.5)), (int) (Game.height*(0.6)), font, new Color(59, 66, 60, 255), new Color(128, 128, 128, 255)));
         buttons.put("load", new Button("Load", (int) (Game.width*(0.5)), (int) (Game.height*(0.7)), font, new Color(59, 66, 60, 255), new Color(128, 128, 128, 255)));

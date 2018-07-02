@@ -1,20 +1,23 @@
+/*
+A base de todos os personagens do jogo
+Reune todos os atributos e métodos em comum de cada tipo de personagem para permitir manipulação destes em uma ArrayList
+ */
+
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import java.util.ArrayList;
 
 abstract class Entity {
-    int hp, strength, dexterity, constitution;
+    int hp;
     float speed, atkDmg;
     float[] knockback = new float[2];
-    boolean isKnockedBack, died = false;
+    boolean isKnockedBack = false, dead = false;
     int knockBackTime;
-
     String direction;
     Vector2f pos;
     ArrayList<Action> charAnimation = new ArrayList<>();
     private int w = 64, h = 64;
-
     private Inventory inventory;
 
     Entity(String[]equipment, int[] stats) throws SlickException {
@@ -32,10 +35,6 @@ abstract class Entity {
     }
 
     void update(int delta, Mapa map, Larry larry){}
-
-    void setItem(Image img, Action act){
-        act.setItem(img, 120, 64, 64);
-    }
 
     float getX() {
         return pos.x;
@@ -74,7 +73,7 @@ abstract class Entity {
         }
     }
 
-    void cast() {
+    void cast() { //não implementado
         for (Action act : charAnimation) {
             act.setState("cast", speed);
             act.start();
@@ -94,11 +93,12 @@ abstract class Entity {
         }
     }
 
-    void shoot() {
+    void shoot() { //não implementado
         for (Action act : charAnimation) {
             act.setState("shoot", speed);
             if (act.getFrame() == 12) {
                 act.setFrame(4);
+                //lançamento de projétil (subclasse de DamageBox a ser criada)
             }
         }
     }
@@ -109,6 +109,7 @@ abstract class Entity {
         isKnockedBack = true;
         knockBackTime = 50;
         for(Action an : charAnimation){
+            an.setFrame(0);
             an.setState("stop", 1);
         }
     }
@@ -117,7 +118,7 @@ abstract class Entity {
         return this.inventory;
     }
 
-    boolean getDied(){
-        return died;
+    boolean isDead(){
+        return dead;
     }
 }

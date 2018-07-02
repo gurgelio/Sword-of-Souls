@@ -1,3 +1,7 @@
+/*
+Classe abstrata que reune atributos e métodos compartilhados entre todos os tipos de inimigos
+ */
+
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 

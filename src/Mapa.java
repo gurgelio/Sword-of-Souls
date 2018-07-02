@@ -1,4 +1,3 @@
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
@@ -8,7 +7,6 @@ class Mapa {
     private boolean[][] blocked;
     private TiledMap map;
     private TiledMap overEntitiesMap;
-    //private ArrayList<Integer> spawnPos = new ArrayList<>();
     private int[][] spawnPos;
 
     Mapa(String ref, String refOverEntities) throws SlickException {
@@ -32,28 +30,8 @@ class Mapa {
                     }
                 }
             }
-
-            /*if (map.getLayerProperty(l, "spawned", "false").equals("true")) {
-                for (int c = 0; c < map.getWidth(); c++) {
-                    for (int r = 0; r < map.getHeight(); r++) {
-                         if (map.getTileId(c, r, l) != 0) {
-                            spawnPos.add(c*32);
-                            spawnPos.add(r*32);
-
-                        }
-                    }
-                }
-            }*/
-        }
-
-    }
-
-    /*void spawnEnemies(ArrayList<Entity> entities) throws SlickException {
-        for (int i : new int[spawnPos.size()/2]){
-                entities.add(new SpearSkeleton(spawnPos.get(i), spawnPos.get(i+1), new int[]{2, 2, 2}, new String[]{"Skeleton", "Leather Hood", "Spear"}));
         }
     }
-    */
 
     void spawnEnemies(ArrayList<Entity> entities) throws SlickException {
         for (int[] i : spawnPos){
@@ -65,20 +43,11 @@ class Mapa {
         this.spawnPos = pos;
     }
 
-    void renderWithEntities(ArrayList<Entity> entities, Graphics g){
+    //renderiza o mapa com os personagens dentro, em um sistema de três camadas
+    void renderWithEntities(ArrayList<Entity> entities){
         map.render(0, 0);
         EntityHandling.render(entities);
         overEntitiesMap.render(0, 0);
-    }
-
-    void renderCollisionRectangles(Graphics g){
-        for(int x=0; x < map.getWidth(); x++){
-            for(int y=0; y < map.getHeight(); y++){
-                if(blocked[x][y]){
-                    g.drawRect((float) x * 32, (float) y * 32, (float) 32, (float) 32);
-                }
-            }
-        }
     }
 
     boolean isBlocked(float x, float y, float radius) {

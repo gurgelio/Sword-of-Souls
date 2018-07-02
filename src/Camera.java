@@ -1,17 +1,14 @@
+/*
+move a câmera de forma a seguir o jogador
+ */
+
 import org.newdawn.slick.Graphics;
 
-class Camera {
+abstract class Camera {
 
-    private int x, y;
+    private static int x = 0, y = 0;
 
-    public Camera() {
-
-        x = 0;
-        y = 0;
-    }
-
-
-    void render(Graphics g, Entity larry, Mapa map) {
+    static void render(Graphics g, Entity larry, Mapa map) {
 
         if (larry.getX() - Game.width / 2 + 32 < 0) {
             x = 0;
@@ -28,16 +25,15 @@ class Camera {
             y = (int) -larry.getY() + Game.height / 2 - 32;
         }
 
-        //g.scale(3f,3f);
         g.translate(x, y);
     }
 
-    float getX(){
-        return -this.x;
+    static float getX(){
+        return -x;
     }
 
-    float getY(){
-        return -this.y;
+    static float getY(){
+        return -y;
     }
 
 }

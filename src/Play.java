@@ -1,16 +1,17 @@
+/*
+Estado Ingame
+ */
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import java.util.ArrayList;
-import java.lang.reflect.*;
 
 class Play extends BasicGameState {
     static Larry larry;
-    private Camera camera;
     private int stateid;
     private ArrayList<Entity> entities;
     private MiniMap minimap;
@@ -36,7 +37,6 @@ class Play extends BasicGameState {
         currentmap = map;
 
         hud = new Hud("img/lifeHud.png");
-        camera = new Camera();
         minimap = new MiniMap(new Image("map/mapa128.png"), map);
         entities = new ArrayList<>();
         //declarar na ordem BEHIND, BODY, FEET, LEGS, TORSO, BELT, HEAD, HANDS, WEAPONS
@@ -50,12 +50,11 @@ class Play extends BasicGameState {
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 
-        camera.render(g, larry, currentmap);
-        currentmap.renderWithEntities(entities, g);
-        minimap.render(g, camera, larry);
-        larry.getInventory().render(camera.getX(), camera.getY());
-        hud.render(camera.getX(), camera.getY(), larry.hp, larry.getInventory().getGold());
-        //DamageBox.render(g);
+        Camera.render(g, larry, currentmap);
+        currentmap.renderWithEntities(entities);
+        minimap.render(g, larry);
+        larry.getInventory().render(Camera.getX(), Camera.getY());
+        hud.render(Camera.getX(), Camera.getY(), larry.hp, larry.getInventory().getGold());
 
     }
 
@@ -68,8 +67,6 @@ class Play extends BasicGameState {
         EntityHandling.update(entities, delta, currentmap, larry);
 
         if (In.keyPressed("escape")) sbg.enterState(0);
-
-        if (In.keyPressed("h")) larry.getInventory().setItem(7, "Recurve Bow", larry);
 
 
         if (larry.getX() > 41*32 & larry.getX() < 43*32){
@@ -89,9 +86,9 @@ class Play extends BasicGameState {
             }
         }
 
-        if (In.buttonReleased("rmb")) larry.setpos((int) (camera.getX() + In.getMouse()[0] - 16)/32,(int) (camera.getY() + In.getMouse()[1] - 32)/32);
+        if (In.buttonReleased("rmb")) larry.setpos((int) (Camera.getX() + In.getMouse()[0] - 16)/32,(int) (Camera.getY() + In.getMouse()[1] - 32)/32);
 
-        if (larry.getDied()){
+        if (larry.isDead()){
             sbg.enterState(3);
         }
     }

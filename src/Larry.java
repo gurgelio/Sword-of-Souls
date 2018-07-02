@@ -1,3 +1,7 @@
+/*
+Classe do jogador
+ */
+
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Vector2f;
 
@@ -13,7 +17,7 @@ class Larry extends Entity {
         if(hp < 0){
             die();
             hp = 0;
-            died = true;
+            dead = true;
             return;
         }
 

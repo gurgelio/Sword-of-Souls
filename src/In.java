@@ -1,3 +1,11 @@
+/*
+Acompanha todas as entradas do mouse e do teclado
+Três estados diferentes são identificados:
+pressed - somente no frame em que foi apertado
+held - sempre que está apertado
+released - somente no frame em que foi solto
+ */
+
 import org.lwjgl.input.Mouse;
 import org.lwjgl.input.Keyboard;
 import java.util.*;
@@ -49,7 +57,7 @@ abstract class In {
         return releasedKeys.contains(key);
     }
 
-    //inicializa todos
+    //traduz todas as entradas
     static void init(){
         buttons.put("lmb", 0);
         buttons.put("rmb", 1);
@@ -88,39 +96,22 @@ abstract class In {
     static void update(){
         releasedButtons.clear();
         releasedKeys.clear();
-
-        for(String button : pressedButtons){
-            if(Mouse.isButtonDown(buttons.get(button))){
-                heldButtons.add(button);
-            }
-        }
         pressedButtons.clear();
-
-        for(String key : pressedKeys){
-            if(Keyboard.isKeyDown(keys.get(key))){
-                heldKeys.add(key);
-            }
-        }
         pressedKeys.clear();
-
 
         for(String button : heldButtons){
             if(!Mouse.isButtonDown(buttons.get(button))) {
                 releasedButtons.add(button);
             }
         }
-
         for(String key : heldKeys) {
             if (!Keyboard.isKeyDown(keys.get(key))) {
                 releasedKeys.add(key);
             }
         }
 
-
         for(String button : releasedButtons) heldButtons.remove(button);
-
         for(String key : releasedKeys) heldKeys.remove(key);
-
 
         for(String button : allButtons){
             if(Mouse.isButtonDown(buttons.get(button)) && !heldButtons.contains(button)){

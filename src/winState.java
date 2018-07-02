@@ -1,3 +1,7 @@
+/*
+Estado da tela de vitória
+ */
+
 import org.newdawn.slick.*;
 import java.awt.Font;
 import org.newdawn.slick.state.BasicGameState;
@@ -23,7 +27,7 @@ public class winState extends BasicGameState {
         In.init();
         Font font = new java.awt.Font("Tahome", java.awt.Font.PLAIN, 35);
         bg = new Image("img/faustao.jpg");
-        bt = new Button("Glorioso!", Game.width/2, (int) (Game.height * 0.5), new Font("Verdana", Font.PLAIN, 45), new Color(59, 66, 60, 255));
+        bt = new Button("Glorioso!", Game.width/2, (int) (Game.height * 0.5), new Font("Verdana", Font.PLAIN, 45), new Color(59, 66, 60, 255), new Color(59, 66, 60, 255));
     }
 
     @Override

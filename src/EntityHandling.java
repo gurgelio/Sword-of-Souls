@@ -1,3 +1,7 @@
+/*
+Gerencia múltiplos personagem a partir de uma ArrayList
+ */
+
 import java.util.ArrayList;
 
 abstract class EntityHandling {
@@ -20,6 +24,7 @@ abstract class EntityHandling {
         entities.removeAll(delete);
     }
 
+    //remove todos os personagens exceto o jogador para transição de mapa
     static void clearArea(ArrayList<Entity> entities){
         Larry aux = (Larry) entities.get(0);
         entities.clear();

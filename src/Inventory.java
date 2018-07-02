@@ -1,6 +1,9 @@
+/*
+Guarda e gerencia os itens de um personagem
+ */
+
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -46,17 +49,8 @@ class Inventory {
         this.buyItem(0, item);
     }
 
-    void setItem(int index, String item, Entity e) throws SlickException {
-        this.equipped.set(index, item);
-        e.setItem(new Image("anim/"+item+".png"), e.charAnimation.get(index));
-    }
-
     ArrayList<String> getEquipped(){
         return this.equipped;
-    }
-
-    ArrayList<Item> getInventory(){
-        return this.inventory;
     }
 
     boolean overArea(){

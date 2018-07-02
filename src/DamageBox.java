@@ -1,4 +1,6 @@
-import org.newdawn.slick.Graphics;
+/*
+Cria um círculo que causa dano em qualquer personagem dentro dele
+ */
 
 import java.util.ArrayList;
 
@@ -7,7 +9,6 @@ class DamageBox {
     private float damage, radius, duration;
     static private ArrayList<DamageBox> dmgBoxes = new ArrayList<>();
 
-    private DamageBox(){}
 
     private DamageBox(float x, float y, int radius, float damage, String direction, int duration){
         this.damage = damage;
@@ -33,12 +34,12 @@ class DamageBox {
 
     }
 
-    static void render(Graphics g){
-        for(DamageBox box : dmgBoxes){
-            g.drawOval(box.x, box.y, box.radius, box.radius);
-        }
+    //instancia um objeto dentro de uma ArrayList
+    static void createBox(float x, float y, int radius, float damage, String direction,int duration){
+        dmgBoxes.add(new DamageBox(x, y, radius, damage, direction, duration));
     }
 
+    //testa a colisão com entidades, em caso de sucesso causa o dano determinado e remove o objeto
     static void update(ArrayList<Entity> entities, int delta){
         ArrayList<DamageBox> deadBoxes = new ArrayList<>();
         for(DamageBox box : dmgBoxes){
@@ -63,18 +64,12 @@ class DamageBox {
     }
 
     private void hit(Entity e){
-        if(!e.isKnockedBack) {
-            e.hp -= damage;
-            float deltaX = 0, deltaY = 0;
-            float[] hitbox = e.hitbox();
-            float[] center = new float[]{(hitbox[0] + hitbox[2]) / 2, (hitbox[1] + hitbox[3]) / 2};
-            e.setKnockback(center[0] - x, center[1] - y);
-        }
+        e.hp -= damage;
+        float deltaX = 0, deltaY = 0;
+        float[] hitbox = e.hitbox();
+        float[] center = new float[]{(hitbox[0] + hitbox[2]) / 2, (hitbox[1] + hitbox[3]) / 2};
+        e.setKnockback(center[0] - x, center[1] - y); //joga para trás o personagem atingido
     }
-
-    static void createBox(float x, float y, int radius, float damage, String direction,int duration){
-        dmgBoxes.add(new DamageBox(x, y, radius, damage, direction, duration));
-    }
-
 
 }
+

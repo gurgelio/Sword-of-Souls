@@ -1,3 +1,7 @@
+/*
+Tipo de inimigo, utiliza ataques com uma lança
+ */
+
 import org.newdawn.slick.SlickException;
 
 class SpearSkeleton extends Skeleton{
