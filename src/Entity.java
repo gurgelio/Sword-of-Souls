@@ -20,12 +20,15 @@ abstract class Entity {
     private int w = 64, h = 64;
     private Inventory inventory;
 
+    int speedStat;
+
     Entity(String[]equipment, int[] stats) throws SlickException {
         inventory = new Inventory(equipment);
 
         hp = (int) (100 + (Math.log10(1 + stats[2])/3));
         speed = (float) (Math.log10(stats[1] + 1)/9);
         atkDmg = 10 + stats[0];
+        speedStat = stats[1];
 
 
         for (String st : inventory.getEquipped()){
@@ -60,6 +63,9 @@ abstract class Entity {
         for (Action act : charAnimation) {
             act.setState("die", speed);
         }
+
+        hp = 0;
+        dead = true;
     }
 
     void thrust() {
@@ -120,5 +126,13 @@ abstract class Entity {
 
     boolean isDead(){
         return dead;
+    }
+
+    void setRunningSpeed() {
+        speed = (float) (Math.log10(3 * speedStat + 1)/9);
+    }
+
+    void setWalkingSpeed() {
+        speed = (float) (Math.log10(speedStat + 1)/9);
     }
 }

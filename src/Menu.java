@@ -45,6 +45,7 @@ class Menu extends BasicGameState{
         }
         if(buttons.get("quit").isClicked()) System.exit(0);
 
+        //System.out.println(Controls.intendedActions());
     }
 
     @Override

@@ -12,8 +12,8 @@ class Game extends StateBasedGame{
     private static final int play = 1;
     private static final int win = 2;
     private static final int death = 3;
-    static int height = 768;
-    static int width = 1366;
+    static int height = 600;
+    static int width = 800;
 
     //define o nome do jogo e adiciona os estados ao Game
     private Game(String gamename){
@@ -34,7 +34,7 @@ class Game extends StateBasedGame{
         AppGameContainer appgc;
         try{
             appgc = new AppGameContainer(new Game(gamename));
-            appgc.setDisplayMode(width, height, true);
+            appgc.setDisplayMode(width, height, false);
             appgc.start();
         }catch(Exception e){
             e.printStackTrace();

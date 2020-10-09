@@ -52,17 +52,15 @@ abstract class Skeleton extends Entity{
 
     private void follow(float x, float y, int delta, Mapa map){
         boolean movedX = false, movedY = false;
-        float[] hitbox;
+        float[] hitbox = collisionBox();
         if(Math.abs(getX() - x) > 0.1) {
             if (this.getX() > x) {
-                hitbox = collisionBox();
                 if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2] - 1)) {
                     pos.x -= delta * speed;
                     movedX = true;
                 }
                 direction = "left";
             } else if (getX() < x) {
-                hitbox = collisionBox();
                 if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2] - 1)) {
                     pos.x += delta * speed;
                     movedX = true;
@@ -72,7 +70,6 @@ abstract class Skeleton extends Entity{
         }
         if(Math.abs(getY() - y) > 0.1) {
             if (this.getY() > y) {
-                hitbox = collisionBox();
                 if (!map.isBlocked(hitbox[0], hitbox[1] - delta * speed, hitbox[2] - 1)) {
                     pos.y -= delta * speed;
                     movedY = true;
@@ -82,7 +79,6 @@ abstract class Skeleton extends Entity{
                 }
                 direction = "up";
             } else if (this.getY() < y) {
-                hitbox = collisionBox();
                 if (!map.isBlocked(hitbox[0], hitbox[1] + delta * speed, hitbox[2] - 1)) {
                     pos.y += delta * speed;
                     movedY = true;
@@ -95,7 +91,6 @@ abstract class Skeleton extends Entity{
         }
 
         if (movedX && !movedY) {
-            hitbox = collisionBox();
             if (!map.isBlocked(hitbox[0] - delta * speed, hitbox[1], hitbox[2] - 1) && getX() > x) {
                 pos.x -= delta * speed;
             } else if (!map.isBlocked(hitbox[0] + delta * speed, hitbox[1], hitbox[2] - 1)) pos.x += delta * speed;
